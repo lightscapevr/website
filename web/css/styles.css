@@ -12,8 +12,8 @@
     color: #4d4d4d;
 }
 .colour-very-dark {
-    background-color: #525252;
-    color: black;
+    background-color: #414141;
+    color: rgb(173, 173, 173);
 }
 
 .text-grey{
@@ -30,7 +30,7 @@
 
 section {
     /* margin: 100px 0px 100px 0px; */
-     padding: 100px 10px 100px 10px; 
+     padding: 50px 10px 100px 10px; 
 }
 
 .full-width{
@@ -39,18 +39,25 @@ section {
 
 h1{
     padding: 20px 0px 20px 0px;
-
 }
 
 footer{
     padding: 40px 0px 40px 0px;
-    color: black;
 }
+
+h4{
+    padding-top: 40px; 
+}
+
+.div-center {
+    display: flex;
+    justify-content: center;
+  }
+
 
 /* ---------------- Button ---------------*/
 
-.colour-green-grad{
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#9be35f+0,409e77+100 */
+.grad-green{
     background: #9be35f; /* Old browsers */
     background: -moz-linear-gradient(-45deg, #9be35f 0%, #409e77 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(-45deg, #9be35f 0%,#409e77 100%); /* Chrome10-25,Safari5.1-6 */
@@ -58,28 +65,121 @@ footer{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9be35f', endColorstr='#409e77',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
-.button-normal{
+.button{
     width:350px; 
     max-width:350px; 
     margin: 20px 0px 20px 0px;
     padding: 20px 60px 20px 60px;
     outline: 0;
+    border-width: 2px;
     border-radius: 28px;
+}
+
+.button-prime{
     color: white;
     font-weight: bold;
 }
-.button-normal:hover{
+.button-prime:hover{
     border-style: solid;
     border-color: white;
-    border-width: 2px;
     color: white;
     text-decoration: none;
+    font-weight: bold;
 }
+
+.button-second{
+    color: rgb(94, 184, 94);
+    background-color: white;
+    border-color: rgb(94, 184, 94);
+    border-style: solid;
+}
+.button-second:hover{
+    border-style: solid;
+    border-color: white;
+    color: white;
+    background-color: rgb(94, 184, 94);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button-spacer{
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/* ---------------- Table ---------------*/
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    
+    
+}
+
+table{
+    display: inline-block;
+    min-width: 80%;
+}
+
+/* ---------------- Other ---------------*/
 
 .move-down{
     position: relative;
     top: 110px;
 }
+
+.move-up{
+    position: relative;
+    bottom: 15px;
+}
+
+.img-vr{
+    padding-top: 50px;
+}
+
+.form-group{
+    padding-left: 0px;
+}
+
+.form-dark{
+    background-color:  #414141;;
+    color: rgb(173, 173, 173);
+    border-color: rgb(173, 173, 173);
+    border-width: 0px 0px 1px 0px;
+    border-radius: 0px;
+    border-style: solid;
+    padding: 4px 0px;
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.form-control:focus {
+    border-color:white;
+    color: white;
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+  }
+
+  .form-btn{
+    padding: 4px 20px;
+    margin-top: 4px;
+    border-width: 1px;
+    border-radius: 15px;
+    
+  }
+  .form-btn:hover{
+    border-color: white;
+}
+
+.ico-padding{
+    padding: 10px 0px;
+}
+
 
 
 
