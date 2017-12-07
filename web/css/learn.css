@@ -57,3 +57,7 @@ h1{
 .navbar-default .navbar-nav > li > a {
 padding: 10px;
 }
+
+.star-note{
+    color: rgb(175, 175, 175);
+}

@@ -181,5 +181,14 @@ table{
 }
 
 
+.product-svg{
+    padding: 20px;
+}
 
+#gallery{
+    margin-bottom: 60px;
+}
 
+.gallery-text{
+    padding: 10px 0px;
+}
