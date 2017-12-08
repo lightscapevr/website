@@ -192,3 +192,12 @@ table{
 .gallery-text{
     padding: 10px 0px;
 }
+
+#landing-video{
+    margin-top: 40px;
+}
+
+#landing-discription{
+    padding-top: 0px;
+    margin-top: 0px !important;
+}
