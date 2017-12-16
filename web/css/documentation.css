@@ -61,3 +61,7 @@ padding: 10px;
 .star-note{
     color: rgb(175, 175, 175);
 }
+
+th, td {
+    min-width: 300px;
+}

@@ -1,5 +1,9 @@
 *{
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Quicksand', sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 /* ---------------- Colour ---------------*/
 .colour-light {
@@ -115,8 +119,6 @@ th, td {
     text-align: left;
     border-bottom: 1px solid #ddd;
     width: 100%;
-    
-    
 }
 
 table{
@@ -133,7 +135,7 @@ table{
 
 .move-up{
     position: relative;
-    bottom: 15px;
+    bottom: 10px;
 }
 
 .img-vr{

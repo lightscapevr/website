@@ -5,9 +5,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Learn: Lightscape VR</title>
+    <title>Documentation: VR Sketch</title>
     <meta name="description" content="A tool designers to draw inside virtual reality">
-    <meta name="author" content="LightscapeVR">
+    <meta name="author" content="VR Sketch">
     <meta name="keywords" content="vr, virtual reality, draw, edit, draft, sketchup, architect, architecture, vive" />
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -34,7 +34,7 @@
 
                     <div class="navbar-header">
                         <a class="navbar-brand nav-link" href="index.html">
-                            <img src="img/logos/Logo534x79.png" alt="LightscapeVR" height="20px" width="135">
+                            <img src="svg/vr-sketch-logo.svg" alt="VR Sketch" height="40px">
                         </a>
                     </div>
 
@@ -64,7 +64,7 @@
                 <div class="learn-topic shadow">
                     <h1 id="Documentation">Documentation
                     </h1>
-                    <p>Lightscape VR is a SketchUp extension that allows anyone to use SketchUp from inside virtual reality.
+                    <p>VR Sketch is a SketchUp extension that allows anyone to use SketchUp from inside virtual reality.
                     </p>
                     <p>It is avalible in 3 different versions:</p>
                     <ul class="learn-ul">
@@ -81,7 +81,7 @@
                     <h1 id="Requirements">Requirements</h1>
                     <ul class="learn-ul">
                         <li>
-                            <strong>Headset:</strong> HTC Vive with SteamVR. In the future we plan to support other headsets like
+                            <strong>VR headset:</strong> HTC Vive with SteamVR. In the future we plan to support other headsets like
                             the Oculus Rift.</li>
                         <li>
                             <strong>Software:</strong> Only SketchUp for now, planned support for revit, rhino etc.</li>
@@ -172,25 +172,41 @@
 
                 <div class="learn-topic shadow">
                     <h1 id="Working in VR">Working in VR</h1>
-                    <p>Both Vive controllers are used and they are interchangeable.</p>
+                    <p>Both Vive controllers are used and they are interchangeable between left and right hands.</p>
                     <!-- <p>The touchpad teleports you in and around the model. This operation always brings the VR scale to 1-for-1.</p>
                     <p>The grip button on any controller "grabs" the model. You then move the model around.</p>
                     <p>The grip button on both controllers, when pressed together, let you rotate and scale the model. This
                         is useful to reduce the scale again after teleporting inside a large model.</p> -->
                     <h2 id="Controls">Controls</h2>
                     <img src="img/docs/vive-controller.png" alt="vive controller" height="408" width="500" class="img-responsive center-block img-learn">
-                    <ul class="learn-ul">
-                        <li>1. Menu button</li>
-                        <li>2. Touchpad</li>
-                        <li>3. Steam home button</li>
-                        <li>4. Trigger</li>
-                        <li>5. Grip</li>
-                    </ul>
-                    <h2 id="Modes">Modes</h2>
-                    <ul class="learn-ul">
-                        <li>View</li>
-                        <li>Edit</li>
-                    </ul>
+                    <table>
+                        <tr>
+                            <th>Button</th>
+                            <th>Function</th>
+                        </tr>
+                        <tr>
+                            <td>1. Menu button</td>
+                            <td>Nothing</td>
+                        </tr>
+                        <tr>
+                            <td>2. Touchpad</td>
+                            <td>Tool selection menu</td>
+                        </tr>
+                        <tr>
+                            <td>3. Steam home button</td>
+                            <td>Load Steam dash</td>
+                        </tr>
+                        <tr>
+                            <td>4. Trigger</td>
+                            <td>Do the action of selected tool</td>
+                        </tr>
+                        <tr>
+                            <td>5. Grip</td>
+                            <td>Move and scale the model</td>
+                        </tr>
+                    </table>
+
+
                     <h2 id="SketchUp controls">SketchUp controls</h2>
                     <ul class="learn-ul">
                         <li>Center view</li>
@@ -200,14 +216,151 @@
 
                 <div class="learn-topic shadow">
                     <h1 id="Editing">Editing</h1>
-                    <h2 id="Tools">Tools</h2>
+                    <p>
+                        <strong>Choose a Tool: </strong>Press and hold down the toughpad to bring up the tool pallet. Move your controller
+                        to the tool you wish to select and release the toughpad to select the tool.
+                    </p>
+                    <p>
+                        <strong>Cancel: </strong>To cancel any command, simple press the touchpad.
+                    </p>
+                    <h2 id="Tools in VR">Tools in VR</h2>
+
+                    <img src="img/docs/tools.png" alt="tools" height="500px" class="img-learn img-responsive">
+
                     <ul class="learn-ul">
-                        <li>Select</li>
-                        <li>Line</li>
-                        <li>Rectangle</li>
-                        <li>Push-pull</li>
-                        <li>etc...</li>
+                        <li>
+                            <strong>Teleport</strong>
+                            <br>Pull the trigger to aim where you would like to teleport to.
+                            <br>The teleport pointer will turn blue when your teleport is possible.
+                            <br>Release the trigger and you will be teleported to your selected position.
+                            <br>Note that when you teleport the scale is set to 1 : 1
+                        </li>
+                        <li>
+                            <strong>History</strong>
+                            <br>To undo a command select the command you wish to undo in the same way you select any other tool.
+                            <br>You can also re-do a command in the same way.
+                        </li>
+                        <li>
+                            <strong>Select</strong>
+                            <br>There are two ways to select a point/line/face/group/etc..
+                            <br>a. Intersecting the selection tool with the object you wish to select and pulling the trigger.
+                            <br>b. While not intersecting any objects pull the trigger and drag out a 3D selection box. Any object
+                            fully inisde this box will be selected.
+                        </li>
+                        <li>
+                            <strong>Make Group</strong>
+                            <br>Use the selection tool to select more that one object. Then choose the "Make Group" tool. Move
+                            the controller over the selection and pull the trigger to make the selection into a Group.
+                        </li>
+                        <li>
+                            <strong>Make Component</strong>
+                            <br>Use the selection tool to select more that one object. Then choose the "Make Component" tool.
+                            Move the controller over the selection and pull the trigger to make the selection into a Component.
+                        </li>
+                        <li>
+                            <strong>Enter Group or Component</strong>
+                            <br>To Enter a Group or Component use the selection tool and double click (with the trigger) on the
+                            group you wish to enter.
+                        </li>
+                        <li>
+                            <strong>Exit Group or Component</strong>
+                            <br>While in a Group or Component, select the Exit tool and you will exit the Group or Component.
+                            <br>Alternatively to exit a Group or Component use the selection tool and double click (with the
+                            trigger) in some empty space outside the Group or Component.
+                        </li>
+                        <li>
+                            <strong>Explode</strong>
+                            <br>Select the tool then click (pull trigger) on the Group or Component you wish to explode.
+                        </li>
+                        <li>
+                            <strong>Erase</strong>
+                            <br>Move the controller over the object you wish to erease and pull the trigger.
+                        </li>
+                        <li>
+                            <strong>Line</strong>
+                            <br>Pull the trigger to start drawing the line. Pull the trigger a second time to finish drawing
+                            the line.
+                        </li>
+                        <li>
+                            <strong>Free hand</strong>
+                            <br>Pull the trigger to start drawing and pull the trigger a second time to finish drawing.
+                        </li>
+                        <li>
+                            <strong>Rectangle</strong>
+                            <br>Pull the trigger to start drawing the rectangle and pull the trigger a second time to finish
+                            drawing.
+                        </li>
+                        <li>
+                            <strong>Polygon</strong>
+                            <br>Pull the trigger to start drawing the shape. Swipe up or down on the touchpad to change the number
+                            of side you want. Pull the trigger a second time to finish drawing the shape.
+                        </li>
+                        <li>
+                            <strong>Circle</strong>
+                            <br>Pull the trigger to start draw the center of the circle.The second trigger pull will set the
+                            radius of the circle.
+                        </li>
+                        <li>
+                            <strong>Push-pull</strong>
+                            <br>Move the controller to touch a face you wish to push or pull. Pull the trigger to start pushing
+                            or pulling. Pull the trigger again to finish the push or pull.
+                        </li>
+                        <li>
+                            <strong>Move</strong>
+                            <br>Move the controller to highlight the object you wish to move. Pull the trigger to start the move.
+                            Pull the trigger a second time to finish the move.
+                        </li>
+                        <li>
+                            <strong>Copy</strong>
+                            <br>With the Move tool selected, start moving the object you wish to move. Then swipe up on the touchpad
+                            to select the number of copies you wish to make. Pull the trigger a second time to completet
+                            the copy.
+                        </li>
+                        <li>
+                            <strong>Rotate</strong>
+                            <br>Move the controller to highlight the object you wish to rotate. Pull the trigger to start the
+                            rotation. Pull the trigger a second time to finish the rotation.
+                        </li>
+                        <li>
+                            <strong>Scale</strong>
+                            <br>Move the controller to highlight the object you wish to scale. Pull the trigger to bring up the
+                            scale axis handles (green cubes). Move the controller of a handle to select the axis you want
+                            to scale the object by.Pull the trigger a second time to start scalling the object. Pull the
+                            trigger a third time to finish the scale command.
+                        </li>
+                        <li>
+                            <strong>Paint</strong>
+                            <br>Move the controller over the object you wish to paint and pull the trigger.
+                            <br>To select the paint of an exisiting surface tilt the controller upside down then move the controller
+                            over the object with the paint you wish to select and pull the trigger
+                        </li>
                     </ul>
+
+                    <h2 id="Tools in SketchUp">Tools in SketchUp</h2>
+                    <ul class="learn-ul">
+                        <li>
+                            <strong>Send to VR</strong>
+                            <br>Click: Main menu > Extensions > VR Sketch > Send to VR
+                            <br>The Starts up VR Sketch and send the current SketchUp model to VR.
+                        </li>
+                        <li>
+                            <strong>Center view</strong>
+                            <br>Click: Main menu > Extensions > VR Sketch > Center viewer
+                            <br>This will center the view.
+                        </li>
+                        <li>
+                            <strong>VR view and teleport</strong>
+                            <br>Click on the icon in the VR Sketch tool pallet then click anyware in the SketchUp model where
+                            you would like to move the person in VR to.
+                        </li>
+                        <li>
+                            <strong>Copy VR location</strong>
+                            <br>Click on the icon in the VR Sketch tool pallet. This will center the view in SketchUp to match
+                            the view of the person on VR.
+                        </li>
+                    </ul>
+
+
                 </div>
 
                 <div class="learn-topic shadow">
@@ -265,18 +418,34 @@
     <div class="full-width shadow colour-very-dark ">
         <div class="container ">
             <footer id="contact " class="row ">
-                <div class="col-xs-4">
-                    <p class="text-left">VR drawing tool</p>
-                    <p class="text-left">For architects and designers</p>
+                <div class="col-md-8">
+                    <p>
+                        <a href="#home">
+                            <img class="img-responsive" src="svg/vr-sketch-logo.svg" alt="VR Sketch" width="250px">
+                        </a>
+                        <small>VR drawing tools for architects and designers</small>
+                    </p>
+
+                    <p>
+                        <span class="glyphicon glyphicon-envelope"> </span> info@vrsketch.eu
+                    </p>
+                    <p class="text-left">© 2018 VR Sketch
+                        <br>Baroque Software</p>
+
                 </div>
-                <div class="col-xs-4">
-                    <a class="" href="#home">
-                        <img class="img-responsive center-block" src="img/VR-white-128.png" alt="LightscapeVR" height="40px" width="40">
-                    </a>
-                </div>
-                <div class="col-xs-4">
-                    <p class="text-right">Baroque Software</p>
-                    <p class="text-right">© 2018 LightscapeVR</p>
+                <div class="col-md-4">
+
+                    <form action="mailto:info@vrsketch.eu" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <Strong>Contact us:</Strong>
+                            <input type="text" class="form-control form-dark" name="name" placeholder="name..." required>
+                            <input type="email" class="form-control form-dark" name="mail" placeholder="email address..." required>
+                            <textarea class="form-control form-dark" rows="1" name="message" placeholder="message..." required></textarea>
+                            <div class="col-md-12 text-center">
+                                <input type="submit" value="Send" class="form-dark form-btn"></input>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </footer>
         </div>
