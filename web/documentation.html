@@ -221,7 +221,7 @@
                         to the tool you wish to select and release the toughpad to select the tool.
                     </p>
                     <p>
-                        <strong>Cancel: </strong>To cancel any command, simple press the touchpad.
+                        <strong>Cancel: </strong>To cancel any command, simply press the touchpad.
                     </p>
                     <h2 id="Tools in VR">Tools in VR</h2>
 
@@ -233,7 +233,8 @@
                             <br>Pull the trigger to aim where you would like to teleport to.
                             <br>The teleport pointer will turn blue when your teleport is possible.
                             <br>Release the trigger and you will be teleported to your selected position.
-                            <br>Note that when you teleport the scale is set to 1 : 1
+                            <br>Note that when you teleport the scale is set to 1 : 1.
+                            <br>Teleport <strong>straight up</strong> to come back to the original warehouse view.
                         </li>
                         <li>
                             <strong>History</strong>
@@ -245,41 +246,53 @@
                             <br>There are two ways to select a point/line/face/group/etc..
                             <br>a. Intersecting the selection tool with the object you wish to select and pulling the trigger.
                             <br>b. While not intersecting any objects pull the trigger and drag out a 3D selection box. Any object
-                            fully inisde this box will be selected.
+                            fully inside this box will be selected.  If the box is drawn bottom-up instead of top-down, any object that only touches the box is selected.
                         </li>
                         <li>
                             <strong>Make Group</strong>
-                            <br>Use the selection tool to select more that one object. Then choose the "Make Group" tool. Move
-                            the controller over the selection and pull the trigger to make the selection into a Group.
+                            <br>Use the selection tool to select more that one object. Then choose the "Make Group" command.
                         </li>
                         <li>
                             <strong>Make Component</strong>
-                            <br>Use the selection tool to select more that one object. Then choose the "Make Component" tool.
-                            Move the controller over the selection and pull the trigger to make the selection into a Component.
+                            <br>Use the selection tool to select more that one object. Then choose the "Make Component" command.
                         </li>
                         <li>
                             <strong>Enter Group or Component</strong>
                             <br>To Enter a Group or Component use the selection tool and double click (with the trigger) on the
                             group you wish to enter.
+                            <br>Alternatively, select the group and choose the "Open Group" command.
                         </li>
                         <li>
                             <strong>Exit Group or Component</strong>
-                            <br>While in a Group or Component, select the Exit tool and you will exit the Group or Component.
+                            <br>While in a Group or Component, select the "Close group" command and you will exit the Group or Component.
                             <br>Alternatively to exit a Group or Component use the selection tool and double click (with the
                             trigger) in some empty space outside the Group or Component.
                         </li>
                         <li>
                             <strong>Explode</strong>
-                            <br>Select the tool then click (pull trigger) on the Group or Component you wish to explode.
+                            <br>Select the group and then use the "Explode" command to explode a group or component.
                         </li>
                         <li>
                             <strong>Erase</strong>
-                            <br>Move the controller over the object you wish to erease and pull the trigger.
+                            <br>Move the controller over the object you wish to erase and pull the trigger.
+                        
+                            <hr><div class="learn-topic shadow">
+                        Note that <strong>alignment guides</strong> are used for most tools below.  Move
+                        any of the two controllers over an existing geometrical object to choose it for
+                        alignment: vertex, edge or face.
+                        Then move the controller back where you want.  If this position is close to
+                        being on the same axis or the same plane, then the position "snaps" to that
+                        axis or plane and an alignment guide is drawn.
+                        You can select several geometrical objects to align to.  You can
+                        also select the origin of the drawing axes.
+                            </div>
+
                         </li>
                         <li>
                             <strong>Line</strong>
-                            <br>Pull the trigger to start drawing the line. Pull the trigger a second time to finish drawing
-                            the line.
+                            <br>Pull the trigger to start drawing the line. Pull the trigger a second time to
+                            finish drawing the line.  Unless you finish on an existing vertex, the line
+                            automatically continues; to stop it, e.g. press the touchpad.
                         </li>
                         <li>
                             <strong>Free hand</strong>
@@ -297,7 +310,7 @@
                         </li>
                         <li>
                             <strong>Circle</strong>
-                            <br>Pull the trigger to start draw the center of the circle.The second trigger pull will set the
+                            <br>Pull the trigger to start drawing the circle from its center. The second trigger pull will set the
                             radius of the circle.
                         </li>
                         <li>
@@ -313,27 +326,39 @@
                         <li>
                             <strong>Copy</strong>
                             <br>With the Move tool selected, start moving the object you wish to move. Then swipe up on the touchpad
-                            to select the number of copies you wish to make. Pull the trigger a second time to completet
+                            to select the number of copies you wish to make. Pull the trigger a second time to complete
                             the copy.
                         </li>
                         <li>
                             <strong>Rotate</strong>
-                            <br>Move the controller to highlight the object you wish to rotate. Pull the trigger to start the
-                            rotation. Pull the trigger a second time to finish the rotation.
+                            <br>Move the controller to highlight the object you wish to rotate. Pull the trigger to start the operation.
+                            Pull the trigger a second time to select the starting direction; if the other
+                            controller is placed at the center of rotation at this moment, then a
+                            "rotate-and-move" operation is started instead.
+                            Pull the trigger a third time to finish the rotation.
                         </li>
                         <li>
                             <strong>Scale</strong>
                             <br>Move the controller to highlight the object you wish to scale. Pull the trigger to bring up the
-                            scale axis handles (green cubes). Move the controller of a handle to select the axis you want
-                            to scale the object by.Pull the trigger a second time to start scalling the object. Pull the
-                            trigger a third time to finish the scale command.
+                            scale axis handles (yellow cubes). Move the controller on a handle to select the axis you want
+                            to scale the object by. Pull the trigger a second time to start scaling the object.
+                            To change the scaling center, click on another handle with the other controller.
+                            Pull the trigger a third time to finish the scale command.
                         </li>
                         <li>
                             <strong>Paint</strong>
                             <br>Move the controller over the object you wish to paint and pull the trigger.
                             <br>To select the paint of an exisiting surface tilt the controller upside down then move the controller
-                            over the object with the paint you wish to select and pull the trigger
+                            over the object with the paint you wish to select and pull the trigger.
                         </li>
+                        <li>
+                            <strong>Materials selection</strong>
+                            <br>The materials used in your model appear on the right of the Paint tool.
+                            If there are too many materials, they are organized in "pages".  To change
+                            the page, move the controller over the page icons behind the Paint tool.
+                            The last page is a selection of colors to pick.
+                        </li>
+
                     </ul>
 
                     <h2 id="Tools in SketchUp">Tools in SketchUp</h2>
@@ -341,22 +366,19 @@
                         <li>
                             <strong>Send to VR</strong>
                             <br>Click: Main menu > Extensions > VR Sketch > Send to VR
-                            <br>The Starts up VR Sketch and send the current SketchUp model to VR.
+                            <br>This starts up VR Sketch and send the current SketchUp model to VR.
                         </li>
                         <li>
-                            <strong>Center view</strong>
+                            <strong>Center view / Copy VR location</strong>
                             <br>Click: Main menu > Extensions > VR Sketch > Center viewer
-                            <br>This will center the view.
+                            <br>Or click on the icon in the VR Sketch tool pallet.
+                            <br>This will center the view in SketchUp to match
+                            the view of the person on VR.
                         </li>
                         <li>
                             <strong>VR view and teleport</strong>
                             <br>Click on the icon in the VR Sketch tool pallet then click anyware in the SketchUp model where
                             you would like to move the person in VR to.
-                        </li>
-                        <li>
-                            <strong>Copy VR location</strong>
-                            <br>Click on the icon in the VR Sketch tool pallet. This will center the view in SketchUp to match
-                            the view of the person on VR.
                         </li>
                     </ul>
 
