@@ -81,12 +81,15 @@
                     <h1 id="Requirements">Requirements</h1>
                     <ul class="learn-ul">
                         <li>
-                            <strong>VR headset:</strong> HTC Vive with SteamVR. In the future we plan to support other headsets like
-                            the Oculus Rift.</li>
+                            <strong>VR headset:</strong> HTC Vive with SteamVR.  (If there is demand, we can add
+                            support for Oculus Rift or other headsets with good controller support.)</li>
                         <li>
-                            <strong>Software:</strong> Only SketchUp for now, planned support for revit, rhino etc.</li>
+                            <strong>Software:</strong> Software: only SketchUp 2017 is supported for now.  (We plan future support
+                            for SketchUp Pro 2018, as well as for Revit and Rhino.)</li>
                         <li>
-                            <strong>OS:</strong> Only works on windows for now, due to restrictions with HTC Vive.</li>
+                            <strong>OS:</strong> Only works on Windows, due to restrictions with HTC Vive.</li>
+                        <li>
+                            The voice recognition (to speak out distances and lengths) only works on Windows 10.</li>
                     </ul>
                 </div>
 
@@ -393,35 +396,21 @@
                         vertically, to help locate him in very large models. You can also teleport Beret Guy (and the person
                         in the VR) to a new location simply by clicking on the model. Note that this makes the whole setup
                         usable even in minimal situations where the person in the headset is not given any controller. </p>
-                    <p>The "Copy VR location" button (or "Center view" menu item) do the opposite synchronization: when clicked,
-                        it changes the SketchUp camera to match the current VR headset location. Changes to the SketchUp
-                        model should be immediately visible in the VR headset. If they are not (likely because of a bug),
-                        you need to reselect "Send to VR", which sends the whole model from scratch.</p>
+                    <p>The "Copy VR location" button (or "Center view" menu item) does the opposite synchronization: when clicked,
+                        it changes the SketchUp camera to match the current VR headset location.
+                        When you move the mouse over the model, the person in the headset sees a mouse
+                        cursor moving over the VR model.  Conversely, when the person uses the teleport
+                        beam, its target location shows up in SketchUp too (even if it is on a wall, for
+                        example, where he cannot teleport to).  This gives a way for each person to show
+                        particular elements of the model to the other.</p>
                 </div>
 
                 <div class="learn-topic shadow">
                     <h1 id="Problems">Problems</h1>
                     <h2 id="Tools">Reporting bugs</h2>
-                    <p>Please report any other rendering bug to the issue tracker or by writing to the e-mail below.</p>
-                    <h2 id="Tools">Known issues</h2>
-                    <p> In large models, it takes a few seconds before the in-VR teleport starts working.
-                    </p>
-                    <p>Only planar faces, with or without texture, are rendered. This excludes floating edges and more advanced
-                        SketchUp constructs like "Images", construction lines, text labels, and so on. Also, the "smooth"
-                        edge option is not supported yet: it is rendered as a regular hard edge.
-                    </p>
-                    <p>We could improve the way the teleport picks its destination in case the beam touches a wall or ceiling.
-                        Also, there is a light source that follows the player after a teleport, but it is always positioned
-                        at the center of the play area, which might be behind a wall.
-                    </p>
-                    <p>Textures may very occasionally appear badly positioned when you open a subgroup. This is because textures
-                        can be either positioned or non-positioned (right-click, Texture, "Reset Position" makes it non-positioned).
-                        However, non-positioned textures are reported at a bogus position by SketchUp's Ruby API when editing
-                        inside groups or components. We work around that by computing what the Ruby API gives us in this
-                        case. If we get that, then we assume that it was a non- positioned texture that is misreported, and
-                        fix it manually. This might occasionally be fooled if it was actually a *positioned* texture that
-                        is exactly at the same position.
-                    </p>
+                    <p>Please report any rendering bug to the issue tracker or by writing to the e-mail below.</p>
+                    <h2 id="Tools">What should work and what does not</h2>
+                    <p>See the current list of known issues on the <a href="https://github.com/lightscapevr/vr-sketch-4">development page.</a></p>
                 </div>
 
                 <div class="learn-topic shadow">
