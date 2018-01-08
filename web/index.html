@@ -137,7 +137,7 @@
                         <img class="product-svg" src="svg/viewer.svg" height="400" alt="viewer">
                         <p class="text-center ">View and present any SketchUp model in VR</p>
                         <div class="text-center button-spacer">
-                            <a href="#" class="button button-second shadow">Download</a>
+                            <a href="#" class="button button-second shadow" data-toggle="modal" data-target="#betaModal">Download</a>
                         </div>
                         <div class="text-center">
                             <table>
@@ -158,7 +158,7 @@
                         <img class="product-svg" src="svg/trial.svg" height="400" alt="trial">
                         <p class="text-center ">Draw and edit any SketchUp model in VR</p>
                         <div class="text-center button-spacer">
-                            <a href="#" class="button button-second shadow">Start Trial</a>
+                            <a href="#" class="button button-second shadow" data-toggle="modal" data-target="#betaModal">Start Trial</a>
                         </div>
                         <div class="text-center">
                             <table>
@@ -179,7 +179,7 @@
                         <img class="product-svg" src="svg/pro.svg" height="400" alt="pro">
                         <p class="text-center ">Draw and edit any SketchUp model in VR</p>
                         <div class="text-center button-spacer">
-                            <a href="#" class="button button-second shadow">Buy Pro</a>
+                            <a href="#" class="button button-second shadow" data-toggle="modal" data-target="#betaModal">Buy Pro</a>
                         </div>
                         <div class="text-center">
                             <table>
@@ -318,7 +318,25 @@
     </div>
 
 
+    <div id="betaModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
 
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Beta program for VR Sketch</h4>
+          </div>
+          <div class="modal-body">
+            <p>VR Sketch is currently in open beta. That means that you can try the full power of VR Sketch
+                for free. Download sketchup extension directly from sketchup warehouse or <a href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">here</a></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js "></script>
