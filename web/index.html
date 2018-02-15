@@ -6,12 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>VR Sketch</title>
-    <meta name="description" content="A tool for designers to draw inside virtual reality">
+    <meta name="description" content="Sketch inside Virtual Reality, A tool for designers to draw inside virtual reality">
     <meta name="author" content="VR Sketch">
     <meta name="keywords" content="vr, virtual reality, draw, edit, draft, sketch, sketchup, architect, architecture, vive, design"
     />
 
-    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css?v=1.0">
@@ -65,23 +64,23 @@
 
     <div class="full-width shadow colour-dark">
         <div class="container navbar-spacer">
-            <section id="landing" class="row">
-                <div id="landing-video" class="embed-responsive embed-responsive-16by9">
-                    <iframe src="https://www.youtube.com/embed/UR-Y8Y4fXew?showinfo=0" frameborder="0" allowfullscreen class="media-bg shadow"></iframe>
-                </div>
-
-                <div class="row-fluid">
-                    <div class="span4 offset4 text-center">
-                        <a href="https://extensions.sketchup.com/en/content/lightscape-vr-designer" class="button button-prime grad-green shadow move-up"
-                            id="try-now">Try now</a>
-                    </div>
-                </div>
-
+            <section id="landing" class="row">                
                 <div>
                     <h1 class="text-center">Sketch inside Virtual Reality</h1>
-                    <h4 id="landing-discription" class="text-center">A Sketchup extension allowing anyone to view, edit and draw in VR. </h4>
-                    <img src="img/icons/vrToSkp.png" alt="Sketchup to Vr" height="90" width="210" class="img-responsive center-block img-vr">
+                    <h4 id="landing-discription" class="text-center">
+                        A Sketchup extension allowing anyone to view, edit and draw in VR. </h4>
                 </div>
+                
+                <div class="row-fluid">
+                    <div class="span4 offset4 text-center">
+                    </div>
+                </div>
+                
+                <div id="landing-video" class="embed-responsive embed-responsive-16by9">
+                    <iframe id="video" src="https://www.youtube.com/embed/UR-Y8Y4fXew?showinfo=0" height="349" frameborder="0" allowfullscreen class="media-bg shadow"></iframe>
+                </div>
+
+
                 <!-- Begin MailChimp Signup Form -->
                 <!-- <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
                 <style type="text/css">
@@ -92,20 +91,30 @@
                 <div id="mc_embed_signup">
                     <form action="https://vrsketch.us17.list-manage.com/subscribe/post?u=10998a87051e51823e657d167&amp;id=0c08f3f681" method="post"
                         id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                
                         <h4 id="mce-EMAIL" for="mce-EMAIL">Subscribe to our mailing list:</h4>
-                        <br/>
-                        <input type="email" id="email-input" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Add your email address here...">
-                        <div id="mce-responses" class="clear">
+                        
+                        
+                        <div class="subscribe">
+                            <input type="email" id="email-input" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Add your email address here...">
+                            
+                            
+                            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">
+                            
+                        </div>
+                        
+                        <div id="mce-responses">
                             <div class="response" id="mce-error-response" style="display:none"></div>
                             <div class="response" id="mce-success-response" style="display:none"></div>
                         </div>
+
                         <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                
                         <div style="position: absolute; left: -5000px;" aria-hidden="true">
                             <input type="text" name="b_10998a87051e51823e657d167_0c08f3f681" tabindex="-1" value="">
                         </div>
-                        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button button-second shadow">
+                    </form>
                 </div>
-                </form>
         </div>
         <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
         <script type='text/javascript'>(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[3] = 'BIRTHDAY'; ftypes[3] = 'birthday'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
@@ -134,21 +143,6 @@
                         <img src="img/icons/ico-present-150x150.png" alt="Present" width="150px" height="150px" class="img-responsive center-block">
                         <p class="text-center ">Easily show others your designs with built in navigation helper tools</p>
                     </div>
-                    <div class="col-md-4">
-                        <h4 class="text-center">Fast</h4>
-                        <img src="img/icons/ico-run-100x100.png" alt="Fast" width="100px" height="100px" class="img-responsive center-block ico-padding">
-                        <p class="text-center ">Take any SketchUp model into VR with one click</p>
-                    </div>
-                    <div class="col-md-4">
-                        <h4 class="text-center">Easy</h4>
-                        <img src="img/icons/ico-snap-100x100.png" alt="Easy" width="100px" height="100px" class="img-responsive center-block ico-padding">
-                        <p class="text-center ">So intuitive that anyone can use it</p>
-                    </div>
-                    <div class="col-md-4">
-                        <h4 class=" text-center ">Effective</h4>
-                        <img src="img/icons/ico-graph-100x100.png" alt="Effective" width="100px" height="100px" class="img-responsive center-block ico-padding">
-                        <p class="text-center ">Create useful geometry that fit into your existing workflows</p>
-                    </div>
                 </div>
             </section>
         </div>
@@ -156,81 +150,14 @@
 
     <div class="full-width shadow colour-dark">
         <div class="container">
-            <section id="products">
-                <h2 class="text-center ">Products</h2>
-                <div class="row">
-
-                    <div class="col-md-4">
-                        <h4 class="text-center">Viewer</h4>
-                        <img class="product-svg" src="svg/viewer.svg" height="400" alt="viewer">
-                        <p class="text-center ">View and present any SketchUp model in VR</p>
-                        <div class="text-center button-spacer">
-                            <a href="#" class="button button-second shadow" data-toggle="modal" data-target="#betaModal">Download</a>
-                        </div>
-                        <div class="text-center">
-                            <table>
-                                <tr>
-                                    <th>Option</th>
-                                    <th>Price</th>
-                                </tr>
-                                <tr>
-                                    <td>Software only</td>
-                                    <td>Free</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <h4 class="text-center">Designer Trial</h4>
-                        <img class="product-svg" src="svg/trial.svg" height="400" alt="trial">
-                        <p class="text-center ">Draw and edit any SketchUp model in VR</p>
-                        <div class="text-center button-spacer">
-                            <a href="#" class="button button-second shadow" data-toggle="modal" data-target="#betaModal">Start Trial</a>
-                        </div>
-                        <div class="text-center">
-                            <table>
-                                <tr>
-                                    <th>Option</th>
-                                    <th>Price</th>
-                                </tr>
-                                <tr>
-                                    <td>Software only, 30 day free trial</td>
-                                    <td>Free</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <h4 class="text-center ">Designer Pro</h4>
-                        <img class="product-svg" src="svg/pro.svg" height="400" alt="pro">
-                        <p class="text-center ">Draw and edit any SketchUp model in VR</p>
-                        <div class="text-center button-spacer">
-                            <a href="#" class="button button-second shadow" data-toggle="modal" data-target="#betaModal">Buy Pro</a>
-                        </div>
-                        <div class="text-center">
-                            <table>
-                                <tr>
-                                    <th>Option</th>
-                                    <th>Price</th>
-                                </tr>
-                                <tr>
-                                    <td>Software only</td>
-                                    <td>&euro;100 /month</td>
-                                </tr>
-                                <tr>
-                                    <td>Software + HTC Vive rental</td>
-                                    <td>&euro;200 /month</td>
-                                </tr>
-                                <tr>
-                                    <td>Software + HTC Vive rental + VR ready computer rental</td>
-                                    <td>&euro;300 /month</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+            <section class="try-beta">
+                <a href="https://extensions.sketchup.com/en/content/lightscape-vr-designer" target="_blank" class="button button-third">Try Beta Now</a>
+                
+                <p>VR Sketch is currently in open beta. That means that you can try the full power of VR Sketch for free.
+                        Download the sketchup extension directly from the sketchup warehouse under the name "VR Sketch" or
+                        <a target="_blank"  href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">here</a>.
+                    </p>
+                
             </section>
         </div>
     </div>
@@ -238,7 +165,6 @@
     <div class="full-width shadow colour-light ">
         <div class="container ">
             <section id="gallery" class="row ">
-                <h2 id="gallery" class="text-center ">Gallery</h2>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="embed-responsive embed-responsive-16by9">
@@ -265,7 +191,6 @@
     <div class="full-width shadow colour-dark ">
         <div class="container ">
             <section id="documentation" class="row ">
-                <h2 class="text-center ">Documentation</h2>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="text-center button-spacer">

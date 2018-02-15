@@ -33,8 +33,7 @@
 /* ---------------- Structure ---------------*/
 
 section {
-    /* margin: 100px 0px 100px 0px; */
-     padding: 50px 10px 100px 10px; 
+    margin: 50px 0px 50px 0px;
 }
 
 .full-width{
@@ -50,7 +49,7 @@ footer{
 }
 
 h4{
-    padding-top: 40px; 
+    padding-top: 5px;
 }
 
 .div-center {
@@ -60,6 +59,12 @@ h4{
 
 
 /* ---------------- Button ---------------*/
+
+.button, button:visited {
+    color: inherit;
+    border-color: inherit;
+    background-color: inherit;
+}
 
 .grad-green{
     background: #9be35f; /* Old browsers */
@@ -102,6 +107,21 @@ h4{
     border-color: white;
     color: white;
     background-color: rgb(94, 184, 94);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button-third {
+    border-style: solid;
+    color: white;
+    background-color: rgb(94, 184, 94);
+}
+
+.button-third:hover{
+    border-color: rgb(94, 184, 94);
+    color: rgb(94, 184, 94);
+    border-style: solid;
+    background-color: white;
     text-decoration: none;
     font-weight: bold;
 }
@@ -182,7 +202,6 @@ table{
     padding: 10px 0px;
 }
 
-
 .product-svg{
     padding: 20px;
 }
@@ -200,6 +219,17 @@ table{
     width: 80%;
     height: 80%;
     margin-left: 10%;
+    position: relative;
+    
+    padding-bottom: 531px !important;
+}
+
+#try-now {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 50%;
+    transform: translateY(-50%);
 }
 
 #landing-discription{
@@ -208,23 +238,115 @@ table{
 }
 
 #mc_embed_signup {
-    align-self: center;
+    /* background: red; */
+    
+    display: flex;
+    justify-content: center;
+    /* align-self: center;
     text-align: center;
-    padding-top: 30px;
-}
-
-#mce-EMAIL {
-    padding-bottom: 0px;
+    padding-top: 30px; */
     
 }
 
-#email-input{
-    border: none;
-    padding: 15px 20px;
-    border-radius: 50px;
+#mc_embed_signup form {
     width: 100%;
-    max-width:350px; 
-    -webkit-box-shadow: 0px 10px 35px -19px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 10px 35px -19px rgba(0,0,0,0.75);
-    box-shadow: 0px 10px 35px -19px rgba(0,0,0,0.75);
+    max-width: 500px;
+}
+
+#mc_embed_signup h4 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#mc_embed_signup .subscribe {
+    display: flex;
+    background: red;
+    
+    border-color: rgb(94, 184, 94);
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 2px;
+    overflow: hidden;
+    
+}
+
+#mce-responses {
+    /* background: green; */
+    display: flex;
+    justify-content: center;
+}
+
+#mce-success-response {
+    margin-top: 20px;
+    font-size: 30px;
+    color: rgb(94, 184, 94);
+    font-weight: 500;
+}
+
+#mce-error-response {
+    margin-top: 20px;
+    
+    font-size: 30px;
+    color: rgb(239, 91, 91);
+    font-weight: 500;
+}
+
+#mc_embed_signup .subscribe input {
+    height: 40px;
+    border: none;
+    outline: none;
+}
+
+#mc_embed_signup .subscribe input[type=submit] {
+    color: rgb(94, 184, 94);
+    font-weight: 500;
+    border-color: white;
+    color: white;
+    background-color: rgb(94, 184, 94);
+    flex: 1;
+}
+
+#mc_embed_signup .subscribe input[type=submit]:hover {
+    font-weight: 900;
+}
+
+
+#mc_embed_signup .subscribe input[type=email] {
+    flex: 2;
+    padding: 0 15px;
+    
+}
+
+#video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: auto;
+    min-height: 518px;
+    overflow: hidden;
+  }
+  
+p {
+    font-size: 16px;
+}
+
+.try-beta {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.try-beta .button {
+    padding: 16px 60px;
+    margin: 0;
+    font-size: 17px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+#documentation li {
+    font-size: 16px;
 }
