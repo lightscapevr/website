@@ -57,8 +57,6 @@ h4{
     justify-content: center;
   }
 
-  
-
 /* ---------------- Button ---------------*/
 
 .button, button:visited {
@@ -353,4 +351,12 @@ p {
 
 #documentation li {
     font-size: 16px;
+}
+
+.blog-header {
+    margin-top: 80px;
+}
+
+.maxwidth {
+    max-width: 800px;
 }
