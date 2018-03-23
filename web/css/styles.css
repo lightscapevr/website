@@ -161,6 +161,13 @@ table{
     padding-top: 50px;
 }
 
+.img {
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
 .form-group{
     padding-left: 0px;
 }
