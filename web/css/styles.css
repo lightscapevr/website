@@ -367,3 +367,7 @@ p {
 .maxwidth {
     max-width: 800px;
 }
+
+.question {
+    font-weight: 900;
+}
