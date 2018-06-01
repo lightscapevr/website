@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,167 +17,162 @@
     <link rel="stylesheet" href="css/styles.css?v=1.0">
     <link rel="stylesheet" href="css/nav-top-bar.css?v=1.0">
 
-    <link rel="shortcut icon" href="img/logos/favicon.ico" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="img/logos/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>VR Sketch blog</title>
 </head>
+
 <body id="home">
-<div class="document">
-<nav class="navbar navbar-fixed-top navbar-default shadow" role="navigation">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="document">
+        <nav class="navbar navbar-fixed-top navbar-default shadow" role="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
 
-                    <button type="button" class="navbar-toggle pull-right hidden-md hidden-lg" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                        <button type="button" class="navbar-toggle pull-right hidden-md hidden-lg" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
 
-                    <div class="navbar-header">
-                        <a class="navbar-brand nav-link" href="#home">
-                            <img src="svg/vr-sketch-logo.svg" alt="VR Sketch" height="40px">
-                        </a>
-                    </div>
+                        <div class="navbar-header">
+                            <a class="navbar-brand nav-link" href="#home">
+                                <img src="svg/vr-sketch-logo.svg" alt="VR Sketch" height="40px">
+                            </a>
+                        </div>
 
-                    <div class="collapse navbar-collapse navbar-ex1-collapse">
-                        <ul class="nav navbar-nav navbar-right text-left">
-                            <li class="">
-                                <a class="" href="#features">Features</a>
-                            </li>
-                            <li class="">
-                                <a class="" href="#products">Products</a>
-                            </li>
-                            <li class="">
-                                <a class="" href="#gallery">Gallery</a>
-                            </li>
-                            <li class="test">
-                                <a class="" href="documentation.html">Documentation</a>
-                            </li>
-                            <li class="blog">
-                                <a href="blog.html">Blog</a>
-                            </li>
-                            <li class="test">
-                                <a class="nav-prime grad-green" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try now</a>
-                            </li>
-                        </ul>
+                        <div class="collapse navbar-collapse navbar-ex1-collapse">
+                            <ul class="nav navbar-nav navbar-right text-left">
+                                <li class="">
+                                    <a class="" href="#features">Features</a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="#products">Products</a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="#gallery">Gallery</a>
+                                </li>
+                                <li class="test">
+                                    <a class="" href="documentation.html">Documentation</a>
+                                </li>
+                                <li class="blog">
+                                    <a href="blog.html">Blog</a>
+                                </li>
+                                <li class="test">
+                                    <a class="nav-prime grad-green" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try now</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+        </nav>
+
+        <div class="full-width shadow colour-dark">
+            <div class="container navbar-spacer maxwidth">
+                <article>
+                    <div class="blog-header">Published on: 23 March 2018 by Maciej Fijalkowski</div>
+                    <div class="section" id="virtual-reality-for-architecture-state-of-the-art">
+                        <a name="virtual-reality-state-of-the-art" href="#virtual-reality-state-of-the-art">
+                            <h1>Virtual reality for architecture - state of the art</h1>
+                        </a>
+                        <p>Hello everyone.</p>
+                        <p>VR Sketch is an editing/visualization tool for architects. Currently integrates with
+                            <a class="reference external" href="https://www.sketchup.com">sketchup</a>, with more software coming in the future. If you want to learn more, see the
+                            <a class="reference external" href="https://vrsketch.eu">main page</a>. This blog post is about the current state of affairs in virtual reality for architecture
+                            from the perspective of VR sketch.</p>
+                    </div>
+                    <div class="section" id="introduction">
+                        <h1>Introduction</h1>
+                        <p>I don't think it's a secret that Virtual Reality is the future interface for architecture. Everyone
+                            is talking about it, looking at and investigating it. In this blog post I would like to do a
+                            review of the current potential of VR ecosystem, mostly focusing on the hardware and low level
+                            software. I'm deliberately
+                            <strong>not</strong> going to talk about the architecture software for VR, since I'm more interested
+                            in what's possible as opposed to what has been done.
+                        </p>
+                        <p>First, let me reiterate the obvious - being able to
+                            <strong>see</strong> the building you're designing (or a car or a piece of wood, metal part or anything
+                            like that) is an incredible improvement over the status quo. It's akin to what-you-see-is-what-you-get
+                            in text editors. There is a good reason why Word is much more popular than TeX, punch cards got
+                            obsolete and we draw lines with a mouse as opposed to typing
+                            <tt class="docutils literal">line(0,0,100,100)</tt>. There are two more slightly less obvious benefits of using VR - you have
+                            a very good camera control, as humans are used to just moving their head to have new perspective
+                            and you have a clunky, but usable, 3D point input with the controllers.</p>
+                    </div>
+                    <div class="section" id="vr-visualizations-and-editing">
+                        <h1>VR visualizations and editing</h1>
+                        <img class="img" width="80%" src="img/VRSketch1.png">
+                        <p>Right now the king in VR for architecture is visualizations, especially for the end client. There
+                            is a good reason for that - the minimum work required to get the visualization going is relatively
+                            limited and does not require deep interaction with controllers as UI. Doing visualizations that
+                            look good is
+                            <strong>tons of work</strong> of course, but that part is (mostly) left out to users themselves and not
+                            to the software. Obviously software has to allow it and some make it easier than others. The
+                            obvious next step is seeing the buildings as you design them and sooner or later one starts feeling
+                            that taking the helmet on and off is annoying. That's where editing and VR sketch, comes to play.</p>
+                        <p>Which brings us to the long list of limitations that are present. I hope we will get around to addressing
+                            all of them, either in VR Sketch or in the hardware.
+                        </p>
+                    </div>
+                    <div class="section" id="headsets">
+                        <h1>Headsets</h1>
+                        <p>VR Sketch for now works only in HTC Vive, but there is nothing stopping us from working with other
+                            high-end headsets, other than having those headsets. The headsets are
+                            <strong>good</strong>. Unlike the low-end tier, the illusion is very real and the feel of space is good
+                            enough. I would not mind better resolution for photo realism, more text etc. but it's all coming.
+                            Disclaimer: I haven't had a chance to play with the new headsets - Vive Pro or Samsung Odyssey.</p>
+                    </div>
+                    <div class="section" id="controllers-and-input">
+                        <h1>Controllers and input</h1>
+                        <img class="img" src="https://images-na.ssl-images-amazon.com/images/I/71oPa3WRXXL._SX466_.jpg">
+                        <p>The controllers and the general input is the main limiting factor of doing editing right in the VR.
+                            One loses access to keyboard &amp; mouse, while gaining access to relatively clunky controllers
+                            with limited buttons. The controllers themselves are based a lot on gaming controllers plus six
+                            degress of freedom. This works great for the primary purpose which is gaming! But for something
+                            more professional, like work of architects, the lack of precision, lack of buttons and lack of
+                            basic software research done in the terms of VR user experience is a serious problem. We believe
+                            we did a good job given the constraints, but there are very serious limitations that will make
+                            it uneconomic to do certain edits in VR. We believe that those factors will diminish over time
+                            -- we will improve the software, the controllers will get better and eventually disappear in
+                            favor of hand gestures and people will find it easier to do more and more stuff in VR. There
+                            is also issue of text/measurment input which will probably be solved in a bunch of ways, including
+                            voice support that we're working on.</p>
+                    </div>
+                    <div class="section" id="ergonomics-of-office-space">
+                        <h1>Ergonomics of office space</h1>
+                        <p>Right now, since the building blocks are relatively large (think duplo instead of lego), we need
+                            large space in order to work on a building. That brings fatigue, due to large hand movements
+                            and requires a lot of free office space. In the future, we will see stuff getting smaller and
+                            smaller to the point where building buildings will remind a lot more about building stuff from
+                            legos, but without stepping on them, then it is right now.</p>
+                    </div>
+                    <div class="section" id="road-to-the-future">
+                        <h1>Road to the future</h1>
+                        <p>The future is exciting :-) At VR Sketch we believe most architects will move to editing in VR for
+                            day to day operations within 5-15 years. We are a bit ahead of the curve here, but we will stick
+                            around to see it raise. You should
+                            <a class="reference external" href="https://twitter.com/VrSketch">follow us on twitter</a>,
+                            <a class="reference external" href="https://vrsketch.eu/#mailinglist">sign up to the mailing list</a> and
+                            <a class="reference external" href="https://extensions.sketchup.com/pl/node/4716">download and use</a>
+                            our software.</p>
+                        <p>Exciting features we're working on right now:</p>
+                        <ul class="simple">
+                            <li>Revit support.</li>
+                            <li>Voice recognition.</li>
+                            <li>Multi-user support.</li>
+                            <li>Optimizing hand gestures to minimize movements.</li>
+                        </ul>
+                        <p>We are releasing new version with new cool features roughly every 2 months, so you should
+                            <a class="reference external" href="https://extensions.sketchup.com/pl/node/4716">download and use</a> our software right now and follow our development!
+                        </p>
+                        <p>Cheers! Maciej Fijalkowski &amp; the whole VR sketch team.</p>
+                    </div>
+                </article>
+            </div>
         </div>
-    </nav>
-
-    <div class="full-width shadow colour-dark">
-        <div class="container navbar-spacer maxwidth">
-
-<div class="blog-header">Published on: 23 March 2018 by Maciej Fijalkowski</div>
-<div class="section" id="virtual-reality-for-architecture-state-of-the-art">
-<a name="virtual-reality-state-of-the-art" href="#virtual-reality-state-of-the-art">
-<h1>Virtual reality for architecture - state of the art</h1></a>
-<p>Hello everyone.</p>
-<p>VR Sketch is an editing/visualization tool for architects. Currently
-integrates with <a class="reference external" href="https://www.sketchup.com">sketchup</a>, with more software coming in the future.
-If you want to learn more, see the <a class="reference external" href="https://vrsketch.eu">main page</a>. This blog post is about the
-current state of affairs in virtual reality for architecture from the
-perspective of VR sketch.</p>
-</div>
-<div class="section" id="introduction">
-<h1>Introduction</h1>
-<p>I don't think it's a secret that Virtual Reality is the future interface
-for architecture. Everyone is talking about it, looking at and investigating
-it. In this blog post I would like to do a review of the current potential
-of VR ecosystem, mostly focusing on the hardware and low level software.
-I'm deliberately <strong>not</strong> going to talk about the architecture software for VR,
-since I'm more interested in what's possible as opposed to what has been
-done.</p>
-<p>First, let me reiterate the obvious - being able to <strong>see</strong> the building
-you're designing (or a car or a piece of wood,
-metal part or anything like that) is an incredible improvement over the status
-quo. It's akin to what-you-see-is-what-you-get in text editors. There is
-a good reason why Word is much more popular than TeX, punch cards got
-obsolete and we draw lines with a mouse as opposed to typing
-<tt class="docutils literal">line(0,0,100,100)</tt>. There are two more slightly less obvious benefits of
-using VR - you have a very good camera control, as humans are used to just
-moving their head to have new perspective and you have a clunky, but
-usable, 3D point input with the controllers.</p>
-</div>
-<div class="section" id="vr-visualizations-and-editing">
-<h1>VR visualizations and editing</h1>
-<img class="img" width="80%" src="img/VRSketch1.png">
-<p>Right now the king in VR for architecture is visualizations, especially for
-the end client. There is a good reason for that - the minimum work required
-to get the visualization going is relatively limited and does not require
-deep interaction with controllers as UI. Doing visualizations that look good
-is <strong>tons of work</strong> of course, but that part is (mostly) left out to users
-themselves and not to the software. Obviously software has to allow it and
-some make it easier than others. The obvious next step is seeing the buildings
-as you design them and sooner or later one starts feeling that taking the helmet
-on and off is annoying. That's where editing and VR sketch, comes to play.</p>
-<p>Which brings us to the long list of limitations that are present. I hope
-we will get around to addressing all of them, either in VR Sketch or in the
-hardware.</p>
-</div>
-<div class="section" id="headsets">
-<h1>Headsets</h1>
-<p>VR Sketch for now works only in HTC Vive, but there is nothing stopping us
-from working with other high-end headsets, other than having those headsets.
-The headsets are <strong>good</strong>. Unlike the low-end tier, the illusion is very real
-and the feel of space is good enough. I would not mind better resolution
-for photo realism, more text etc. but it's all coming. Disclaimer:
-I haven't had a chance
-to play with the new headsets - Vive Pro or Samsung Odyssey.</p>
-</div>
-<div class="section" id="controllers-and-input">
-<h1>Controllers and input</h1>
-<img class="img" src="https://images-na.ssl-images-amazon.com/images/I/71oPa3WRXXL._SX466_.jpg">
-<p>The controllers and the general input is the main limiting factor of doing
-editing right in the VR. One loses access to keyboard &amp; mouse, while gaining
-access to relatively clunky controllers with limited buttons. The controllers
-themselves are based a lot on gaming controllers plus six degress of freedom.
-This works great for the primary purpose which is gaming! But for something
-more professional, like work of architects, the lack of precision,
-lack of buttons and lack of basic software research done in the terms of VR
-user experience is a serious problem. We believe we did a good job given
-the constraints, but there are very serious limitations that will make it
-uneconomic to do certain edits in VR. We believe that those factors will
-diminish over time -- we will improve the software, the controllers will
-get better and eventually disappear in favor of hand gestures and people
-will find it easier to do more and more stuff in VR. There is also issue
-of text/measurment input which will probably be solved in a bunch of ways,
-including voice support that we're working on.</p>
-</div>
-<div class="section" id="ergonomics-of-office-space">
-<h1>Ergonomics of office space</h1>
-<p>Right now, since the building blocks are relatively large (think duplo instead
-of lego), we need large space in order to work on a building. That brings
-fatigue, due to large hand movements and requires a lot of free office space.
-In the future, we will see stuff getting smaller and smaller to the point where
-building buildings will remind a lot more about building stuff from legos,
-but without stepping on them, then it is right now.</p>
-</div>
-<div class="section" id="road-to-the-future">
-<h1>Road to the future</h1>
-<p>The future is exciting :-) At VR Sketch we believe most architects will move
-to editing in VR for day to day operations within 5-15 years. We are a bit
-ahead of the curve here, but we will stick around to see it raise. You should
-<a class="reference external" href="https://twitter.com/VrSketch">follow us on twitter</a>, <a class="reference external" href="https://vrsketch.eu/#mailinglist">sign up to the mailing list</a> and <a class="reference external" href="https://extensions.sketchup.com/pl/node/4716">download and use</a>
-our software.</p>
-<p>Exciting features we're working on right now:</p>
-<ul class="simple">
-<li>Revit support.</li>
-<li>Voice recognition.</li>
-<li>Multi-user support.</li>
-<li>Optimizing hand gestures to minimize movements.</li>
-</ul>
-<p>We are releasing new version with new cool features roughly every 2 months,
-so you should <a class="reference external" href="https://extensions.sketchup.com/pl/node/4716">download and use</a> our software right now and follow our
-development!</p>
-<p>Cheers!
-Maciej Fijalkowski &amp; the whole VR sketch team.</p>
-</div>
-</div>
-</div>
-</div>
+    </div>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43265909-2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -186,4 +182,5 @@ Maciej Fijalkowski &amp; the whole VR sketch team.</p>
         gtag('config', 'UA-43265909-2');
     </script>
 </body>
+
 </html>
