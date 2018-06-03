@@ -66,6 +66,7 @@ You can either download and automatically install the VR Sketch plugin from insi
 * Download and installing from inside SketchUp.
     1. Open SketchUp
     2. In the top menu bar click "Window" then click "Extension Warehouse" from the drop-down list. This should open a new Extension Warehouse window. 
+    ![Get to Extension Warehouse](./web/img/blog/menu-manager.png)
     3. In the search bar at the top, search for "vr sketch" or just "vr". 
     4. From the search results select "**VR Sketch** by *Maciej F.*". 
     5. Click the red "Download" button in the top right. 
