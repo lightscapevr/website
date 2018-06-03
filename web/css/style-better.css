@@ -1,0 +1,126 @@
+/* -------------------- Global styling -------------------- */
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Quicksand', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+ul{list-style-type: none;}
+a{text-decoration: none; }
+/* -------------------- background -------------------- */
+
+body {background-color: rgb(238, 238, 238);}
+
+/* -------------------- Header + Nav Bar -------------------- */
+
+#nav-container{
+    position: fixed; 
+    top: 0;
+    height: 40px;
+}
+
+#nav-main{
+    padding-top: 10px;    
+    padding-bottom: 10px;  
+    background-color: rgba(255, 255, 255, 0.9);  
+    -webkit-box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1);
+    box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1); 
+}
+
+#nav-spacer{
+    height: 60px;
+    background-color: rgb(255, 255, 255); 
+}
+
+#logo{
+    float: left;
+}
+#logo img{
+    height: 40px;
+}
+
+#nav-container ul {
+    text-align:right;
+}
+#nav-container li {
+    display:inline;
+}
+#nav-container li a{
+    display:inline-block;
+    padding: 10px 10px;
+    color: rgb(129, 211, 61);
+    
+}
+#nav-container li a:hover {
+    color: rgb(64, 158, 119);
+    }
+
+
+/* -------------------- Main -------------------- */
+main{
+    padding-top: 30px;
+    padding-bottom: 30px;
+ }
+
+/* -------------------- Footer -------------------- */
+footer { 
+    background-color: rgb(50, 50, 50);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+footer, footer a { 
+    color: rgb(150, 150, 150);
+}
+footer li{
+    padding-bottom: 10px;
+}
+.footer-white, .footer-white a{
+    color: rgb(255, 255, 255);
+}
+.footer-logo{
+    padding-bottom: 30px;
+}
+
+/* -------------------- Markdown Elements -------------------- */
+main h1{
+    color: rgb(50, 50, 50);
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgb(230, 230, 230);
+}
+
+main h2, main h3, main h4, main h5, main h6{
+    color: rgb(50, 50, 50);
+    margin-bottom: 15px;
+}
+
+main p{
+    color: rgb(50, 50, 50);
+    margin-bottom: 15px;
+}
+
+main ul{
+    list-style-type: disc;
+    margin-left:2ch;
+    margin-bottom: 15px;
+}
+
+main ol{
+    margin-left:2ch;
+    margin-bottom: 15px;
+}
+
+main li{
+    text-indent: 2ch;
+    margin-bottom: 5px;
+}
+
+main img, main video{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    margin-bottom: 15px;    
+}
