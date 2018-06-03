@@ -25,3 +25,12 @@ article{
     padding-bottom: 100px;
     
 }
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scale{
+    width: 100%;
+}
