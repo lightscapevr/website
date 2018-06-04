@@ -162,7 +162,7 @@ table{
 }
 
 .img {
-    padding-bottom: 10px;
+    /*padding-bottom: 10px;*/
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -360,10 +360,3 @@ p {
     font-size: 16px;
 }
 
-.blog-header {
-    margin-top: 80px;
-}
-
-.maxwidth {
-    max-width: 800px;
-}
