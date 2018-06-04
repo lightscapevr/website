@@ -6,6 +6,7 @@ import markdown
 class TemplateError(Exception):
     pass
 
+
 def update_template(tmpl_name):
     assert tmpl_name.endswith('.tmpl')
     with open(tmpl_name) as tmpl:
