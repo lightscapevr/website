@@ -116,6 +116,7 @@
 #md-target img, #md-target video{
   display: block;
   max-width: 600px;
+  width: 100%;
   height: auto;
   margin-top: 15px;
   margin-bottom: 15px;   
