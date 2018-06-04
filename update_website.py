@@ -3,8 +3,10 @@
 import os
 import markdown
 
+
 class TemplateError(Exception):
     pass
+
 
 def update_template(tmpl_name):
     assert tmpl_name.endswith('.tmpl')
@@ -21,9 +23,15 @@ def update_template(tmpl_name):
             raise TemplateError("no variable found")
         fname = tmpl_data[index + 3:end - 1]
         with open(fname) as f:
+<<<<<<< Updated upstream
             tmpl_data = tmpl_data[:index] + markdown.Markdown().convert(f.read()) + tmpl_data[end + 3:]
+=======
+            tmpl_data = tmpl_data[:index] + markdown.Markdown().convert(
+                f.read().decode('utf8')) + tmpl_data[end + 3:]
+>>>>>>> Stashed changes
     with open(tmpl_name[:-len('.tmpl')] + '.html', 'w') as html_f:
         html_f.write(tmpl_data)
 
+
 if __name__ == '__main__':
-    update_template('web/documentation2.tmpl')
+    update_template('web/documentation.tmpl')
