@@ -31,16 +31,25 @@
                 </div>
                 <ul id="nav-list">
                     <li>
-                        <a href="#top">Back to top</a>
+                        <button onclick="toggleSideMenu()">Contents</button>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
     <div id="nav-spacer"></div>
+
+    <div id="side-menu-container">
+        <div class="width-control">
+            <div id="side-menu" class="hide"></div>
+        </div>
+    </div>
+
     <main class="width-control">
-        <h1>VR Sketch documentation</h1>
-        {{ markdown/documentation.md }}
+        <h1 id="doc-h1">Documentation</h1>
+        <div id="md-target">
+            {{ markdown/documentation.md }}
+        </div>
     </main>
     <footer>
         <div class="width-control">
@@ -70,8 +79,11 @@
                 </ul>
             </footer>
         </div>
-
     </footer>
+
+    <script src="./js/side-menu.js"></script>
+    <noscript>Sorry, your browser does not support JavaScript!</noscript>
+
 </body>
 
 </html>

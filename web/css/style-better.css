@@ -3,11 +3,14 @@
     padding: 0px;
     margin: 0px;
     font-family: 'Quicksand', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 ul{list-style-type: none;}
 a{text-decoration: none; }
+input, button, submit { 
+    border:none; 
+    background: none;
+    font-size: 1em;
+} 
 /* -------------------- background -------------------- */
 
 body {background-color: rgb(238, 238, 238);}
@@ -56,7 +59,22 @@ body {background-color: rgb(238, 238, 238);}
 #nav-container li a:hover {
     color: rgb(64, 158, 119);
     }
+#nav-container button {
+    color: rgb(129, 211, 61);
+    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#nav-container button:hover {
+    color: rgb(64, 158, 119);
+}
 
+:target:before {
+    content:"";
+    display:block;
+    height:70px; /* fixed header height*/
+    margin:-70px 0 0; /* negative fixed header height */
+    }
 
 /* -------------------- Main -------------------- */
 main{
@@ -83,44 +101,3 @@ footer li{
     padding-bottom: 30px;
 }
 
-/* -------------------- Markdown Elements -------------------- */
-main h1{
-    color: rgb(50, 50, 50);
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid rgb(230, 230, 230);
-}
-
-main h2, main h3, main h4, main h5, main h6{
-    color: rgb(50, 50, 50);
-    margin-bottom: 15px;
-}
-
-main p{
-    color: rgb(50, 50, 50);
-    margin-bottom: 15px;
-}
-
-main ul{
-    list-style-type: disc;
-    margin-left:2ch;
-    margin-bottom: 15px;
-}
-
-main ol{
-    margin-left:2ch;
-    margin-bottom: 15px;
-}
-
-main li{
-    text-indent: 2ch;
-    margin-bottom: 5px;
-}
-
-main img, main video{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    margin-bottom: 15px;    
-}
