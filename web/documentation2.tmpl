@@ -1,55 +1,89 @@
 <html>
-  <head>
-  <meta charset="UTF-8" />
+
+<head>
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Documentation: VR Sketch</title>
-    <meta name="description" content="A tool designers to draw inside virtual reality">
+    <meta name="description" content="VR Sketch documentation and help">
     <meta name="author" content="VR Sketch">
-    <meta name="keywords" content="vr, virtual reality, draw, edit, draft, sketchup, architect, architecture, vive" />
+    <meta name="keywords" content="vr, virtual reality, draw, edit, draft, sketchup, architect, architecture, vive, oculus rift"
+    />
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-    <link rel="stylesheet" href="css/nav-top-bar.css?v=1.0">
-    <link rel="stylesheet" href="css/documentation.css?v=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="css/layout.css?v=1.0">
+    <link rel="stylesheet" href="css/style-better.css?v=1.0">
+    <link rel="stylesheet" href="css/docs.css?v=1.0">
 
-    <link rel="shortcut icon" href="img/favicon.ico" />
-  </head>
-  <body>
-    <nav class="navbar navbar-fixed-top navbar-default shadow" role="navigation">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+</head>
 
-                    <button type="button" class="navbar-toggle pull-right hidden-md hidden-lg" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <div class="navbar-header">
-                        <a class="navbar-brand nav-link" href="index.html">
-                            <img src="svg/vr-sketch-logo.svg" alt="VR Sketch" height="40px">
-                        </a>
-                    </div>
-
-                    <div class="collapse navbar-collapse navbar-ex1-collapse">
-                        <ul class="nav navbar-nav navbar-right text-left">
-                            <li class="">
-                                <a class="" href="index.html">Back</a>
-                            </li>
-                        </ul>
-                    </div>
+<body id="top">
+    <header id="nav-container" class="full-width">
+        <nav id="nav-main">
+            <div class="width-control">
+                <div id="logo">
+                    <a href="index.html">
+                        <img src="svg/vr-sketch-logo.svg" alt="VR Sketch logo">
+                    </a>
                 </div>
+                <ul id="nav-list">
+                    <li>
+                        <button onclick="toggleSideMenu()">Contents</button>
+                    </li>
+                </ul>
             </div>
-        </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
+    <div id="nav-spacer"></div>
 
-    <h1>This is HTML before documentation</h1>
-    {{ markdown/documentation.md }}
-    <h1>This is HTML after template</h1>
-  </body>
+    <div id="side-menu-container">
+        <div class="width-control">
+            <div id="side-menu" class="hide"></div>
+        </div>
+    </div>
+
+    <main class="width-control">
+        <h1 id="doc-h1">Documentation</h1>
+        <div id="md-target">
+            {{ markdown/documentation.md }}
+        </div>
+    </main>
+    <footer>
+        <div class="width-control">
+            <footer>
+                <ul>
+                    <li class="footer-logo">
+                        <a href="index.html">
+                            <img src="svg/vr-sketch-logo.svg" alt="VR Sketch" width="280px">
+                        </a>
+                        <br>
+                        <small>VR drawing tools for architects and designers</small>
+                    </li>
+                    <li class="footer-white">
+                        <i class="far fa-envelope-open"></i> info@baroquesoftware.com</li>
+                    <li class="footer-white">
+                        <a href="https://twitter.com/VrSketch">
+                            <i class="fab fa-twitter"></i> Twitter</a>
+                    </li>
+                    <li class="footer-white">
+                        <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag">
+                            <i class="fab fa-youtube"></i> YouTube</a>
+                    </li>
+                    <li>© 2017-2018 VR Sketch</li>
+                    <li>
+                        <a href="https://baroquesoftware.com/">Baroque Software</a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+    </footer>
+
+    <script src="./js/side-menu.js"></script>
+    <noscript>Sorry, your browser does not support JavaScript!</noscript>
+
+</body>
+
 </html>
