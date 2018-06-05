@@ -30,10 +30,3 @@ def update_template(tmpl_name):
 
 if __name__ == '__main__':
     update_template('web/documentation.tmpl')
-
-<<<<<<< Updated upstream
-            tmpl_data = tmpl_data[:index] + markdown.Markdown().convert(f.read()) + tmpl_data[end + 3:]
-=======
-            tmpl_data = tmpl_data[:index] + markdown.Markdown().convert(
-                f.read().decode('utf8')) + tmpl_data[end + 3:]
->>>>>>> Stashed changes
