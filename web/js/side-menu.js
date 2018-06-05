@@ -7,11 +7,7 @@ function createMenuItemForEachHeading(tagArray, target) {
     for (let i = -1, l = tagArray.length; ++i < l;) {
         if (
             tagArray[i].nodeName == "H1" ||
-            tagArray[i].nodeName == "H2" ||
-            tagArray[i].nodeName == "H3" ||
-            tagArray[i].nodeName == "H4" ||
-            tagArray[i].nodeName == "H5" ||
-            tagArray[i].nodeName == "H6"
+            tagArray[i].nodeName == "H2"
 
         ) {
             addMenuItem(target, tagArray[i]);

@@ -13,7 +13,7 @@ input, button, submit {
 } 
 /* -------------------- background -------------------- */
 
-body {background-color: rgb(238, 238, 238);}
+body {background-color: rgb(242, 242, 242);}
 
 /* -------------------- Header + Nav Bar -------------------- */
 
@@ -62,8 +62,7 @@ body {background-color: rgb(238, 238, 238);}
 #nav-container button {
     color: rgb(129, 211, 61);
     height: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 10px 10px 20px;
 }
 #nav-container button:hover {
     color: rgb(64, 158, 119);

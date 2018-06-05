@@ -11,9 +11,11 @@
   #side-menu-container{
     position: fixed;
     width: 100%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.95);
     z-index: 100;
     
+    overflow-y: auto;
+    max-height: 80%;
   }
 
   #side-menu{
@@ -24,89 +26,111 @@
     font-size: 1em;
     font-weight: normal;    
   }
-  #side-menu a{
+  #side-menu a, #side-menu a:active, #side-menu a:visited{
     display: block;
     border-left: 2px solid rgba(255, 255, 255, 0);
-    color: rgb(143, 143, 143);
+    color: rgb(124, 123, 123);
     margin: 0.5em 0px;
     padding-right: 60px;
     
   }
   #side-menu a:hover{
     border-left: 2px solid rgb(129, 211, 61);
-    color: rgb(64, 158, 119);
+    color: rgb(63, 194, 92);
   }
 
   #side-menu h1{
-    padding-left: 20px;
-    color: rgb(121, 121, 121);
+    padding-left: 10px;
   }
   #side-menu h2{
-    padding-left: 25px;
-  }
-  #side-menu h3{
-    padding-left: 30px;
-  }
-  #side-menu h4{
-    padding-left: 35px;
-  }
-  #side-menu h5{
     padding-left: 40px;
   }
-  #side-menu h6{
-    padding-left: 45px;
+  #side-menu h3{
+    padding-left: 60px;
+    font-size: smaller;
   }
+  #side-menu h4{
+    padding-left: 60px;
+  }
+  #side-menu h5{
+    padding-left: 60px;
+  }
+  #side-menu h6{
+    padding-left: 60px;
+  }
+
 
   /* -------------------- Markdown section -------------------- */
 
   #md-target{
-    margin-top: 40px;
     margin-bottom: 40px;
   }
 
-  #doc-h1 {
-    color: rgb(121, 121, 121);
-    font-size: 3em;
+  /* -------------------- Markdown Elements -------------------- */
+  #md-target h1, #md-target h2, #md-target h3, #md-target h4, #md-target h5, #md-target h6{
+    color: rgb(50, 50, 50);
   }
 
-  /* -------------------- Markdown Elements -------------------- */
-main h1{
-  color: rgb(50, 50, 50);
-  margin-top: 15px;
+  #md-target h1{
+  font-size: 2.5em;
+  margin-top: 60px;
   margin-bottom: 15px;
-  border-bottom: 2px solid rgb(230, 230, 230);
+  border-bottom: 1px solid rgb(165, 165, 165);
 }
 
-main h2, main h3, main h4, main h5, main h6{
-  color: rgb(50, 50, 50);
-  margin-bottom: 15px;
+#md-target h2, #md-target h3{
+  font-size: 1.75em;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid rgb(165, 165, 165);
+}
+#md-target h3{
+  font-size: 1.5em;
 }
 
-main p{
-  color: rgb(50, 50, 50);
-  margin-bottom: 15px;
-}
-
-main ul{
-  list-style-type: disc;
-  margin-left:2ch;
-  margin-bottom: 15px;
-}
-
-main ol{
-  margin-left:2ch;
-  margin-bottom: 15px;
-}
-
-main li{
+#md-target h4, #md-target h5, #md-target h6{
+  margin-top: 5px;
   margin-bottom: 5px;
 }
 
-main img, main video{
+#md-target p{
+  color: rgb(50, 50, 50);
+  margin-bottom: 15px;
+}
+
+#md-target ul{
+  list-style-type: disc;
+  margin-left:2ch;
+  margin-bottom: 5px;
+}
+
+#md-target ol{
+  margin-left:2ch;
+  margin-bottom: 15px;
+}
+
+#md-target li{
+  margin-bottom: 5px;
+}
+
+#md-target img, #md-target video{
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
+  max-width: 600px;
+  width: 100%;
   height: auto;
-  margin-bottom: 15px;    
+  margin-top: 15px;
+  margin-bottom: 15px;   
+}
+
+#md-target a{
+  color: rgb(0, 199, 43);
+}
+
+#md-target a:hover{
+  color: rgb(0, 129, 28);
+}
+
+#md-target strong{
+  color: rgb(87, 87, 87);
+  
 }
