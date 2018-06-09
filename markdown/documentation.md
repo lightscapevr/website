@@ -48,7 +48,7 @@ You can either download and automatically install the VR Sketch plugin from insi
 
 #### HTC Vive
   * Trigger - Used to do the action of the current tool. Is similar to clicking with a mouse.
-  * Touchpad - This is the menu button. Hold it in to choose which tool you want to use. The touchpad is also used to scroll.
+  * Touchpad - This is the ⋮ menu button. Hold it in to choose which tool you want to use. The touchpad is also used to scroll.
   * Grip buttons - Hold in these buttons to move and scale your model.
   * Small top button - Play/stop in VR videos, when selected from SketchUp.
   * Small bottom button - Is the Steam Home button and will load the Steam Home Page.
@@ -56,7 +56,7 @@ You can either download and automatically install the VR Sketch plugin from insi
   * Trigger - Used to do the action of the current tool. Is similar to clickin2g with a mouse.
   * Thumbstick - Used only to scroll.
   * Grip button - Hold in these buttons to move and scale your model.
-  * X or A buttons - This is the menu button. Hold it in to choose which tool you want to use.
+  * X or A buttons - This is the ⋮ menu button. Hold it in to choose which tool you want to use.
   * Y or B buttons - Play/stop in VR videos, when selected from SketchUp.
   * Left menu button - Unassigned.
   * Right Oculus button - Default action of loading the Oculus home page.
@@ -70,7 +70,7 @@ How to choose the tool you want to use with each controller.
   <source src="./img/docs/tool-choose.mp4" type="video/mp4" />
 </video>
 
-* To choose a tool, hold in the **menu button**, a list of tools will appear in front of the controller, move the controller to the tool you would like to use. The tools icon will highlight when the controller is over it. Release the **menu button** while you are over the tool to select it. You will see the icon on the controller will change to the current tool of that controller.
+* To choose a tool, hold in the **⋮ menu button**, a list of tools will appear in front of the controller, move the controller to the tool you would like to use. The tools icon will highlight when the controller is over it. Release the **⋮ menu button** while you are over the tool to select it. You will see the icon on the controller will change to the current tool of that controller.
 * Each controller can have only one active tool.
 * Each controller has the same list of tools available.
 * You can have two different tools on each controller or the same tool on both controllers.
@@ -85,7 +85,7 @@ The tool for moving around your model at 1:1 scale.
 * Release the **trigger** to teleport to your selected position.
 * If the pointer is blue you can teleport, if the pointer is pink you cannot teleport.
 * When you teleport the scale is always changed to 1:1.
-* While holding the **trigger** in, you can scroll the **touchpad** to set how the pointer works:
+* While holding the **trigger** in, you can scroll the **⋮ touchpad** to set how the pointer works:
     * Short arch
     * Middle arch (default)
     * Long arch
@@ -96,11 +96,11 @@ The tool for moving around your model at 1:1 scale.
 * The teleport preview arch can pass through transparent surfaces.  If the surface is half-transparent, the arch will pass through if it aims straight through it, but not if it reaches the surface from a shallow angle.
 
 ### Zoom and Pan
-Navigate around your model at any scale. This is not a standard tool; instead, it is always available, using the **grip** button.
+Navigate around your model at any scale. This is not a standard tool; instead, it is always available, using the **↔ grip** button.
 
-* Zoom with both controllers. Press in the **grip** button on both controllers at the same time, then move the controllers towards each other to zoom in or away from each other to zoom out.
-* Zoom with one controller. Hold in the **grip** button on a controller and then scroll on the **touchpad** to zoom in or out.
-* Pan. Press in the **grip** button on one controller and move the controller. The model will move with the controller until you release the **grip** button.
+* Zoom with both controllers. Press in the **↔ grip** button on both controllers at the same time, then move the controllers towards each other to zoom in or away from each other to zoom out.
+* Zoom with one controller. Hold in the **↔ grip** button on a controller and then scroll on the **⋮ touchpad** to zoom in or out.
+* Pan. Press in the **↔ grip** button on one controller and move the controller. The model will move with the controller until you release the **↔ grip** button.
 * When zooming, red text will appear between the two controllers indicating what scale you are at. The scale will snap to certain common scales.
 
 ## Selection tools
@@ -131,13 +131,13 @@ How to work with Group or Component.
 </video>
 
 #### Entering a Group or Component. 
-  * With the Group or Component selected, press in the **menu button** and choose the **Open Group** tool (found above the **select** tool) to open it.
+  * With the Group or Component selected, press in the **⋮ menu button** and choose the **Open Group** tool (found above the **select** tool) to open it.
   * Or, use the **select** tool to double click on any Group or Component to open it.
   * When inside a Group or Component the rest of the model changes colour and cannot be edited.
   * In the **Configuration** dialog box in SketchUp you can choose to hide the rest of the model or not.
 
 #### Exiting a Group or Component.
-  * While inside a Group or Component, press in the **menu button** and choose the **Exit Group** tool (found above the **select** tool) to exit the current Group orComponent.
+  * While inside a Group or Component, press in the **⋮ menu button** and choose the **Exit Group** tool (found above the **select** tool) to exit the current Group orComponent.
   * Or, while inside a Group or Component, use the select tool and double click outside of the Group or Component to exit.
 
 <video autoplay="autoplay" loop="loop">
@@ -145,13 +145,13 @@ How to work with Group or Component.
 </video>
 
 #### Creating Group or Component.
-  * Use the select tool to select the geometry you wish to group. Then press in the **menu button** and choose either the **Create Group** tool or the **CreateComponent** tool.
+  * Use the select tool to select the geometry you wish to group. Then press in the **⋮ menu button** and choose either the **Create Group** tool or the **CreateComponent** tool.
 
 #### Converting groups into Components.
-  * Use the select tool to select the Group you wish to convert, then press in the **menu button** and choose **Turn Group into Component** tool.
+  * Use the select tool to select the Group you wish to convert, then press in the **⋮ menu button** and choose **Turn Group into Component** tool.
 
 #### Exploding Groups or Components
-  * Use the select tool to select the Group or Component, then press in the **menu button** and choose **Explode** tool to un-group the Group or Component.
+  * Use the select tool to select the Group or Component, then press in the **⋮ menu button** and choose **Explode** tool to un-group the Group or Component.
 
 ## Drawing tools
 
@@ -178,14 +178,14 @@ How to draw a line between two points.
 
 * Click one with the  **trigger** to start drawing the line. Move the controller then click a second time to finish the line.
 * It is also possible to start drawing the line by pulling in the  **trigger** and holding it in and only releasing it when you want to finish the line.
-* You can cancel drawing a line by pressing the **menu** button, which is highlighted red while drawing a line.
+* You can cancel drawing a line by pressing the **⋮ menu button**, which is highlighted red while drawing a line.
 * After drawing a line, if the end point is not a pre-existing point, then it is automatically chosen as the start point of the next line. If you do not want to draw more lines, use **cancel** as described above.
 
 ### Arch tool
 How to draw an arch with 3 points of control.
 
 * Drawing an arch is similar to drawing a line. Set the start point of the arch by clicking the  **trigger**, move the controller to set the length and click a second time to mark the end point of the arch. Move the controller again to position the third point which the arch will pass through. Pull the  **trigger** a third time to complete the arch.
-* While drawing an arch (after setting the start point) you can choose the number of segments the arch will be divided into by scrolling up or down on the **touchpad**.
+* While drawing an arch (after setting the start point) you can choose the number of segments the arch will be divided into by scrolling up or down on the **⋮ touchpad**.
 
 ### Freehand tool
 The tool for freehand sketching.
@@ -211,13 +211,13 @@ The tool for drawing polygons with any number of sides. Very similar to the **ci
 </video>
 
 * Either click the  **trigger** once or hold it in to set the center point of the polygon. Move the controller away and click a second time or just release the  **trigger** to set the radius and complete the polygon.
-* While drawing a polygon (after setting the center point) you can choose the number of segments the polygon will have by scrolling up or down on the **touchpad**.
+* While drawing a polygon (after setting the center point) you can choose the number of segments the polygon will have by scrolling up or down on the **⋮ touchpad**.
 
 ### Circle tool
 The tool for drawing circles. Very similar to the **polygon** tool.
 
 * Either click the  **trigger** once or hold it in to set the center point of the circle. Move the controller away and click a second time or just release the  **trigger** to set the radius and complete the circle.
-* While drawing a circle (after setting the center point) you can choose the number of segments the circle will have by scrolling up or down on the **touchpad**.
+* While drawing a circle (after setting the center point) you can choose the number of segments the circle will have by scrolling up or down on the **⋮ touchpad**.
 
 ## Editing tools
 
@@ -259,9 +259,9 @@ How to move and copy objects.
 
 * Move. Move the controller over the thing you wish to move. It will highlight purple. Then either click once with the  **trigger** or hold it in, move the controller to the desired position and then either click a second time or release the  **trigger** to complete the move.
 * If you want to move more that one thing at a time, use the **select** tool to select them first then use the move tool.
-* Copy. To copy an item, start moving it and then scroll up on the **touchpad** to set the number of copies to 1. Now when you complete the move action it will create a copy instead of moving the first object.
-* Copy multiple. To create multiple copies, start moving an item, and then scroll up on the **touchpad** to set the number of copies. The new multiple copies will be placed at the same interval as the initial move length.
-* Distribute multiple copies. When coping an item if you scroll down on the **touchpad** to set the number of copies the copies will be distributed equally along the length of the move.
+* Copy. To copy an item, start moving it and then scroll up on the **⋮ touchpad** to set the number of copies to 1. Now when you complete the move action it will create a copy instead of moving the first object.
+* Copy multiple. To create multiple copies, start moving an item, and then scroll up on the **⋮ touchpad** to set the number of copies. The new multiple copies will be placed at the same interval as the initial move length.
+* Distribute multiple copies. When coping an item if you scroll down on the **⋮ touchpad** to set the number of copies the copies will be distributed equally along the length of the move.
 
 ### Rotate tool
 The tool to rotate objects.
@@ -271,7 +271,7 @@ The tool to rotate objects.
 </video>
 
 * Move the controller over the thing you wish to rotate. It will highlight purple. Click once with the  **trigger** to set the point around which the object will rotate, move the controller away a little to create a leaver and click a second time. Now move the controller to set the rotation you wish and pull the  **trigger** a third time to complete the rotation.
-* Like the **Move** tool you can create one or multiple copies when rotating. While rotating, scroll up or down on the **touchpad** to set the number of copies you wish to make. It you scroll up the copies will be spaced at regular intervals based the the rotation you choose. If you scroll down the copies with be equally distributed along the rotation you choose.
+* Like the **Move** tool you can create one or multiple copies when rotating. While rotating, scroll up or down on the **⋮ touchpad** to set the number of copies you wish to make. It you scroll up the copies will be spaced at regular intervals based the the rotation you choose. If you scroll down the copies with be equally distributed along the rotation you choose.
 
 ### Scale tool
 The tool to scale objects.
@@ -288,36 +288,36 @@ The tool to scale objects.
 ### Paint tool
 The tool to choose and place colours and textures on the model.
 
-* Choose a material. Hold in the **menu button** and move the controller over the paint bucket, then move the controller to the right to select a material from the pallet and release the **menu button** to choose that material.
+* Choose a material. Hold in the **⋮ menu button** and move the controller over the paint bucket, then move the controller to the right to select a material from the pallet and release the **⋮ menu button** to choose that material.
 * Placing a material. With a material selected aim the laser at the face you wish to paint and click with the  **trigger**.
 * Eye-drop a material. With the paint tool selected move the controller to touch the face with the material you want. You will see the tool icon will change to a bucket with a red arrow pointing into the bucket. Click with the  **trigger** to make the material of the face become your currently selected material.
 
 ### Materials
 The tool where you can select, edit and create new materials.
 
-* Enter the material menu. Hold in the **menu button** and move the controller over the materials icon and then release the button. This will display the materials menu.
-* Select a material. While inside the materials menu, click on the vertical bar on the left tp access the full materials menu. Use the  **trigger** to click on the material you want. Press the **menu button** to leave the materials menu.
+* Enter the material menu. Hold in the **⋮ menu button** and move the controller over the materials icon and then release the button. This will display the materials menu.
+* Select a material. While inside the materials menu, click on the vertical bar on the left tp access the full materials menu. Use the  **trigger** to click on the material you want. Press the **⋮ menu button** to leave the materials menu.
 * You can add a material to your pallet by first selecting a material and then clicking on the add icon below the pallet.
 * Edit a material. You can edit the currently selected material with the controls on the right.
     * In the colour bowl you can drag the control point by moving the controller over the point and holding in the  **trigger** and moving the controller. You will see the preview cube update. Moving the point around the circle changes its hue while moving the point up and down adjusts its saturation. 
     * You can adjust the amount for red, blue, green and transparency of the material by using the  **trigger** to drag the sliders left or right. You will see the preview cube update.
-* To exit the material menu, press the **menu button**.
+* To exit the material menu, press the **⋮ menu button**.
 
 ### Component tool
 The tool to place component inside your model.
 
-* Select a component. Hold in the **menu button** and move the controller over the component icon and then release the button. This will display a list of all the components available. You can choose the one you want to insert by clicking on it with the  **trigger**.
+* Select a component. Hold in the **⋮ menu button** and move the controller over the component icon and then release the button. This will display a list of all the components available. You can choose the one you want to insert by clicking on it with the  **trigger**.
 * There are two ways to scroll up and down the menu:
     * While in the component selection menu hold in a **grip** button on either controller and move it to move the menu.
     * While in the component selection menu scroll on the**touchpad** to scroll the menu.
-* To exit the component selection menu, press the **menu button**.
+* To exit the component selection menu, press the **⋮ menu button**.
 
 ### History tool
 The tool to undo or redo any action.
 
-* To undo an action, hold down the **menu button**, move the controller over the red arrow icon representing each action previously done and then release the **menu button**.
+* To undo an action, hold down the **⋮ menu button**, move the controller over the red arrow icon representing each action previously done and then release the **⋮ menu button**.
 * The lowest red action arrow icon is your last action, the higher up in the list the action is the older it is.
-* To redo an action that you have just undone, hold down the **menu button**, move the controller over a green arrow icon and then release the **menu button**.
+* To redo an action that you have just undone, hold down the **⋮ menu button**, move the controller over a green arrow icon and then release the **⋮ menu button**.
 * The redo arrow icons only show if you have just used the **Undo** tool.
 * The hights redo green arrow icon is the most current action, the lower in the list the action is the older it is.
 
@@ -325,21 +325,21 @@ The tool to undo or redo any action.
 The tool to temporarily cut your model.
 
 * Move the controller to the point at which you want to draw the section plain. Click with the  **trigger** to set the position of the plain, then move the controller to choose the axis perpendicular to the section plain. Click a second time to set the orientation of the plain.
-* To remove a section plain, hold in the **menu button** and choose the **Delete section plain** tool. This tool is only visible if you have already created a section plain.
+* To remove a section plain, hold in the **⋮ menu button** and choose the **Delete section plain** tool. This tool is only visible if you have already created a section plain.
 * You can only create one section plain at a time.
 
 ### Hide and Un-hide tool
 The tool to control what you can an cannot see.
 
-* To hide any geometry, first use the **select** tool to select what you want to hide, then hold down the **menu button** and move the controller over the **Hide** tool and release the **menu button**.
-* To un-hide all your hidden geometry hold down the **menu button** and move the controller over the **Un-Hide all** tool and release the **menu button**.
+* To hide any geometry, first use the **select** tool to select what you want to hide, then hold down the **⋮ menu button** and move the controller over the **Hide** tool and release the **⋮ menu button**.
+* To un-hide all your hidden geometry hold down the **⋮ menu button** and move the controller over the **Un-Hide all** tool and release the **⋮ menu button**.
 
 ## Tool Extras
 
 ### Canceling any action
 How to end or stop doing an action.
 
-* To end an action you don't want to do, press the **menu button** to cancel the current action.
+* To end an action you don't want to do, press the **⋮ menu button** to cancel the current action.
 
 ### Setting lengths
 * When dragging out a length like when using the **Line** or **Push/Pull** tools the length snaps to logical increments depending on the current scale. If you are zoomed out the length might snap to the nearest meter. If you are zoomed in the length might snap to the nearest mm.
