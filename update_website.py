@@ -23,7 +23,7 @@ def update_template(tmpl_name):
             raise TemplateError("no variable found")
         fname = tmpl_data[index + 3:end - 1]
         with open(fname) as f:
-            tmpl_data = tmpl_data[:index] + markdown.Markdown().convert(f.read()) + tmpl_data[end + 3:]
+            tmpl_data = tmpl_data[:index] + markdown.Markdown().convert(f.read().decode('utf8')) + tmpl_data[end + 3:]
     with open(tmpl_name[:-len('.tmpl')] + '.html', 'w') as html_f:
         html_f.write(tmpl_data.encode('utf8'))
 
