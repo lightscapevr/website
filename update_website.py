@@ -8,25 +8,26 @@ class TemplateError(Exception):
     pass
 
 
-def update_template(tmpl_name):
-    assert tmpl_name.endswith('.tmpl')
-    with open(tmpl_name) as tmpl:
-        tmpl_data = tmpl.read().decode('utf8')
+def update_template(html_name, output_name):
+    assert html_name.endswith('.html')
+    with open(html_name) as html:
+        html_data = html.read().decode('utf8')
     while True:
-        index = tmpl_data.find('{{')
+        index = html_data.find('{{')
         if index == -1:
             break
-        end = tmpl_data.find('}}', index)
+        end = html_data.find('}}', index)
         if end == -1:
             raise TemplateError("cannot find corresponding }}")
-        if tmpl_data[index + 2] != ' ' or tmpl_data[end - 1] != ' ':
+        if html_data[index + 2] != ' ' or html_data[end - 1] != ' ':
             raise TemplateError("no variable found")
-        fname = tmpl_data[index + 3:end - 1]
+        fname = html_data[index + 3:end - 1]
         with open(fname) as f:
-            tmpl_data = tmpl_data[:index] + markdown.Markdown().convert(f.read().decode('utf8')) + tmpl_data[end + 3:]
-    with open(tmpl_name[:-len('.tmpl')] + '.html', 'w') as html_f:
-        html_f.write(tmpl_data.encode('utf8'))
+            html_data = html_data[:index] + markdown.Markdown().convert(
+                f.read().decode('utf8')) + html_data[end + 3:]
+    with open(output_name[:-len('.html')] + '.html', 'w') as html_f:
+        html_f.write(html_data.encode('utf8'))
 
 
 if __name__ == '__main__':
-    update_template('web/documentation.tmpl')
+    update_template('markdown/test.html', 'markdown/test_output.html')
