@@ -1,0 +1,134 @@
+/* -------------------- Whole page -------------------- */
+h2{
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+section{
+    margin-bottom: 120px;
+}
+
+.white{
+    background-color: white;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* -------------------- Landing -------------------- */
+#landing-main{
+    margin-top: 90px;
+    margin-bottom: 120px;
+}
+#landing-title{
+    font-size: 4em;
+    font-weight: 100;
+    margin-bottom: 15px;
+}
+
+#landing-description{
+    padding-right: 40px;
+}
+
+#landing-gif{
+    display: block;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+}
+
+/* -------------------- Testimonial -------------------- */
+
+.testimonial-img{
+    border-radius: 50%;
+    float: left;
+}
+.testimonial-text{
+    padding-left: 80px;
+}
+.testimonial-text i{
+    font-size: 0.5em;
+    vertical-align: top;
+}
+.testimonial-author{
+    padding-left: 80px;
+    margin-top: 0.5em;
+    font-style: italic;
+}
+/* -------------------- Video -------------------- */
+/* -------------------- Pricing -------------------- */
+
+.card{
+    text-align: center;
+}
+.price-amount{
+    font-size: 5em;
+}
+.price-info{
+    font-size: 0.8em;
+}
+
+/* -------------------- Features -------------------- */
+.quote-text{
+    text-align: center;
+    margin-bottom: 60px;
+}
+/* -------------------- Sign up -------------------- */
+
+#mc_embed_signup {
+    display: flex;
+    justify-content: center;
+}
+#mc_embed_signup form {
+    width: 100%;
+    max-width: 500px;
+}
+#mc_embed_signup h4 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+#mc_embed_signup .subscribe {
+    display: flex;
+    border-color: rgb(94, 184, 94);
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 2px;
+    overflow: hidden;
+}
+#mce-responses {
+    display: flex;
+    justify-content: center;
+}
+#mce-success-response {
+    margin-top: 20px;
+    font-size: 30px;
+    color: rgb(94, 184, 94);
+    font-weight: 500;
+}
+#mce-error-response {
+    margin-top: 20px;
+    font-size: 30px;
+    color: rgb(239, 91, 91);
+    font-weight: 500;
+}
+#mc_embed_signup .subscribe input {
+    height: 40px;
+    border: none;
+    outline: none;
+}
+#mc_embed_signup .subscribe input[type=submit] {
+    color: rgb(94, 184, 94);
+    font-weight: 500;
+    border-color: white;
+    color: white;
+    background-color: rgb(94, 184, 94);
+    flex: 1;
+}
+#mc_embed_signup .subscribe input[type=submit]:hover {
+    font-weight: 900;
+}
+#mc_embed_signup .subscribe input[type=email] {
+    flex: 2;
+    padding: 0 15px;
+}

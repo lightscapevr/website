@@ -3,6 +3,7 @@
     padding: 0px;
     margin: 0px;
     font-family: 'Quicksand', sans-serif;
+    font-weight: 100;
 }
 ul{list-style-type: none;}
 a{text-decoration: none; }
@@ -11,21 +12,63 @@ input, button, submit {
     background: none;
     font-size: 1em;
 } 
+/* -------------------- Utils -------------------- */
+
+.shadow{
+    -webkit-box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1);
+    box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1); 
+}
+
+.btn-prime{
+    display: inline-block;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: rgb(94, 184, 94);
+    color: white;
+    border-radius: 3px;
+    border: 1px solid rgb(94, 184, 94);
+}
+.btn-prime:hover{
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.btn-second{
+    display: inline-block;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: rgba(94, 184, 94, 0.151);
+    color: rgb(94, 184, 94);;
+    border-radius: 3px;
+    border: 1px solid rgb(94, 184, 94);
+}
+.btn-second:hover{
+    border: 1px solid rgb(255, 255, 255);
+}
+
 /* -------------------- background -------------------- */
 
-body {background-color: rgb(242, 242, 242);}
+body {
+    background-color: rgb(242, 242, 242);
+    color: rgb(77, 77, 77);
+}
+
+body a {
+    color: rgb(94, 184, 94);
+}
 
 /* -------------------- Header + Nav Bar -------------------- */
 
 #nav-container{
     position: fixed; 
     top: 0;
-    height: 40px;
+    height: 50px;
+    z-index: 100;
 }
 
 #nav-main{
-    padding-top: 10px;    
-    padding-bottom: 10px;  
+    padding-top: 5px;    
+    padding-bottom: 5px;  
     background-color: rgba(255, 255, 255, 0.9);  
     -webkit-box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1);
     -moz-box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1);
@@ -33,7 +76,8 @@ body {background-color: rgb(242, 242, 242);}
 }
 
 #nav-spacer{
-    height: 60px;
+    height: 42px;
+    margin-bottom: 30px;
     background-color: rgb(255, 255, 255); 
 }
 
@@ -41,7 +85,7 @@ body {background-color: rgb(242, 242, 242);}
     float: left;
 }
 #logo img{
-    height: 40px;
+    height: 30px;
 }
 
 #nav-container ul {
@@ -52,15 +96,28 @@ body {background-color: rgb(242, 242, 242);}
 }
 #nav-container li a{
     display:inline-block;
-    padding: 10px 10px;
+    padding: 5px 10px;
     color: rgb(129, 211, 61);
-    
+    border: 1px solid transparent; 
+    border-radius: 3px;
 }
 #nav-container li a:hover {
     color: rgb(64, 158, 119);
     }
+
+#nav-container .loud{
+    color: white;
+    background-color: rgb(94, 184, 94);
+
+}
+#nav-container .loud:hover {
+    color: rgb(64, 158, 119);
+    background-color: rgb(226, 255, 223);
+    border: 1px solid rgb(64, 158, 119);; 
+}
+
 #nav-container button {
-    color: rgb(129, 211, 61);
+    color: rgb(94, 184, 94);
     height: 40px;
     padding: 10px 10px 10px 20px;
 }
@@ -74,12 +131,6 @@ body {background-color: rgb(242, 242, 242);}
     height:70px; /* fixed header height*/
     margin:-70px 0 0; /* negative fixed header height */
     }
-
-/* -------------------- Main -------------------- */
-main{
-    padding-top: 30px;
-    padding-bottom: 30px;
- }
 
 /* -------------------- Footer -------------------- */
 footer { 
@@ -98,5 +149,11 @@ footer li{
 }
 .footer-logo{
     padding-bottom: 30px;
+}
+.footer-legal{
+    margin-top: 30px;
+}
+.footer-right{
+    text-align: right;
 }
 

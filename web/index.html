@@ -26,7 +26,7 @@
         <nav id="nav-main">
             <div class="width-control">
                 <div id="logo">
-                    <a href="index.html">
+                    <a href="https://vrsketch.eu/">
                         <img src="svg/vr-sketch-logo.svg" alt="VR Sketch logo">
                     </a>
                 </div>
@@ -35,19 +35,19 @@
                         <a href="#features">Features</a>
                     </li>
                     <li>
-                        <a href="/checkout/">Checkout</a>
-                    </li>
-                    <li>
                         <a href="#gallery">Gallery</a>
                     </li>
                     <li>
-                        <a href="documentation.html">Documentation</a>
+                        <a href="documentation.html">Learn</a>
                     </li>
                     <li>
                         <a href="blog.html">Blog</a>
                     </li>
                     <li>
-                        <a href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try now</a>
+                        <a href="/checkout/">Checkout</a>
+                    </li>
+                    <li>
+                        <a class="loud" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try now</a>
                     </li>
                 </ul>
             </div>
@@ -58,16 +58,124 @@
     <main>
         <section id="landing">
             <div class="width-control">
-                <div>
-                    <h1>Sketch inside Virtual Reality</h1>
-                    <h4>
-                        A SketchUp extension allowing anyone to create, edit and view their models in VR. SketchUp to VR with one click</h4>
+                <div id="landing-main" class="row">
+                    <div class="col-6">
+                        <h1 id="landing-title">Design inside
+                            <br>virtual reality</h1>
+                        <p id="landing-description">
+                            VR Sketch is an extension for SketchUp which gives anyone the ability to create, edit and view their models in VR.</p>
+                        <a class="btn-second" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try for free</a>
+                        <a class="btn-prime" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Get a Licence</a>
+                    </div>
+                    <div class="col-6">
+                        <video id="landing-gif" autoplay="autoplay" loop="loop">
+                            <source src="./img/docs/tool-choose.mp4" type="video/mp4" />
+                        </video>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <div>
+        <section id="testimonial">
+            <div class="width-control">
+                <div class="row">
+                    <img class="testimonial-img" src="img/people/adam-wysocki-60.png" alt="">
+                    <blockquote class="testimonial-text">
+                        <i class="fas fa-quote-left"></i>
+                        The revolution in design is coming in seven mile steps
+                        <i class="fas fa-quote-right"></i>
+                    </blockquote>
+                    <p class="testimonial-author">
+                        <a href="http://studiodemateria.com/en" target="_blank">Adam Wysocki</a> - Architect
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="video" class="white">
+            <div class="width-control">
+                <div id="landing-video" class="video-wrapper">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/FyLR_Cmze2Y?showinfo=0" frameborder="0" allowfullscreen></iframe>
                 </div>
+            </div>
+        </section>
 
+        <section id="pricing">
+            <div class="width-control">
+                <div class="row">
+                    <h2>Licenses</h2>
+                    <div class="col-4 card">
+
+                        <h3>Educational</h3>
+                        <p>
+                            <span class="price-amount">0</span>
+                            <span class="price-info">€</span>
+                        </p>
+                        <p>For students and universities</p>
+                        <a href="#">Download
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="col-4 card">
+                        <h3>Standard</h3>
+                        <p>
+                            <span class="price-amount">30</span>
+                            <span class="price-info">€ / month</span>
+                        </p>
+                        <p>For commercial use</p>
+                        <a href="#">Sign up
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="col-4 card">
+                        <h3>Hobbyist</h3>
+                        <p>
+                            <span class="price-amount">90</span>
+                            <span class="price-info">€ once off</span>
+                        </p>
+                        <p>For non-commercial use</p>
+                        <a href="#">Purchase
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="features" class="white">
+            <div class="width-control">
+                <div class="row">
+                    <h2>Features</h2>
+                    <blockquote class="quote-text">
+                        <i class="fas fa-quote-left"></i>The value VR Sketch bring to designers is the ability to communicate space clearly
+                        <br> allowing well informed decisions to made with instant feedback of those decisions
+                        <i class="fas fa-quote-right"></i>
+                    </blockquote>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <h4 class="text-center">Draw in VR</h4>
+                        <img src="img/icons/ico-design-150x150.png" alt="Draw in VR" width="150px" height="150px">
+                        <p class="text-center ">Draw, drag, push-pull, multiply... create with your hands the way you would expect</p>
+                    </div>
+                    <div class="col-4">
+                        <h4 class="text-center">Live-sync</h4>
+                        <img src="img/icons/ico-link-150x150.png" alt="Live-link" width="150px" height="150px">
+                        <p class="text-center ">Update VR from SketchUp and update SketchUp from inside VR</p>
+                    </div>
+                    <div class="col-4">
+                        <h4 class=" text-center ">Present in VR</h4>
+                        <img src="img/icons/ico-present-150x150.png" alt="Present" width="150px" height="150px">
+                        <p class="text-center ">Easily show others your designs with built in navigation helper tools</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="subscribe">
+            <div class="width-control">
                 <a name="mailinglist">
                     <div id="mc_embed_signup">
                         <form action="https://vrsketch.us17.list-manage.com/subscribe/post?u=10998a87051e51823e657d167&amp;id=0c08f3f681" method="post"
@@ -98,101 +206,42 @@
             </div>
         </section>
 
-        <section id="features">
-            <div class="width-control">
-                <div class="row">
-                    <div class="col-4">
-                        <h4 class="text-center">Draw in VR</h4>
-                        <img src="img/icons/ico-design-150x150.png" alt="Draw in VR" width="150px" height="150px">
-                        <p class="text-center ">Draw, drag, push-pull, multiply... create with your hands the way you would expect</p>
-                    </div>
-                    <div class="col-4">
-                        <h4 class="text-center">Live-sync</h4>
-                        <img src="img/icons/ico-link-150x150.png" alt="Live-link" width="150px" height="150px">
-                        <p class="text-center ">Update VR from SketchUp and update SketchUp from inside VR</p>
-                    </div>
-                    <div class="col-4">
-                        <h4 class=" text-center ">Present in VR</h4>
-                        <img src="img/icons/ico-present-150x150.png" alt="Present" width="150px" height="150px">
-                        <p class="text-center ">Easily show others your designs with built in navigation helper tools</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="try-beta">
-            <div class="width-control">
-                <a href="https://extensions.sketchup.com/en/content/lightscape-vr-designer" target="_blank">Try Now!</a>
-
-                <p>VR Sketch is currently early sales. We're offering 4 weeks of free trial and a discounted license for €30/month.
-                    Look for "VR Sketch" in extension warehouse or
-                    <a target="_blank" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">here</a>.
-                </p>
-            </div>
-        </section>
-
-        <section id="gallery">
+        <section id="gallery" class="white">
+            <h2>Gallery</h2>
             <div class="width-control ">
                 <div class="row">
                     <div class="col-6">
-                        <div>
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/il-h82c8-fE?showinfo=0" frameborder="0" allowfullscreen></iframe>
+                        <div class="video-wrapper">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/oEqkljJ1lvo?showinfo=0" frameborder="0" allowfullscreen></iframe>
                         </div>
-                        <p class="text-center">
-                            <strong>Drawing</strong> in VR</p>
+                        <p class="text-center">Drawing a coffee table in VR Sketch</p>
                     </div>
                     <div class="col-6">
-                        <div>
-
+                        <div class="video-wrapper">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/UeFDodQSkMQ?showinfo=0" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <p class="text-center">Drawing a Penthouse in VR Sketch</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="video-wrapper">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/il-h82c8-fE?showinfo=0" frameborder="0" allowfullscreen></iframe>
+                        </div class="video-wrapper">
+                        <p class="text-center">Drawing in VR</p>
+                    </div>
+                    <div class="col-6">
+                        <div class="video-wrapper">
                             <iframe width="100%" height="100%" src="https://www.youtube.com/embed/mtSg9u-YzFQ?showinfo=0" frameborder="0" allowfullscreen></iframe>
                         </div>
-                        <p class="text-center">
-                            <strong>Live-Sync</strong> SketchUp to VR and back again</p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-4">
-                        <div>
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/nnm-efsOSoA?showinfo=0" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div>
-
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ujhKN8-r_XU?showinfo=0" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div>
-
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/WJYhHIGT7lM?showinfo=0" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-4">
-                        <div>
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/yOwW7kVnC3A?showinfo=0" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div>
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/68RQC9pgby0?showinfo=0" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div>
-
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/yvrFeHR3nCQ?showinfo=0" frameborder="0" allowfullscreen></iframe>
-                        </div>
+                        <p class="text-center">Live-Sync SketchUp to VR and back again</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="documentation">
+            <h2>Learning resources</h2>
             <div class="width-control ">
                 <div class="row">
                     <div class="col-6">
@@ -238,35 +287,57 @@
     </main>
     <footer id="contact">
         <div class="width-control">
-            <ul>
-                <li class="footer-logo">
-                    <a href="https://vrsketch.eu/">
-                        <img src="svg/vr-sketch-logo.svg" alt="VR Sketch" width="280px">
-                    </a>
-                    <br>
-                    <small>VR drawing tools for architects and designers</small>
-                </li>
-                <li class="footer-white">
-                    <i class="far fa-envelope-open"></i> info@baroquesoftware.com</li>
-                <li class="footer-white">
-                    <a href="https://twitter.com/VrSketch">
-                        <i class="fab fa-twitter"></i> Twitter</a>
-                </li>
-                <li class="footer-white">
-                    <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag">
-                        <i class="fab fa-youtube"></i> YouTube</a>
-                </li>
-                <li class="footer-white">
-                    <a href="https://www.instagram.com/vr_sketch/">
-                        <i class="fab fa-instagram"></i> Instagram</a>
-                </li>
+            <div class="footer-logo">
+                <a href="https://vrsketch.eu/">
+                    <img src="svg/vr-sketch-logo.svg" alt="VR Sketch" width="280px">
+                </a>
+                <br>
+                <small>VR drawing tools for architects and designers</small>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <ul>
+                        <li>
+                            <a href="https://twitter.com/VrSketch">
+                                <i class="fab fa-twitter"></i> Twitter</a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag">
+                                <i class="fab fa-youtube"></i> YouTube</a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/vr_sketch/">
+                                <i class="fab fa-instagram"></i> Instagram</a>
+                        </li>
+                        <li>
+                            <i class="far fa-envelope-open"></i> info@baroquesoftware.com</li>
+                    </ul>
+                </div>
+                <div class="col-6 footer-right">
+                    <ul>
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#">Checkout</a>
+                        </li>
+                        <li>
+                            <a href="#">Subscribe</a>
+                        </li>
+                        <li>
+                            <a href="#">Documentation</a>
+                        </li>
 
-                <li>© 2018 VR Sketch</li>
-                <li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p>© 2018 VR Sketch</p>
+                <p>
                     Made with love by the
                     <a href="https://baroquesoftware.com/">Baroque Software</a> team
-                </li>
-            </ul>
+                </p>
+            </div>
         </div>
     </footer>
 
