@@ -18,25 +18,34 @@ section{
 /* -------------------- Landing -------------------- */
 #landing-main{
     margin-top: 90px;
-    margin-bottom: 120px;
 }
 #landing-title{
     font-size: 4em;
     font-weight: 100;
     margin-bottom: 15px;
 }
+@media only screen and (max-width: 500px) {
+    /* applicable for all items under max-width*/
+    #landing-title{
+        font-size: 2.5em;
+    }
+}
 
 #landing-description{
     padding-right: 40px;
 }
 
-#landing-gif{
-    display: block;
-  max-width: 600px;
-  width: 100%;
-  height: auto;
+#landing-ctas{
+    padding-top: 15px;
 }
 
+#landing-gif{
+    margin-top: 15px;
+    display: block;
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+}
 /* -------------------- Testimonial -------------------- */
 
 .testimonial-img{
@@ -49,23 +58,56 @@ section{
 .testimonial-text i{
     font-size: 0.5em;
     vertical-align: top;
+    color: rgb(194, 194, 194);
 }
 .testimonial-author{
     padding-left: 80px;
     margin-top: 0.5em;
     font-style: italic;
 }
+.slide-off{
+    display: none;
+}
+.slide-on{
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+    animation-duration: 6s; /*Time interval must match js*/
+}
+
+@keyframes fadeInOpacity {
+	0% {opacity: 0;}
+    10% {opacity: 1;}
+    90% {opacity: 1;}
+    100% {opacity: 0;}
+}
 /* -------------------- Video -------------------- */
 /* -------------------- Pricing -------------------- */
 
 .card{
     text-align: center;
+    background-color: rgb(255, 255, 255);
+    margin: 15px;
+    padding: 30px 15px 15px 15px;
 }
 .price-amount{
     font-size: 5em;
 }
 .price-info{
     font-size: 0.8em;
+}
+
+.price-cta{
+    background-color: rgb(94,184,94);
+    color: rgb(255, 255, 255);
+    margin: 30px -15px -15px -15px;
+    padding: 15px;
+}
+
+.price-cta:hover{
+    background-color: rgb(105, 204, 105);
+    font-weight: bold;
 }
 
 /* -------------------- Features -------------------- */

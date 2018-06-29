@@ -14,7 +14,7 @@
     float: left;
 }
 
-/* Media queries: 0-768 Mobile first is the default. Single or 2 column */
+/* Media queries: 0-768 Mobile first is the default. Single column */
 .width-control { 
     max-width: 768px;
     margin-left: auto;

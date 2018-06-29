@@ -22,28 +22,30 @@ input, button, submit {
 
 .btn-prime{
     display: inline-block;
-    padding: 10px;
-    margin-top: 5px;
+    padding: 10px 15px;
     background-color: rgb(94, 184, 94);
     color: white;
     border-radius: 3px;
-    border: 1px solid rgb(94, 184, 94);
 }
 .btn-prime:hover{
-    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(104, 204, 104);
 }
-
+.btn-prime:active{
+    background-color: rgb(157, 214, 157);
+}
 .btn-second{
     display: inline-block;
-    padding: 10px;
-    margin-top: 5px;
-    background-color: rgba(94, 184, 94, 0.151);
+    padding: 10px 15px;
+    background-color: rgba(94, 184, 94, 0.2);
     color: rgb(94, 184, 94);;
     border-radius: 3px;
-    border: 1px solid rgb(94, 184, 94);
 }
 .btn-second:hover{
-    border: 1px solid rgb(255, 255, 255);
+    background-color: rgba(94, 184, 94, 0.6);
+    color: white;
+}
+.btn-second:active{
+    background-color: rgb(157, 214, 157);
 }
 
 /* -------------------- background -------------------- */
@@ -56,13 +58,18 @@ body {
 body a {
     color: rgb(94, 184, 94);
 }
+body a:hover {
+    color: rgb(53, 138, 53);
+}
+body a:active {
+    color: rgb(29, 95, 29);
+}
 
 /* -------------------- Header + Nav Bar -------------------- */
 
 #nav-container{
     position: fixed; 
     top: 0;
-    height: 50px;
     z-index: 100;
 }
 
@@ -76,7 +83,7 @@ body a {
 }
 
 #nav-spacer{
-    height: 42px;
+    height: 40px;
     margin-bottom: 30px;
     background-color: rgb(255, 255, 255); 
 }
@@ -94,26 +101,20 @@ body a {
 #nav-container li {
     display:inline;
 }
-#nav-container li a{
-    display:inline-block;
+
+.nav-btn{
     padding: 5px 10px;
     color: rgb(129, 211, 61);
-    border: 1px solid transparent; 
     border-radius: 3px;
 }
-#nav-container li a:hover {
+.nav-btn:hover{
     color: rgb(64, 158, 119);
-    }
-
-#nav-container .loud{
-    color: white;
-    background-color: rgb(94, 184, 94);
-
 }
-#nav-container .loud:hover {
-    color: rgb(64, 158, 119);
-    background-color: rgb(226, 255, 223);
-    border: 1px solid rgb(64, 158, 119);; 
+.nav-btn:active{
+    color: rgb(43, 124, 90);
+}
+#nav-container .btn-prime{
+    padding: 5px 10px;
 }
 
 #nav-container button {

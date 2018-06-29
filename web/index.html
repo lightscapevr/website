@@ -32,22 +32,25 @@
                 </div>
                 <ul id="nav-list">
                     <li>
-                        <a href="#features">Features</a>
+                        <a class="nav-btn" href="#pricing">Pricing</a>
                     </li>
                     <li>
-                        <a href="#gallery">Gallery</a>
+                        <a class="nav-btn" href="#features">Features</a>
                     </li>
                     <li>
-                        <a href="documentation.html">Learn</a>
+                        <a class="nav-btn" href="#gallery">Gallery</a>
                     </li>
                     <li>
-                        <a href="blog.html">Blog</a>
+                        <a class="nav-btn" href="documentation.html">Learn</a>
                     </li>
                     <li>
-                        <a href="/checkout/">Checkout</a>
+                        <a class="nav-btn" href="blog.html">Blog</a>
                     </li>
                     <li>
-                        <a class="loud" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try now</a>
+                        <a class="nav-btn" href="/checkout/">Checkout</a>
+                    </li>
+                    <li>
+                        <a class="btn-prime" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try now</a>
                     </li>
                 </ul>
             </div>
@@ -64,8 +67,10 @@
                             <br>virtual reality</h1>
                         <p id="landing-description">
                             VR Sketch is an extension for SketchUp which gives anyone the ability to create, edit and view their models in VR.</p>
-                        <a class="btn-second" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try for free</a>
-                        <a class="btn-prime" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Get a Licence</a>
+                        <div id="landing-ctas">
+                            <a class="btn-second" href="#">Try for free</a>
+                            <a class="btn-prime" href="#">Get a Licence</a>
+                        </div>
                     </div>
                     <div class="col-6">
                         <video id="landing-gif" autoplay="autoplay" loop="loop">
@@ -78,19 +83,28 @@
 
         <section id="testimonial">
             <div class="width-control">
-                <div class="row">
+                <div class="row slide slide-on">
+                    <img class="testimonial-img" src="img/people/jarl-60.png" alt="">
+                    <blockquote class="testimonial-text">
+                        <i class="fas fa-quote-left"></i>
+                        VR Sketch is an amazingly efficient way to test our designs!
+                        <i class="fas fa-quote-right"></i>
+                    </blockquote>
+                    <p class="testimonial-author">
+                        <a href="https://stykka.com" target="_blank">Jarl Vindnaes</a> - Co-Founder CSO Architect
+                    </p>
+                </div>
+                <div class="row slide slide-off">
                     <img class="testimonial-img" src="img/people/adam-wysocki-60.png" alt="">
                     <blockquote class="testimonial-text">
                         <i class="fas fa-quote-left"></i>
-                        The revolution in design is coming in seven mile steps
+                        The revolution in design is coming in seven mile steps!
                         <i class="fas fa-quote-right"></i>
                     </blockquote>
                     <p class="testimonial-author">
                         <a href="http://studiodemateria.com/en" target="_blank">Adam Wysocki</a> - Architect
                     </p>
-
                 </div>
-            </div>
         </section>
 
         <section id="video" class="white">
@@ -105,39 +119,51 @@
             <div class="width-control">
                 <div class="row">
                     <h2>Licenses</h2>
-                    <div class="col-4 card">
-
-                        <h3>Educational</h3>
-                        <p>
-                            <span class="price-amount">0</span>
-                            <span class="price-info">€</span>
-                        </p>
-                        <p>For students and universities</p>
-                        <a href="#">Download
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
+                    <div class="col-4">
+                        <div class="card">
+                            <h3>Educational</h3>
+                            <p>
+                                <span class="price-amount">0</span>
+                                <span class="price-info">€</span>
+                            </p>
+                            <p>For students and universities</p>
+                            <a href="#">
+                                <div class="price-cta">Download
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-4 card">
-                        <h3>Standard</h3>
-                        <p>
-                            <span class="price-amount">30</span>
-                            <span class="price-info">€ / month</span>
-                        </p>
-                        <p>For commercial use</p>
-                        <a href="#">Sign up
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
+                    <div class="col-4">
+                        <div class="card shadow">
+                            <h3>Standard</h3>
+                            <p>
+                                <span class="price-amount">30</span>
+                                <span class="price-info">€ / month</span>
+                            </p>
+                            <p>For commercial use</p>
+                            <a href="#">
+                                <div class="price-cta">Sign up
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-4 card">
-                        <h3>Hobbyist</h3>
-                        <p>
-                            <span class="price-amount">90</span>
-                            <span class="price-info">€ once off</span>
-                        </p>
-                        <p>For non-commercial use</p>
-                        <a href="#">Purchase
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
+                    <div class="col-4">
+                        <div class="card">
+                            <h3>Hobbyist</h3>
+                            <p>
+                                <span class="price-amount">60</span>
+                                <span class="price-info">€ once off</span>
+                            </p>
+                            <p>For non-commercial use</p>
+                            <a href="#">
+                                <div class="price-cta">
+                                    Purchase
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -341,7 +367,10 @@
         </div>
     </footer>
 
+    <script src="js/index.js"></script>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!--
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43265909-2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -350,6 +379,7 @@
 
         gtag('config', 'UA-43265909-2');
     </script>
+    -->
 </body>
 
 </html>
