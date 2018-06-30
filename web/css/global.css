@@ -12,6 +12,24 @@ input, button, submit {
     background: none;
     font-size: 1em;
 } 
+
+/* -------------------- background -------------------- */
+
+body {
+    background-color: rgb(242, 242, 242);
+    color: rgb(77, 77, 77);
+}
+
+body a {
+    color: rgb(94, 184, 94);
+}
+body a:hover {
+    color: rgb(53, 138, 53);
+}
+body a:active {
+    color: rgb(29, 95, 29);
+}
+
 /* -------------------- Utils -------------------- */
 
 .shadow{
@@ -48,22 +66,13 @@ input, button, submit {
     background-color: rgb(157, 214, 157);
 }
 
-/* -------------------- background -------------------- */
-
-body {
-    background-color: rgb(242, 242, 242);
-    color: rgb(77, 77, 77);
+.quote{
+    font-size: 0.5em;
+    vertical-align: top;
+    color: rgb(194, 194, 194);
 }
 
-body a {
-    color: rgb(94, 184, 94);
-}
-body a:hover {
-    color: rgb(53, 138, 53);
-}
-body a:active {
-    color: rgb(29, 95, 29);
-}
+
 
 /* -------------------- Header + Nav Bar -------------------- */
 
@@ -80,10 +89,11 @@ body a:active {
     -webkit-box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1);
     -moz-box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1);
     box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1); 
+    font-size: 14px;
 }
 
 #nav-spacer{
-    height: 40px;
+    height: 38px;
     margin-bottom: 30px;
     background-color: rgb(255, 255, 255); 
 }
@@ -92,7 +102,7 @@ body a:active {
     float: left;
 }
 #logo img{
-    height: 30px;
+    height: 28px;
 }
 
 #nav-container ul {
@@ -139,6 +149,12 @@ footer {
     padding-top: 30px;
     padding-bottom: 30px;
 }
+footer table {
+    width: 100%;
+}
+footer table, footer td, footer tr,{
+    border: none;
+}
 footer, footer a { 
     color: rgb(150, 150, 150);
 }
@@ -157,4 +173,5 @@ footer li{
 .footer-right{
     text-align: right;
 }
+
 

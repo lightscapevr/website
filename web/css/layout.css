@@ -57,11 +57,16 @@
     text-align: center;
 }
 
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* -------------------- Responsive Media -------------------- */
 
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.45%;
+    padding-bottom: 55%;
     height: 0;
 }
 .video-wrapper iframe {
