@@ -22,7 +22,9 @@
     padding-left: 24px;
     padding-right: 24px;
 }
-.col-6-const {width: 50%;}
+.fixed-6 {
+    width: 50%; 
+    float: left;}
 
 /* Media queries: 768 and bigger. For desktop. 12 columns */
 @media only screen and (min-width: 1000px) {

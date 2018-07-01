@@ -179,8 +179,8 @@ body a:active {
 /* -------------------- Footer -------------------- */
 footer { 
     background-color: rgb(50, 50, 50);
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 60px;
+    padding-bottom: 120px;
 }
 footer, footer a { 
     color: rgb(150, 150, 150);
@@ -195,10 +195,17 @@ footer li{
     padding-bottom: 30px;
 }
 .footer-legal{
+    font-size: 0.8em;
     margin-top: 30px;
 }
+.footer-left{
+    white-space: nowrap;
+}
 .footer-right{
+    float: right;
     text-align: right;
 }
-
+.footer-green{
+    color: rgb(94, 184, 94);
+}
 

@@ -12,13 +12,12 @@
     />
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link rel="shortcut icon" href="img/logos/favicon.ico" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/layout.css?v=1.0">
     <link rel="stylesheet" href="css/global.css?v=1.0">
     <link rel="stylesheet" href="css/index.css?v=1.0">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-        crossorigin="anonymous">
 </head>
 
 <body id="home">
@@ -47,7 +46,7 @@
                         <a class="nav-btn nav-link" href="#learn" onclick="hide_menu()">Learn</a>
                     </li>
                     <li>
-                        <a class="nav-btn nav-link" href="#blog">Blog</a>
+                        <a class="nav-btn nav-link" href="blog.html">Blog</a>
                     </li>
                     <li>
                         <a class="nav-btn nav-link" href="/checkout/">Checkout</a>
@@ -71,8 +70,8 @@
                         <p id="landing-description">
                             VR Sketch is an extension for SketchUp which gives anyone the ability to create, edit and view their models in VR.</p>
                         <div id="landing-ctas">
-                            <a class="btn-second" href="#">Try for free</a>
-                            <a class="btn-prime" href="#">Get a Licence</a>
+                            <a class="btn-second" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try for free</a>
+                            <a class="btn-prime" href="#pricing">Get a Licence</a>
                         </div>
                     </div>
                     <div class="col-6">
@@ -81,35 +80,32 @@
                         </video>
                     </div>
                 </div>
+                <div id="testimonial">
+                    <div class="slide slide-on">
+                        <img class="testimonial-img" src="img/people/jarl-60.png" alt="">
+                        <blockquote class="testimonial-text">
+                            <i class="fas fa-quote-left quote"></i>
+                            VR Sketch is an amazingly efficient way to test our designs!
+                            <i class="fas fa-quote-right quote"></i>
+                        </blockquote>
+                        <p class="testimonial-author">
+                            <a href="https://stykka.com" target="_blank">Jarl Vindnaes</a> - Co-Founder CSO Architect
+                        </p>
+                    </div>
+                    <div class="slide slide-off">
+                        <img class="testimonial-img" src="img/people/adam-wysocki-60.png" alt="">
+                        <blockquote class="testimonial-text">
+                            <i class="fas fa-quote-left quote"></i>
+                            The revolution in design is coming in seven mile steps!
+                            <i class="fas fa-quote-right quote"></i>
+                        </blockquote>
+                        <p class="testimonial-author">
+                            <a href="http://studiodemateria.com/en" target="_blank">Adam Wysocki</a> - Architect
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
-
-        <section id="testimonial">
-            <div class="width-control">
-                <div class="row slide slide-on">
-                    <img class="testimonial-img" src="img/people/jarl-60.png" alt="">
-                    <blockquote class="testimonial-text">
-                        <i class="fas fa-quote-left quote"></i>
-                        VR Sketch is an amazingly efficient way to test our designs!
-                        <i class="fas fa-quote-right quote"></i>
-                    </blockquote>
-                    <p class="testimonial-author">
-                        <a href="https://stykka.com" target="_blank">Jarl Vindnaes</a> - Co-Founder CSO Architect
-                    </p>
-                </div>
-                <div class="row slide slide-off">
-                    <img class="testimonial-img" src="img/people/adam-wysocki-60.png" alt="">
-                    <blockquote class="testimonial-text">
-                        <i class="fas fa-quote-left quote"></i>
-                        The revolution in design is coming in seven mile steps!
-                        <i class="fas fa-quote-right quote"></i>
-                    </blockquote>
-                    <p class="testimonial-author">
-                        <a href="http://studiodemateria.com/en" target="_blank">Adam Wysocki</a> - Architect
-                    </p>
-                </div>
-        </section>
-
         <section id="video" class="white">
             <div class="width-control">
                 <div id="landing-video" class="video-wrapper">
@@ -130,7 +126,7 @@
                                 <span class="price-info">€</span>
                             </p>
                             <p>For students and universities</p>
-                            <a href="#">
+                            <a href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">
                                 <div class="price-cta">Download
                                     <i class="fas fa-arrow-right"></i>
                                 </div>
@@ -222,7 +218,7 @@
 
         <section id="subscribe">
             <div class="width-control">
-                <a name="mailinglist">
+                <a name="mailinglist" id="mc_link">
                     <div id="mc_embed_signup">
                         <form action="https://vrsketch.us17.list-manage.com/subscribe/post?u=10998a87051e51823e657d167&amp;id=0c08f3f681" method="post"
                             id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
@@ -291,55 +287,32 @@
                 <h2>Learning resources</h2>
                 <div class="row">
                     <div class="col-4">
-                        <div class="learning-card shadow">
-                            <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag">
-                                <div class="learning-cta">
-                                    <i class="fas fa-film"></i> Video tutorials</div>
-                            </a>
-                            <ul>
-                                <li>Teleportation and Scale</li>
-                                <li>Drawing lines and faces</li>
-                                <li>Push-pull</li>
-                                <li>Groups and Components</li>
-                                <li>Move, Copy and Multiply</li>
-                                <li>Lots more...</li>
-                            </ul>
-                        </div>
+                        <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag">
+                            <div class="learning-card shadow">
+                                <h4> Video tutorials</h4>
+                                <i class="fab fa-youtube fa-5x"></i>
+                                <p>Watch a range of helpful video tutorials to help you with common tasks</p>
+                            </div>
+                        </a>
                     </div>
-
                     <div class="col-4">
-                        <div class="learning-card shadow">
-                            <a href="documentation.html">
-                                <div class="learning-cta">
-                                    <i class="fas fa-question"></i>
-                                    </i> Frequently asked questions</div>
-                            </a>
-                            <ul>
-                                <li>Does SketchUp 2017 work?</li>
-                                <li>Do large files work?</li>
-                                <li>Do you support the Oculus rift?</li>
-                                <li>Can I use Windows mixed reality?</li>
-                                <li>Can I pause my subscription?</li>
-                                <li>Lots more...</li>
-                            </ul>
-                        </div>
+                        <a href="faq.html">
+                            <div class="learning-card shadow">
+                                <h4>Frequently asked questions</h4>
+                                <i class="fas fa-hands-helping fa-5x"></i>
+                                <p>Find answers to common questions</p>
+                            </div>
+                        </a>
                     </div>
-
                     <div class="col-4">
-                        <div class="learning-card shadow">
-                            <a href="documentation.html">
-                                <div class="learning-cta">
-                                    <i class="fas fa-file"></i> Documentation</div>
-                            </a>
-                            <ul>
-                                <li>How to Download</li>
-                                <li>How to Install</li>
-                                <li>How to Run</li>
-                                <li>How to Navigate</li>
-                                <li>How to Draw</li>
-                                <li>Lots more...</li>
-                            </ul>
-                        </div>
+                        <a href="documentation.html">
+                            <div class="learning-card shadow">
+                                <h4>Documentation</h4>
+                                <i class="fas fa-file fa-5x"></i>
+                                <p>Instructions on how to download and install as well as detailed descriptions of how to use
+                                    each tool</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -354,53 +327,54 @@
                 <br>
                 <small>VR drawing tools for architects and designers</small>
             </div>
-            <dic class="row">
-                <div class="col-6-const">
-                    <ul>
-                        <li>
-                            <a href="https://twitter.com/VrSketch">
-                                <i class="fab fa-twitter"></i> Twitter</a>
-                        </li>
-                        <li>
-                            <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag">
-                                <i class="fab fa-youtube"></i> YouTube</a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/vr_sketch/">
-                                <i class="fab fa-instagram"></i> Instagram</a>
-                        </li>
-                        <li>
-                            <a href="mailto:info@baroquesoftware.com">
-                                <i class="far fa-envelope-open"></i> info@baroquesoftware.com</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-6-const">
-                    <div class="footer-right">
+            <div class="row">
+                <div class="fixed-6">
+                    <div class="footer-left">
                         <ul>
                             <li>
-                                <a href="#">Blog</a>
+                                <a href="https://twitter.com/VrSketch">
+                                    <i class="fab fa-twitter"></i> Twitter</a>
                             </li>
                             <li>
-                                <a href="#">Checkout</a>
+                                <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag">
+                                    <i class="fab fa-youtube"></i> YouTube</a>
                             </li>
                             <li>
-                                <a href="#">Subscribe</a>
+                                <a href="https://www.instagram.com/vr_sketch/">
+                                    <i class="fab fa-instagram"></i> Instagram</a>
                             </li>
                             <li>
-                                <a href="#">Documentation</a>
+                                <a href="mailto:info@baroquesoftware.com">
+                                    <i class="far fa-envelope-open"></i> info@baroquesoftware.com</a>
                             </li>
-
                         </ul>
                     </div>
                 </div>
-                <div class="row">
 
+                <div class="fixed-6">
+                    <div class="footer-right">
+                        <ul>
+                            <li>
+                                <a href="documentation.html">Documentation</a>
+                            </li>
+                            <li>
+                                <a href="#subscribe">Subscribe</a>
+                            </li>
+                            <li>
+                                <a href="/checkout/">Checkout</a>
+                            </li>
+
+                            <li>
+                                <a href="blog.html">Blog</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="footer-legal">
-                    <p>Made with love by the
-                        <a href="https://baroquesoftware.com/">Baroque Software</a> team. © 2018 VR Sketch</p>
-                </div>
+            </div>
+            <div class="footer-legal">
+                <p>Made with love by the
+                    <a class="footer-green" href="https://baroquesoftware.com/">Baroque Software</a> team. © 2018 VR Sketch</p>
+            </div>
         </div>
     </footer>
 
