@@ -85,11 +85,11 @@ body a:active {
 #nav-main{
     padding-top: 5px;    
     padding-bottom: 5px;  
+    font-size: 14px;
     background-color: rgba(255, 255, 255, 0.9);  
     -webkit-box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1);
     -moz-box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1);
     box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.1); 
-    font-size: 14px;
 }
 
 #nav-spacer{
@@ -113,6 +113,7 @@ body a:active {
 }
 
 .nav-btn{
+    display: inline-block;
     padding: 5px 10px;
     color: rgb(129, 211, 61);
     border-radius: 3px;
@@ -160,7 +161,7 @@ body a:active {
     .nav-responsive{
         float: none;
         display: block;
-        text-align: center;
+        text-align: right;
     }
     .nav-responsive{
         padding-top: 15px;
