@@ -30,27 +30,30 @@
                         <img src="svg/vr-sketch-logo.svg" alt="VR Sketch logo">
                     </a>
                 </div>
-                <ul id="nav-list">
+                <a class="nav-menu" href="javascript:void(0);" onclick="toggle_menu()">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <ul>
                     <li>
-                        <a class="nav-btn" href="#pricing">Pricing</a>
+                        <a class="nav-btn nav-link" href="#pricing" onclick="hide_menu()">Pricing</a>
                     </li>
                     <li>
-                        <a class="nav-btn" href="#features">Features</a>
+                        <a class="nav-btn nav-link" href="#features" onclick="hide_menu()">Features</a>
                     </li>
                     <li>
-                        <a class="nav-btn" href="#gallery">Gallery</a>
+                        <a class="nav-btn nav-link" href="#gallery" onclick="hide_menu()">Gallery</a>
                     </li>
                     <li>
-                        <a class="nav-btn" href="#learn">Learn</a>
+                        <a class="nav-btn nav-link" href="#learn" onclick="hide_menu()">Learn</a>
                     </li>
                     <li>
-                        <a class="nav-btn" href="#blog">Blog</a>
+                        <a class="nav-btn nav-link" href="#blog">Blog</a>
                     </li>
                     <li>
-                        <a class="nav-btn" href="/checkout/">Checkout</a>
+                        <a class="nav-btn nav-link" href="/checkout/">Checkout</a>
                     </li>
                     <li>
-                        <a class="btn-prime" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try now</a>
+                        <a class="btn-prime nav-link" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try now</a>
                     </li>
                 </ul>
             </div>
@@ -288,7 +291,7 @@
                 <h2>Learning resources</h2>
                 <div class="row">
                     <div class="col-4">
-                        <div class="learning-card">
+                        <div class="learning-card shadow">
                             <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag">
                                 <div class="learning-cta">
                                     <i class="fas fa-film"></i> Video tutorials</div>
@@ -305,25 +308,25 @@
                     </div>
 
                     <div class="col-4">
-                        <div class="learning-card">
+                        <div class="learning-card shadow">
                             <a href="documentation.html">
                                 <div class="learning-cta">
                                     <i class="fas fa-question"></i>
                                     </i> Frequently asked questions</div>
                             </a>
                             <ul>
-                                <li>How to Download</li>
-                                <li>How to Install</li>
-                                <li>How to Run</li>
-                                <li>How to Navigate</li>
-                                <li>How to Draw</li>
+                                <li>Does SketchUp 2017 work?</li>
+                                <li>Do large files work?</li>
+                                <li>Do you support the Oculus rift?</li>
+                                <li>Can I use Windows mixed reality?</li>
+                                <li>Can I pause my subscription?</li>
                                 <li>Lots more...</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="col-4">
-                        <div class="learning-card">
+                        <div class="learning-card shadow">
                             <a href="documentation.html">
                                 <div class="learning-cta">
                                     <i class="fas fa-file"></i> Documentation</div>
@@ -341,35 +344,6 @@
                 </div>
             </div>
         </section>
-
-        <section id="blog" class="white">
-            <div class="width-control ">
-                <h2>Blog</h2>
-                <a href="#">Go to our blog
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <div class="row">
-                    <div class="col-4">
-                        <div class="blog-card">
-                            <h4>Post 1</h4>
-                            <p>some text</p>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="blog-card">
-                            <h4>Post 1</h4>
-                            <p>some text</p>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="blog-card">
-                            <h4>Post 1</h4>
-                            <p>some text</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
     <footer id="contact">
         <div class="width-control">
@@ -380,59 +354,53 @@
                 <br>
                 <small>VR drawing tools for architects and designers</small>
             </div>
-            <table>
-                <tr>
-                    <td>
+            <dic class="row">
+                <div class="col-6-const">
+                    <ul>
+                        <li>
+                            <a href="https://twitter.com/VrSketch">
+                                <i class="fab fa-twitter"></i> Twitter</a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag">
+                                <i class="fab fa-youtube"></i> YouTube</a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/vr_sketch/">
+                                <i class="fab fa-instagram"></i> Instagram</a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@baroquesoftware.com">
+                                <i class="far fa-envelope-open"></i> info@baroquesoftware.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6-const">
+                    <div class="footer-right">
                         <ul>
                             <li>
-                                <a href="https://twitter.com/VrSketch">
-                                    <i class="fab fa-twitter"></i> Twitter</a>
+                                <a href="#">Blog</a>
                             </li>
                             <li>
-                                <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag">
-                                    <i class="fab fa-youtube"></i> YouTube</a>
+                                <a href="#">Checkout</a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/vr_sketch/">
-                                    <i class="fab fa-instagram"></i> Instagram</a>
+                                <a href="#">Subscribe</a>
                             </li>
                             <li>
-                                <a href="mailto:info@baroquesoftware.com">
-                                    <i class="far fa-envelope-open"></i> info@baroquesoftware.com</a>
+                                <a href="#">Documentation</a>
                             </li>
+
                         </ul>
-                    </td>
-                    <td>
-                        <div class="footer-right">
-                            <ul>
-                                <li>
-                                    <a href="#">Blog</a>
-                                </li>
-                                <li>
-                                    <a href="#">Checkout</a>
-                                </li>
-                                <li>
-                                    <a href="#">Subscribe</a>
-                                </li>
-                                <li>
-                                    <a href="#">Documentation</a>
-                                </li>
+                    </div>
+                </div>
+                <div class="row">
 
-                            </ul>
-                        </div>
-                    </td>
-                    <tr>
-            </table>
-            <div class="row">
-
-            </div>
-            <div class="footer-legal">
-                <p>© 2018 VR Sketch</p>
-                <p>
-                    Made with love by the
-                    <a href="https://baroquesoftware.com/">Baroque Software</a> team
-                </p>
-            </div>
+                </div>
+                <div class="footer-legal">
+                    <p>Made with love by the
+                        <a href="https://baroquesoftware.com/">Baroque Software</a> team. © 2018 VR Sketch</p>
+                </div>
         </div>
     </footer>
 

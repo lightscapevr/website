@@ -6,13 +6,12 @@ h2{
 }
 
 section{
-    margin-bottom: 120px;
+    padding-top: 120px;
+    padding-bottom: 120px;
 }
 
 .white{
     background-color: white;
-    padding-top: 60px;
-    padding-bottom: 60px;
 }
 
 /* -------------------- Landing -------------------- */
@@ -196,24 +195,6 @@ section{
 }
 
 /* -------------------- Learning -------------------- */
-/*
-.learning-card{
-    display: table;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom: 60px;
-}
-
-.learning-card a{
-    min-width: 30ch;
-}
-
-.learning-card ul{
-    margin-top: 15px;
-    padding-left: 3ch; 
-    color: rgb(131, 131, 131);
-}
-*/
 
 .learning-card{
     background-color: rgb(255, 255, 255);
@@ -239,5 +220,6 @@ section{
     margin-left:auto;
     margin-right:auto;
     padding: 30px; 
+    font-size: 0.8em;
 }
 

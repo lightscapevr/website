@@ -143,17 +143,44 @@ body a:active {
     margin:-70px 0 0; /* negative fixed header height */
     }
 
+.nav-menu{
+    display: none;
+    font-size: 22px;
+    text-align: right;
+    margin-left: 150px;
+}
+
+@media screen and (max-width: 700px) {
+    .nav-menu {
+        display: block;
+    }
+    .nav-link {
+        display: none;
+    }
+    .nav-responsive{
+        float: none;
+        display: block;
+        text-align: center;
+    }
+    .nav-responsive{
+        padding-top: 15px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .nav-normal.responsive {position: relative;}
+    .nav-normal.responsive .nav-menu-icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
 /* -------------------- Footer -------------------- */
 footer { 
     background-color: rgb(50, 50, 50);
     padding-top: 30px;
     padding-bottom: 30px;
-}
-footer table {
-    width: 100%;
-}
-footer table, footer td, footer tr,{
-    border: none;
 }
 footer, footer a { 
     color: rgb(150, 150, 150);

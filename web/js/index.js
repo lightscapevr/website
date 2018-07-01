@@ -17,3 +17,18 @@ function cycle_slides() {
 
     setTimeout(cycle_slides, 6000); //time interval must match css
 }
+
+// menu logic
+
+function toggle_menu() {
+    let nav_btn_array = document.getElementsByClassName("nav-link");
+    for (let i = 0; i < nav_btn_array.length; i++) {
+        nav_btn_array[i].classList.toggle("nav-responsive");
+    }
+}
+function hide_menu() {
+    let nav_btn_array = document.getElementsByClassName("nav-link");
+    for (let i = 0; i < nav_btn_array.length; i++) {
+        nav_btn_array[i].classList.remove("nav-responsive");
+    }
+}
