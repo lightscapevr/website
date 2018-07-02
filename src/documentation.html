@@ -1,23 +1,23 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Documentation: VR Sketch</title>
-    <meta name="description" content="VR Sketch documentation and help">
+    <title>Documentation | VR Sketch</title>
+    <meta name="description" content="Virtual Reality drawing tools for architects and designers. A SketchUp extension allowing anyone to use SketchUp from inside virtual reality">
     <meta name="author" content="VR Sketch">
-    <meta name="keywords" content="vr, virtual reality, draw, edit, draft, sketchup, architect, architecture, vive, oculus rift"
+    <meta name="keywords" content="vr sketch, vr, virtual reality, draw, edit, draft, sketch, sketchup, architect, architecture, vive, oculus rift, design"
     />
-
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <link rel="stylesheet" href="css/layout.css?v=1.0">
-    <link rel="stylesheet" href="css/style-better.css?v=1.0">
-    <link rel="stylesheet" href="css/docs.css?v=1.0">
-
-    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="img/logos/favicon.ico" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/layout.css?v=1.0">
+    <link rel="stylesheet" href="css/global.css?v=1.0">
+    <link rel="stylesheet" href="css/docs.css?v=1.0">
 </head>
 
 <body id="top">
@@ -25,15 +25,13 @@
         <nav id="nav-main">
             <div class="width-control">
                 <div id="logo">
-                    <a href="index.html">
+                    <a href="https://vrsketch.eu/">
                         <img src="svg/vr-sketch-logo.svg" alt="VR Sketch logo">
                     </a>
                 </div>
-                <ul id="nav-list">
-                    <li>
-                        <button onclick="toggleSideMenu()"><i class="fas fa-bars"></i></button>
-                    </li>
-                </ul>
+                <a class="nav-menu" href="javascript:void(0);" onclick="toggleSideMenu()">
+                    <i class="fa fa-bars"></i>
+                </a>
             </div>
         </nav>
     </header>
@@ -47,42 +45,84 @@
 
     <main class="width-control">
         <div id="md-target">
-            {{ markdown/documentation.md }}
+            {{ src/documentation.md }}
         </div>
     </main>
-    <footer>
+
+    <footer id="contact">
         <div class="width-control">
-            <footer>
-                <ul>
-                    <li class="footer-logo">
-                        <a href="index.html">
-                            <img src="svg/vr-sketch-logo.svg" alt="VR Sketch" width="280px">
-                        </a>
-                        <br>
-                        <small>VR drawing tools for architects and designers</small>
-                    </li>
-                    <li class="footer-white">
-                        <i class="far fa-envelope-open"></i> info@baroquesoftware.com</li>
-                    <li class="footer-white">
-                        <a href="https://twitter.com/VrSketch">
-                            <i class="fab fa-twitter"></i> Twitter</a>
-                    </li>
-                    <li class="footer-white">
-                        <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag">
-                            <i class="fab fa-youtube"></i> YouTube</a>
-                    </li>
-                    <li>© 2017-2018 VR Sketch</li>
-                    <li>
-                        <a href="https://baroquesoftware.com/">Baroque Software</a>
-                    </li>
-                </ul>
-            </footer>
+            <div class="footer-logo">
+                <a href="https://vrsketch.eu/">
+                    <img src="svg/vr-sketch-logo.svg" alt="VR Sketch" width="280px">
+                </a>
+                <br>
+                <small>VR drawing tools for architects and designers</small>
+            </div>
+            <div class="row">
+                <div class="fixed-6">
+                    <div class="footer-left">
+                        <ul>
+                            <li>
+                                <a href="https://twitter.com/VrSketch">
+                                    <i class="fab fa-twitter"></i> Twitter</a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag">
+                                    <i class="fab fa-youtube"></i> YouTube</a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/vr_sketch/">
+                                    <i class="fab fa-instagram"></i> Instagram</a>
+                            </li>
+                            <li>
+                                <a href="mailto:info@baroquesoftware.com">
+                                    <i class="far fa-envelope-open"></i> info@baroquesoftware.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="fixed-6">
+                    <div class="footer-right">
+                        <ul>
+                            <li>
+                                <a href="documentation.html">Documentation</a>
+                            </li>
+                            <li>
+                                <a href="#subscribe">Subscribe</a>
+                            </li>
+                            <li>
+                                <a href="/checkout/">Checkout</a>
+                            </li>
+
+                            <li>
+                                <a href="blog.html">Blog</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p>Made with love by the
+                    <a class="footer-green" href="https://baroquesoftware.com/">Baroque Software</a> team. © 2018 VR Sketch</p>
+            </div>
         </div>
+        <script src="js/global.js"></script>
+        <script src="js/side-menu.js"></script>
+        <noscript>Your browser either does not support JavaScript or it is not active. Please activate JavaScript.</noscript>
     </footer>
 
-    <script src="./js/side-menu.js"></script>
-    <noscript>Sorry, your browser does not support JavaScript!</noscript>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43265909-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
+        gtag('config', 'UA-43265909-2');
+    </script>
+    -->
 </body>
 
 </html>

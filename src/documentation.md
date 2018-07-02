@@ -66,7 +66,7 @@ You can either download and automatically install the VR Sketch plugin from insi
 ### Choosing a tool
 How to choose the tool you want to use with each controller.
 
-<video autoplay="autoplay" loop="loop">
+<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-choose.mp4" type="video/mp4" />
 </video>
 
@@ -108,7 +108,7 @@ Navigate around your model at any scale. This is not a standard tool; instead, i
 ### Select tool
 The tool to select individual or multiple lines, faces or groups.
 
-<video autoplay="autoplay" loop="loop">
+<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-select.mp4" type="video/mp4" />
 </video>
 
@@ -126,7 +126,7 @@ The tool to select individual or multiple lines, faces or groups.
 ### Group and Component tools
 How to work with Group or Component.
 
-<video autoplay="autoplay" loop="loop">
+<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-component.mp4" type="video/mp4" />
 </video>
 
@@ -140,7 +140,7 @@ How to work with Group or Component.
   * While inside a Group or Component, press in the **⋮ menu button** and choose the **Exit Group** tool (found above the **select** tool) to exit the current Group orComponent.
   * Or, while inside a Group or Component, use the select tool and double click outside of the Group or Component to exit.
 
-<video autoplay="autoplay" loop="loop">
+<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-group.mp4" type="video/mp4" />
 </video>
 
@@ -158,7 +158,7 @@ How to work with Group or Component.
 ### Erase tool
 How to delete geometry.
 
-<video autoplay="autoplay" loop="loop">
+<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-erase.mp4" type="video/mp4" />
 </video>
 
@@ -171,7 +171,7 @@ How to delete geometry.
 ### Line tool
 How to draw a line between two points.
 
-<video autoplay="autoplay" loop="loop">
+<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-line.mp4" type="video/mp4" />
 </video>
 
@@ -196,7 +196,7 @@ The tool for freehand sketching.
 ### Rectangle tool
 The tool for drawing rectangles.
 
-<video autoplay="autoplay" loop="loop">
+<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-rectange.mp4" type="video/mp4" />
 </video>
 
@@ -206,7 +206,7 @@ The tool for drawing rectangles.
 ### Polygon tool
 The tool for drawing polygons with any number of sides. Very similar to the **circle** tool.
 
-<video autoplay="autoplay" loop="loop">
+<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-polygon.mp4" type="video/mp4" />
 </video>
 
@@ -224,7 +224,7 @@ The tool for drawing circles. Very similar to the **polygon** tool.
 ### Push-Pull tool
 The tool to extrude out perpendicular a face to create depth. Similar to the **extrude** tool.
 
-<video autoplay="autoplay" loop="loop">
+<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-push.mp4" type="video/mp4" />
 </video>
 
@@ -233,7 +233,7 @@ The tool to extrude out perpendicular a face to create depth. Similar to the **e
 ### Extrude tool
 The tool to extrude out a face in any direction. Similar to the **Push-Pull** tool but not limited to only perpendicular.
 
-<video autoplay="autoplay" loop="loop">
+<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-extrude.mp4" type="video/mp4" />
 </video>
 
@@ -243,7 +243,7 @@ The tool to extrude out a face in any direction. Similar to the **Push-Pull** to
 ### Offset tool
 The tool to offset lines on a face.
 
-<video autoplay="autoplay" loop="loop">
+<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-offset.mp4" type="video/mp4" />
 </video>
 
@@ -253,7 +253,7 @@ The tool to offset lines on a face.
 ### Move tool
 How to move and copy objects.
 
-<video autoplay="autoplay" loop="loop">
+<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-move.mp4" type="video/mp4" />
 </video>
 
@@ -266,7 +266,7 @@ How to move and copy objects.
 ### Rotate tool
 The tool to rotate objects.
 
-<video autoplay="autoplay" loop="loop">
+<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-rotate.mp4" type="video/mp4" />
 </video>
 
@@ -276,7 +276,7 @@ The tool to rotate objects.
 ### Scale tool
 The tool to scale objects.
 
-<video autoplay="autoplay" loop="loop">
+<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-scale.mp4" type="video/mp4" />
 </video>
 

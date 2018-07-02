@@ -22,12 +22,16 @@ def update_template(html_name, output_name):
         if html_data[index + 2] != ' ' or html_data[end - 1] != ' ':
             raise TemplateError("no variable found")
         fname = html_data[index + 3:end - 1]
-        with open(fname) as f:
-            html_data = html_data[:index] + markdown.Markdown().convert(
-                f.read().decode('utf8')) + html_data[end + 3:]
+        try:
+            with open(fname) as f:
+                html_data = html_data[:index] + markdown.Markdown().convert(
+                    f.read().decode('utf8')) + html_data[end + 3:]
+        except IOError:
+            raise TemplateError("Could not find file: " + fname)
+            break
     with open(output_name[:-len('.html')] + '.html', 'w') as html_f:
         html_f.write(html_data.encode('utf8'))
 
 
 if __name__ == '__main__':
-    update_template('markdown/test.html', 'markdown/test_output.html')
+    update_template('src/documentation.html', 'web/documentation.html')
