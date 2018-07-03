@@ -209,4 +209,13 @@ footer li{
 .footer-green{
     color: rgb(94, 184, 94);
 }
-
+footer noscript{
+    color: rgb(255, 72, 0);
+    background-color: rgba(226, 116, 43, 0.226);
+    margin-top: 30px;
+    padding: 30px 15px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}

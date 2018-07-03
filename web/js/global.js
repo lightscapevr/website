@@ -1,4 +1,3 @@
-
 // menu logic
 function toggle_menu() {
     let nav_btn_array = document.getElementsByClassName("nav-link");
@@ -32,4 +31,20 @@ function cycle_slides() {
     slide_array[slideIndex - 1].classList.add("slide-on");
 
     setTimeout(cycle_slides, 6000); //time interval must match css
+}
+
+// FAQ Logic
+let accordions = document.getElementsByClassName("accordion");
+if (accordions != undefined && accordions.length > 0) {
+    for (let i = 0; i < accordions.length; i++) {
+        accordions[i].addEventListener("click", function () {
+            this.classList.toggle("accordion-active");
+            let panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
 }
