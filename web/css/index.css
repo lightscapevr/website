@@ -244,3 +244,19 @@ body a .card{color: rgb(77,77,77);}
     min-height: 5em;
     text-align: left;
 }
+
+/* -------------------- Other ----------------------- */
+
+
+#login-bar {
+    border-width: 1px;
+    border-color: rgb(15, 15, 15);
+    border-style: solid;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: rgb(230, 230, 230);
+}
+
+#login-bar:hover {
+    background-color: rgb(180, 180, 180);
+}

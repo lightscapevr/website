@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="">-->
     <title>VR Sketch</title>
     <meta name="description" content="Virtual Reality drawing tools for architects and designers. A SketchUp extension allowing anyone to use SketchUp from inside virtual reality">
     <meta name="author" content="VR Sketch">
@@ -49,7 +51,10 @@
                         <a class="nav-btn nav-link" href="blog.html">Blog</a>
                     </li>
                     <li>
-                        <a class="nav-btn nav-link" href="/checkout/">Log in</a>
+                        <span id="login-bar">
+                            <a class="nav-btn nav-link" href="#"><i class="fa fa-user"></i>
+                                <span id="login-contents">Log in</span></a>
+                        </span>
                     </li>
                     <li>
                         <a class="btn-prime nav-link" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try now</a>
@@ -459,6 +464,8 @@
             </div>
         </div>
         <script src="js/global.js"></script>
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/index.js"></script>
         <noscript>Your browser either does not support JavaScript or it not active. Please activate JavaScript.</noscript>
     </footer>
 
@@ -472,6 +479,7 @@
 
         gtag('config', 'UA-43265909-2');
     </script>
+    <script src="https://apis.google.com/js/platform.js"></script>
 </body>
 
 </html>
