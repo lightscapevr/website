@@ -260,3 +260,7 @@ body a .card{color: rgb(77,77,77);}
 #login-bar:hover {
     background-color: rgb(180, 180, 180);
 }
+
+#user-modal-logout {
+    margin-right: 20px;
+}

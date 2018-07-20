@@ -29,8 +29,6 @@ function connectModalAndTrigger(modalId, triggerId) {
     }
 }
 
-connectModalAndTrigger('modal-1', "modal-1-open-btn");
-
 // index testimonial fade scroll logic
 let slideIndex = 0;
 if (window.location.pathname.split("/").pop() === "index.html") {

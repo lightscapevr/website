@@ -5,8 +5,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="">-->
     <title>VR Sketch</title>
     <meta name="description" content="Virtual Reality drawing tools for architects and designers. A SketchUp extension allowing anyone to use SketchUp from inside virtual reality">
     <meta name="author" content="VR Sketch">
@@ -468,6 +466,23 @@
         <script src="js/index.js"></script>
         <noscript>Your browser either does not support JavaScript or it not active. Please activate JavaScript.</noscript>
     </footer>
+
+    <div id="user-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-close-btn">&times;</span>
+                <h2><span id="user-modal-user"></span></h2>
+            </div>
+            <div class="modal-body">
+                Loading license info...
+            </div>
+            <div class="modal-footer">
+
+                <button id="user-modal-logout" class="btn-prime" onclick="signout()">Log out</button>
+                <button id="user-modal-close" class="btn-second">Close</button>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Global site tag (gtag.js) - Google Analytics -->

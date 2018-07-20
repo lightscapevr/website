@@ -7,6 +7,9 @@ function show_error(err) {
 function onSignedIn(googleUser)
 {
     var name = googleUser.getBasicProfile().getName();
+    $("#login-bar").replaceWith($("#login-bar").clone()); // remove event listeners
+    connectModalAndTrigger("user-modal", "login-bar");
+    $("#user-modal-user").text("Logged in as " + name);
     $("#login-contents").text(name);
 }
 
@@ -23,12 +26,25 @@ $(document).ready(function() {
         auth2.then(function () {
             if (auth2.isSignedIn.get()) {
                 onSignedIn(auth2.currentUser.get());
+            } else {
+                auth2.attachClickHandler($("#login-bar")[0], {}, onSignedIn,
+                    show_error);
             }
 
-            auth2.attachClickHandler($("#login-bar")[0], {}, onSignedIn,
-                show_error);
-
         }, show_error);
-
     });
+    let modal = $("#user-modal")[0];
+    $("#user-modal-close").click(function () { modal.style.display = "none"; });
 });
+
+function signout() {
+    auth2.signOut().then(function () {
+        $("#user-modal-user").text("not logged in");
+        $("#login-contents").text("Log in");
+        $("#login-bar").replaceWith($("#login-bar").clone()); // remove event listeners
+        auth2.attachClickHandler($("#login-bar")[0], {}, onSignedIn,
+                    show_error);
+        let modal = $("#user-modal")[0];
+        modal.style.display = "none";
+    });
+}
