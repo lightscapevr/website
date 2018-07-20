@@ -11,6 +11,25 @@ function hide_menu() {
         nav_btn_array[i].classList.remove("nav-responsive");
     }
 }
+// modal logic
+
+function connectModalAndTrigger(modalId, triggerId) {
+    // Find connections
+    let modal = document.getElementById(modalId);
+    let modalOpenBtn = document.getElementById(triggerId);
+    let modalCloseBtn = modal.getElementsByClassName("modal-close-btn")[0];
+
+    // Add events
+    modalOpenBtn.onclick = function () { modal.style.display = "block"; }
+    modalCloseBtn.onclick = function () { modal.style.display = "none"; }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
+connectModalAndTrigger('modal-1', "modal-1-open-btn");
 
 // index testimonial fade scroll logic
 let slideIndex = 0;
