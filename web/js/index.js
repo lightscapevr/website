@@ -35,6 +35,43 @@ $(document).ready(function() {
     });
     let modal = $("#user-modal")[0];
     $("#user-modal-close").click(function () { modal.style.display = "none"; });
+
+
+    // index testimonial fade scroll logic
+    let slideIndex = 0;
+    cycle_slides();
+    function cycle_slides() {
+        let slide_array = document.getElementsByClassName("slide");
+
+        for (let i = 0; i < slide_array.length; i++) {
+            slide_array[i].classList.add("slide-off");
+            slide_array[i].classList.remove("slide-on");
+        }
+
+        slideIndex++;
+        if (slideIndex > slide_array.length) { slideIndex = 1 }
+        slide_array[slideIndex - 1].classList.remove("slide-off");
+        slide_array[slideIndex - 1].classList.add("slide-on");
+
+        setTimeout(cycle_slides, 6000); //time interval must match css
+    }
+
+    // FAQ Logic
+    let accordions = document.getElementsByClassName("accordion");
+    if (accordions != undefined && accordions.length > 0) {
+        for (let i = 0; i < accordions.length; i++) {
+            accordions[i].addEventListener("click", function () {
+                this.classList.toggle("accordion-active");
+                let panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    }
+
 });
 
 function signout() {
