@@ -13,14 +13,18 @@ function hide_menu() {
 }
 // modal logic
 
-function connectModalAndTrigger(modalId, triggerId) {
+function connectModalAndTrigger(modalId, triggerId, afterfunc) {
     // Find connections
     let modal = document.getElementById(modalId);
     let modalOpenBtn = document.getElementById(triggerId);
     let modalCloseBtn = modal.getElementsByClassName("modal-close-btn")[0];
 
     // Add events
-    modalOpenBtn.onclick = function () { modal.style.display = "block"; }
+    modalOpenBtn.onclick = function () {
+        modal.style.display = "block";
+        if (afterfunc)
+            afterfunc();
+    }
     modalCloseBtn.onclick = function () { modal.style.display = "none"; }
     window.onclick = function (event) {
         if (event.target == modal) {

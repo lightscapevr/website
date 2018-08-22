@@ -1,4 +1,5 @@
 var auth2 = null;
+var connection;
 
 function show_error(err) {
     console.log(JSON.stringify(err, undefined, 2));
@@ -8,7 +9,9 @@ function onSignedIn(googleUser)
 {
     var name = googleUser.getBasicProfile().getName();
     $("#login-bar").replaceWith($("#login-bar").clone()); // remove event listeners
-    connectModalAndTrigger("user-modal", "login-bar");
+    connectModalAndTrigger("user-modal", "login-bar", function() {
+        //connection.session.call
+    });
     $("#user-modal-user").text("Logged in as " + name);
     $("#login-contents").text(name);
 }
@@ -71,6 +74,22 @@ $(document).ready(function() {
             });
         }
     }
+
+    var wsuri;
+    if (document.location.origin == "file://") {
+        wsuri = "ws://127.0.0.1:8080/ws";
+
+    } else {
+        wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
+                 document.location.host + "/ws";
+    }
+    connection = new autobahn.Connection({
+      url: wsuri,
+      realm: "vrsketch",
+      max_retries: -1,
+      max_retry_delay: 3,
+    });
+    connection.open();
 
 });
 
