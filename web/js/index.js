@@ -1,19 +1,56 @@
 var auth2 = null;
 var connection;
+var state = null;
 
 function show_error(err) {
     console.log(JSON.stringify(err, undefined, 2));
 }
 
+function State(auth_token, fullname, email)
+{
+    this.auth_token = auth_token;
+    this.fullname = fullname;
+    this.email = email;
+    return this;
+}
+
 function onSignedIn(googleUser)
 {
-    var name = googleUser.getBasicProfile().getName();
+    var profile = googleUser.getBasicProfile();
+    // The ID token you need to pass to your backend:
+    var id_token = googleUser.getAuthResponse().id_token;
+    
+    var name = profile.getName();
     $("#login-bar").replaceWith($("#login-bar").clone()); // remove event listeners
+    state = new State(id_token, name, profile.getEmail());
     connectModalAndTrigger("user-modal", "login-bar", function() {
-        //connection.session.call
+        connection.session.call('com.user.get_info', [state.auth_token, 
+            state.fullname, state.email]).then(function (r) {
+                console.log(r);
+            }, show_error);
     });
     $("#user-modal-user").text("Logged in as " + name);
     $("#login-contents").text(name);
+}
+
+function order_regular()
+{
+    var cbinst = Chargebee.getInstance();
+    cbinst.openCheckout({
+        hostedPage: function() {
+            return connection.session.call('com.hostedpage', [state.auth_token,
+                state.fullname, state.email]);
+        },
+        success: function(hostedPageId) {
+            connection.session.call('com.user.successful_payment',
+                [state.auth_token, hostedPageId]).then(function (r) {
+                    console.log("called");
+                }, show_error);
+        },
+        error: show_error
+    });
+    // XXX check if we're logged in
+//    connection.session.call()
 }
 
 $(document).ready(function() {
@@ -90,6 +127,8 @@ $(document).ready(function() {
       max_retry_delay: 3,
     });
     connection.open();
+
+    var cbinst = Chargebee.init({site: 'baroquesoftware-test'});
 
 });
 
