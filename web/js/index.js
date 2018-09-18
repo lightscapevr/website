@@ -11,7 +11,27 @@ function State(auth_token, fullname, email)
     this.auth_token = auth_token;
     this.fullname = fullname;
     this.email = email;
+    this.callLater = null;
     return this;
+}
+
+var FORMAT = "DD MMMM YYYY";
+
+function formatDate(tstamp)
+{
+    return moment(new Date(tstamp * 1000)).format(FORMAT);
+}
+
+function getUserInfo()
+{
+    connection.session.call('com.user.get_info', [state.auth_token, 
+    state.fullname, state.email]).then(function (r) {
+        if (r.subscriptions) {
+            $("#manage-subscription-section").show();
+            $("#pricing").hide();
+        }
+    },
+    show_error);
 }
 
 function onSignedIn(googleUser)
@@ -19,41 +39,158 @@ function onSignedIn(googleUser)
     var profile = googleUser.getBasicProfile();
     // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;
-    
+
     var name = profile.getName();
     $("#login-bar").replaceWith($("#login-bar").clone()); // remove event listeners
     state = new State(id_token, name, profile.getEmail());
-    connectModalAndTrigger("user-modal", "login-bar", function() {
-        connection.session.call('com.user.get_info', [state.auth_token, 
-            state.fullname, state.email]).then(function (r) {
-                console.log(r);
-            }, show_error);
-    });
+    connectModalAndTrigger("user-modal", "login-bar", showLicenses);
+    if (connection.session.isOpen) {
+        getUserInfo();
+    } else {
+        state.callLater = getUserInfo;
+    }
     $("#user-modal-user").text("Logged in as " + name);
     $("#login-contents").text(name);
 }
 
-function order_regular()
+function showLicenseModal() {
+    $("#user-modal")[0].style.display = "block";
+    showLicenses();
+}
+
+function showLicenses() {
+    connection.session.call('com.user.get_info', [state.auth_token, 
+        state.fullname, state.email]).then(function (r) {
+            if (!r.result) {
+                $("#user-modal-body").html("No license present, please sign up for one");
+            } else {
+                r.number = r.subscriptions.length;
+                for (var i in r.subscriptions) {
+                    var sub = r.subscriptions[i];
+                    if (sub.license_type == 'vr-sketch-hobbyist')
+                        sub.license_type = "hobbyist";
+                    else if (sub.license_type == 'vr-sketch')
+                        sub.license_type = "";
+                    else
+                        sub.license_type = "educational";
+
+                    sub.ends_at = formatDate(sub.ends_at);
+                    if (sub.deleted) {
+                        sub.deleted = "cancelled";
+                    } else {
+                        sub.deleted = "";
+                    }
+                }
+                nunjucks.render('templates/subscriptions.html', r, function (err, html) {
+                    if (err) {
+                        show_error(err);
+                    } else {
+                        $("#user-modal-body").html(html);
+                    }
+                });
+            }
+        }, show_error);
+}
+
+function logInIfNotLoggedIn(continuation)
+{
+    if (auth2.currentUser.get().isSignedIn())
+        return true;
+    // show the log in dialog
+    gapi.auth2.getAuthInstance().signIn().then(function (googleUser) {
+        onSignedIn(googleUser);
+        continuation();
+    });
+}
+
+function createHostedPage(plan)
 {
     var cbinst = Chargebee.getInstance();
     cbinst.openCheckout({
         hostedPage: function() {
             return connection.session.call('com.hostedpage', [state.auth_token,
-                state.fullname, state.email]);
+                state.fullname, state.email, plan]);
         },
         success: function(hostedPageId) {
             connection.session.call('com.user.successful_payment',
                 [state.auth_token, hostedPageId]).then(function (r) {
-                    console.log("called");
                 }, show_error);
         },
         error: show_error
     });
-    // XXX check if we're logged in
-//    connection.session.call()
+}
+
+function order_regular()
+{
+    if (!logInIfNotLoggedIn(order_regular))
+        return;
+    createHostedPage('vr-sketch');
+}
+
+function showEduModal()
+{
+    if (!logInIfNotLoggedIn(showEduModal))
+        return;
+    $("#edu-modal")[0].style.display = "block";
+}
+
+function order_hobbyist()
+{
+    $("#hobbyist-modal")[0].style.display = "";
+    createHostedPage('vr-sketch-hobbyist');
+}
+
+function showHobbyistModal()
+{
+    if (!logInIfNotLoggedIn(showHobbyistModal))
+        return;
+    $("#hobbyist-modal")[0].style.display = "block";
+}
+
+function manage_subscriptions()
+{
+    cbinst = Chargebee.getInstance();
+    cbinst.setPortalSession(function() {
+        return connection.session.call('com.portalsession', [state.auth_token]).then(
+            function (r) {
+                if (!r.success)
+                    show_error(r.error);
+                return r['portal_session'];
+        }, show_error);
+        });
+    cbinst.createChargebeePortal().open({close: function() {
+       connection.session.call('com.user.update_info', [state.auth_token]).then(
+            function (res) {
+                if (!res.success)
+                    show_error(res.error)
+                else
+                    showLicenses();
+            }, show_error);
+    }});
 }
 
 $(document).ready(function() {
+    var wsuri;
+    if (document.location.origin == "file://") {
+        wsuri = "ws://127.0.0.1:8080/ws";
+
+    } else {
+        wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
+                 document.location.host + "/ws";
+    }
+    connection = new autobahn.Connection({
+      url: wsuri,
+      realm: "vrsketch",
+      max_retries: -1,
+      max_retry_delay: 3,
+    });
+    connection.onopen = function (session, details) {
+        if (state && state.callLater) {
+            state.callLater();
+        }
+    }
+    connection.open();
+
     gapi.load('auth2', function(){
         // Retrieve the singleton for the GoogleAuth library and set up the client.
         auth2 = gapi.auth2.init({
@@ -112,23 +249,8 @@ $(document).ready(function() {
         }
     }
 
-    var wsuri;
-    if (document.location.origin == "file://") {
-        wsuri = "ws://127.0.0.1:8080/ws";
-
-    } else {
-        wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
-                 document.location.host + "/ws";
-    }
-    connection = new autobahn.Connection({
-      url: wsuri,
-      realm: "vrsketch",
-      max_retries: -1,
-      max_retry_delay: 3,
-    });
-    connection.open();
-
     var cbinst = Chargebee.init({site: 'baroquesoftware-test'});
+    nunjucks.configure({'web': {'async': true}});
 
 });
 
@@ -141,5 +263,7 @@ function signout() {
                     show_error);
         let modal = $("#user-modal")[0];
         modal.style.display = "none";
+        $("#pricing").show();
+        $("#manage-subscription-section").hide();
     });
 }

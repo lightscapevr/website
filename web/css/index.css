@@ -264,3 +264,7 @@ body a .card{color: rgb(77,77,77);}
 #user-modal-logout {
     margin-right: 20px;
 }
+
+#manage-subscriptions-container {
+    padding-bottom: 20px;
+}

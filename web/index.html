@@ -201,7 +201,7 @@
                 <div class="row">
                     <h2>Licenses</h2>
                     <div class="col-4">
-                        <a href="#">
+                        <a href="#" onclick="showEduModal()">
                             <div class="card">
                                 <h3>Educational</h3>
                                 <p>
@@ -209,7 +209,7 @@
                                     <span class="price-info">€</span>
                                 </p>
                                 <p>For students and universities</p>
-                                <div class="price-cta">Download
+                                <div class="price-cta">Sign up
                                     <i class="fas fa-arrow-right"></i>
                                 </div>
                             </div>
@@ -220,7 +220,7 @@
                             <div class="card shadow">
                                 <h3>Standard</h3>
                                 <p>
-                                    <span class="price-amount">30</span>
+                                    <span class="price-amount">30 (+VAT)</span>
                                     <span class="price-info">€ / month</span>
                                 </p>
                                 <p>For commercial use</p>
@@ -231,11 +231,11 @@
                         </a>
                     </div>
                     <div class="col-4">
-                        <a href="#">
+                        <a href="#" onclick="showHobbyistModal()">
                             <div class="card">
                                 <h3>Hobbyist</h3>
                                 <p>
-                                    <span class="price-amount">60</span>
+                                    <span class="price-amount">5 (+VAT)</span>
                                     <span class="price-info">€ once off</span>
                                 </p>
                                 <p>For non-commercial use</p>
@@ -248,6 +248,9 @@
                     </div>
                 </div>
             </div>
+        </section>
+        <section id="manage-subscription-section" style="display: none">
+            <button class="btn-prime" onclick="showLicenseModal()">Manage my subscriptions</button>
         </section>
 
 
@@ -475,13 +478,57 @@
                 <span class="modal-close-btn">&times;</span>
                 <h2><span id="user-modal-user"></span></h2>
             </div>
-            <div class="modal-body">
-                Loading license info...
+            <div id="user-modal-body" class="modal-body">
+                Loading license info... <i class="fa fa-spin fa-spinner"></i>
             </div>
             <div class="modal-footer">
 
                 <button id="user-modal-logout" class="btn-prime" onclick="signout()">Log out</button>
-                <button id="user-modal-close" class="btn-second">Close</button>
+                <button id="user-modal-close" onclick="$('user-modal').hide()" class="btn-second">Close</button>
+            </div>
+        </div>
+    </div>
+    <div id="hobbyist-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                Hobbyist license details
+            </div>
+            <div class="modal-body">
+                Hobbyist license is for users who are not using VR Sketch
+                in professional capacity or for whom <b>total</b> income
+                from computer aided design work does not exceed €10 000
+                a year. Do you agree to those conditions?
+            </div>
+            <div class="modal-footer">
+                <button class="btn-prime" onclick="order_hobbyist()">Agree</button>
+                <button class="btn-second" onclick="$('#hobbyist-modal').hide()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="edu-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                Educational license details
+            </div>
+            <div class="modal-body">
+                <div id="edu-modal-error"></div>
+                We give away educational licenses for free, but we require you to fill in a bit
+                of extra info. We also reserve the right to contact you to improve our product,
+                in exchange for free license.
+                <form target="#">
+                <ul>
+                    <li>I agree that I will use the educational license for educational purposes only
+                        <input type="checkbox" name="check"></li>
+                    <li>Institution: <input type="text"></li>
+                    <li>Role in that institution (student, teacher): <input type="text"></li>
+                    <li>Purpose of the license: <textarea></textarea></li>
+                </ul>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-prime" onclick="check_edu_and_order()">Submit and subscribe</button>
+                <button class="btn-second" onclick="$('#edu-modal').hide()">Close</button>
             </div>
         </div>
     </div>
@@ -496,6 +543,8 @@
 
         gtag('config', 'UA-43265909-2');
     </script>
+    <script src="js/nunjucks.min.js"></script>
+    <script src="js/moment.min.js"></script>
     <script src="https://apis.google.com/js/platform.js"></script>
 </body>
 

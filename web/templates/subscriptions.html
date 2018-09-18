@@ -1,0 +1,9 @@
+<div id="manage-subscriptions-container">
+    <button onclick="manage_subscriptions()" class="btn-prime">Manage subscriptions</button>
+</div>
+Found valid {{ subscriptions[0].license_type }} subscription:
+<ul>
+{% for sub in subscriptions %}
+    <li>Expiring {{ sub.ends_at }}, {{ sub.deleted }} ID: <span class="subscription_id">{{ sub.license_id }}</span></li>
+{% endfor %}
+</ul>
