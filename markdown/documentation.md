@@ -442,6 +442,6 @@ This code contains LibTessDotNet (https://github.com/speps/LibTessDotNet), which
 
 # Contact
 We hope you enjoy it!
-Feel free to give us feedback by writing to fijal@baroquesoftware.com
+Feel free to give us feedback by writing to info@baroquesoftware.com
 The Baroque Software team
 
