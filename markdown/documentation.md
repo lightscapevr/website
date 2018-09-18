@@ -1,8 +1,9 @@
 # Requirements
 
-* OS: Currently only works on Windows. A Mac version will be available at some stage.
+* OS: Currently only works on Windows. If you want Mac support and you are willing to sponsor
+  the necessary equipment, please get in touch.
 * VR headsets: HTC Vive or Oculus Touch. Windows Mixed Realities headsets work, but they're not officially supported.
-* Software: Only SketchUp 2017 and 2018 are currently supported. We are working on adding support for REVIT next.
+* Software: Only SketchUp 2017 and 2018 are currently supported. We are working on adding support for Autodesk revit next.
 
 # Downloading and installing
 
@@ -40,7 +41,7 @@ You can either download and automatically install the VR Sketch plugin from insi
 
 * With SketchUp open, in the top menu bar, click "Extensions" then click "VR Sketch" and then click "Send to VR". This will sends your currently-opened SketchUp model to the VR headset. 
 <img src="./img/docs/menu-vr.png" alt="Click 'Send to VR'"> 
-* If you have used VR Sketch before the icon tray may be visitable. You can also click on the first icon **Send to VR and teleport tool** to send your currently-opened SketchUp model to the VR headset. 
+* If you have used VR Sketch before the icon tray may be visible. You can also click on the first icon **Send to VR and teleport tool** to send your currently-opened SketchUp model to the VR headset. 
 
 # Controls and input
 
@@ -48,7 +49,7 @@ You can either download and automatically install the VR Sketch plugin from insi
 
 #### HTC Vive
   * Trigger - Used to do the action of the current tool. Is similar to clicking with a mouse.
-  * Touchpad - This is the ⋮ menu button. Hold it in to choose which tool you want to use. The touchpad is also used to scroll.
+  * Touchpad - This is the ⋮ menu button. Hold it in to choose which tool you want to use. The touchpad is also used to scroll in various tools.
   * Grip buttons - Hold in these buttons to move and scale your model.
   * Small top button - Play/stop in VR videos, when selected from SketchUp.
   * Small bottom button - Is the Steam Home button and will load the Steam Home Page.
