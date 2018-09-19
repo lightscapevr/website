@@ -67,7 +67,7 @@ You can either download and automatically install the VR Sketch plugin from insi
 ### Choosing a tool
 How to choose the tool you want to use with each controller.
 
-<video autoplay="autoplay" loop="loop">
+<video autoplay="autoplay" preload="auto" loop="loop">
   <source src="./img/docs/tool-choose.mp4" type="video/mp4" />
 </video>
 
@@ -109,7 +109,7 @@ Navigate around your model at any scale. This is not a standard tool; instead, i
 ### Select tool
 The tool to select individual or multiple lines, faces or groups.
 
-<video autoplay="autoplay" loop="loop">
+<video autoplay="autoplay" loop="loop" preload="auto">
   <source src="./img/docs/tool-select.mp4" type="video/mp4" />
 </video>
 
@@ -127,7 +127,7 @@ The tool to select individual or multiple lines, faces or groups.
 ### Group and Component tools
 How to work with Group or Component.
 
-<video autoplay="autoplay" loop="loop">
+<video autoplay="autoplay" loop="loop" preload="auto">
   <source src="./img/docs/tool-component.mp4" type="video/mp4" />
 </video>
 
