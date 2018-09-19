@@ -67,7 +67,7 @@ You can either download and automatically install the VR Sketch plugin from insi
 ### Choosing a tool
 How to choose the tool you want to use with each controller.
 
-<video autoplay="autoplay" preload="auto" loop="loop">
+<video muted autoplay="autoplay" preload="auto" loop="loop">
   <source src="./img/docs/tool-choose.webm" type="video/webm" />
 </video>
 
