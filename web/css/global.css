@@ -96,6 +96,17 @@ body a:active {
     -moz-box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.2);
     box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.2); 
 }
+.modal-body p{
+    padding-bottom: 15px;
+}
+.modal-body input[type="text"], .modal-body textarea{
+    background-color: rgb(223, 219, 219);
+    padding: 5px;
+    border: none;
+    max-width: 30ch;
+    width: 100%;
+}
+
 .modal-close-btn {
     color: rgb(179, 179, 179);
     float: right;
@@ -111,6 +122,7 @@ body a:active {
 
 .modal-header {
     padding-bottom: 30px;
+    font-size: 2em;
 }
 .modal-body {
     padding-bottom: 30px;

@@ -86,7 +86,10 @@ section{
 }
 /* -------------------- Video -------------------- */
 /* -------------------- Pricing -------------------- */
-body a .card{color: rgb(77,77,77);}
+body a .card{
+    color: rgb(77,77,77);
+    outline:none;
+}
 .card{
     text-align: center;
     background-color: rgb(255, 255, 255);
