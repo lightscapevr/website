@@ -293,6 +293,16 @@ The tool to choose and place colours and textures on the model.
 * Placing a material. With a material selected aim the laser at the face you wish to paint and click with the  **trigger**.
 * Eye-drop a material. With the paint tool selected move the controller to touch the face with the material you want. You will see the tool icon will change to a bucket with a red arrow pointing into the bucket. Click with the  **trigger** to make the material of the face become your currently selected material.
 
+### Notes tool
+Notes tool is designed for leaving temporary notes in the VR. Simple freehand notes that can be removed later.
+
+### Tape measure tool
+Tape measure can be used for measuring distance to the object (like a laser pointer).
+The cross from tape tool is visible on the screen, which improves the communication between
+person in VR and person in front of the computer.
+
+When clicked, the tape tool can be used to create guidelines, like in sketchup.
+
 ### Materials
 The tool where you can select, edit and create new materials.
 
