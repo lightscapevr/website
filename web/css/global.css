@@ -163,6 +163,7 @@ body a:active {
     padding: 5px 10px;
     color: rgb(129, 211, 61);
     border-radius: 3px;
+    outline:none
 }
 .nav-btn:hover{
     color: rgb(64, 158, 119);
@@ -170,6 +171,13 @@ body a:active {
 .nav-btn:active{
     color: rgb(43, 124, 90);
 }
+.nav-login{
+   background-color: rgb(222, 250, 201);
+}
+.nav-login:hover{
+    background-color: rgb(94, 184, 94);
+    color: white;
+ }
 #nav-container .btn-prime{
     padding: 5px 10px;
 }
@@ -264,4 +272,14 @@ footer noscript{
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+
+/* -------------------- Other ----------------------- */
+
+#user-modal-logout {
+    margin-right: 20px;
+}
+
+#manage-subscriptions-container {
+    padding-bottom: 20px;
 }
