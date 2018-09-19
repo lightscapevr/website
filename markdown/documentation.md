@@ -68,7 +68,7 @@ You can either download and automatically install the VR Sketch plugin from insi
 How to choose the tool you want to use with each controller.
 
 <video autoplay="autoplay" preload="auto" loop="loop">
-  <source src="./img/docs/tool-choose.mp4" type="video/mp4" />
+  <source src="./img/docs/tool-choose.webm" type="video/webm" />
 </video>
 
 * To choose a tool, hold in the **⋮ menu button**, a list of tools will appear in front of the controller, move the controller to the tool you would like to use. The tools icon will highlight when the controller is over it. Release the **⋮ menu button** while you are over the tool to select it. You will see the icon on the controller will change to the current tool of that controller.
