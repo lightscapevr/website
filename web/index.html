@@ -519,15 +519,15 @@
                 <form target="#">
                 <ul>
                     <li>I agree that I will use the educational license for educational purposes only
-                        <input type="checkbox" name="check"></li>
-                    <li>Institution: <input type="text"></li>
-                    <li>Role in that institution (student, teacher): <input type="text"></li>
-                    <li>Purpose of the license: <textarea></textarea></li>
+                        <input type="checkbox" id="edu-check"></li>
+                    <li>Institution: <input id="edu-institution" type="text"></li>
+                    <li>Role in that institution (student, teacher): <input id="edu-role" type="text"></li>
+                    <li>Purpose of the license (eg teaching): <textarea id="edu-purpose"></textarea></li>
                 </ul>
                 </form>
             </div>
             <div class="modal-footer">
-                <button class="btn-prime" onclick="check_edu_and_order()">Submit and subscribe</button>
+                <button class="btn-prime" onclick="checkEduAndOrder()">Submit and subscribe</button>
                 <button class="btn-second" onclick="$('#edu-modal').hide()">Close</button>
             </div>
         </div>

@@ -147,6 +147,18 @@ function showHobbyistModal()
     $("#hobbyist-modal")[0].style.display = "block";
 }
 
+function checkEduAndOrder()
+{
+    if (!$("#edu-purpose").val() || !$("#edu-role").val() || !$("#edu-institution").val()) {
+        $("#edu-modal-error").html("please fill in the fields");
+        return;
+    } else if (!$("#edu-check").prop("checked")) {
+        $("#edu-modal-error").html("please check the checkbox");
+        return;
+    }
+    createHostedPage("vr-sketch-educational");
+}
+
 function manage_subscriptions()
 {
     cbinst = Chargebee.getInstance();
