@@ -255,3 +255,15 @@ body a .card{
 }
 
 /* -------------------- Other ----------------------- */
+
+.subscription_id {
+    border: 1px solid;
+    padding-left: 2px;
+    padding-right: 2px;
+    border-color: black;
+}
+
+#edu-modal-error {
+    color: rgb(200, 50, 50);
+    margin-bottom: 10px;
+}

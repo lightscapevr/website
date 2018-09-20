@@ -4,6 +4,8 @@
 Found valid {{ subscriptions[0].license_type }} subscription:
 <ul>
 {% for sub in subscriptions %}
-    <li>Expiring {{ sub.ends_at }}, {{ sub.deleted }} ID: <span class="subscription_id">{{ sub.license_id }}</span></li>
+    <li>Next charge at {{ sub.ends_at }}, {{ sub.deleted }} License key to copy-paste:
+        <span class="subscription_id">{{ sub.license_id }}</span>
+    </li>
 {% endfor %}
 </ul>

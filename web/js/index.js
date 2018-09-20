@@ -2,7 +2,17 @@ var auth2 = null;
 var connection;
 var state = null;
 
+function hide_error()
+{
+    $("#error").html("");
+}
+
 function show_error(err) {
+    if (err && err.error == 'wamp.error.runtime_error' && err.args[0].startsWith('Token expired')) {
+        signout();
+        return;
+    }
+    $("#error").html("Error encountered <span onclick='hide_error()'>&times;</span>");
     console.log(JSON.stringify(err, undefined, 2));
 }
 
@@ -43,7 +53,7 @@ function onSignedIn(googleUser)
     var name = profile.getName();
     $("#login-bar").replaceWith($("#login-bar").clone()); // remove event listeners
     state = new State(id_token, name, profile.getEmail());
-    connectModalAndTrigger("user-modal", "login-bar", showLicenses);
+    connectModalAndTrigger("user-modal", "login-bar", showLicenseModal);
     if (connection.session.isOpen) {
         getUserInfo();
     } else {
@@ -114,6 +124,8 @@ function createHostedPage(plan)
         success: function(hostedPageId) {
             connection.session.call('com.user.successful_payment',
                 [state.auth_token, hostedPageId]).then(function (r) {
+                    $("#user-modal").show();
+                    showLicenses();
                 }, show_error);
         },
         error: show_error
@@ -156,7 +168,16 @@ function checkEduAndOrder()
         $("#edu-modal-error").html("please check the checkbox");
         return;
     }
-    createHostedPage("vr-sketch-educational");
+    connection.session.call('com.register_edu', [state.auth_token, state.fullname, state.email,
+        $("#edu-purpose").val(), $("#edu-role").val(), $("#edu-institution").val()]).then(function (r) {
+            $("#edu-modal").hide();
+            if (r.success) {
+                showLicenseModal();
+                getUserInfo();
+            }
+            else
+                show_error();
+        }, show_error);
 }
 
 function manage_subscriptions()
@@ -224,6 +245,8 @@ $(document).ready(function() {
     });
     let modal = $("#user-modal")[0];
     $("#user-modal-close").click(function () { modal.style.display = "none"; });
+    connectModalAndTrigger("hobbyist-modal", null, null);
+    connectModalAndTrigger("edu-modal", null, null);
 
 
     // index testimonial fade scroll logic

@@ -23,6 +23,7 @@
 
 <body id="top">
     <header id="nav-container" class="full-width">
+        <div id="error"></div>
         <nav id="nav-main">
             <div class="width-control">
                 <div id="logo">
@@ -499,6 +500,7 @@
     <div id="hobbyist-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
+                <span class="modal-close-btn">&times;</span>
                 Hobbyist license details
             </div>
             <div class="modal-body">
@@ -517,6 +519,7 @@
     <div id="edu-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
+                <span class="modal-close-btn">&times;</span>
                 Educational license details
             </div>
             <div class="modal-body">
@@ -527,11 +530,12 @@
                 </p>
                 <form target="#">
                 <ul>
-                    <li>I agree that I will use the educational license for educational purposes only
+                    <li>I agree that I will use the educational license for educational purposes only.
+                        See <a href="faq.html">FAQ</a> for details.
                         <br><input type="checkbox" id="edu-check"></li>
                     <li>Institution: <br><input id="edu-institution" type="text"></li>
                     <li>Role in that institution (student, teacher): <br><input id="edu-role" type="text"></li>
-                    <li>Purpose of the license (eg teaching): <br><textarea id="edu-purpose"></textarea></li>
+                    <li>Purpose of the license (eg teaching): <br><input id="edu-purpose" type="text"></li>
                 </ul>
                 </form>
             </div>

@@ -20,10 +20,12 @@ function connectModalAndTrigger(modalId, triggerId, afterfunc) {
     let modalCloseBtn = modal.getElementsByClassName("modal-close-btn")[0];
 
     // Add events
-    modalOpenBtn.onclick = function () {
-        modal.style.display = "block";
-        if (afterfunc)
-            afterfunc();
+    if (modalOpenBtn) {
+        modalOpenBtn.onclick = function () {
+            modal.style.display = "block";
+            if (afterfunc)
+                afterfunc();
+        }
     }
     modalCloseBtn.onclick = function () { modal.style.display = "none"; }
     window.onclick = function (event) {
