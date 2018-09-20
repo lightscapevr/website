@@ -240,7 +240,7 @@
                                     <span class="price-amount">5</span>
                                     <span class="price-info">€</span>
                                 </p>
-                                <p class="price-info">once off (+VAT)</p>
+                                <p class="price-info">per month (+VAT)</p>
                                 <p>For non-commercial use</p>
                                 <div class="price-cta">
                                     Purchase
@@ -252,10 +252,15 @@
                 </div>
             </div>
         </section>
-        <section id="manage-subscription-section" style="display: none">
-            <button class="btn-prime" onclick="showLicenseModal()">Manage my subscriptions</button>
-        </section>
 
+        <section id="manage-subscription-section" style="display: none">
+            <div class="width-control">
+                <div class="row"> 
+                    <h2>My licenses</h2>
+                    <button class="btn-prime manage-btn" onclick="showLicenseModal()">Manage my subscriptions</button>
+                </div>
+            </div>
+        </section>
 
         <section id="features" class="white">
             <div class="width-control">
@@ -523,10 +528,10 @@
                 <form target="#">
                 <ul>
                     <li>I agree that I will use the educational license for educational purposes only
-                        <input type="checkbox" id="edu-check"></li>
-                    <li>Institution: <input id="edu-institution" type="text"></li>
-                    <li>Role in that institution (student, teacher): <input id="edu-role" type="text"></li>
-                    <li>Purpose of the license (eg teaching): <textarea id="edu-purpose"></textarea></li>
+                        <br><input type="checkbox" id="edu-check"></li>
+                    <li>Institution: <br><input id="edu-institution" type="text"></li>
+                    <li>Role in that institution (student, teacher): <br><input id="edu-role" type="text"></li>
+                    <li>Purpose of the license (eg teaching): <br><textarea id="edu-purpose"></textarea></li>
                 </ul>
                 </form>
             </div>

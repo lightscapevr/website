@@ -120,7 +120,12 @@ body a .card{
     background-color: rgb(105, 204, 105);
     font-weight: bold;
 }
-
+.manage-btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 /* -------------------- Features -------------------- */
 .quote-text{
     text-align: center;
