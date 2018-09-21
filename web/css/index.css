@@ -267,3 +267,7 @@ body a .card{
     color: rgb(200, 50, 50);
     margin-bottom: 10px;
 }
+
+.extra-mail-margin {
+    margin-top: 20px;
+}
