@@ -88,6 +88,8 @@ section{
 /* -------------------- Pricing -------------------- */
 body a .card{
     color: rgb(77,77,77);
+}
+#pricing a{
     outline:none;
 }
 .card{
@@ -220,6 +222,9 @@ body a .card{
 
 #learn h2{
     margin-bottom: 60px;
+}
+#learn a{
+    outline:none;
 }
 .learning-card{
     background-color: rgb(255, 255, 255);
