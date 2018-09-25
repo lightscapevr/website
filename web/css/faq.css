@@ -21,6 +21,7 @@ main {
     text-align: left;
     font-size: 1.2em;
     transition: 0.4s;
+    outline:none;
 }
 .accordion:hover {
     background-color: rgb(181, 235, 160);
@@ -28,6 +29,9 @@ main {
 .accordion-active{
     background-color: transparent;
 }
+button::-moz-focus-inner {
+    border: 0;
+  }
 
 .accordion:after {
     content: '\002B';
