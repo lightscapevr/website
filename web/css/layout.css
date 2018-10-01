@@ -14,7 +14,7 @@
     float: left;
 }
 
-/* Media queries: 0-768 Mobile first is the default. Single or 2 column */
+/* Media queries: 0-768 Mobile first is the default. Single column */
 .width-control { 
     max-width: 768px;
     margin-left: auto;
@@ -22,6 +22,9 @@
     padding-left: 24px;
     padding-right: 24px;
 }
+.fixed-6 {
+    width: 50%; 
+    float: left;}
 
 /* Media queries: 768 and bigger. For desktop. 12 columns */
 @media only screen and (min-width: 1000px) {
@@ -49,4 +52,30 @@
 
 .full-width {
     width: 100%;
+}
+
+/* -------------------- Positioning -------------------- */
+
+.text-center{
+    text-align: center;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* -------------------- Responsive Media -------------------- */
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 55%;
+    height: 0;
+}
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
