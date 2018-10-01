@@ -271,9 +271,11 @@ How to move and copy objects.
 ### Rotate tool
 The tool to rotate objects.
 
+<!---
 <video muted autoplay="autoplay" loop="loop">
   <source src="./img/docs/tool-rotate.mp4" type="video/mp4" />
 </video>
+-->
 
 * Move the controller over the thing you wish to rotate. It will highlight purple. Click once with the  **trigger** to set the point around which the object will rotate, move the controller away a little to create a leaver and click a second time. Now move the controller to set the rotation you wish and pull the  **trigger** a third time to complete the rotation.
 * A circular ruler is shown to tell you in which plane the rotation occurs. If you move the controller outside the ruler, the angle is unconstrained. If you move the controller inside the ruler, the angle is constrained to multiples of either 5 or 15 degrees. The ruler has got dashes on its edge: short ones every 5 degrees and longer ones every 15 degrees. Move the controller near these dashes for 5-degrees snapping. Move the controller farther inside the ruler for 15-degrees snapping.
@@ -302,7 +304,7 @@ The tool to choose and place colours and textures on the model.
 ### Notes tool
 Notes tool is designed for leaving temporary notes in the VR. Simple freehand notes that can be removed later.
 
-* Draw by holding the **trigger* down.
+* Draw by holding the **trigger** down.
 * You can change color by moving the **touchpad/thumbstick** left or right.
 * To remove notes, use the **eraser** tool.
 * Notes appear in SketchUp too, but only if the "Send to VR" tool is currently selected in SketchUp.
@@ -384,6 +386,9 @@ How to end or stop doing an action.
 * Plane snapping. Many actions also snap to the x,y,z planes. This is indicated by a small coloured square at the controller's tip. The square changes colour to match the plane it is snapping to.
 * Point snapping. Many actions snap to the nearest existing point, line, midpoint of a line or face.
 * The distance at which snapping starts to happen can be set in the **configurations menu**.
+* If you have trouble picking the point you want, try this:
+    * Zoom in. This will make the points farther apart, and easier to pick. It is expected that with a little bit of practice you should constantly be zooming in and out when editing.
+    * Move the **touchpad/thumbstick** left or right. This will temporarily reduce the snapping distance.
 
 ### Locking
 * Locking an axis or plane. Many actions like drawing a line or rectangle can have their axis locked. This is done by using the controller not doing the action to click on the length indicator line or plane indicator guideline.
@@ -408,11 +413,12 @@ How to end or stop doing an action.
 * To play back a VR recording, inside SketchUp, in top menu bar click **Extensions**, then click, **VR Sketch** then click **Play a VR Video...**. This will open a window in where you can choose which recording to open. The recording will start as soon as it is loaded.
 * Press the **small top button** to stop or replay the loaded video.
 
-# Room sharing (EXPERIMENTAL)
+# Room sharing
 * To share the model you are working on, inside SketchUp, in top menu bar click **Extensions**, then click, **VR Sketch** then click **Share room...**. This will open a window in which you can set your name and the Room name.
 * The room name must be at least 4 characters long.
 * If someone enters the same room name then they will appear in the list of peers.
 * You can then choose to send them the model for viewing only or editing by clicking on the buttons.
+* Note that this is *experimental*.
 
 
 # Settings in SketchUp
@@ -443,7 +449,7 @@ How to end or stop doing an action.
     * Rotate can flip the model - if enabled, rotating with the grip buttons can flip the model 90 degrees on its side. This is disabled by default because it can be very confusing for the VR user.
 * Editing (change tools with the touchpad) - Turn on or off the ⋮ menu button.
 #### Rendering
-* Shadows follow SketchUp sun direction - Toggle whether or not the shadows match the SketchUp sun settings. Can be slightly confusing for the VR user, because when he rotates the model, the sun direction rotates too. This somewhat breaks the illusion that we are turning a model in our hands.
+* Shadows follow SketchUp sun direction - Toggle whether or not the shadows follow the SketchUp setting for the sun direction (outside the warehouse only). Can be slightly confusing for the VR user, because when he or she rotates the model, the sun direction rotates too. This breaks the illusion that we are turning a model in our hands.
 * Edges, Hide Rest Of Model, Fog - these are settings that you should configure normally inside SketchUp, and which will be mirrored in VR automatically.
 
 #### Alignment
