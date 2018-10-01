@@ -363,7 +363,7 @@ The tool to control what you can and cannot see.
 * To un-hide all your hidden geometry, first make sure nothing is selected, then hold down the **⋮ menu button** and move the controller over the **Un-Hide all** tool and release the **⋮ menu button**.
 
 ### Intersect tool
-The tool to compute the intersection of faces.
+The tool to compute the intersection of faces (only available from version 2.3).
 
 * Use the **select** tool to select faces or groups, then hold down the **⋮ menu button** and move the controller over the **Intersect** tool and release the **⋮ menu button**.
 * In the simple usage, this computes the intersection of the selected face (or faces) with the rest of the model, and adds it as extra edges.
