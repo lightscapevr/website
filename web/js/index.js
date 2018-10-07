@@ -82,7 +82,7 @@ function showLicenses() {
                     else if (sub.license_type == 'vr-sketch')
                         sub.license_type = "";
                     else
-                        sub.license_type = "educational";
+                        sub.license_type = "educational, automatically renewed";
 
                     sub.ends_at = formatDate(sub.ends_at);
                     if (sub.deleted) {
