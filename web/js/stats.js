@@ -92,7 +92,7 @@ $(document).ready(function () {
                     function (r) { plot2(r, "#use-unique", "unique users (weekly)"); }, show_error
                 );
                 connection.session.call('com.stats.use-unique-monthly', [token]).then(
-                    function (r) { plot2(r, "#use-unique-monthly", "unique users (rolling 30 day window)"); }, show_error
+                    function (r) { plot2(r, "#use-unique-monthly", "unique users (rolling 28 day window)"); }, show_error
                 );
             });
         });
