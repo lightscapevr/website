@@ -1,4 +1,10 @@
 
+if (window.location.host == 'test.vrsketch.eu') {
+    CLIENT_TOKEN_ID = '1076106158582-2hr4jav5kbn2gccs0jsdbdhr4sg1d399.apps.googleusercontent.com';
+} else {
+    CLIENT_TOKEN_ID = '1076106158582-vekr6opr52b6i8eeu3cc8si7828hisgj.apps.googleusercontent.com';
+}
+
 function show_error(err) {
     console.log(err);
 }
@@ -72,19 +78,23 @@ $(document).ready(function () {
       max_retry_delay: 3,
     });
     connection.onopen = function(session, dets) {
-        token = 'oknk2efweo';
-        connection.session.call('com.stats.trials', [token]).then(
-            function (r) { plot(r, "#trial-stats", "trial activations (weekly)"); }, show_error
-        );
-        connection.session.call('com.stats.use-total', [token]).then(
-            function (r) { plot2(r, "#use-stats", "total number of days used (weekly)"); }, show_error
-        );
-        connection.session.call('com.stats.use-unique', [token]).then(
-            function (r) { plot2(r, "#use-unique", "unique users (weekly)"); }, show_error
-        );
-        connection.session.call('com.stats.use-unique-monthly', [token]).then(
-            function (r) { plot2(r, "#use-unique-monthly", "unique users (rolling 30 day window)"); }, show_error
-        );
+        gapi.load('auth2', function() {
+            var auth2 = gapi.auth2.init({'client-id': CLIENT_TOKEN_ID});
+
+            token = auth2.currentUser.get().getAuthResponse().id_token;;
+            connection.session.call('com.stats.trials', [token]).then(
+                function (r) { plot(r, "#trial-stats", "trial activations (weekly)"); }, show_error
+            );
+            connection.session.call('com.stats.use-total', [token]).then(
+                function (r) { plot2(r, "#use-stats", "total number of days used (weekly)"); }, show_error
+            );
+            connection.session.call('com.stats.use-unique', [token]).then(
+                function (r) { plot2(r, "#use-unique", "unique users (weekly)"); }, show_error
+            );
+            connection.session.call('com.stats.use-unique-monthly', [token]).then(
+                function (r) { plot2(r, "#use-unique-monthly", "unique users (rolling 30 day window)"); }, show_error
+            );
+        });
 //        connection.session.call('com.get_stats', ['oknk2efweo', 'use-count']).then(plot_trial2, show_error);
 //        connection.session.call('com.get_stats', ['oknk2efweo', 'use-unique']).then(plot_trial3, show_error);
     };
