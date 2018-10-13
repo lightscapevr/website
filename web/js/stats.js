@@ -79,7 +79,7 @@ $(document).ready(function () {
     });
     connection.onopen = function(session, dets) {
         gapi.load('auth2', function() {
-            var auth2 = gapi.auth2.init({'client-id': CLIENT_TOKEN_ID}).then(function () {
+            var auth2 = gapi.auth2.init({'client_id': CLIENT_TOKEN_ID}).then(function () {
                 token = auth2.currentUser.get().getAuthResponse().id_token;
                 connection.session.call('com.stats.trials', [token]).then(
                     function (r) { plot(r, "#trial-stats", "trial activations (weekly)"); }, show_error
