@@ -277,3 +277,7 @@ body a .card{
     margin-top: 20px;
     text-align: center;
 }
+
+#billing-period-choice-modal-content {
+    background-color: rgb(242, 242, 242);
+}

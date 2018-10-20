@@ -76,7 +76,7 @@
                             VR Sketch is an extension for SketchUp which gives anyone the ability to create, edit and view their models in VR.</p>
                         <div id="landing-ctas">
                             <a class="btn-second" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try for free</a>
-                            <a class="btn-prime" href="#pricing">Get a Licence</a>
+                            <a id="get-a-license" class="btn-prime" href="#pricing">Get a Licence</a>
                         </div>
                     </div>
                     <div class="col-6">
@@ -511,6 +511,7 @@
             </div>
         </div>
     </div>
+
     <div id="hobbyist-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -526,6 +527,62 @@
             <div class="modal-footer">
                 <button class="btn-prime" onclick="order_hobbyist()">Agree</button>
                 <button class="btn-second" onclick="$('#hobbyist-modal').hide()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="billing-period-choice-modal" class="modal">
+        <div class="modal-content" id="billing-period-choice-modal-content">
+            <div class="modal-header">
+                <span class="modal-close-btn">&times;</span>
+                Choose your billing period
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-4">
+                        <a href="#" onclick="order_regular_monthly()">
+                            <div class="card">
+                                <h3>Monthly</h3>
+                                <p>
+                                    <span class="price-amount">30</span>
+                                    <span class="price-info">€</span>
+                                </p>
+                                <p>
+                                    <p class="price-info">per month (+VAT)</p>
+                                </p>
+                                <p>
+                                    billed monthly
+                                </p>
+                                <div class="price-cta">Sign up
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a href="#" onclick="order_regular_yearly()">
+                            <div class="card">
+                                <h3>Annually</h3>
+                                <p>
+                                    <span class="price-amount">330</span>
+                                    <span class="price-info">€</span>
+                                </p>
+                                <p>
+                                    <p class="price-info">per year (+VAT)</p>
+                                </p>
+                                <p>
+                                    billed annually
+                                </p>
+                                <div class="price-cta">Sign up
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-second" onclick="$('#billing-period-choice-modal').hide()">Close</button>
             </div>
         </div>
     </div>

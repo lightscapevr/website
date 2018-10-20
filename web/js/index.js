@@ -32,13 +32,28 @@ function formatDate(tstamp)
     return moment(new Date(tstamp * 1000)).format(FORMAT);
 }
 
+function showManageButtons()
+{
+    $("#manage-subscription-section").show();
+    $("#pricing").hide();
+    $("#get-a-license").attr("onclick", "showLicenseModal(); return false;");
+    $("#get-a-license").html("Manage licenses");
+}
+
+function showPricingInfo()
+{
+    $("#pricing").show();
+    $("#manage-subscription-section").hide();
+    $("#get-a-license").attr("onclick", "return true;");
+    $("#get-a-license").html("Get a License");
+}
+
 function getUserInfo()
 {
     connection.session.call('com.user.get_info', [state.auth_token, 
     state.fullname, state.email]).then(function (r) {
         if (r.subscriptions) {
-            $("#manage-subscription-section").show();
-            $("#pricing").hide();
+            showManageButtons();
         }
     },
     show_error);
@@ -79,7 +94,9 @@ function showLicenses() {
                     var sub = r.subscriptions[i];
                     if (sub.license_type == 'vr-sketch-hobbyist')
                         sub.license_type = "hobbyist";
-                    else if (sub.license_type == 'vr-sketch')
+                    else if (sub.license_type == 'vr-sketch' ||
+                             sub.license_type == "vr-sketch-2" ||
+                             sub.license_type == "vr-sketch-yearly")
                         sub.license_type = "";
                     else
                         sub.license_type = "educational, automatically renewed";
@@ -115,29 +132,51 @@ function logInIfNotLoggedIn(continuation)
 
 function createHostedPage(plan)
 {
-    var cbinst = Chargebee.getInstance();
-    cbinst.openCheckout({
-        hostedPage: function() {
-            return connection.session.call('com.hostedpage', [state.auth_token,
-                state.fullname, state.email, plan]);
-        },
-        success: function(hostedPageId) {
-            connection.session.call('com.user.successful_payment',
-                [state.auth_token, hostedPageId]).then(function (r) {
-                    $("#user-modal").show();
-                    showLicenses();
-                }, show_error);
-        },
-        error: show_error
-    });
+    // first check if user does not have a plan already
+    connection.session.call('com.user.get_info', [state.auth_token, 
+    state.fullname, state.email]).then(function (r) {
+        if (r.subscriptions) {
+            showManageButtons();
+        } else {
+            var cbinst = Chargebee.getInstance();
+            cbinst.openCheckout({
+                hostedPage: function() {
+                    return connection.session.call('com.hostedpage', [state.auth_token,
+                        state.fullname, state.email, plan]);
+                },
+                success: function(hostedPageId) {
+                    connection.session.call('com.user.successful_payment',
+                        [state.auth_token, hostedPageId]).then(function (r) {
+                            $("#user-modal").show();
+                            showLicenses();
+                            getUserInfo();
+                        }, show_error);
+                },
+                error: show_error
+            });
+        }
+    }, show_error);
 }
 
 function order_regular()
 {
     if (!logInIfNotLoggedIn(order_regular))
         return;
-    createHostedPage('vr-sketch');
+    $("#billing-period-choice-modal").show();
 }
+
+function order_regular_monthly()
+{
+    $("#billing-period-choice-modal").hide();
+    createHostedPage('vr-sketch-2');
+}
+
+function order_regular_yearly()
+{
+    $("#billing-period-choice-modal").hide();
+    createHostedPage("vr-sketch-yearly");
+}
+
 
 function showEduModal()
 {
@@ -247,6 +286,7 @@ $(document).ready(function() {
     $("#user-modal-close").click(function () { modal.style.display = "none"; });
     connectModalAndTrigger("hobbyist-modal", null, null);
     connectModalAndTrigger("edu-modal", null, null);
+    connectModalAndTrigger("billing-period-choice-modal", null, null);
 
 
     // index testimonial fade scroll logic
@@ -298,7 +338,6 @@ function signout() {
                     show_error);
         let modal = $("#user-modal")[0];
         modal.style.display = "none";
-        $("#pricing").show();
-        $("#manage-subscription-section").hide();
+        showPricingInfo();
     });
 }
