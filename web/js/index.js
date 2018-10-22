@@ -12,6 +12,7 @@ function show_error(err) {
         signout();
         return;
     }
+    Sentry.captureMessage(err);
     $("#error").html("Error encountered <span onclick='hide_error()'>&times;</span>");
     console.log(JSON.stringify(err, undefined, 2));
 }
@@ -327,6 +328,7 @@ $(document).ready(function() {
     var cbinst = Chargebee.init({site: 'baroquesoftware'});
     nunjucks.configure({'web': {'async': true}});
 
+    Sentry.init({dsn: 'https://38c4d64c82484e57b0199aef2d2e83cf@sentry.io/1306011'});
 });
 
 function signout() {
