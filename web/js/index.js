@@ -2,8 +2,7 @@ var auth2 = null;
 var connection;
 var state = null;
 
-function hide_error()
-{
+function hide_error() {
     $("#error").html("");
 }
 
@@ -17,8 +16,7 @@ function show_error(err) {
     console.log(JSON.stringify(err, undefined, 2));
 }
 
-function State(auth_token, fullname, email)
-{
+function State(auth_token, fullname, email) {
     this.auth_token = auth_token;
     this.fullname = fullname;
     this.email = email;
@@ -28,40 +26,35 @@ function State(auth_token, fullname, email)
 
 var FORMAT = "DD MMMM YYYY";
 
-function formatDate(tstamp)
-{
+function formatDate(tstamp) {
     return moment(new Date(tstamp * 1000)).format(FORMAT);
 }
 
-function showManageButtons()
-{
+function showManageButtons() {
     $("#manage-subscription-section").show();
     $("#pricing").hide();
     $("#get-a-license").attr("onclick", "showLicenseModal(); return false;");
     $("#get-a-license").html("Manage licenses");
 }
 
-function showPricingInfo()
-{
+function showPricingInfo() {
     $("#pricing").show();
     $("#manage-subscription-section").hide();
     $("#get-a-license").attr("onclick", "return true;");
     $("#get-a-license").html("Get a License");
 }
 
-function getUserInfo()
-{
-    connection.session.call('com.user.get_info', [state.auth_token, 
+function getUserInfo() {
+    connection.session.call('com.user.get_info', [state.auth_token,
     state.fullname, state.email]).then(function (r) {
         if (r.subscriptions) {
             showManageButtons();
         }
     },
-    show_error);
+        show_error);
 }
 
-function onSignedIn(googleUser)
-{
+function onSignedIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;
@@ -85,43 +78,42 @@ function showLicenseModal() {
 }
 
 function showLicenses() {
-    connection.session.call('com.user.get_info', [state.auth_token, 
-        state.fullname, state.email]).then(function (r) {
-            if (!r.result) {
-                $("#user-modal-body").html("No license present, please sign up for one");
-            } else {
-                r.number = r.subscriptions.length;
-                for (var i in r.subscriptions) {
-                    var sub = r.subscriptions[i];
-                    if (sub.license_type == 'vr-sketch-hobbyist')
-                        sub.license_type = "hobbyist";
-                    else if (sub.license_type == 'vr-sketch' ||
-                             sub.license_type == "vr-sketch-2" ||
-                             sub.license_type == "vr-sketch-yearly")
-                        sub.license_type = "";
-                    else
-                        sub.license_type = "educational, automatically renewed";
+    connection.session.call('com.user.get_info', [state.auth_token,
+    state.fullname, state.email]).then(function (r) {
+        if (!r.result) {
+            $("#user-modal-body").html("No license present, please sign up for one");
+        } else {
+            r.number = r.subscriptions.length;
+            for (var i in r.subscriptions) {
+                var sub = r.subscriptions[i];
+                if (sub.license_type == 'vr-sketch-hobbyist')
+                    sub.license_type = "hobbyist";
+                else if (sub.license_type == 'vr-sketch' ||
+                    sub.license_type == "vr-sketch-2" ||
+                    sub.license_type == "vr-sketch-yearly")
+                    sub.license_type = "";
+                else
+                    sub.license_type = "educational, automatically renewed";
 
-                    sub.ends_at = formatDate(sub.ends_at);
-                    if (sub.deleted) {
-                        sub.deleted = "cancelled";
-                    } else {
-                        sub.deleted = "";
-                    }
+                sub.ends_at = formatDate(sub.ends_at);
+                if (sub.deleted) {
+                    sub.deleted = "cancelled";
+                } else {
+                    sub.deleted = "";
                 }
-                nunjucks.render('templates/subscriptions.html', r, function (err, html) {
-                    if (err) {
-                        show_error(err);
-                    } else {
-                        $("#user-modal-body").html(html);
-                    }
-                });
             }
-        }, show_error);
+            nunjucks.render('templates/subscriptions.html', r, function (err, html) {
+                if (err) {
+                    show_error(err);
+                } else {
+                    $("#user-modal-body").html(html);
+                }
+            });
+        }
+    }, show_error);
 }
 
-function logInIfNotLoggedIn(continuation)
-{
+function logInIfNotLoggedIn(continuation) {
     if (auth2.currentUser.get().isSignedIn())
         return true;
     // show the log in dialog
@@ -131,21 +123,20 @@ function logInIfNotLoggedIn(continuation)
     });
 }
 
-function createHostedPage(plan)
-{
+function createHostedPage(plan) {
     // first check if user does not have a plan already
-    connection.session.call('com.user.get_info', [state.auth_token, 
+    connection.session.call('com.user.get_info', [state.auth_token,
     state.fullname, state.email]).then(function (r) {
         if (r.subscriptions) {
             showManageButtons();
         } else {
             var cbinst = Chargebee.getInstance();
             cbinst.openCheckout({
-                hostedPage: function() {
+                hostedPage: function () {
                     return connection.session.call('com.hostedpage', [state.auth_token,
-                        state.fullname, state.email, plan]);
+                    state.fullname, state.email, plan]);
                 },
-                success: function(hostedPageId) {
+                success: function (hostedPageId) {
                     connection.session.call('com.user.successful_payment',
                         [state.auth_token, hostedPageId]).then(function (r) {
                             $("#user-modal").show();
@@ -159,48 +150,41 @@ function createHostedPage(plan)
     }, show_error);
 }
 
-function order_regular()
-{
+function order_regular() {
     if (!logInIfNotLoggedIn(order_regular))
         return;
     $("#billing-period-choice-modal").show();
 }
 
-function order_regular_monthly()
-{
+function order_regular_monthly() {
     $("#billing-period-choice-modal").hide();
     createHostedPage('vr-sketch-2');
 }
 
-function order_regular_yearly()
-{
+function order_regular_yearly() {
     $("#billing-period-choice-modal").hide();
     createHostedPage("vr-sketch-yearly");
 }
 
 
-function showEduModal()
-{
+function showEduModal() {
     if (!logInIfNotLoggedIn(showEduModal))
         return;
     $("#edu-modal")[0].style.display = "block";
 }
 
-function order_hobbyist()
-{
+function order_hobbyist() {
     $("#hobbyist-modal")[0].style.display = "";
     createHostedPage('vr-sketch-hobbyist');
 }
 
-function showHobbyistModal()
-{
+function showHobbyistModal() {
     if (!logInIfNotLoggedIn(showHobbyistModal))
         return;
     $("#hobbyist-modal")[0].style.display = "block";
 }
 
-function checkEduAndOrder()
-{
+function checkEduAndOrder() {
     if (!$("#edu-purpose").val() || !$("#edu-role").val() || !$("#edu-institution").val()) {
         $("#edu-modal-error").html("please fill in the fields");
         return;
@@ -209,53 +193,54 @@ function checkEduAndOrder()
         return;
     }
     connection.session.call('com.register_edu', [state.auth_token, state.fullname, state.email,
-        $("#edu-purpose").val(), $("#edu-role").val(), $("#edu-institution").val()]).then(function (r) {
-            $("#edu-modal").hide();
-            if (r.success) {
-                showLicenseModal();
-                getUserInfo();
-            }
-            else
-                show_error();
-        }, show_error);
+    $("#edu-purpose").val(), $("#edu-role").val(), $("#edu-institution").val()]).then(function (r) {
+        $("#edu-modal").hide();
+        if (r.success) {
+            showLicenseModal();
+            getUserInfo();
+        }
+        else
+            show_error();
+    }, show_error);
 }
 
-function manage_subscriptions()
-{
+function manage_subscriptions() {
     cbinst = Chargebee.getInstance();
-    cbinst.setPortalSession(function() {
+    cbinst.setPortalSession(function () {
         return connection.session.call('com.portalsession', [state.auth_token]).then(
             function (r) {
                 if (!r.success)
                     show_error(r.error);
                 return r['portal_session'];
-        }, show_error);
-        });
-    cbinst.createChargebeePortal().open({close: function() {
-       connection.session.call('com.user.update_info', [state.auth_token]).then(
-            function (res) {
-                if (!res.success)
-                    show_error(res.error)
-                else
-                    showLicenses();
             }, show_error);
-    }});
+    });
+    cbinst.createChargebeePortal().open({
+        close: function () {
+            connection.session.call('com.user.update_info', [state.auth_token]).then(
+                function (res) {
+                    if (!res.success)
+                        show_error(res.error)
+                    else
+                        showLicenses();
+                }, show_error);
+        }
+    });
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     var wsuri;
     if (document.location.origin == "file://") {
         wsuri = "ws://127.0.0.1:8080/ws";
 
     } else {
         wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
-                 document.location.host + "/ws";
+            document.location.host + "/ws";
     }
     connection = new autobahn.Connection({
-      url: wsuri,
-      realm: "vrsketch",
-      max_retries: -1,
-      max_retry_delay: 3,
+        url: wsuri,
+        realm: "vrsketch",
+        max_retries: -1,
+        max_retry_delay: 3,
     });
     connection.onopen = function (session, details) {
         if (state && state.callLater) {
@@ -264,7 +249,7 @@ $(document).ready(function() {
     }
     connection.open();
 
-    gapi.load('auth2', function(){
+    gapi.load('auth2', function () {
         // Retrieve the singleton for the GoogleAuth library and set up the client.
         auth2 = gapi.auth2.init({
             client_id: '1076106158582-2hr4jav5kbn2gccs0jsdbdhr4sg1d399.apps.googleusercontent.com',
@@ -325,10 +310,10 @@ $(document).ready(function() {
         }
     }
 
-    var cbinst = Chargebee.init({site: 'baroquesoftware-test'});
-    nunjucks.configure({'web': {'async': true}});
+    var cbinst = Chargebee.init({ site: 'baroquesoftware-test' });
+    nunjucks.configure({ 'web': { 'async': true } });
 
-    Sentry.init({dsn: 'https://38c4d64c82484e57b0199aef2d2e83cf@sentry.io/1306011'});
+    Sentry.init({ dsn: 'https://38c4d64c82484e57b0199aef2d2e83cf@sentry.io/1306011' });
 });
 
 function signout() {
@@ -337,9 +322,39 @@ function signout() {
         $("#login-contents").text("Log in");
         $("#login-bar").replaceWith($("#login-bar").clone()); // remove event listeners
         auth2.attachClickHandler($("#login-bar")[0], {}, onSignedIn,
-                    show_error);
+            show_error);
         let modal = $("#user-modal")[0];
         modal.style.display = "none";
         showPricingInfo();
     });
 }
+
+
+window.addEventListener("DOMContentLoaded", function () {
+    // Hero slide show
+    let heroImg = document.getElementById("hero-img");
+    let timeInterval = 3000; //milliseconds
+
+    let imagePaths = new Array();
+    for (let i = 1; i <= 9; i++) {
+        imagePaths.push("img/slides/slide-" + i + "-600x337.jpg");
+    }
+
+    let imageIndex = 0;
+
+    setInterval(function () {
+        imageIndex++;
+        if (imageIndex >= imagePaths.length) {
+            imageIndex = 0;
+            //Use cached image if already downloaded?
+        }
+        let downloadedImg = new Image();
+        // Once the new image is downloaded, set the heroImg src to the new image
+        downloadedImg.addEventListener("load", function () {
+            heroImg.src = this.src;
+        });
+        // Start downloading the new image
+        downloadedImg.setAttribute("src", imagePaths[imageIndex])
+    }, timeInterval);
+});
+
