@@ -1,0 +1,22 @@
+section{
+    padding-top: 6em;
+    padding-bottom: 6em;
+}
+
+h2{
+    padding-bottom: 2em;
+    font-size: 3rem;
+}
+
+footer{
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+#landing{
+    padding-bottom: 0;
+}
+
+#testimonials-carousel{
+    min-height: 15em;
+}
