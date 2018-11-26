@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Content description -->
+    <title>VR Sketch | Design in virtual reality</title>
+    <meta name="description" content="Virtual Reality drawing tools for architects and designers. A SketchUp extension allowing anyone to use SketchUp from inside virtual reality">
+    <meta name="keywords" content="vr sketch, vr, virtual reality, draw, edit, draft, sketch, sketchup, architect, architecture, vive, oculus rift, design">
+    <meta name="author" content="VR Sketch">
+
+    <!-- Template imports -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="shortcut icon" href="img/logos/favicon.ico" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- Custom imports -->
+</head>
+
+<body>
+    <header>
+        <div class="fixed-top bg-light">
+            <nav class="container">
+                <div class="navbar navbar-expand-md navbar-light bg-light">
+                    <a class="navbar-brand" href="#">
+                        <img src="img/logos/vr-sketch-logo.svg" height="28" alt="VR Sketch logo">
+                    </a>
+
+                    <div class="collapse navbar-collapse" id="main-navbar">
+                        <ul class="navbar-nav ml-auto">
+                            {% for menu_item in nav_menu -%}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{menu_item['link']}}">{{menu_item['name']}}</a>
+                            </li>
+                            {%- endfor %}
+                        </ul>
+                        <button class="btn btn-outline-primary">Log in</button>
+                    </div>
+
+                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main" class="mt-5">
+        {% block main_content %}{% endblock %}
+    </main>
+
+    <footer class="bg-dark text-light">
+        <h2>Footer</h2>
+    </footer>
+
+</body>
+
+</html>
