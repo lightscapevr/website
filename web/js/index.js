@@ -26,13 +26,6 @@ function State(auth_token, fullname, email)
     return this;
 }
 
-var FORMAT = "DD MMMM YYYY";
-
-function formatDate(tstamp)
-{
-    return moment(new Date(tstamp * 1000)).format(FORMAT);
-}
-
 function showManageButtons()
 {
     $("#manage-subscription-section").show();
