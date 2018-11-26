@@ -17,12 +17,21 @@ function show_error(err) {
     console.log(JSON.stringify(err, undefined, 2));
 }
 
+function uuid()
+{
+    var result = "";
+    for(var i=0; i<32; i++)
+        result += Math.floor(Math.random()*16).toString(16).toUpperCase();
+    return result;
+}
+
 function State(auth_token, fullname, email)
 {
     this.auth_token = auth_token;
     this.fullname = fullname;
     this.email = email;
     this.callLater = null;
+    this.token = uuid();
     return this;
 }
 
@@ -42,6 +51,14 @@ function on_logged_in(state)
 function load_file(file_id)
 {
     $.get("http://127.0.0.1:17355/vrsketch-viewer/?key=" + file_id);
+}
+
+function pollServer()
+{
+    if (state.token) {
+        $.get("http://127.0.0.1:17355/vrsketch-viewer/ping?token=" + state.token);
+    }
+    setTimeout(pollServer, 2000);
 }
 
 $(document).ready(function() {
@@ -105,5 +122,5 @@ $(document).ready(function() {
     };
     connection.open();
     nunjucks.configure({'web': {'async': true}});
-
+    setTimeout(pollServer, 2000);
 });
