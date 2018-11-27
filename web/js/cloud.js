@@ -2,8 +2,7 @@ var auth2 = null;
 var connection;
 var state = null;
 
-function hide_error()
-{
+function hide_error() {
     $("#error").html("");
 }
 
@@ -17,16 +16,14 @@ function show_error(err) {
     console.log(JSON.stringify(err, undefined, 2));
 }
 
-function uuid()
-{
+function uuid() {
     var result = "";
-    for(var i=0; i<32; i++)
-        result += Math.floor(Math.random()*16).toString(16).toUpperCase();
+    for (var i = 0; i < 32; i++)
+        result += Math.floor(Math.random() * 16).toString(16).toUpperCase();
     return result;
 }
 
-function State(auth_token, fullname, email)
-{
+function State(auth_token, fullname, email) {
     this.auth_token = auth_token;
     this.fullname = fullname;
     this.email = email;
@@ -37,55 +34,50 @@ function State(auth_token, fullname, email)
     return this;
 }
 
-function on_logged_in(state)
-{
+function on_logged_in(state) {
     connection.session.call("com.files.list", [state.auth_token]).then(function (res) {
-        nunjucks.render('templates/cloud_files.html', res, function(err, html){
+        nunjucks.render('templates/cloud_files.html', res, function (err, html) {
             if (err) {
                 show_error(err);
             } else {
                 $("#files").html(html);
-            }            
+            }
         })
     }, show_error);
 }
 
 var BASE = "http://127.0.0.1:17355/vrsketch/"
 
-function load_file(filename, file_id)
-{
+function load_file(filename, file_id) {
     $.get(BASE + "view?name=" + filename + "&key=" + file_id);
 }
 
-function load_file_edit(filename, file_id)
-{
+function load_file_edit(filename, file_id) {
     $.get(BASE + "edit?key=" + file_id + "&name=" + filename);
 }
 
-function pollVrSketch()
-{
+function pollVrSketch() {
     if (state.token) {
         $.get(BASE + "ping?token=" + state.token);
     }
-    setTimeout(pollVrSketch, 2000);    
+    setTimeout(pollVrSketch, 2000);
 }
 
-function pollServer()
-{
+function pollServer() {
     setTimeout(pollServer, 2000);
     if (!connection.session)
         return;
     connection.session.call('com.sessions.get', [state.token]).then(
-        function (r) { 
+        function (r) {
             if (r.success && !state.connected) {
-                $("#current-status").removeClass("red").addClass("green");
+                $("#current-status").removeClass("text-danger").addClass("text-success");
                 $("#current-status").html("CONNECTED");
                 $(".load-button").removeClass("disabled").attr("disabled", false);
                 state.connected = true;
             }
             if (!r.success && state.connected) {
                 $(".load-button").addClass("disabled");
-                $("#current-status").removeClass("green").addClass("red");
+                $("#current-status").removeClass("text-success").addClass("text-danger");
                 $("#current-status").html("NOT CONNECTED");
                 $(".load-button-edit").addClass("disabled").attr("disabled", true);
                 state.can_edit = false;
@@ -98,24 +90,24 @@ function pollServer()
         }, show_error);
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     var wsuri;
     if (document.location.origin == "file://") {
         wsuri = "ws://127.0.0.1:8080/ws";
 
     } else {
         wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
-                 document.location.host + "/ws";
+            document.location.host + "/ws";
     }
     connection = new autobahn.Connection({
-      url: wsuri,
-      realm: "vrsketch",
-      max_retries: -1,
-      max_retry_delay: 3,
+        url: wsuri,
+        realm: "vrsketch",
+        max_retries: -1,
+        max_retry_delay: 3,
     });
-    connection.onopen = function(session, dets) {
-        gapi.load('auth2', function() {
-            auth2 = gapi.auth2.init({'client_id': CLIENT_TOKEN_ID});
+    connection.onopen = function (session, dets) {
+        gapi.load('auth2', function () {
+            auth2 = gapi.auth2.init({ 'client_id': CLIENT_TOKEN_ID });
             auth2.then(function () {
                 $("#logged-in").html(auth2.currentUser.get().getBasicProfile().getName());
                 var googleUser = auth2.currentUser.get();
@@ -141,7 +133,7 @@ $(document).ready(function() {
                     return;
                 }
                 connection.session.call('com.files.add', [state.auth_token,
-                    data.files[0].name, data.result.fname, '']).then(
+                data.files[0].name, data.result.fname, '']).then(
                     function (r) {
                         on_logged_in(state);
                     }, show_error
@@ -154,11 +146,11 @@ $(document).ready(function() {
                     progress + '%'
                 );
             },
-        }).on("fileuploadadd", function(e, data) {
+        }).on("fileuploadadd", function (e, data) {
         });
     };
     connection.open();
-    nunjucks.configure({'web': {'async': true}});
+    nunjucks.configure({ 'web': { 'async': true } });
     setTimeout(pollServer, 2000);
     setTimeout(pollVrSketch, 2000);
 });
