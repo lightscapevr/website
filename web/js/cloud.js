@@ -53,12 +53,21 @@ function load_file(file_id)
     $.get("http://127.0.0.1:17355/vrsketch-viewer/?key=" + file_id);
 }
 
-function pollServer()
+function pollVrSketch()
 {
     if (state.token) {
         $.get("http://127.0.0.1:17355/vrsketch-viewer/ping?token=" + state.token);
     }
+    setTimeout(pollVrSketch, 2000);    
+}
+
+function pollServer()
+{
     setTimeout(pollServer, 2000);
+    if (!connection.session)
+        return;
+    connection.session.call('com.sessions.get', [state.token]).then(
+        function (r) { console.log(r); }, show_error);
 }
 
 $(document).ready(function() {
@@ -123,4 +132,5 @@ $(document).ready(function() {
     connection.open();
     nunjucks.configure({'web': {'async': true}});
     setTimeout(pollServer, 2000);
+    setTimeout(pollVrSketch, 2000);
 });
