@@ -1,20 +1,11 @@
-{% extends "layout-main.html" %}
-
-<!--
-    Contents
-    1. custom_style_imports
-    2. js_imports
-    3. main_content
--->
+{% extends "layouts/layout-base.html" %}
 
 {% block custom_style_imports %}
 {% endblock custom_style_imports %}
 
-{% block js_imports %}
-<script src="js/autobahn.min.js"></script>
-<script src="js/nunjucks.min.js"></script>
-<script src="js/moment.min.js"></script>
-{% endblock js_imports %}
+{% block nav_menu_items %}
+{% include 'partials/nav-menu-index.html' %}
+{% endblock nav_menu_items %}
 
 {% block main_content %}
 <section id="landing" class="bg-dark text-light">
@@ -379,4 +370,24 @@
 
     </div>
 </section>
+<!-- TODO modals -->
 {% endblock main_content %}
+
+{% block js_imports %}
+<script src="js/autobahn.min.js"></script>
+<script src="js/nunjucks.min.js"></script>
+<script src="js/moment.min.js"></script>
+
+<!-- Stats -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43265909-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-43265909-2');
+    </script>
+    -->
+{% endblock js_imports %}

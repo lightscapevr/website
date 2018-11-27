@@ -9,7 +9,17 @@
 
 {% block main_content %}
 <div class="container">
-    <h1>Frequently asked questions</h1>
+    <div class="row">
+        <div class="col-md">
+            <ul>
+                <li>List of tutorials</li>
+            </ul>
+        </div>
+        <div class="col-md">
+            {% block tutorial_content %}
+            {% endblock tutorial_content %}
+        </div>
+    </div>
 </div>
 {% endblock main_content %}
 
