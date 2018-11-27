@@ -1,0 +1,78 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VR Sketch cloud</title>
+  <meta name="description" content="Virtual Reality drawing tools for architects and designers. A SketchUp extension allowing anyone to use SketchUp from inside virtual reality">
+  <meta name="author" content="VR Sketch">
+  <meta name="keywords" content="vr sketch, vr, virtual reality, draw, edit, draft, sketch, sketchup, architect, architecture, vive, oculus rift, design"
+  />
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <link rel="shortcut icon" href="img/logos/favicon.ico" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous">
+
+  <!--<link rel="stylesheet" href="css/dropzone.css">-->
+  <link rel="stylesheet" href="css/layout.css?v=1.0">
+  <link rel="stylesheet" href="css/global.css?v=1.0">
+  <link rel="stylesheet" href="css/cloud.css?v=1.0">
+  <link rel="stylesheet" href="css/jquery.fileupload.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://browser.sentry-cdn.com/4.1.1/bundle.min.js"></script>
+
+</head>
+<body>
+  <div id="error">
+  </div>
+  <div id="nav-spacer"></div>
+  <div class="main">
+    <div class="container">
+      <div class="row">
+        Logged in as: &nbsp;<span id="logged-in">not logged in</span>&nbsp;
+        <span class="red" id="current-status">NOT CONNECTED</span>
+      </div>
+      <div class="row">
+        <h1>Your files</h1>
+      </div>
+      <div class="container" id="files">
+      </div>
+      <span class="btn btn-success fileinput-button">
+        <i class="fa fa-plus"></i>
+        <span>Select file...</span>
+        <!-- The file input field used as target for the file upload widget -->
+        <input id="fileupload" type="file" name="files[]" multiple>
+      </span>
+      <br>
+      <br>
+      <!-- The global progress bar -->
+      <div id="progress" class="progress">
+        <div class="progress-bar progress-bar-success"></div>
+      </div>
+
+    </div>
+  </div>
+  </main>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43265909-2"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-43265909-2');
+  </script>
+  <script src="js/nunjucks.min.js"></script>
+  <script src="js/moment.min.js"></script>
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/jquery.ui.widget.js"></script>
+  <script src="js/jquery.iframe-transport.js"></script>
+  <script src="js/jquery.fileupload.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/autobahn.min.js"></script>
+  <!--<script src="js/dropzone.js"></script>-->
+  <script src="js/cloud.js"></script>
+</body>
+</html>

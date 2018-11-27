@@ -1,0 +1,6 @@
+{% for file in result %}
+   <div class="row">
+     <div class="file-main">{{ file.filename }}
+        <button class="btn btn-primary" onclick='load_file("{{ file.id }}")'>Load</button></div>
+   </div>
+{% endfor %}

@@ -1,0 +1,12 @@
+.file-main {
+    border: solid black;
+    border-width: 1px;
+    padding: 10px;
+    margin-bottom: 2px;    
+}
+
+.red {
+    background-color: red;
+    border: solid black;
+    border-width: 1px;
+}

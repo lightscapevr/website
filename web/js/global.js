@@ -52,3 +52,16 @@ if (accordions != undefined && accordions.length > 0) {
         });
     }
 }
+
+var FORMAT = "DD MMMM YYYY";
+
+function formatDate(tstamp)
+{
+    return moment(new Date(tstamp * 1000)).format(FORMAT);
+}
+
+if (window.location.host == 'test.vrsketch.eu') {
+    CLIENT_TOKEN_ID = '1076106158582-2hr4jav5kbn2gccs0jsdbdhr4sg1d399.apps.googleusercontent.com';
+} else {
+    CLIENT_TOKEN_ID = '1076106158582-vekr6opr52b6i8eeu3cc8si7828hisgj.apps.googleusercontent.com';
+}
