@@ -1,48 +1,79 @@
-<h1>Requirements</h1>
-<ul>
-<li>OS: Currently only works on Windows. If you want Mac support and you are willing to sponsor
-  the necessary equipment, please get in touch.</li>
-<li>VR headsets: HTC Vive or Oculus Touch. Windows Mixed Realities headsets work, but they're not officially supported.</li>
-<li>Software: Only SketchUp 2017 and 2018 are currently supported. We are considering support for Autodesk Revit.</li>
-</ul>
-<h1>Downloading and installing</h1>
-<p>You can either download and automatically install the VR Sketch plugin from inside SketchUp or manually download it from their website.</p>
-<h3>Download and installing from inside SketchUp.</h3>
-<ol>
-<li>Open SketchUp</li>
-<li>In the top menu bar click "Window" then click "Extension Warehouse" from the drop-down list. This should open a new Extension Warehouse window.
-  <img src="./img/docs/window-drop-down-menu.png" alt="Window drop down menu"> </li>
-<li>In the search bar at the top, search for "vr sketch" or just "vr". 
-  <img src="./img/docs/warehouse.png" alt="Extension Warehouse"> </li>
-<li>From the search results select "<strong>VR Sketch</strong> by <em>Maciej F.</em>". 
-  <img src="./img/docs/search.png" alt="Select 'VR Sketch'"> </li>
-<li>Click the red "Download" button in the top right. 
-  <img src="./img/docs/found.png" alt="Click download"> </li>
-<li>If requested, sign in with your username and password, or follow their prompts to register first.</li>
-<li>Then click the red "Install" button in the top right.</li>
-<li>SketchUp will ask permission to install the extension. Select "Yes". (VR Sketch only requires access to your filesystem for (1) accessing SteamVR and the Vive; (2)writing some temporary files to improve performance)</li>
-<li>Wait for SketchUp to download and install the extension.</li>
-</ol>
-<h3>Downloading from the web and installing manually.</h3>
-<ol>
-<li>You can download the SketchUp extension from the <a href="https://extensions.sketchup.com/en/content/lightscape-vr-designer" title="Extension Warehouse">Extension Warehouse</a>. </li>
-<li>Click the red "Download" button. 
-  <img src="./img/docs/browser.png" alt="Click download"> </li>
-<li>If requested, sign in with your username and password.Then click the "Download" button again.</li>
-<li>Select where your download will be saved to.</li>
-<li>Open SketchUp.</li>
-<li>In the top menu bar click "Window" then click "Extension Manager" from the drop-down list. This should open a new Extension Warehouse window. </li>
-<li>Click the red "Install Extension" button in the bottom left. </li>
-<li>In the new window, navigate to where you downloaded the extension file (baroquesoftware_vrsketch_v1.0.0.rbz), then click "OK" (your version number might be different.</li>
-<li>SketchUp will ask permission to install the extension. Select "Yes". (VR Sketch only requires access to your filesystem for (1) accessing SteamVR and the Vive; (2)writing some temporary files to improve performance)</li>
-<li>Wait for SketchUp to download and install the extension.</li>
-</ol>
-<h1>Starting VR Sketch</h1>
-<ul>
-<li>With SketchUp open, in the top menu bar, click "Extensions" then click "VR Sketch" and then click "Send to VR". This will sends your currently-opened SketchUp model to the VR headset. 
-<img src="./img/docs/menu-vr.png" alt="Click 'Send to VR'"> </li>
-<li>If you have used VR Sketch before the icon tray may be visible. You can also click on the first icon <strong>Send to VR and teleport tool</strong> to send your currently-opened SketchUp model to the VR headset. </li>
-</ul>
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Content description -->
+    <title>Docs-Drawing.Html | VR Sketch</title>
+    <meta name="description" content="Virtual Reality drawing tools for architects and designers. A SketchUp extension allowing anyone to use SketchUp from inside virtual reality">
+    <meta name="keywords" content="vr sketch, vr, virtual reality, draw, edit, draft, sketch, sketchup, architect, architecture, vive, oculus rift, design">
+    <meta name="author" content="VR Sketch">
+
+    <!-- Template imports -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="img/logos/favicon.ico" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- Custom imports -->
+    
+
+</head>
+
+<body>
+    <header>
+        <div class="fixed-top bg-light">
+            <nav class="container">
+                <div class="navbar navbar-expand-md navbar-light bg-light">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="img/logos/vr-sketch-logo.svg" height="28" alt="VR Sketch logo">
+                    </a>
+
+                    <div class="collapse navbar-collapse" id="main-navbar">
+                        <ul class="navbar-nav ml-auto">
+                            
+<li class="nav-item">
+    <a class="nav-link" href="docs-getting-started.html">Documentation</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="faqs.html">FAQs</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="tutorials.html">Tutorials</a>
+</li>
+
+                        </ul>
+                        <button class="btn btn-outline-primary">Log in</button>
+                    </div>
+
+                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main" class="mt-5">
+        
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <ul>
+                <li><a href="docs-getting-started.html">Getting started</a> </li>
+                <li><a href="docs-drawing.html">Drawing in VR</a> </li>
+                <li><a href="docs-collaboration.html">Collaboration</a></li>
+                <li><a href="docs-settings.html">Settings</a></li>
+                <li><a href="docs-licence-and-billing.html">Licence and billing</a></li>
+                <li><a href="docs-errors.html">Bugs and errors</a></li>
+                <li><a href="docs-about.html">About</a></li>
+            </ul>
+        </div>
+        <div class="col-md">
+            
 <h1>Controls and input</h1>
 <p><img src="./img/docs/vive-oculus.png" alt="Click 'Send to VR'"> </p>
 <h4>HTC Vive</h4>
@@ -413,90 +444,100 @@
 <li>When drawing with one controller you can move the other controller over a point to create a reference point and guideline that the first controller can snap to.</li>
 <li>You can also use a single-controller movement: move over a point to create a reference point, and then move back to where you want to be (similar to SketchUp with the mouse).</li>
 </ul>
-<h1>VR Videos</h1>
-<h3>Recording VR videos</h3>
-<ul>
-<li>To start Recording, inside SketchUp, in top menu bar click <strong>Extensions</strong>, then click, <strong>VR Sketch</strong> then click <strong>Recorded a VR Video...</strong>. This will open a window in which you can set where the recording will be saved. As soon as this is set it will start recording.</li>
-<li>Press the <strong>small top button</strong> to stop your recording.</li>
-<li>Once you have finished your recording, you can press the <strong>small top button</strong> again to play back what you have just recorded.</li>
-</ul>
-<h3>Playing VR videos</h3>
-<ul>
-<li>To play back a VR recording, inside SketchUp, in top menu bar click <strong>Extensions</strong>, then click, <strong>VR Sketch</strong> then click <strong>Play a VR Video...</strong>. This will open a window in where you can choose which recording to open. The recording will start as soon as it is loaded.</li>
-<li>Press the <strong>small top button</strong> to stop or replay the loaded video.</li>
-</ul>
-<h1>Room sharing</h1>
-<ul>
-<li>To share the model you are working on, inside SketchUp, in top menu bar click <strong>Extensions</strong>, then click, <strong>VR Sketch</strong> then click <strong>Share room...</strong>. This will open a window in which you can set your name and the Room name.</li>
-<li>The room name must be at least 4 characters long.</li>
-<li>If someone enters the same room name then they will appear in the list of peers.</li>
-<li>You can then choose to send them the model for viewing only or editing by clicking on the buttons.</li>
-<li>Note that this is <em>experimental</em>.</li>
-</ul>
-<h1>Settings in SketchUp</h1>
-<h3>Icon tray</h3>
-<ul>
-<li>Send to VR and teleport tool:<ul>
-<li>If the model has not already been sent to VR then this button will send the model to VR.</li>
-<li>If the model is already in VR, click this button and then click anywhere in the model. This will teleport the person in VR to stand at the point you clicked. This is useful to move someone around your model.</li>
-</ul>
-</li>
-<li>Copy VR location - Click this to align the SketchUp view point with the view of the VR headset. This is useful to see what the person in VR is looking at or working on.</li>
-<li>Configure VR view - This will open the configuration window for VR Sketch.</li>
-</ul>
-<h3>Menu</h3>
-<ul>
-<li>Send to VR - This will send you currently opened SketchUp model to VR.</li>
-<li>Center view - This will align the SketchUp view point with the view of the VR headset</li>
-<li>Configuration - This will open the configuration window for VR Sketch.</li>
-<li>Custom Sky image - Use this to override the default sky background image.</li>
-<li>Shared Room - Use this to share your current model online, allowing multiple people to view or edit a SketchUp model together.</li>
-<li>Play a VR video - Use this to open and play a VR video.</li>
-<li>Record a VR video - Use this to record a VR video.</li>
-<li>Documentation - This will open the documentation website for help.</li>
-<li>License - This will open the license information. Here you can see your license status, expiry date and manage your subscription.</li>
-</ul>
-<h3>Configuration options</h3>
-<h4>Enable actions in VR</h4>
-<ul>
-<li>Teleporting (trigger) - Toggles whether or not you can use the <strong>Teleport</strong> tool in VR.</li>
-<li>Move/scale/rotate model ("grip" buttons on the side)  - Toggles whether or not you can use the <strong>grip</strong> buttons to move, scale or rotate the model in VR.<ul>
-<li>Rotate can flip the model - if enabled, rotating with the grip buttons can flip the model 90 degrees on its side. This is disabled by default because it can be very confusing for the VR user.</li>
-</ul>
-</li>
-<li>Editing (change tools with the touchpad) - Turn on or off the ⋮ menu button.</li>
-</ul>
-<h4>Rendering</h4>
-<ul>
-<li>Shadows follow SketchUp sun direction - Toggle whether or not the shadows follow the SketchUp setting for the sun direction (outside the warehouse only). Can be slightly confusing for the VR user, because when he or she rotates the model, the sun direction rotates too. This breaks the illusion that we are turning a model in our hands.</li>
-<li>Edges, Hide Rest Of Model, Fog - these are settings that you should configure normally inside SketchUp, and which will be mirrored in VR automatically.</li>
-</ul>
-<h4>Alignment</h4>
-<ul>
-<li>This measure is in real-life mm. It changes how close to a point, axis or plane you must be before snapping occurs. It also changes the automatic rounding of distances. Default value: 35 mm.</li>
-</ul>
-<h1>Bugs and errors</h1>
-<h3>What should work and what does not</h3>
-<p>Changes to the SketchUp model should be immediately visible in the VR headset. If they are not (likely because of a bug), you need to reselect "Send to VR", which sends the whole model from scratch.</p>
-<p>VRSketch will try to send automated bug reports in the cases described below:</p>
-<ul>
-<li>
-<p>most VR bugs should show up as a long piece of text in the VR mirror screen. These texts can be expanded and copy-pasted.</p>
-</li>
-<li>
-<p>after you complete an editing operation in VR (and provided you are not running the unlicensed version, in which case you just see "License needed" on the controllers): if you don't see the changes, try opening the Ruby console in SketchUp ("Window" menu) and repeat the procedure. If it is a bug in the Ruby side, it should be reported there.</p>
-</li>
-</ul>
-<p>In large models, it takes a few seconds before the in-VR teleport starts working (even after loading appears complete).</p>
-<p>Most editing operations will take time to complete if your model is medium-large and doesn't use groups or components. This is because groups and components are currently the unit of transfer between the SketchUp and the Unity side.</p>
-<p>We render the following elements in VR: faces (with or without texture); edges; and "Images". This excludes more advanced SketchUp constructs like construction lines, text labels, and so on. The "soft" edge option is supported, but not the "smooth" one: all edges appear sharp.</p>
-<p>Textures may very occasionally appear badly positioned when you open a subgroup. (This issue cannot occur if you don't have any group or component opened for editing.) After release 2.2 we have improved the situation but not completely. The cause is SketchUp's textures, which can be either "positioned" or "non-positioned" (right-click, Texture, "Reset Position" makes it non-positioned). However, non-positioned textures are reported at a bogus position by SketchUp's Ruby API when editing inside groups or components. We work around that by computing this bogus position on our own; then, if that is precisely what we get, we assume that it was a non-positioned texture that is misreported, and fix it manually. This might occasionally be foiled if it was actually a positioned texture that happened to be exactly at the same position.</p>
-<h3>Reporting problems</h3>
-<p>Please report any other bug to the issue tracker or by writing to the e-mail below.</p>
-<h1>License</h1>
-<p>Please contact us if you need more information about the license under which this software is distributed.
-This code contains LibTessDotNet (https://github.com/speps/LibTessDotNet), which is itself distributed under the SGI Free Software License B (Version 2.0).</p>
-<h1>Contact</h1>
-<p>We hope you enjoy it!
-Feel free to give us feedback by writing to info@baroquesoftware.com
-The Baroque Software team</p>
+
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <footer class="bg-dark text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md mb-4">
+                <div>
+                    <a href="https://vrsketch.eu/">
+                        <img src="img/logos/vr-sketch-logo.svg" alt="VR Sketch" width="280px">
+                    </a>
+                    <br>
+                    <small>VR drawing tools for architects and designers</small>
+                </div>
+            </div>
+            <div class="col-md">
+                <div>
+                    <h5>Social</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="https://twitter.com/VrSketch" target="_blank">Twitter</a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag" target="_blank">YouTube</a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/vr_sketch/" target="_blank">Instagram</a>
+                        </li>
+                        <li>
+                            <a href="blog.html">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div>
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="documentation.html">Documentation</a>
+                        </li>
+                        <li>
+                            <a href="#">FAQ's</a>
+                        </li>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Media pack</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div>
+                    <h5>Actions</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="mailto:info@baroquesoftware.com">Email us</a>
+                        </li>
+                        <li>
+                            <a href="#subscribe">Subscribe to newsletter</a>
+                        </li>
+                        <li>
+                            <a href="/checkout/">Try now</a>
+                        </li>
+
+                        <li>
+                            <a href="/checkout/">Log in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p class="text-muted mt-5">
+            Made with love by the
+            <a href="https://baroquesoftware.com/" target="_blank">Baroque Software</a>
+            team. © 2018 VR Sketch
+        </p>
+    </div>
+</footer>
+
+    <!-- JS imports -->
+    <noscript>Your browser either does not support JavaScript or it not active. Please activate JavaScript.</noscript>
+    <!-- Bootstrap imports. Order matters: 1. jQuery 2. Popper.js 3. Bootstrap JS -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+
+</body>
+
+</html>

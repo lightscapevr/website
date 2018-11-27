@@ -12,6 +12,21 @@ jinja_env = Environment(
 )
 
 
+def convert_all_markdown(src_folder, output_folder):
+    for filename in os.listdir(src_folder):
+        if filename.endswith('.md'):
+            name_only = filename[:-3]
+            html_from_markdown(src_folder + '//' + filename,
+                               output_folder + '//' + name_only + '.html')
+
+
+def render_all_templates():
+    for filename in os.listdir('templates'):
+        if filename.endswith('.html'):
+            page_title = generate_title_from_html_filename(filename)
+            render_template_to_file(filename, dict(title=page_title))
+
+
 def render_template_to_file(template_path, view_data):
     # Input files must be in the 'templates' folder (matching jinja_env path)
     template = jinja_env.get_template(template_path)
@@ -21,8 +36,6 @@ def render_template_to_file(template_path, view_data):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
-    # with open(output_folder + '\\' + template_path, "w") as output_file:
-    #     output_file.write(rendered_html.encode('utf-8'))
     write_html_file(output_folder + '\\' + template_path, rendered_html)
 
 
@@ -37,25 +50,19 @@ def write_html_file(output_path, html_data):
         output_file.write(html_data.encode('utf-8'))
 
 
+def generate_title_from_html_filename(filename):
+    assert filename.endswith('.html')
+    if filename == 'index.html':
+        return 'VR Sketch | Design in virtual reality'
+    title = filename[:-4]
+    title = title.replace('docs-', '')
+    if title == 'faqs':
+        return 'FAQs | VR Sketch'
+    title = filename.title()  # capitalize the first letter
+    return title + ' | VR Sketch'
+
+
 if __name__ == '__main__':
-    # 1. Convert all markdown to html
-    html_from_markdown('markdown/documentation.md',
-                       'templates/generated/docs-markdown.html')
-
-    # 2. Render all templates
-    render_template_to_file('index.html', dict(
-        title="VR Sketch | Design in virtual reality"))
-
-    render_template_to_file('documentation.html', dict(
-        title="Documentation | VR Sketch"))
-
-    render_template_to_file('tutorials.html', dict(
-        title="Tutorials | VR Sketch"))
-
-    render_template_to_file('faqs.html', dict(
-        title="FAQs | VR Sketch"))
-
-    render_template_to_file('blog.html', dict(
-        title="Blog | VR Sketch"))
-
+    convert_all_markdown('markdown', 'templates/generated/')
+    render_all_templates()
     print("Build complete")
