@@ -1,0 +1,43 @@
+{% extends "layout-main.html" %}
+
+{% block custom_style_imports %}
+{% endblock custom_style_imports %}
+
+{% block js_imports %}
+{% endblock js_imports %}
+
+{% block main_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md" id="nav-bar">
+            <ul>
+                <li>
+                    <a href="requirements.html">Getting started</a>
+                    <ul>
+                        <li>Requirements</li>
+                        <li>Download and install</li>
+                        <li>Starting VR Sketch</li>
+                        <li>Upgrading</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Tools</a>
+
+                </li>
+                <li><a href="#">Collaboration</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Licence</a></li>
+                <li><a href="#">Billing</a></li>
+                <li><a href="#">Bugs and errors</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+        <div class="col-md" id="content-area">
+            {% block documentation_content %}
+            <h1>Knowledge Base</h1>
+
+            {% endblock documentation_content %}
+        </div>
+    </div>
+</div>
+{% endblock main_content %}
