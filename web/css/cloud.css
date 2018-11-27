@@ -6,7 +6,14 @@
 }
 
 .red {
-    background-color: red;
+    background-color: rgb(250, 40, 30);
+    border: solid black;
+    border-width: 1px;
+}
+
+.green {
+    color: white;
+    background-color: rgb(40, 167, 69);
     border: solid black;
     border-width: 1px;
 }

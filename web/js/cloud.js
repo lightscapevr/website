@@ -32,6 +32,8 @@ function State(auth_token, fullname, email)
     this.email = email;
     this.callLater = null;
     this.token = uuid();
+    this.connected = false;
+    this.can_edit = false;
     return this;
 }
 
@@ -48,15 +50,22 @@ function on_logged_in(state)
     }, show_error);
 }
 
-function load_file(file_id)
+var BASE = "http://127.0.0.1:17355/vrsketch/"
+
+function load_file(filename, file_id)
 {
-    $.get("http://127.0.0.1:17355/vrsketch-viewer/?key=" + file_id);
+    $.get(BASE + "view?name=" + filename + "&key=" + file_id);
+}
+
+function load_file_edit(filename, file_id)
+{
+    $.get(BASE + "edit?key=" + file_id + "&name=" + filename);
 }
 
 function pollVrSketch()
 {
     if (state.token) {
-        $.get("http://127.0.0.1:17355/vrsketch-viewer/ping?token=" + state.token);
+        $.get(BASE + "ping?token=" + state.token);
     }
     setTimeout(pollVrSketch, 2000);    
 }
@@ -67,7 +76,26 @@ function pollServer()
     if (!connection.session)
         return;
     connection.session.call('com.sessions.get', [state.token]).then(
-        function (r) { console.log(r); }, show_error);
+        function (r) { 
+            if (r.success && !state.connected) {
+                $("#current-status").removeClass("red").addClass("green");
+                $("#current-status").html("CONNECTED");
+                $(".load-button").removeClass("disabled").attr("disabled", false);
+                state.connected = true;
+            }
+            if (!r.success && state.connected) {
+                $(".load-button").addClass("disabled");
+                $("#current-status").removeClass("green").addClass("red");
+                $("#current-status").html("NOT CONNECTED");
+                $(".load-button-edit").addClass("disabled").attr("disabled", true);
+                state.can_edit = false;
+                state.connected = false;
+            }
+            if (r.success && r.ready_to_edit && !state.can_edit) {
+                $(".load-button-edit").removeClass("disabled").attr("disabled", false);
+                state.can_edit = true;
+            }
+        }, show_error);
 }
 
 $(document).ready(function() {

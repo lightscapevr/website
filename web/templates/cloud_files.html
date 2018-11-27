@@ -1,6 +1,10 @@
 {% for file in result %}
-   <div class="row">
-     <div class="file-main">{{ file.filename }}
-        <button class="btn btn-primary" onclick='load_file("{{ file.id }}")'>Load</button></div>
-   </div>
+  <div class="row">
+    <div class="file-main">{{ file.filename }}
+      <button disabled="true" class="load-button disabled btn btn-primary"
+      onclick='load_file("{{ file.filename }}", "{{ file.id }}")'>View</button>
+      <button disabled="true" class="load-button-edit disabled btn btn-primary"
+      onclick='load_file_edit("{{ file.filename }}", "{{ file.id }}")'>Edit</button>
+    </div>
+  </div>
 {% endfor %}
