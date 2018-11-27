@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Content description -->
+    <title>VR Sketch | Design in virtual reality</title>
+    <meta name="description" content="Virtual Reality drawing tools for architects and designers. A SketchUp extension allowing anyone to use SketchUp from inside virtual reality">
+    <meta name="keywords" content="vr sketch, vr, virtual reality, draw, edit, draft, sketch, sketchup, architect, architecture, vive, oculus rift, design">
+    <meta name="author" content="VR Sketch">
+
+    <!-- Template imports -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="img/logos/favicon.ico" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- Custom imports -->
+    {% block custom_style_imports %}{% endblock %}
+</head>
+
+<body>
+    <header>
+        <div class="fixed-top bg-light">
+            <nav class="container">
+                <div class="navbar navbar-expand-md navbar-light bg-light">
+                    <a class="navbar-brand" href="#">
+                        <img src="img/logos/vr-sketch-logo.svg" height="28" alt="VR Sketch logo">
+                    </a>
+
+                    <div class="collapse navbar-collapse" id="main-navbar">
+                        <ul class="navbar-nav ml-auto">
+                            {% for menu_item in nav_menu -%}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{menu_item['link']}}">{{menu_item['name']}}</a>
+                            </li>
+                            {%- endfor %}
+                        </ul>
+                        <button class="btn btn-outline-primary">Log in</button>
+                    </div>
+
+                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main" class="mt-5">
+        {% block main_content %}{% endblock %}
+    </main>
+
+    <footer class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md mb-4">
+                    <div>
+                        <a href="https://vrsketch.eu/">
+                            <img src="img/logos/vr-sketch-logo.svg" alt="VR Sketch" width="280px">
+                        </a>
+                        <br>
+                        <small>VR drawing tools for architects and designers</small>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div>
+                        <h5>Social</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="https://twitter.com/VrSketch" target="_blank">Twitter</a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag" target="_blank">YouTube</a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/vr_sketch/" target="_blank">Instagram</a>
+                            </li>
+                            <li>
+                                <a href="blog.html">Blog</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div>
+                        <h5>Resources</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="documentation.html">Documentation</a>
+                            </li>
+                            <li>
+                                <a href="#">FAQ's</a>
+                            </li>
+                            <li>
+                                <a href="#">About</a>
+                            </li>
+                            <li>
+                                <a href="#">Media pack</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div>
+                        <h5>Actions</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="mailto:info@baroquesoftware.com">Email us</a>
+                            </li>
+                            <li>
+                                <a href="#subscribe">Subscribe to newsletter</a>
+                            </li>
+                            <li>
+                                <a href="/checkout/">Try now</a>
+                            </li>
+
+                            <li>
+                                <a href="/checkout/">Log in</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="text-muted mt-5">
+                Made with love by the
+                <a href="https://baroquesoftware.com/" target="_blank">Baroque Software</a>
+                team. © 2018 VR Sketch
+            </p>
+        </div>
+    </footer>
+
+    <!-- JS imports -->
+    <noscript>Your browser either does not support JavaScript or it not active. Please activate JavaScript.</noscript>
+    <!-- Bootstrap imports. Order matters: 1. jQuery 2. Popper.js 3. Bootstrap JS -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    {% block js_imports %}{% endblock %}
+
+    <!-- Stats -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43265909-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-43265909-2');
+    </script>
+    -->
+</body>
+
+</html>
