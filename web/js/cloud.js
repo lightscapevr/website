@@ -2,8 +2,7 @@ var auth2 = null;
 var connection;
 var state = null;
 
-function hide_error()
-{
+function hide_error() {
     $("#error").html("");
 }
 
@@ -17,16 +16,14 @@ function show_error(err) {
     console.log(JSON.stringify(err, undefined, 2));
 }
 
-function uuid()
-{
+function uuid() {
     var result = "";
-    for(var i=0; i<32; i++)
-        result += Math.floor(Math.random()*16).toString(16).toUpperCase();
+    for (var i = 0; i < 32; i++)
+        result += Math.floor(Math.random() * 16).toString(16).toUpperCase();
     return result;
 }
 
-function State(auth_token, fullname, email)
-{
+function State(auth_token, fullname, email) {
     this.auth_token = auth_token;
     this.fullname = fullname;
     this.email = email;
@@ -38,15 +35,14 @@ function State(auth_token, fullname, email)
     return this;
 }
 
-function on_logged_in(state)
-{
+function on_logged_in(state) {
     connection.session.call("com.files.list", [state.auth_token]).then(function (res) {
-        nunjucks.render('templates/cloud_files.html', res, function(err, html){
+        nunjucks.render('templates/cloud_files.html', res, function (err, html) {
             if (err) {
                 show_error(err);
             } else {
                 $("#files").html(html);
-            }            
+            }
         })
     }, show_error);
 }
@@ -54,8 +50,7 @@ function on_logged_in(state)
 var BASE = "http://127.0.0.1:17355/vrsketch/";
 var BASE_URL = "https://test.vrsketch.eu/cloud.html?file=";
 
-function load_file(filename, file_id)
-{
+function load_file(filename, file_id) {
     $.get(BASE + "view?name=" + filename + "&key=" + file_id);
 }
 
@@ -155,7 +150,7 @@ $(document).ready(function() {
 
     } else {
         wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
-                 document.location.host + "/ws";
+            document.location.host + "/ws";
     }
     connection = new autobahn.Connection({
       url: wsuri,
@@ -164,9 +159,9 @@ $(document).ready(function() {
       max_retry_delay: 3,
       auto_ping_interval: 10.0,
     });
-    connection.onopen = function(session, dets) {
-        gapi.load('auth2', function() {
-            auth2 = gapi.auth2.init({'client_id': CLIENT_TOKEN_ID});
+    connection.onopen = function (session, dets) {
+        gapi.load('auth2', function () {
+            auth2 = gapi.auth2.init({ 'client_id': CLIENT_TOKEN_ID });
             auth2.then(function () {
                 if (auth2.isSignedIn.get()) {
                     on_sign_in();
@@ -187,7 +182,7 @@ $(document).ready(function() {
                     return;
                 }
                 connection.session.call('com.files.add', [state.auth_token,
-                    data.files[0].name, data.result.fname, '']).then(
+                data.files[0].name, data.result.fname, '']).then(
                     function (r) {
                         on_logged_in(state);
                     }, show_error
@@ -200,7 +195,7 @@ $(document).ready(function() {
                     progress + '%'
                 );
             },
-        }).on("fileuploadadd", function(e, data) {
+        }).on("fileuploadadd", function (e, data) {
         });
     };
     connection.open();
