@@ -5,6 +5,8 @@
       onclick='load_file("{{ file.filename }}", "{{ file.id }}")'>View</button>
       <button disabled="true" class="load-button-edit disabled btn btn-primary"
       onclick='load_file_edit("{{ file.filename }}", "{{ file.id }}")'>Edit</button>
+      <button class="btn btn-primary" onclick='show_file_url(this, "{{ file.id }}")'>Share</button>
+      <div style="display: none" class="file-url"></div>
     </div>
   </div>
 {% endfor %}

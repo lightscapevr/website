@@ -241,6 +241,7 @@ $(document).ready(function () {
         realm: "vrsketch",
         max_retries: -1,
         max_retry_delay: 3,
+        auto_ping_interval: 10.0
     });
     connection.onopen = function (session, details) {
         if (state && state.callLater) {

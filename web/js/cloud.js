@@ -34,6 +34,7 @@ function State(auth_token, fullname, email)
     this.token = uuid();
     this.connected = false;
     this.can_edit = false;
+    this.currently_visiting_model = null;
     return this;
 }
 
@@ -50,11 +51,20 @@ function on_logged_in(state)
     }, show_error);
 }
 
-var BASE = "http://127.0.0.1:17355/vrsketch/"
+var BASE = "http://127.0.0.1:17355/vrsketch/";
+var BASE_URL = "https://test.vrsketch.eu/cloud.html?file=";
 
 function load_file(filename, file_id)
 {
     $.get(BASE + "view?name=" + filename + "&key=" + file_id);
+}
+
+function show_file_url(container, file_id)
+{
+    $(".file-url").hide();
+    var elem = $(container).parent().children(".file-url");
+    elem.show();
+    elem.html("<input class='file-url-share' type='text' size=100 value=" + BASE_URL + file_id + ">")
 }
 
 function load_file_edit(filename, file_id)
@@ -64,39 +74,79 @@ function load_file_edit(filename, file_id)
 
 function pollVrSketch()
 {
+    if (state.connected)
+        return;
     if (state.token) {
         $.get(BASE + "ping?token=" + state.token);
     }
-    setTimeout(pollVrSketch, 2000);    
+    setTimeout(pollVrSketch, 2000);
 }
 
-function pollServer()
+function getStatusUpdate(initial)
 {
-    setTimeout(pollServer, 2000);
-    if (!connection.session)
-        return;
-    connection.session.call('com.sessions.get', [state.token]).then(
-        function (r) { 
-            if (r.success && !state.connected) {
-                $("#current-status").removeClass("red").addClass("green");
-                $("#current-status").html("CONNECTED");
-                $(".load-button").removeClass("disabled").attr("disabled", false);
-                state.connected = true;
+    connection.session.call('com.sessions.get', [state.token, initial]).then(
+        function (r) {
+            if (!r.success) {
+                console.log("It should never have returned success: false");
+                return;
             }
-            if (!r.success && state.connected) {
-                $(".load-button").addClass("disabled");
-                $("#current-status").removeClass("green").addClass("red");
-                $("#current-status").html("NOT CONNECTED");
-                $(".load-button-edit").addClass("disabled").attr("disabled", true);
-                state.can_edit = false;
-                state.connected = false;
+            if (r.filename) {
+                $("#currently-visiting").show();
+                $("#currently-visiting-file").html("Currently visiting " + r.filename);
+                state.currently_visiting_model = r.filename;
             }
-            if (r.success && r.ready_to_edit && !state.can_edit) {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('file')) {
+                load_file("foo filename", urlParams.get("file"));
+            }
+            $("#current-status").removeClass("red").addClass("green");
+            $("#current-status").html("CONNECTED");
+            $(".load-button").removeClass("disabled").attr("disabled", false);
+            state.connected = true;
+            if (r.ready_to_edit) {
                 $(".load-button-edit").removeClass("disabled").attr("disabled", false);
                 state.can_edit = true;
             }
+            getStatusUpdate(false);
         }, show_error);
 }
+
+function not_logged_in()
+{
+    $("#log-in-modal").show();
+    $("#logged-in").html("not logged in");
+
+    function onFailure(error) {
+        $("#sign-in-header").html("Error: please sign in again");
+    }
+    gapi.signin2.render('sign-in-with-google', {
+      'scope': 'profile email',
+      'width': 240,
+      'height': 50,
+      'longtitle': true,
+      'theme': 'dark',
+      'onsuccess': on_sign_in,
+      'onfailure': onFailure
+    });
+}
+
+function on_sign_in()
+{
+    var auth2 = gapi.auth2.getAuthInstance();
+    $("#logged-in").html(auth2.currentUser.get().getBasicProfile().getName());
+    var googleUser = auth2.currentUser.get();
+    var profile = googleUser.getBasicProfile();
+    // The ID token you need to pass to your backend:
+    var id_token = googleUser.getAuthResponse().id_token;
+
+    var name = profile.getName();
+
+    state = new State(id_token, name, profile.getEmail());
+    on_logged_in(state);
+    setTimeout(pollVrSketch, 0);
+    getStatusUpdate(true);
+}
+
 
 $(document).ready(function() {
     var wsuri;
@@ -112,21 +162,17 @@ $(document).ready(function() {
       realm: "vrsketch",
       max_retries: -1,
       max_retry_delay: 3,
+      auto_ping_interval: 10.0,
     });
     connection.onopen = function(session, dets) {
         gapi.load('auth2', function() {
             auth2 = gapi.auth2.init({'client_id': CLIENT_TOKEN_ID});
             auth2.then(function () {
-                $("#logged-in").html(auth2.currentUser.get().getBasicProfile().getName());
-                var googleUser = auth2.currentUser.get();
-                var profile = googleUser.getBasicProfile();
-                // The ID token you need to pass to your backend:
-                var id_token = googleUser.getAuthResponse().id_token;
-
-                var name = profile.getName();
-
-                state = new State(id_token, name, profile.getEmail());
-                on_logged_in(state);
+                if (auth2.isSignedIn.get()) {
+                    on_sign_in();
+                } else {
+                    not_logged_in();
+                }
             });
         });
 
@@ -159,6 +205,4 @@ $(document).ready(function() {
     };
     connection.open();
     nunjucks.configure({'web': {'async': true}});
-    setTimeout(pollServer, 2000);
-    setTimeout(pollVrSketch, 2000);
 });

@@ -32,6 +32,12 @@
         Logged in as: &nbsp;<span id="logged-in">logging in... <i class="fa fa-spin fa-spinner"></i></span>&nbsp;
         <span class="red" id="current-status">NOT CONNECTED</span>
       </div>
+      <div id="currently-visiting" style="display: none" class="row">
+        <div id="currently-visiting-file" class="col-6">
+        </div>
+        <div class="col-6" id="currently-visiting-users">
+        </div>
+      </div>
       <div class="row">
         <h1>Your files</h1>
       </div>
@@ -52,7 +58,18 @@
 
     </div>
   </div>
-  </main>
+  <div id="log-in-modal" class="modal" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="sign-in-header">Please log in with google</h5>
+        </div>
+        <div class="modal-body">
+          <div id="sign-in-with-google"></div>
+        </div>
+      </div>
+    </div>
+  </div>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43265909-2"></script>
   <script>
       window.dataLayer = window.dataLayer || [];
