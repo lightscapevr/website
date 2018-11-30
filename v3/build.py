@@ -4,6 +4,7 @@ import os
 from jinja2 import Environment, PackageLoader, select_autoescape
 import json
 import markdown
+import sass
 
 # Set up Jinja2 environment
 jinja_env = Environment(
@@ -36,18 +37,39 @@ def render_template_to_file(template_path, view_data):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
-    write_html_file(output_folder + '\\' + template_path, rendered_html)
+    write_string_file(output_folder + '\\' + template_path, rendered_html)
 
 
 def html_from_markdown(markdown_path, output_path):
     with open(markdown_path) as f:
         html_data = markdown.Markdown().convert(f.read().decode('utf8'))
-    write_html_file(output_path, html_data)
+    write_string_file(output_path, html_data)
 
 
-def write_html_file(output_path, html_data):
+def write_string_file(output_path, string_data):
     with open(output_path, "w") as output_file:
-        output_file.write(html_data.encode('utf-8'))
+        output_file.write(string_data.encode('utf-8'))
+
+
+def covert_sass_to_css(sass_filepath, output_filepath):
+    assert sass_filepath.endswith('.scss')
+    assert output_filepath.endswith('.css')
+    # create normal human readable .css
+    css_data = sass.compile(filename=sass_filepath, output_style='expanded')
+    write_string_file(output_filepath, css_data)
+    # create compressed .min.css and sourcemap .min.css.map
+    min_output_filepath = output_filepath[:-4] + ".min.css"
+    css_data_min = sass.compile(
+        filename=sass_filepath, output_style='compressed')
+    write_string_file(min_output_filepath, css_data_min)
+
+    # TODO logic for making a .map file but the files names and paths did ot match
+    # map_name = os.path.basename(output_filepath)[:-4] + ".min.css.map"
+    # map_output_filepath = output_filepath[:-4] + ".min.css.map"
+    #  css_data_min = sass.compile(
+    #     filename=sass_filepath, output_style='compressed', source_map_filename=map_name)
+    # write_string_file(min_output_filepath, css_data_min[0])
+    # write_string_file(map_output_filepath, css_data_min[1])
 
 
 def generate_title_from_html_filename(filename):
@@ -65,4 +87,5 @@ def generate_title_from_html_filename(filename):
 if __name__ == '__main__':
     convert_all_markdown('markdown', 'templates/generated/')
     render_all_templates()
+    covert_sass_to_css('scss/styles.scss', 'web/css/styles.css')
     print("Build complete")
