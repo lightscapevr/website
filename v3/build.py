@@ -54,11 +54,11 @@ def generate_title_from_html_filename(filename):
     assert filename.endswith('.html')
     if filename == 'index.html':
         return 'VR Sketch | Design in virtual reality'
-    title = filename[:-4]
+    title = filename[:-5]
     title = title.replace('docs-', '')
     if title == 'faqs':
         return 'FAQs | VR Sketch'
-    title = filename.title()  # capitalize the first letter
+    title = title.title()  # capitalize the first letter
     return title + ' | VR Sketch'
 
 
