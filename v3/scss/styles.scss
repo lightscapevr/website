@@ -1,11 +1,15 @@
+@import "bootstrap-scss/functions";
+@import "bootstrap-scss/mixins";
+
 // ---------------------------------- Options ---------------------------------- //
 $enable-shadows:            true;
 
 // ---------------------------------- Colours ---------------------------------- //
+
 $white:    #fff;
 $gray-100: #f8f9fa;
-$gray-200: #e9ecef;
-$gray-300: #dee2e6;
+$gray-200: #edeff0;
+$gray-300: #e0e6de;
 $gray-400: #ced4da;
 $gray-500: #adb5bd;
 $gray-600: #6c757d;
@@ -30,45 +34,43 @@ $grays: map-merge(
   $grays
 );
 
+$logo-light:  #9ae15f;
+$logo-dark:   #5aa679;
 
-$blue:    #007bff;
-$indigo:  #6610f2;
-$purple:  #6f42c1;
-$pink:    #e83e8c;
-$red:     #dc3545;
-$orange:  #fd7e14;
-$yellow:  #ffc107;
-$green:   #28a745;
-$teal:    #20c997;
-$cyan:    #17a2b8;
+$green:             rgb(81, 190, 81);
+$green-light:       rgba(81, 190, 81, 0.2);
+$blue:              rgb(113, 222, 255);
+$red:               rgb(255, 51, 0);
+$orange:            rgb(255, 136, 0);
+$teal:              rgb(12, 221, 169);
+
 
 $colors: ();
 $colors: map-merge(
   (
-    "blue":       $blue,
-    "indigo":     $indigo,
-    "purple":     $purple,
-    "pink":       $pink,
-    "red":        $red,
-    "orange":     $orange,
-    "yellow":     $yellow,
-    "green":      $green,
-    "teal":       $teal,
-    "cyan":       $cyan,
-    "white":      $white,
-    "gray":       $gray-600,
-    "gray-dark":  $gray-800
+    "logo-light":           $logo-light,
+    "logo-dark":            $logo-dark,
+    "green":                $green,
+    "green-light":          $green-light,
+    "blue":                 $blue,
+    "red":                  $red,
+    "orange":               $orange,
+    "teal":                 $teal,
+    "white":                $white,
+    "gray-light":           $gray-100,
+    "gray":                 $gray-600,
+    "gray-dark":            $gray-800
   ),
   $colors
 );
 
-$primary:       $blue;
+$primary:       $green;
 $secondary:     $gray-600;
 $success:       $green;
-$info:          $cyan;
-$warning:       $yellow;
+$info:          $teal;
+$warning:       $orange;
 $danger:        $red;
-$light:         $gray-100;
+$light:         $gray-200;
 $dark:          $gray-800;
 
 $theme-colors: ();
@@ -81,10 +83,40 @@ $theme-colors: map-merge(
     "warning":    $warning,
     "danger":     $danger,
     "light":      $light,
-    "dark":       $dark
+    "dark":       $dark,
+    "logo-light": $logo-light,
+    "logo-dark":  $logo-dark
   ),
   $theme-colors
 );
 
+// ---------------------------------- Spacing ---------------------------------- //
+
+$spacer: 1rem;
+$spacers: ();
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 5)
+  ),
+  $spacers
+);
+
+
 // ---------------------------------- Imports ---------------------------------- //
 @import "bootstrap-scss/bootstrap.scss";
+@import "index.scss";
+
+// ---------------------------------- Custom styles ---------------------------------- //
+
+.btn-outline-primary {
+  background-color: $green-light;
+}
+
+main{
+  margin-top: 3.5rem;
+}
