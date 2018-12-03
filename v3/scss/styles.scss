@@ -106,6 +106,14 @@ $spacers: map-merge(
   $spacers
 );
 
+// ---------------------------------- Text ---------------------------------- //
+$font-size-base:              1rem;
+
+$h1-font-size:                $font-size-base * 3 ;
+$h2-font-size:                $font-size-base * 2.75;
+$h3-font-size:                $font-size-base * 2;
+$h4-font-size:                $font-size-base * 1.75;
+$headings-margin-bottom:      $spacer*2;
 
 // ---------------------------------- Imports ---------------------------------- //
 @import "bootstrap-scss/bootstrap.scss";
@@ -117,6 +125,20 @@ $spacers: map-merge(
   background-color: $green-light;
 }
 
+.btn{
+  padding-top: .3rem;
+}
+
 main{
   margin-top: 3.5rem;
+}
+
+.navbar-toggler{
+  color: $primary;
+}
+
+.fa-quote-right, .fa-quote-left{
+  color: $gray-400;
+  font-size: 60%;
+  vertical-align: top;
 }

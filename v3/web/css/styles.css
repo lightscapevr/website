@@ -87,7 +87,7 @@ hr {
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 p {
@@ -366,7 +366,7 @@ template {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
   font-family: inherit;
   font-weight: 500;
   line-height: 1.2;
@@ -374,19 +374,19 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1, .h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 h2, .h2 {
-  font-size: 2rem;
+  font-size: 2.75rem;
 }
 
 h3, .h3 {
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 
 h4, .h4 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
 h5, .h5 {
@@ -8891,7 +8891,7 @@ a.text-logo-dark:hover, a.text-logo-dark:focus {
 }
 
 #mc_embed_signup .subscribe input[type=submit]:hover {
-  font-weight: 900;
+  font-weight: 600;
 }
 
 #mc_embed_signup .subscribe input[type=email] {
@@ -8922,10 +8922,39 @@ a.text-logo-dark:hover, a.text-logo-dark:focus {
   color: #51be51;
 }
 
+#testimonials-carousel .carousel-item {
+  height: 10em;
+  overflow: visible;
+}
+
+#testimonials-carousel .carousel-item img {
+  float: left;
+  margin-right: 1rem;
+  margin-bottom: 3em;
+}
+
+#pricing small {
+  font-size: 1rem;
+}
+
 .btn-outline-primary {
   background-color: rgba(81, 190, 81, 0.2);
 }
 
+.btn {
+  padding-top: .3rem;
+}
+
 main {
   margin-top: 3.5rem;
+}
+
+.navbar-toggler {
+  color: #51be51;
+}
+
+.fa-quote-right, .fa-quote-left {
+  color: #ced4da;
+  font-size: 60%;
+  vertical-align: top;
 }
