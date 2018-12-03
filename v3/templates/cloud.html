@@ -1,0 +1,35 @@
+{% extends "layouts/layout-base.html" %}
+
+{% block custom_style_imports %}
+{% endblock custom_style_imports %}
+
+{% block nav_menu_items %}
+<li class="nav-item">
+    <a class="nav-link" href="docs-getting-started.html">Documentation</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="faqs.html">FAQs</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="tutorials.html">Tutorials</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="blog.html">Blog</a>
+</li>
+{% endblock nav_menu_items %}
+
+{% block main_content %}
+{% raw %}
+<div class="container">
+    <h1>VR Sketch Cloud</h1>
+    <div id="cloud-app">
+        {{message}}
+    </div>
+</div>
+{% endraw %}
+{% endblock main_content %}
+
+{% block js_imports %}
+<script src="js/libraries/vue.js"></script>
+<script src="js/cloudApp.js"></script>
+{% endblock js_imports %}

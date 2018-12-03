@@ -88,4 +88,6 @@ if __name__ == '__main__':
     convert_all_markdown('markdown', 'templates/generated/')
     render_all_templates()
     covert_sass_to_css('scss/styles.scss', 'web/css/styles.css')
+    # TODO vue app must not be passed through jinja because {{}} gets removed
+    # After jinga is done, then add in the vue app
     print("Build complete")
