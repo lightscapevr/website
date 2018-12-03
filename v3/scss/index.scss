@@ -91,3 +91,14 @@
         font-size: $font-size-base;
     }
 }
+// ---------------------------------- Documentation ---------------------------------- //
+
+#learn{
+    i {
+        font-size: $font-size-base *2.5;
+        color: $primary;
+        padding-top: 1em;
+        padding-bottom: 1em;
+
+    }
+}

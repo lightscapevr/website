@@ -8937,6 +8937,13 @@ a.text-logo-dark:hover, a.text-logo-dark:focus {
   font-size: 1rem;
 }
 
+#learn i {
+  font-size: 2.5rem;
+  color: #51be51;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
 .btn-outline-primary {
   background-color: rgba(81, 190, 81, 0.2);
 }
@@ -8957,4 +8964,13 @@ main {
   color: #ced4da;
   font-size: 60%;
   vertical-align: top;
+}
+
+footer a, footer i {
+  color: #6c757d;
+}
+
+footer h5 {
+  margin-bottom: 0;
+  color: #ced4da;
 }

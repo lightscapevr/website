@@ -142,3 +142,16 @@ main{
   font-size: 60%;
   vertical-align: top;
 }
+
+// ---------------------------------- footer ---------------------------------- //
+
+footer{
+  a, i{
+    color: $gray-600;
+  }
+
+  h5{
+    margin-bottom: 0;
+    color: $gray-400;
+  }
+}
