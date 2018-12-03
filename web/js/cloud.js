@@ -42,6 +42,7 @@ function on_logged_in(state) {
                 show_error(err);
             } else {
                 $("#files").html(html);
+                getStatusUpdate(true);
             }
         })
     }, show_error);
@@ -74,7 +75,7 @@ function pollVrSketch()
     if (state.token) {
         $.get(BASE + "ping?token=" + state.token);
     }
-    setTimeout(pollVrSketch, 2000);
+    setTimeout(pollVrSketch, 500);
 }
 
 function getStatusUpdate(initial)
@@ -83,6 +84,19 @@ function getStatusUpdate(initial)
         function (r) {
             if (!r.success) {
                 console.log("It should never have returned success: false");
+                return;
+            }
+            if (r.closed) {
+                $("#current-status").removeClass("text-success").addClass("text-danger");
+                $("#current-status").html("NOT CONNECTED");
+                state.connected = false;
+                state.currently_visiting_model = null;
+                $(".load-button").addClass("disabled").attr("disabled", true);
+                $(".load-button-edit").addClass("disabled").attr("disabled", true);
+                $("#currently-visiting").hide();
+                state.can_edit = false;
+                setTimeout(pollVrSketch, 0);
+                getStatusUpdate(true);
                 return;
             }
             if (r.filename) {
@@ -94,7 +108,7 @@ function getStatusUpdate(initial)
             if (urlParams.get('file')) {
                 load_file("foo filename", urlParams.get("file"));
             }
-            $("#current-status").removeClass("red").addClass("green");
+            $("#current-status").removeClass("text-danger").addClass("text-success");
             $("#current-status").html("CONNECTED");
             $(".load-button").removeClass("disabled").attr("disabled", false);
             state.connected = true;
@@ -139,7 +153,6 @@ function on_sign_in()
     state = new State(id_token, name, profile.getEmail());
     on_logged_in(state);
     setTimeout(pollVrSketch, 0);
-    getStatusUpdate(true);
 }
 
 
