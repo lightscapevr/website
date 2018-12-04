@@ -34,7 +34,7 @@
         <button v-on:click="order_by_name_rev">Sort by name D</button>
         <button v-on:click="order_by_id">Sort by id</button>
         <div v-for="file in files">
-            <cloud-file :key="file.id" v-bind:file="file"></cloud-file>
+            <cloud-file :key="file.id" v-bind:file="file" :is_current_file="false"></cloud-file>
         </div>
     </div>
 </script>

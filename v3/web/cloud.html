@@ -77,7 +77,7 @@
         <button v-on:click="order_by_name_rev">Sort by name D</button>
         <button v-on:click="order_by_id">Sort by id</button>
         <div v-for="file in files">
-            <cloud-file :key="file.id" v-bind:file="file"></cloud-file>
+            <cloud-file :key="file.id" v-bind:file="file" :is_current_file="false"></cloud-file>
         </div>
     </div>
 </script>
@@ -103,7 +103,7 @@
     <footer class="bg-dark text-light py-5">
     <div class="container">
         <div class="row">
-            <div class="col-md mb-4">
+            <div class="col-md-5 mb-4">
                 <div>
                     <a href="https://vrsketch.eu/">
                         <img src="img/logos/vr-sketch-logo.svg" alt="VR Sketch" width="280px">
@@ -139,13 +139,13 @@
                             <a href="documentation.html">Documentation</a>
                         </li>
                         <li>
-                            <a href="#">FAQ's</a>
+                            <a href="faqs.html">FAQ's</a>
                         </li>
                         <li>
-                            <a href="#">About</a>
+                            <a href="about.html">About</a>
                         </li>
                         <li>
-                            <a href="#">Media pack</a>
+                            <a href="media-pack.html">Media pack</a>
                         </li>
                     </ul>
                 </div>

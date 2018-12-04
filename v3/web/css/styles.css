@@ -8953,6 +8953,10 @@ a.text-logo-dark:hover, a.text-logo-dark:focus {
   background-color: #d6f3e3;
 }
 
+main {
+  min-height: 70vh;
+}
+
 .btn-outline-primary {
   background-color: rgba(81, 190, 81, 0.2);
 }

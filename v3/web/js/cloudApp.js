@@ -30,7 +30,7 @@
   })
 
   Vue.component('cloud-file', {
-    props: ['file'],
+    props: ['file', 'is_current_file'],
     template: '#cloud-file'
   })
 

@@ -122,6 +122,10 @@ $headings-margin-bottom:      $spacer*2;
 
 // ---------------------------------- Custom styles ---------------------------------- //
 
+main{
+  min-height: 70vh; // Keep footer close to bottom even when there is very little content
+}
+
 .btn-outline-primary {
   background-color: $green-light;
 }
