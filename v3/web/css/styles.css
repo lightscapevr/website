@@ -8944,6 +8944,15 @@ a.text-logo-dark:hover, a.text-logo-dark:focus {
   padding-bottom: 1em;
 }
 
+.c-file {
+  background-color: #e9f8f1;
+  margin-bottom: 5px;
+}
+
+.c-file:hover {
+  background-color: #d6f3e3;
+}
+
 .btn-outline-primary {
   background-color: rgba(81, 190, 81, 0.2);
 }

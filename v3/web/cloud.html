@@ -71,6 +71,32 @@
     </div>
 </div>
 
+<script type="text/x-template" id="cloud-file-list">
+    <div>
+        <button v-on:click="order_by_name">Sort by name</button>
+        <button v-on:click="order_by_name_rev">Sort by name D</button>
+        <button v-on:click="order_by_id">Sort by id</button>
+        <div v-for="file in files">
+            <cloud-file :key="file.id" v-bind:file="file"></cloud-file>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-template" id="cloud-file">
+    <div class="row c-file">
+        <div class="col-1">
+            {{file.id}}
+        </div>
+        <div class="col">
+            {{file.name}}
+        </div>
+        <div class="col-1">
+            <input v-model="file.name" placeholder="edit name">
+        </div>
+    </div>
+</script>
+
+
 
     </main>
 

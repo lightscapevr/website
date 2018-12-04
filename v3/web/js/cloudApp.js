@@ -4,15 +4,16 @@
   // Store
   var store = {
     state: {
-      files: []
+      files: [],
+      current_file: 'cloud-file'
     },
     fetch_all_files: function () {
       // TODO : get real data from server on startup
       this.state.files = [
-        { name: 'file z', id: '1' },
-        { name: 'file y', id: '2' },
-        { name: 'file x', id: '3' },
-        { name: 'file w', id: '4' },
+        { name: 'z', id: '1' },
+        { name: 'y', id: '2' },
+        { name: 'x', id: '3' },
+        { name: 'w', id: '4' },
       ]
     }
   }
@@ -22,15 +23,19 @@
     props: ['files'],
     methods: {
       order_by_name: function () { this.files.sort(utils.compare_by_name) },
+      order_by_name_rev: function () { this.files.sort(utils.compare_by_name).reverse() },
       order_by_id: function () { this.files.sort(utils.compare_by_id) },
     },
-    template: '<div><button v-on:click="order_by_name">Sort by name</button><button v-on:click="order_by_id">Sort by id</button>' +
-      '<ul><li v-for="file in files"><cloud-file :key="file.id" v-bind:file="file"></cloud-file></li></ul></div>'
+    template: '#cloud-file-list'
   })
 
   Vue.component('cloud-file', {
     props: ['file'],
-    template: '<div><p>{{file.name}}</p><p>Cloud file id = {{file.id}}</p><hr></div>'
+    template: '#cloud-file'
+  })
+
+  Vue.component('tests', {
+    template: '#my-test'
   })
 
   // Vue instance
