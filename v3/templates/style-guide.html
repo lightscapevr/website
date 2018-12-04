@@ -13,8 +13,13 @@
 {% endblock nav_menu_items %}
 
 {% block main_content %}
-<div class="container">
+<div class="container pt-3 pb-5">
     <h1>Style guide</h1>
+    <hr>
+
+    <h2>Logo</h2>
+    <img class="img-fluid" src="img/logos/vr-sketch-logo.svg" alt="VR Sketch logo" style="max-height:120px;">
+    <hr>
 
     <h2>Colours</h2>
     <div class="row">
@@ -35,10 +40,10 @@
         <div class="col-md">
             <ul class="list-unstyled list-inline">
                 <l1 class="list-inline-item p-3 m-0 border rounded bg-primary">primary<br>#xxxxx</l1>
-                <l1 class="list-inline-item p-3 m-0 border rounded bg-secondary">secondary<br>#xxxxx</l1>
+                <l1 class="list-inline-item p-3 m-0 border rounded bg-secondary text-light">secondary<br>#xxxxx</l1>
                 <l1 class="list-inline-item p-3 m-0 border rounded bg-white">white<br>#xxxxx</l1>
                 <l1 class="list-inline-item p-3 m-0 border rounded bg-light">light<br>#xxxxx</l1>
-                <l1 class="list-inline-item p-3 m-0 border rounded bg-dark">dark<br>#xxxxx</l1>
+                <l1 class="list-inline-item p-3 m-0 border rounded bg-dark text-light">dark<br>#xxxxx</l1>
             </ul>
         </div>
     </div>
@@ -56,6 +61,7 @@
             </ul>
         </div>
     </div>
+    <hr>
 </div>
 {% endblock main_content %}
 
