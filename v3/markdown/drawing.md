@@ -1,6 +1,6 @@
 # Controls and input
 
-<img src="./img/docs/vive-oculus.png" alt="Click 'Send to VR'"> 
+<img class="img-fluid my-3" src="./img/docs/vive-oculus.png" alt="Click 'Send to VR'"> 
 
 #### HTC Vive
   * Trigger - Used to do the action of the current tool. Is similar to clicking with a mouse.
@@ -22,9 +22,11 @@
 ### Choosing a tool
 How to choose the tool you want to use with each controller.
 
-<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
-  <source src="./img/docs/tool-choose.mp4" type="video/mp4" />
-</video>
+<div class="docs-vid embed-responsive embed-responsive-16by9 mb-3 shadow">
+  <video class="embed-responsive-item" controls preload="none" poster="./img/docs/placeholder-600x338.png">
+    <source src="./img/docs/tool-choose.mp4" type="video/mp4" />
+  </video>
+</div>
 
 * To choose a tool, hold in the **⋮ menu button**, a list of tools will appear in front of the controller, move the controller to the tool you would like to use. The tool's icon will highlight when the controller is over it. Release the **⋮ menu button** while you are over the tool to select it. You will see the icon on the controller change to the current tool of that controller.
 * Each controller can have only one active tool.
@@ -64,9 +66,11 @@ Navigate around your model at any scale. This is not a standard tool; instead, i
 ### Select tool
 The tool to select individual or multiple lines, faces or groups.
 
-<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
+<div class="docs-vid embed-responsive embed-responsive-16by9 mb-3 shadow">
+   <video class="embed-responsive-item" controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-select.mp4" type="video/mp4" />
-</video>
+  </video> 
+</div>
 
 * Click select. Move the controller to the geometry you wish to select and pull the  **trigger** to select it. If that geometry is already selected it will deselect it.
     * You can move the controller while the  **trigger** is pressed to select or deselect more.
@@ -82,9 +86,11 @@ The tool to select individual or multiple lines, faces or groups.
 ### Group and Component tools
 How to work with Group or Component.
 
-<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
+<div class="docs-vid embed-responsive embed-responsive-16by9 mb-3 shadow">
+  <video class="embed-responsive-item" controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-component.mp4" type="video/mp4" />
-</video>
+  </video> 
+</div>
 
 #### Entering a Group or Component. 
   * With the Group or Component selected, press in the **⋮ menu button** and choose the **Open Group** tool (found above the **select** tool) to open it.
@@ -95,9 +101,11 @@ How to work with Group or Component.
   * While inside a Group or Component, press in the **⋮ menu button** and choose the **Exit Group** tool (found above the **select** tool) to exit the current Group or Component.
   * Or, while inside a Group or Component, use the select tool and double click outside of the Group or Component to exit.
 
-<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
+<div class="docs-vid embed-responsive embed-responsive-16by9 mb-3 shadow">
+   <video class="embed-responsive-item" controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-group.mp4" type="video/mp4" />
-</video>
+  </video> 
+</div>
 
 #### Creating Group or Component.
   * Use the select tool to select the geometry you wish to group. Then press in the **⋮ menu button** and choose either the **Create Group** tool or the **Create Component** tool.
@@ -113,9 +121,11 @@ How to work with Group or Component.
 ### Erase tool
 How to delete geometry.
 
-<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
+<div class="docs-vid embed-responsive embed-responsive-16by9 mb-3 shadow">
+   <video class="embed-responsive-item" controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-erase.mp4" type="video/mp4" />
-</video>
+  </video> 
+</div>
 
 
 * Move the controller over the object you wish to erase and pull the  **trigger**.
@@ -126,9 +136,11 @@ How to delete geometry.
 ### Line tool
 How to draw a line between two points.
 
-<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
+<div class="docs-vid embed-responsive embed-responsive-16by9 mb-3 shadow">
+   <video class="embed-responsive-item" controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-line.mp4" type="video/mp4" />
-</video>
+</video> 
+</div>
 
 
 * Click one with the  **trigger** to start drawing the line. Move the controller then click a second time to finish the line.
@@ -151,9 +163,11 @@ The tool for freehand sketching.
 ### Rectangle tool
 The tool for drawing rectangles.
 
-<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
+<div class="docs-vid embed-responsive embed-responsive-16by9 mb-3 shadow">
+   <video class="embed-responsive-item" controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-rectange.mp4" type="video/mp4" />
 </video>
+ </div>
 
 * Either click the  **trigger** once or hold it in to start drawing the rectangle. Click a second time or just release the  **trigger** to end the rectangle.
 * The rectangle is oriented so that one side always follows one of the axes. To do a slanted rectangle, you may have to change which axis is followed. To do that, squeeze the rectangle along this axis, then move back.
@@ -162,9 +176,11 @@ The tool for drawing rectangles.
 ### Polygon tool
 The tool for drawing polygons with any number of sides. Very similar to the **circle** tool.
 
-<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
+<div class="docs-vid embed-responsive embed-responsive-16by9 mb-3 shadow">
+   <video class="embed-responsive-item" controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-polygon.mp4" type="video/mp4" />
 </video>
+ </div>
 
 * Either click the  **trigger** once or hold it in to set the center point of the polygon. Move the controller away and click a second time or just release the  **trigger** to set the radius and complete the polygon.
 * The polygon can be drawn inside one of the axis planes, or, if the center touches one or more existing faces, it can be drawn inside the planes of these faces.
@@ -182,18 +198,22 @@ The tool for drawing circles. Very similar to the **polygon** tool.
 ### Push-Pull tool
 The tool to extrude out perpendicular a face to create depth.
 
-<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
+<div class="docs-vid embed-responsive embed-responsive-16by9 mb-3 shadow">
+   <video class="embed-responsive-item" controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-push.mp4" type="video/mp4" />
 </video>
+ </div>
 
 * Move the controller until it is intersecting with a face. The face will highlight green to indicate which face will be affected. Click once with the **trigger** on the face to start pulling it. Move the controller the desired distance and then either click a second time or release the  **trigger** to finish.
 
 ### Extrude tool / Follow Path
 The tool to extrude out faces or edges in any direction or along a path. Similar to the **Push-Pull** tool but not limited to only pulling one face perpendicularly.
 
-<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
+<div class="docs-vid embed-responsive embed-responsive-16by9 mb-3 shadow">
+   <video class="embed-responsive-item" controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-extrude.mp4" type="video/mp4" />
 </video>
+ </div>
 
 * Move the controller until it is intersecting with a face or an edge. Click once with the  **trigger** on the face or edge to start extruding it. Move the controller the desired distance and then either click a second time or release the  **trigger** to finish.
 * Unlike the **Push-Pull** tool, the **extrude** tool can extrude lines. Select some lines (and/or faces) with the **select** tool, then change to the extrude tool and use it in the same way you would extrude a face, by clicking on the selected lines, moving the controller and clicking again to end the extrusion.
@@ -202,9 +222,11 @@ The tool to extrude out faces or edges in any direction or along a path. Similar
 ### Offset tool
 The tool to offset lines on a face.
 
-<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
+<div class="docs-vid embed-responsive embed-responsive-16by9 mb-3 shadow">
+   <video class="embed-responsive-item" controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-offset.mp4" type="video/mp4" />
 </video>
+ </div>
 
 * Offset a face. Move the controller until the face you wish to offset is highlighted in green, then either click once with the  **trigger** or hold it in. Move the controller to the desired position and either click a second time or release the  **trigger** to complete the offset.
 * Offset lines. Use the **select** tool to select the lines you wish to offset. Then use the **Offset** tool in the same way as you would when offsetting from a face. This requires more than one line to be selected.
@@ -212,9 +234,11 @@ The tool to offset lines on a face.
 ### Move tool
 How to move and copy objects.
 
-<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
+<div class="docs-vid embed-responsive embed-responsive-16by9 mb-3 shadow">
+   <video class="embed-responsive-item" controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-move.mp4" type="video/mp4" />
 </video>
+ </div>
 
 * Move. Move the controller over the object you wish to move. It will highlight purple. Then either click once with the  **trigger** or hold it in, move the controller to the desired position and then either click a second time or release the  **trigger** to complete the move.
 * If you want to move more that one thing at a time, use the **select** tool to select them first then use the move tool.
@@ -227,9 +251,11 @@ How to move and copy objects.
 The tool to rotate objects.
 
 <!---
-<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
+<div class="docs-vid embed-responsive embed-responsive-16by9 mb-3 shadow">
+   <video class="embed-responsive-item" controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-rotate.mp4" type="video/mp4" />
 </video>
+ </div>
 -->
 
 * Move the controller over the thing you wish to rotate. It will highlight purple. Click once with the  **trigger** to set the point around which the object will rotate, move the controller away a little to create a leaver and click a second time. Now move the controller to set the rotation you wish and pull the  **trigger** a third time to complete the rotation.
@@ -239,9 +265,11 @@ The tool to rotate objects.
 ### Scale tool
 The tool to scale objects.
 
-<video controls preload="none" poster="./img/docs/placeholder-600x338.png">
+<div class="docs-vid embed-responsive embed-responsive-16by9 mb-3 shadow">
+   <video class="embed-responsive-item" controls preload="none" poster="./img/docs/placeholder-600x338.png">
   <source src="./img/docs/tool-scale.mp4" type="video/mp4" />
 </video>
+ </div>
 
 * Move the controller to highlight the object you wish to scale. It will highlight green. Pull the trigger to bring up the scale axis handles (green cubes). Move the controller to a handle to select the axis you want to scale the object by. Pull the trigger a second time to start scaling the object. Pull the trigger a third time to finish the scale command. 
 * To change the scaling center, click on another handle with the other controller. 

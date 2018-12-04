@@ -514,7 +514,7 @@ mark,
 
 code {
   font-size: 87.5%;
-  color: #e83e8c;
+  color: #8020cf;
   word-break: break-word;
 }
 
@@ -8951,6 +8951,20 @@ a.text-logo-dark:hover, a.text-logo-dark:focus {
 
 .c-file:hover {
   background-color: #d6f3e3;
+}
+
+article .question {
+  font-weight: 600;
+  padding-top: 1.5rem;
+}
+
+.documentation .docs-vid {
+  max-width: 600px;
+}
+
+#faqs .btn {
+  word-wrap: normal;
+  white-space: normal;
 }
 
 main {

@@ -115,10 +115,16 @@ $h3-font-size:                $font-size-base * 2;
 $h4-font-size:                $font-size-base * 1.75;
 $headings-margin-bottom:      $spacer*2;
 
+$code-color:                        rgb(128, 32, 207);
+
 // ---------------------------------- Imports ---------------------------------- //
 @import "bootstrap-scss/bootstrap.scss";
 @import "index.scss";
 @import "cloud.scss";
+@import "blog.scss";
+@import "docs.scss";
+@import "faqs.scss";
+
 
 // ---------------------------------- Custom styles ---------------------------------- //
 

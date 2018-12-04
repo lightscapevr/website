@@ -12,13 +12,13 @@ You can either download and automatically install the VR Sketch plugin from insi
 ### Download and installing from inside SketchUp.
   1. Open SketchUp
   2. In the top menu bar click "Window" then click "Extension Warehouse" from the drop-down list. This should open a new Extension Warehouse window.
-  <img src="./img/docs/window-drop-down-menu.png" alt="Window drop down menu"> 
+  <img class="img-fluid shadow my-3" src="./img/docs/window-drop-down-menu.png" alt="Window drop down menu"> 
   3. In the search bar at the top, search for "vr sketch" or just "vr". 
-  <img src="./img/docs/warehouse.png" alt="Extension Warehouse"> 
+  <img class="img-fluid shadow my-3" src="./img/docs/warehouse.png" alt="Extension Warehouse"> 
   4. From the search results select "**VR Sketch** by *Maciej F.*". 
-  <img src="./img/docs/search.png" alt="Select 'VR Sketch'"> 
+  <img class="img-fluid shadow my-3" src="./img/docs/search.png" alt="Select 'VR Sketch'"> 
   5. Click the red "Download" button in the top right. 
-  <img src="./img/docs/found.png" alt="Click download"> 
+  <img class="img-fluid shadow my-3" src="./img/docs/found.png" alt="Click download"> 
   6. If requested, sign in with your username and password, or follow their prompts to register first.
   7. Then click the red "Install" button in the top right.
   8. SketchUp will ask permission to install the extension. Select "Yes". (VR Sketch only requires access to your filesystem for (1) accessing SteamVR and the Vive; (2)writing some temporary files to improve performance)
@@ -27,7 +27,7 @@ You can either download and automatically install the VR Sketch plugin from insi
 ### Downloading from the web and installing manually.
   1. You can download the SketchUp extension from the [Extension Warehouse](https://extensions.sketchup.com/en/content/lightscape-vr-designer "Extension Warehouse"). 
   2. Click the red "Download" button. 
-  <img src="./img/docs/browser.png" alt="Click download"> 
+  <img class="img-fluid shadow my-3" src="./img/docs/browser.png" alt="Click download"> 
   3. If requested, sign in with your username and password.Then click the "Download" button again.
   4. Select where your download will be saved to.
   5. Open SketchUp.
@@ -40,5 +40,5 @@ You can either download and automatically install the VR Sketch plugin from insi
 # Starting VR Sketch
 
 * With SketchUp open, in the top menu bar, click "Extensions" then click "VR Sketch" and then click "Send to VR". This will sends your currently-opened SketchUp model to the VR headset. 
-<img src="./img/docs/menu-vr.png" alt="Click 'Send to VR'"> 
+<img class="img-fluid shadow my-3" src="./img/docs/menu-vr.png" alt="Click 'Send to VR'"> 
 * If you have used VR Sketch before the icon tray may be visible. You can also click on the first icon **Send to VR and teleport tool** to send your currently-opened SketchUp model to the VR headset. 
