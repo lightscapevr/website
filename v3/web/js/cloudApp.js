@@ -17,15 +17,26 @@
     props: ['file'],
     data: function () {
       return {
-        current_tab: '',
-        tabs:['cloud-file-details','cloud-file-edit','cloud-file-delete','cloud-file-share']
+        current_tab: ''
       }},
     methods:{
       toggle_details_tabs:function(){
          if(this.current_tab == 'cloud-file-details'){this.current_tab = ''}
          else{this.current_tab = 'cloud-file-details'}},
-         send_file_to_vr:function(){console.log("TODO, send file to vr")},
-         on_change_tab:function(tab_name){this.current_tab = tab_name}
+         send_file_to_vr:function(){console.log("TODO: send file to vr")},
+         on_change_tab:function(tab_name){this.current_tab = tab_name},
+         on_save_edit:function(changed_values){
+          console.log("TODO: do save of name and description ("+changed_values.name+")("+changed_values.description+")");
+          // TODO update server version, not just local state
+          this.file.name = changed_values.name;
+          this.file.description = changed_values.description;
+          this.current_tab = 'cloud-file-details'},
+         on_delete_file:function(){
+          console.log("TODO: delete file")
+          this.current_tab = 'cloud-file-details'},
+         on_share:function(){
+          console.log("TODO: copy link to clipboard")
+          this.current_tab = 'cloud-file-details'}
     },
     template: '#cloud-file'
   })
@@ -35,6 +46,13 @@
   })
 
   Vue.component('cloud-file-edit', {
+    props:['file_name','file_description'],
+    data: function () {
+      return {
+        new_name: '',
+        new_description:''
+      }},
+    mounted: function(){this.new_name=this.file_name;this.new_description=this.file_description},
     template: '#cloud-file-edit'
   })
 
@@ -51,10 +69,10 @@
     el: '#cloud-app',
     data: {
         files: [
-          { name: 'z', id: '1' },
-          { name: 'y', id: '2' },
-          { name: 'x', id: '3' },
-          { name: 'w', id: '4' },
+          { name: 'z', id: '1', description:'some text',date_modified:'2018.12.25' },
+          { name: 'y', id: '2', description:'some text',date_modified:'2018.12.25' },
+          { name: 'x', id: '3', description:'some text',date_modified:'2018.12.25' },
+          { name: 'w', id: '4', description:'some text',date_modified:'2018.12.25' },
         ]
       }
   })

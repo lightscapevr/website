@@ -90,51 +90,68 @@
 
 
 <script type="text/x-template" id="cloud-file">
+    <div>
     <div class="row c-file">
-        <div class="col-1">
-            {{file.id}}
-        </div>
         <div class="col">
             {{file.name}}
         </div>
         <div class="col">
-            <button v-on:click="send_file_to_vr">Send to VR</button>
-            <button v-on:click="toggle_details_tabs">Details</button>
+                {{file.description}}
+            </div>
+        <div class="col">
+                {{file.date_modified}}
         </div>
         <div class="col">
-                <component
-                v-bind:is="current_tab"
-                v-on:change-tab="on_change_tab"
-              ></component>
+            <button v-on:click="send_file_to_vr" class="btn btn-outline-primary">Send to VR</button>
+            <button v-on:click="toggle_details_tabs" class="btn btn-light">Details</button>
         </div>
     </div>
+            <component
+            v-bind:is="current_tab"
+            v-bind:file_name="file.name"
+            v-bind:file_description="file.description"
+            v-on:change-tab="on_change_tab"
+            v-on:save-edit="on_save_edit"
+            v-on:delete-file="on_delete_file"
+            v-on:share="on_share"
+          ></component>
+</div>
+
 </script>
 
 <script type="text/x-template" id="cloud-file-details">
     <div class="row">
         <p>details</p>
-        <button v-on:click="$emit('change-tab','cloud-file-deletedddddddddddddddd')">Edit</button>
-        <button v-on:click="$emit('change-tab','cloud-file-delete')">Delete</button>
-        <button v-on:click="show_share_tab">Share</button>
-        <button v-on:click="hide_all_tabs">Close Details</button>
+        <button v-on:click="$emit('change-tab','cloud-file-share')" class="btn btn-primary">Share</button>
+        <button v-on:click="$emit('change-tab','cloud-file-edit')" class="btn btn-light">Edit</button>
+        <button v-on:click="$emit('change-tab','cloud-file-delete')" class="btn btn-light">Delete</button>
+        <button v-on:click="$emit('change-tab','')" class="btn btn-light">Close Details</button>
     </div>
 </script>
 
 <script type="text/x-template" id="cloud-file-edit">
     <div class="row">
           <p>edit</p>
+          <input v-model="new_name" placeholder="Edit name...">
+          <input v-model="new_description" placeholder="Edit dicription...">
+          <button v-on:click="$emit('save-edit',{name:new_name,description:new_description})" class="btn btn-primary">Save</button>
+          <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-light">Cancel</button>
     </div>
 </script>
 
 <script type="text/x-template" id="cloud-file-delete">
     <div class="row">
            <p>delete</p>
+           <button v-on:click="$emit('delete-file')" class="btn btn-danger">Delete</button>
+           <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-light">Cancel</button>
     </div>
 </script>
 
 <script type="text/x-template" id="cloud-file-share">
     <div class="row">
            <p>share</p>
+           <button v-on:click="$emit('share')" class="btn btn-primary">Copy link to clipboard</button>
+           <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-light">Cancel</button>
     </div>
 </script>
 
