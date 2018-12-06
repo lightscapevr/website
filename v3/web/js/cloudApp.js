@@ -33,6 +33,8 @@
           this.current_tab = 'cloud-file-details'},
          on_delete_file:function(){
           console.log("TODO: delete file")
+          // TODO send delete request to server
+          this.$root.remove_file_by_id(this.file.id);
           this.current_tab = 'cloud-file-details'},
          on_share:function(){
           console.log("TODO: copy link to clipboard")
@@ -61,6 +63,7 @@
   })
 
   Vue.component('cloud-file-share', {
+    props:['sharable_link'],
     template: '#cloud-file-share'
   })
 
@@ -69,12 +72,19 @@
     el: '#cloud-app',
     data: {
         files: [
-          { name: 'z', id: '1', description:'some text',date_modified:'2018.12.25' },
-          { name: 'y', id: '2', description:'some text',date_modified:'2018.12.25' },
-          { name: 'x', id: '3', description:'some text',date_modified:'2018.12.25' },
-          { name: 'w', id: '4', description:'some text',date_modified:'2018.12.25' },
+          { id: '1', name: 'z', description:'some text',date_modified:'2018.12.25',sharable_link:'link' },
+          { id: '2', name: 'y', description:'some text',date_modified:'2018.12.25',sharable_link:'link' },
+          { id: '3', name: 'x', description:'some text',date_modified:'2018.12.25',sharable_link:'link' },
+          { id: '4', name: 'w', description:'some text',date_modified:'2018.12.25',sharable_link:'link' },
         ]
+      },
+    methods:{
+      remove_file_by_id:function(id){
+        var file = this.files.filter(function(f){return f.id === id});
+        var index = this.files.indexOf(file[0]);
+        if (index !== -1){this.files.splice(index, 1);} 
       }
+    }
   })
 
   // Helper functions

@@ -108,8 +108,12 @@
     </div>
             <component
             v-bind:is="current_tab"
+
             v-bind:file_name="file.name"
             v-bind:file_description="file.description"
+
+            v-bind:sharable_link="file.sharable_link"
+            
             v-on:change-tab="on_change_tab"
             v-on:save-edit="on_save_edit"
             v-on:delete-file="on_delete_file"
@@ -150,8 +154,9 @@
 <script type="text/x-template" id="cloud-file-share">
     <div class="row">
            <p>share</p>
+           <p>{{sharable_link}}</p>
            <button v-on:click="$emit('share')" class="btn btn-primary">Copy link to clipboard</button>
-           <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-light">Cancel</button>
+           <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-light">Close</button>
     </div>
 </script>
 
