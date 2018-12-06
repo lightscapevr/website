@@ -21,11 +21,11 @@
         tabs:['cloud-file-details','cloud-file-edit','cloud-file-delete','cloud-file-share']
       }},
     methods:{
-      show_details_tabs:function(){this.current_tab = 'cloud-file-details'},
-      show_edit_tab:function(){this.current_tab = 'cloud-file-edit'},
-      show_delete_tab:function(){this.current_tab = 'cloud-file-delete'},
-      show_share_tab:function(){this.current_tab = 'cloud-file-share'},
-      hide_all_tabs:function(){this.current_tab = ''}
+      toggle_details_tabs:function(){
+         if(this.current_tab == 'cloud-file-details'){this.current_tab = ''}
+         else{this.current_tab = 'cloud-file-details'}},
+         send_file_to_vr:function(){console.log("TODO, send file to vr")},
+         on_change_tab:function(tab_name){this.current_tab = tab_name}
     },
     template: '#cloud-file'
   })

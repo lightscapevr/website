@@ -98,15 +98,13 @@
             {{file.name}}
         </div>
         <div class="col">
-            <button v-on:click="show_details_tabs">Details</button>
-            <button v-on:click="show_edit_tab">Edit</button>
-            <button v-on:click="show_delete_tab">Delete</button>
-            <button v-on:click="show_share_tab">Share</button>
-            <button v-on:click="hide_all_tabs">Close</button>
+            <button v-on:click="send_file_to_vr">Send to VR</button>
+            <button v-on:click="toggle_details_tabs">Details</button>
         </div>
         <div class="col">
                 <component
                 v-bind:is="current_tab"
+                v-on:change-tab="on_change_tab"
               ></component>
         </div>
     </div>
@@ -115,6 +113,10 @@
 <script type="text/x-template" id="cloud-file-details">
     <div class="row">
         <p>details</p>
+        <button v-on:click="$emit('change-tab','cloud-file-deletedddddddddddddddd')">Edit</button>
+        <button v-on:click="$emit('change-tab','cloud-file-delete')">Delete</button>
+        <button v-on:click="show_share_tab">Share</button>
+        <button v-on:click="hide_all_tabs">Close Details</button>
     </div>
 </script>
 
