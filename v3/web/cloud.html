@@ -67,7 +67,10 @@
     <h1>VR Sketch Cloud</h1>
     <div id="cloud-app">
         <p>Your files</p>
-        <cloud-file-list v-bind:files="files"></cloud-file-list>
+        <cloud-file-list 
+        v-bind:files="files"
+        v-bind:other="current_tab"
+        ></cloud-file-list>
     </div>
 </div>
 
@@ -76,11 +79,17 @@
         <button v-on:click="order_by_name">Sort by name</button>
         <button v-on:click="order_by_name_rev">Sort by name D</button>
         <button v-on:click="order_by_id">Sort by id</button>
+        
         <div v-for="file in files">
-            <cloud-file :key="file.id" v-bind:file="file" :is_current_file="false"></cloud-file>
+            <cloud-file 
+            :key="file.id" 
+            v-bind:file="file"
+            v-bind:testd="other"
+            ></cloud-file>
         </div>
     </div>
 </script>
+
 
 <script type="text/x-template" id="cloud-file">
     <div class="row c-file">
@@ -91,10 +100,38 @@
             {{file.name}}
         </div>
         <div class="col-1">
-            <input v-model="file.name" placeholder="edit name">
+            {{testd}}
+                <!-- <component
+                v-bind:is="current_tab"
+              ></component> -->
         </div>
     </div>
 </script>
+
+<script type="text/x-template" id="cloud-file-details">
+    <div class="row">
+        <p>details</p>
+    </div>
+</script>
+
+<script type="text/x-template" id="cloud-file-edit">
+    <div class="row">
+          <p>edit</p>
+    </div>
+</script>
+
+<script type="text/x-template" id="cloud-file-delete">
+    <div class="row">
+           <p>delete</p>
+    </div>
+</script>
+
+<script type="text/x-template" id="cloud-file-share">
+    <div class="row">
+           <p>share</p>
+    </div>
+</script>
+
 
 
 

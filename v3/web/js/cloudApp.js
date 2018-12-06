@@ -1,26 +1,10 @@
 (function () {
   'use strict';
 
-  // Store
-  var store = {
-    state: {
-      files: [],
-      current_file: 'cloud-file'
-    },
-    fetch_all_files: function () {
-      // TODO : get real data from server on startup
-      this.state.files = [
-        { name: 'z', id: '1' },
-        { name: 'y', id: '2' },
-        { name: 'x', id: '3' },
-        { name: 'w', id: '4' },
-      ]
-    }
-  }
 
   // Components
   Vue.component('cloud-file-list', {
-    props: ['files'],
+    props: ['files','other'],
     methods: {
       order_by_name: function () { this.files.sort(utils.compare_by_name) },
       order_by_name_rev: function () { this.files.sort(utils.compare_by_name).reverse() },
@@ -30,19 +14,39 @@
   })
 
   Vue.component('cloud-file', {
-    props: ['file', 'is_current_file'],
+    props: ['file', 'testd'],
     template: '#cloud-file'
   })
 
-  Vue.component('tests', {
-    template: '#my-test'
+  Vue.component('cloud-file-details', {
+    template: '#cloud-file-details'
+  })
+
+  Vue.component('cloud-file-edit', {
+    template: '#cloud-file-edit'
+  })
+
+  Vue.component('cloud-file-delete', {
+    template: '#cloud-file-delete'
+  })
+
+  Vue.component('cloud-file-share', {
+    template: '#cloud-file-share'
   })
 
   // Vue instance
   var app = new Vue({
     el: '#cloud-app',
-    data: store.state,
-    mounted: function () { store.fetch_all_files() }
+    data: {
+        files: [
+          { name: 'z', id: '1' },
+          { name: 'y', id: '2' },
+          { name: 'x', id: '3' },
+          { name: 'w', id: '4' },
+        ],
+        tabs: ['cloud-file-details','cloud-file-edit','cloud-file-delete','cloud-file-share'],
+        current_tab : 'cloud-file-details'
+      }
   })
 
   // Helper functions

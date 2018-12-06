@@ -48,8 +48,32 @@
             {{file.name}}
         </div>
         <div class="col-1">
-            <input v-model="file.name" placeholder="edit name">
+            <component v-bind:is="cloud-file-details"></component>
         </div>
+    </div>
+</script>
+
+<script type="text/x-template" id="cloud-file-details">
+    <div class="row">
+        <p>details</p>
+    </div>
+</script>
+
+<script type="text/x-template" id="cloud-file-edit">
+    <div class="row">
+          <p>edit</p>
+    </div>
+</script>
+
+<script type="text/x-template" id="cloud-file-delete">
+    <div class="row">
+           <p>delete</p>
+    </div>
+</script>
+
+<script type="text/x-template" id="cloud-file-share">
+    <div class="row">
+           <p>share</p>
     </div>
 </script>
 
