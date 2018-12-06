@@ -66,12 +66,25 @@
 <div class="container">
     <h1>VR Sketch Cloud</h1>
     <div id="cloud-app">
-        <p>Your files</p>
+        <h2>Active file</h2>
+        <div>Connection status</div>
+        <active-file
+            v-bind:file="active_file"
+            v-bind:file="active_file"
+        />
+        <h2>Your files</h2>
         <cloud-file-list 
         v-bind:files="files"
         ></cloud-file-list>
     </div>
 </div>
+
+<script type="text/x-template" id="active-file">
+    <div>
+        <p>name: {{file.name}}</p>
+        <p>name: {{file.description}}</p>
+    </div>
+</script>
 
 <script type="text/x-template" id="cloud-file-list">
     <div>

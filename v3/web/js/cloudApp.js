@@ -76,7 +76,8 @@
           { id: '2', name: 'y', description:'some text',date_modified:'2018.12.25',sharable_link:'link' },
           { id: '3', name: 'x', description:'some text',date_modified:'2018.12.25',sharable_link:'link' },
           { id: '4', name: 'w', description:'some text',date_modified:'2018.12.25',sharable_link:'link' },
-        ]
+        ],
+        active_file: null
       },
     methods:{
       remove_file_by_id:function(id){
