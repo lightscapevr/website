@@ -69,7 +69,6 @@
         <p>Your files</p>
         <cloud-file-list 
         v-bind:files="files"
-        v-bind:other="current_tab"
         ></cloud-file-list>
     </div>
 </div>
@@ -84,7 +83,6 @@
             <cloud-file 
             :key="file.id" 
             v-bind:file="file"
-            v-bind:testd="other"
             ></cloud-file>
         </div>
     </div>
@@ -99,11 +97,17 @@
         <div class="col">
             {{file.name}}
         </div>
-        <div class="col-1">
-            {{testd}}
-                <!-- <component
+        <div class="col">
+            <button v-on:click="show_details_tabs">Details</button>
+            <button v-on:click="show_edit_tab">Edit</button>
+            <button v-on:click="show_delete_tab">Delete</button>
+            <button v-on:click="show_share_tab">Share</button>
+            <button v-on:click="hide_all_tabs">Close</button>
+        </div>
+        <div class="col">
+                <component
                 v-bind:is="current_tab"
-              ></component> -->
+              ></component>
         </div>
     </div>
 </script>

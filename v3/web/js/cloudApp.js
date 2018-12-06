@@ -4,7 +4,7 @@
 
   // Components
   Vue.component('cloud-file-list', {
-    props: ['files','other'],
+    props: ['files'],
     methods: {
       order_by_name: function () { this.files.sort(utils.compare_by_name) },
       order_by_name_rev: function () { this.files.sort(utils.compare_by_name).reverse() },
@@ -14,7 +14,19 @@
   })
 
   Vue.component('cloud-file', {
-    props: ['file', 'testd'],
+    props: ['file'],
+    data: function () {
+      return {
+        current_tab: '',
+        tabs:['cloud-file-details','cloud-file-edit','cloud-file-delete','cloud-file-share']
+      }},
+    methods:{
+      show_details_tabs:function(){this.current_tab = 'cloud-file-details'},
+      show_edit_tab:function(){this.current_tab = 'cloud-file-edit'},
+      show_delete_tab:function(){this.current_tab = 'cloud-file-delete'},
+      show_share_tab:function(){this.current_tab = 'cloud-file-share'},
+      hide_all_tabs:function(){this.current_tab = ''}
+    },
     template: '#cloud-file'
   })
 
@@ -43,9 +55,7 @@
           { name: 'y', id: '2' },
           { name: 'x', id: '3' },
           { name: 'w', id: '4' },
-        ],
-        tabs: ['cloud-file-details','cloud-file-edit','cloud-file-delete','cloud-file-share'],
-        current_tab : 'cloud-file-details'
+        ]
       }
   })
 
