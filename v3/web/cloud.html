@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -18,7 +19,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
     <!-- Custom imports -->
-
+    
 
 </head>
 
@@ -33,19 +34,19 @@
 
                     <div class="collapse navbar-collapse" id="main-navbar">
                         <ul class="navbar-nav ml-auto">
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="docs-getting-started.html">Documentation</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="faqs.html">FAQs</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="tutorials.html">Tutorials</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="blog.html">Blog</a>
-                            </li>
+                            
+<li class="nav-item">
+    <a class="nav-link" href="docs-getting-started.html">Documentation</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="faqs.html">FAQs</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="tutorials.html">Tutorials</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="blog.html">Blog</a>
+</li>
 
                         </ul>
                         <button class="btn btn-outline-primary">Log in</button>
@@ -60,99 +61,100 @@
     </header>
 
     <main role="main">
+        
 
 
-        <div class="container">
-            <h1>VR Sketch Cloud</h1>
-            <div id="cloud-app">
-                <h2>Connection stats</h2>
-                <p>Logged in as: {{user_name}}</p>
-                <p>Status: {{connection_status}}</p>
+<div class="container">
+    <h1>VR Sketch Cloud</h1>
+    <div id="cloud-app">
+        <h2>Connection stats</h2>
+        <p>Logged in as: {{user_name}}</p>
+        <p>Status: {{connection_status}}</p>
 
-                <h2>Active file</h2>
-                <div v-if="active_file !== false">
-                    <active-file v-bind:file="active_file" />
-                </div>
-                <div v-else>
-                    <p>No active file. Please select one from the list below...</p>
-                </div>
-                <div>Connection status</div>
+        <h2>Active file</h2>
+        <div v-if="active_file !== false">
+            <active-file v-bind:file="active_file" />
+        </div>
+        <div v-else>
+            <p>No active file. Please select one from the list below...</p>
+        </div>
+        <div>Connection status</div>
 
-                <h2>Your files</h2>
-                <cloud-file-list v-bind:files="files"></cloud-file-list>
-                <notification-bar v-bind:notification="notification" v-bind:close="hide_notification">
+        <h2>Your files</h2>
+        <cloud-file-list v-bind:files="files"></cloud-file-list>
+        <notification-bar v-bind:notification="notification" v-bind:close="hide_notification">
+    </div>
+</div>
+
+<script type="text/x-template" id="notification-bar">
+    <div>
+        <div v-show="notification.show">
+            <div class="alert fixed-bottom" :class="notification.type" role="alert">
+                {{notification.message}}
+                <button v-on:click="close">x</button>
             </div>
         </div>
+    </div>
+</script>
 
-        <script type="text/x-template" id="notification-bar">
-            <div>
-                <div v-show="notification.show">
-                    <div class="alert fixed-bottom" :class="notification.type" role="alert">
-                        {{notification.message}}
-                        <button v-on:click="close">x</button>
-                    </div>
-                </div>
-            </div>
-        </script>
-
-        <script type="text/x-template" id="active-file">
+<script type="text/x-template" id="active-file">
     <div>
-        <p>name: {{file.name}}</p>
+        <h4>name: {{file.name}}</h4>
         <p>name: {{file.description}}</p>
         <button v-on:click="remove_active_file">Remove</button>
     </div>
 </script>
 
-        <script type="text/x-template" id="cloud-file-list">
-            <div>
-                <button v-on:click="order_by_name">Sort by name</button>
-                <button v-on:click="order_by_name_rev">Sort by name D</button>
+<script type="text/x-template" id="cloud-file-list">
+    <div>
+        <button v-on:click="order_by_name">Sort by name</button>
+        <button v-on:click="order_by_name_rev">Sort by name D</button>
 
-                <div v-for="file in files">
-                    <cloud-file 
-                    :key="file.id" 
-                    v-bind:file="file"
-                    ></cloud-file>
-                </div>
+        <div v-for="file in files">
+            <cloud-file 
+            :key="file.id" 
+            v-bind:file="file"
+            ></cloud-file>
+        </div>
+    </div>
+</script>
+
+
+<script type="text/x-template" id="cloud-file">
+    <div>
+        <div class="row c-file">
+            <div class="col">
+                {{file.name}}
             </div>
-        </script>
-
-
-        <script type="text/x-template" id="cloud-file">
-            <div>
-                <div class="row c-file">
-                    <div class="col">
-                        {{file.name}}
-                    </div>
-                    <div class="col">
-                            {{file.description}}
-                        </div>
-                    <div class="col">
-                            {{file.date_modified}}
-                    </div>
-                    <div class="col">
-                        <button v-on:click="send_file_to_vr" class="btn btn-outline-primary">Send to VR</button>
-                        <button v-on:click="toggle_details_tabs" class="btn btn-light">Details</button>
-                    </div>
+            <div class="col">
+                    {{file.description}}
                 </div>
-                <component
-                v-bind:is="current_tab"
-
-                v-bind:file_name="file.name"
-                v-bind:file_description="file.description"
-
-                v-bind:sharable_link="file.sharable_link"
-                v-bind:id="file.id"
-
-                v-on:change-tab="on_change_tab"
-                v-on:save-edit="on_save_edit"
-                v-on:delete-file="on_delete_file"
-                v-on:share="on_share"
-              ></component>
+            <div class="col">
+                    {{file.date_modified}}
             </div>
-        </script>
+            <div class="col">
+                <button v-on:click="send_file_to_vr" class="btn btn-outline-primary">Send to VR</button>
+                <button v-on:click="toggle_details_tabs" class="btn btn-light">Details</button>
+            </div>
+        </div>
+        <component
+            v-bind:is="current_tab"
 
-        <script type="text/x-template" id="cloud-file-details">
+            v-bind:file_name="file.name"
+            v-bind:file_description="file.description"
+
+            v-bind:sharable_link="file.sharable_link"
+            v-bind:id="file.id"
+
+            v-on:change-tab="on_change_tab"
+            v-on:save-edit="on_save_edit"
+            v-on:delete-file="on_delete_file"
+            v-on:share="on_share"
+      ></component>
+    </div>
+</script>
+
+<script type="text/x-template" id="cloud-file-details">
     <div class="row">
         <button v-on:click="$emit('change-tab','cloud-file-share')" class="btn btn-primary">Share</button>
         <button v-on:click="$emit('change-tab','cloud-file-edit')" class="btn btn-light">Edit</button>
@@ -161,123 +163,122 @@
     </div>
 </script>
 
-        <script type="text/x-template" id="cloud-file-edit">
+<script type="text/x-template" id="cloud-file-edit">
     <div class="row">
-          <input v-model="new_name" placeholder="Edit name...">
-          <input v-model="new_description" placeholder="Edit dicription...">
-          <button v-on:click="$emit('save-edit',{name:new_name,description:new_description})" class="btn btn-primary">Save</button>
-          <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-light">Cancel</button>
+        <input v-model="new_name" placeholder="Edit name...">
+        <input v-model="new_description" placeholder="Edit dicription...">
+        <button v-on:click="$emit('save-edit',{name:new_name,description:new_description})" class="btn btn-primary">Save</button>
+        <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-light">Cancel</button>
     </div>
 </script>
 
-        <script type="text/x-template" id="cloud-file-delete">
+<script type="text/x-template" id="cloud-file-delete">
     <div class="row">
-           <button v-on:click="$emit('delete-file')" class="btn btn-danger">Delete</button>
-           <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-light">Cancel</button>
+        <button v-on:click="$emit('delete-file')" class="btn btn-danger">Delete</button>
+        <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-light">Cancel</button>
     </div>
 </script>
 
-        <script type="text/x-template" id="cloud-file-share">
+<script type="text/x-template" id="cloud-file-share">
     <div class="row">
-           <input type="text" v-bind:value="sharable_link" :id="'share-link-'+id" readonly>
-           <button v-on:click="$emit('share')" class="btn btn-primary">Copy link to clipboard</button>
-           <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-light">Close</button>
+       <input type="text" v-bind:value="sharable_link" :id="'share-link-'+id" readonly>
+       <button v-on:click="$emit('share')" class="btn btn-primary">Copy link to clipboard</button>
+       <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-light">Close</button>
     </div>
 </script>
-
 
 
 
     </main>
 
     <footer class="bg-dark text-light py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5 mb-4">
-                    <div>
-                        <a href="https://vrsketch.eu/">
-                            <img src="img/logos/vr-sketch-logo.svg" alt="VR Sketch" width="280px">
-                        </a>
-                        <br>
-                        <small>VR drawing tools for architects and designers</small>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div>
-                        <h5>Social</h5>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="https://twitter.com/VrSketch" target="_blank"><i class="fab fa-twitter"></i>&nbsp;Twitter</a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag" target="_blank"><i class="fab fa-youtube"></i>&nbsp;YouTube</a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/vr_sketch/" target="_blank"><i class="fab fa-instagram"></i>&nbsp;Instagram</a>
-                            </li>
-                            <li>
-                                <a href="blog.html"><i class="fas fa-pencil-alt"></i>&nbsp;Blog</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div>
-                        <h5>Resources</h5>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="docs-getting-started.html">Documentation</a>
-                            </li>
-                            <li>
-                                <a href="faqs.html">FAQ's</a>
-                            </li>
-                            <li>
-                                <a href="about.html">About</a>
-                            </li>
-                            <li>
-                                <a href="https://drive.google.com/open?id=1uDbTl4JJtLobN8Lc-bz3OibkYomQlUPX">Media pack</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div>
-                        <h5>Actions</h5>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="mailto:info@baroquesoftware.com">Email us</a>
-                            </li>
-                            <li>
-                                <a href="#subscribe">Subscribe to newsletter</a>
-                            </li>
-                            <li>
-                                <a href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try now</a>
-                            </li>
-
-                            <li>
-                                <a href="#">Log in</a>
-                            </li>
-                        </ul>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 mb-4">
+                <div>
+                    <a href="https://vrsketch.eu/">
+                        <img src="img/logos/vr-sketch-logo.svg" alt="VR Sketch" width="280px">
+                    </a>
+                    <br>
+                    <small>VR drawing tools for architects and designers</small>
                 </div>
             </div>
-            <p class="text-muted mt-5">
-                Made with love by the
-                <a href="https://baroquesoftware.com/" target="_blank">Baroque Software</a>
-                team. © 2018 VR Sketch
-            </p>
+            <div class="col-md">
+                <div>
+                    <h5>Social</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="https://twitter.com/VrSketch" target="_blank"><i class="fab fa-twitter"></i>&nbsp;Twitter</a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag" target="_blank"><i class="fab fa-youtube"></i>&nbsp;YouTube</a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/vr_sketch/" target="_blank"><i class="fab fa-instagram"></i>&nbsp;Instagram</a>
+                        </li>
+                        <li>
+                            <a href="blog.html"><i class="fas fa-pencil-alt"></i>&nbsp;Blog</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div>
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="docs-getting-started.html">Documentation</a>
+                        </li>
+                        <li>
+                            <a href="faqs.html">FAQ's</a>
+                        </li>
+                        <li>
+                            <a href="about.html">About</a>
+                        </li>
+                        <li>
+                            <a href="https://drive.google.com/open?id=1uDbTl4JJtLobN8Lc-bz3OibkYomQlUPX">Media pack</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div>
+                    <h5>Actions</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="mailto:info@baroquesoftware.com">Email us</a>
+                        </li>
+                        <li>
+                            <a href="#subscribe">Subscribe to newsletter</a>
+                        </li>
+                        <li>
+                            <a href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try now</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Log in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </footer>
+        <p class="text-muted mt-5">
+            Made with love by the
+            <a href="https://baroquesoftware.com/" target="_blank">Baroque Software</a>
+            team. © 2018 VR Sketch
+        </p>
+    </div>
+</footer>
 
     <!-- JS imports -->
     <noscript>Your browser either does not support JavaScript or it not active. Please activate JavaScript.</noscript>
-
+    
     <script src="js/libraries/jquery-3.1.1.min.js"></script>
     <script src="js/libraries/popper.min.js"></script>
     <script src="js/libraries/bootstrap.min.js"></script>
-
-    <script src="js/libraries/vue.js"></script>
-    <script src="js/cloudApp.js"></script>
+    
+<script src="js/libraries/vue.js"></script>
+<script src="js/cloudApp.js"></script>
 
 </body>
 
