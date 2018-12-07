@@ -25,11 +25,8 @@
 <!--  Cloud App  -->
 <div class="container">
     <div id="cloud-app" class="mt-5">
-
         <active-file v-bind:file="active_file"></active-file>
         <span class="text-muted float-right">Connection status: {{connection_status}}</span>
-
-        <!-- <upload-file></upload-file> -->
 
         <cloud-file-list v-bind:files="files"></cloud-file-list>
         <notification-bar v-bind:notification="notification" v-bind:close="hide_notification">
@@ -87,15 +84,25 @@
 
 <!--  Upload  -->
 <script type="text/x-template" id="upload-file">
-    <div class="">
-        TODO
+    <div class="align-bottom">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="validatedCustomFile" required  accept=".skp" v-on:change="upload_files_on_change">
+            <label class="custom-file-label" for="validatedCustomFile">Choose a SketchUp file to upload...</label>
+        </div>
     </div>
 </script>
 
 <!--  File list  -->
 <script type="text/x-template" id="cloud-file-list">
     <div class="pb-5">
-        <h3 class="mt-5 text-muted">Your files</h3>
+        <div class="row mt-5">
+            <div class="col-7">
+                <h3 class="text-muted">Your files</h3>
+            </div>
+            <div class="col-5">
+               <upload-file></upload-file>                
+            </div>
+        </div>
         <div class="row">
            <div class="col-4">
                 <button v-on:click="order_by_name" class="btn btn-link text-muted">Name</button>                   

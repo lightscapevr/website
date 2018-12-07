@@ -33,8 +33,11 @@ var vueAppApi = {};
   Vue.component('upload-file', {
     // A way to upload sketchup files to the cloud
     methods: {
-      upload_file: function () {
-        console.log("TODO: Upload file to cloud")
+      upload_files_on_change: function (event) {
+        var files = event.target.files || event.dataTransfer.files;
+        if (!files.length)
+          return;
+        Array.prototype.forEach.call(files, function (file) { console.log("TODO: Upload file to cloud. File:" + file.name) });
         this.$root.show_notification_for_time('Uploading file...');
       }
     },
