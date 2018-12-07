@@ -2,22 +2,27 @@ var vueAppApi = {};
 (function (public_api) {
   'use strict';
 
+
   // -------------------------------------- Components -------------------------------------- 
   Vue.component('active-file', {
     // Indicates which file is currently being synced and provides info about that file.
     props: ['file'],
     data: function () {
       return {
-        link: 'Paste a shared link here...'
+        link: 'Paste a shared link here...',
       }
+    },
+    computed: {
+      title: function () { return (this.file != false) ? 'File sent to VR' : 'Choose a file to send to VR' }
     },
     methods: {
       remove_active_file: function () {
         this.$root.remove_active_file();
-        this.$root.show_notification_for_time('File deactivated');
+        this.$root.show_notification_for_time('File de-activated');
       },
       send_link_to_vr: function () {
         console.log("TODO: send link to vr. Link:" + this.link)
+        this.$root.show_notification_for_time('Loading file from link');
       }
     },
     template: '#active-file'
@@ -94,6 +99,7 @@ var vueAppApi = {};
       },
       on_download_file: function () {
         console.log("TODO: Download file:" + this.file.name);
+        this.$root.show_notification_for_time('Downloading ' + this.file.name);
         // TODO download file
       },
       on_delete_file: function () {
@@ -153,6 +159,8 @@ var vueAppApi = {};
     template: '#notification-bar'
   })
 
+
+
   // -------------------------------------- Vue instance -------------------------------------- 
   var app = new Vue({
     el: '#cloud-app',
@@ -184,13 +192,20 @@ var vueAppApi = {};
     }
   })
 
+
+
   // -------------------------------------- public api function -------------------------------------- 
+
   public_api.set_connection_status = function (status) {
     app.show_notification_for_time('Connection status: ' + status);
     app.connection_status = status;
   }
+
   public_api.insert_file_list = function (files) { app.files = files; }
+
   public_api.show_notification = function (message, type) { app.show_notification_for_time(message, type); }
+
+
 
   // -------------------------------------- Helper functions -------------------------------------- 
   var utils = {
@@ -219,11 +234,11 @@ var vueAppApi = {};
 })(vueAppApi);
 
 // Populate with test data.
-setTimeout(function () { vueAppApi.set_connection_status('Connected') }, 500);
+setTimeout(function () { vueAppApi.set_connection_status('Connected') }, 200);
 var temp_file_data = [
   { id: '1', name: 'My house.skp', description: 'some text', date_modified: '2018.12.01', size: 13, sharable_link: 'linkAAAA' },
   { id: '2', name: 'Homework-final.skp', description: 'some text', date_modified: '2018.12.02', size: 152, sharable_link: 'linkBBBB' },
   { id: '3', name: 'a cool model.skp', description: 'some text', date_modified: '2018.12.03', size: 200, sharable_link: 'linkCCCC' },
   { id: '4', name: 'xyz.skp', description: 'some text', date_modified: '2018.12.04', size: 95, sharable_link: 'linkDDDD' },
 ]
-setTimeout(function () { vueAppApi.insert_file_list(temp_file_data) }, 800);
+setTimeout(function () { vueAppApi.insert_file_list(temp_file_data) }, 400);

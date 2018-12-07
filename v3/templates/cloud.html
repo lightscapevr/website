@@ -21,20 +21,25 @@
 {% block main_content %}
 {% raw %}
 
+
+<!-- -------------------------------------------------------- Cloud App -------------------------------------------------------- -->
 <div class="container">
     <div id="cloud-app" class="mt-5">
-        <h3 class="text-muted">Active file</h3>
+
         <active-file v-bind:file="active_file"></active-file>
         <span class="text-muted float-right">Connection status: {{connection_status}}</span>
 
-        <h3 class="mt-5 text-muted">Your files</h3>
+
         <cloud-file-list v-bind:files="files"></cloud-file-list>
         <notification-bar v-bind:notification="notification" v-bind:close="hide_notification">
     </div>
 </div>
 
+
+<!-- -------------------------------------------------------- active-file-------------------------------------------------------- -->
 <script type="text/x-template" id="active-file">
     <div>
+        <h3 class="text-muted">{{title}}</h3>
         <div v-if="this.file != false">
             <div class="c-file c-file-active border-bottom">
                 <div class="row h100">
@@ -79,8 +84,11 @@
     </div>
 </script>
 
+
+<!-- -------------------------------------------------------- File list -------------------------------------------------------- -->
 <script type="text/x-template" id="cloud-file-list">
     <div class="pb-5">
+        <h3 class="mt-5 text-muted">Your files</h3>
         <div class="row">
            <div class="col-4">
                 <button v-on:click="order_by_name" class="btn btn-link text-muted">Name</button>                   
@@ -105,6 +113,7 @@
 </script>
 
 
+<!-- -------------------------------------------------------- File -------------------------------------------------------- -->
 <script type="text/x-template" id="cloud-file">
     <div class="c-file">
         <div class="row h100">
@@ -140,6 +149,8 @@
     </div>  
 </script>
 
+
+<!-- -------------------------------------------------------- File tabs -------------------------------------------------------- -->
 <script type="text/x-template" id="cloud-file-details">
     <div class="c-info">
         <div class="row">
@@ -175,7 +186,7 @@
 <script type="text/x-template" id="cloud-file-delete">
     <div class="c-info">
         <div class="row">
-            <button v-on:click="$emit('delete-file')" class="btn btn-danger ml-auto">Delete</button>
+            <button v-on:click="$emit('delete-file')" class="btn btn-danger ml-auto">Permanently delete file</button>
             <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-outline-secondary">Cancel</button>
         </div>
     </div>
@@ -191,6 +202,8 @@
     </div>
 </script>
 
+
+<!-- -------------------------------------------------------- Notification bar -------------------------------------------------------- -->
 <script type="text/x-template" id="notification-bar">
     <div>
         <div v-show="notification.show">
