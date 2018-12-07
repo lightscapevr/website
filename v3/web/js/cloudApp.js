@@ -96,6 +96,9 @@ var vueAppApi = {};
         current_tab: ''
       }
     },
+    computed: {
+      is_active: function () { return this.$root.active_file != this.file; }
+    },
     methods: {
       toggle_details_tabs: function () {
         if (this.current_tab == 'cloud-file-details') { this.current_tab = '' }
