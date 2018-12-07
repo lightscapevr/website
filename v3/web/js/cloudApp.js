@@ -18,9 +18,39 @@ var vueAppApi = {};
   Vue.component('cloud-file-list', {
     // List of all the files the user has uploaded
     props: ['files'],
+    data: function () {
+      return {
+        order: ''
+      }
+    },
     methods: {
-      order_by_name: function () { this.files.sort(utils.compare_by_name) },
-      order_by_name_rev: function () { this.files.sort(utils.compare_by_name).reverse() }
+      order_by_name: function () {
+        if (this.order != 'name') {
+          this.files.sort(utils.sort_by_name);
+          this.order = 'name';
+        }
+        else {
+          this.files.reverse();
+        }
+      },
+      order_by_date: function () {
+        if (this.order != 'date') {
+          this.files.sort(utils.sort_by_date);
+          this.order = 'date';
+        }
+        else {
+          this.files.reverse();
+        }
+      },
+      order_by_size: function () {
+        if (this.order != 'size') {
+          this.files.sort(utils.sort_by_size);
+          this.order = 'size';
+        }
+        else {
+          this.files.reverse();
+        }
+      }
     },
     template: '#cloud-file-list'
   })
@@ -155,10 +185,24 @@ var vueAppApi = {};
 
   // -------------------------------------- Helper functions -------------------------------------- 
   var utils = {
-    compare_by_name: function (a, b) {
+    sort_by_name: function (a, b) {
       if (a.name < b.name)
         return -1;
       if (a.name > b.name)
+        return 1;
+      return 0;
+    },
+    sort_by_date: function (a, b) {
+      if (a.date_modified < b.date_modified)
+        return -1;
+      if (a.date_modified > b.date_modified)
+        return 1;
+      return 0;
+    },
+    sort_by_size: function (a, b) {
+      if (a.size < b.size)
+        return -1;
+      if (a.size > b.size)
         return 1;
       return 0;
     }
@@ -169,9 +213,9 @@ var vueAppApi = {};
 setTimeout(function () { vueAppApi.set_user_name('Tim') }, 200);
 setTimeout(function () { vueAppApi.set_connection_status('Connected') }, 500);
 var temp_file_data = [
-  { id: '1', name: 'My house.skp', description: 'some text', date_modified: '2018.12.25', sharable_link: 'linkAAAA' },
-  { id: '2', name: 'Homework-final.skp', description: 'some text', date_modified: '2018.12.25', sharable_link: 'linkBBBB' },
-  { id: '3', name: 'a cool model.skp', description: 'some text', date_modified: '2018.12.25', sharable_link: 'linkCCCC' },
-  { id: '4', name: 'xyz.skp', description: 'some text', date_modified: '2018.12.25', sharable_link: 'linkDDDD' },
+  { id: '1', name: 'My house.skp', description: 'some text', date_modified: '2018.12.01', size: 13, sharable_link: 'linkAAAA' },
+  { id: '2', name: 'Homework-final.skp', description: 'some text', date_modified: '2018.12.02', size: 152, sharable_link: 'linkBBBB' },
+  { id: '3', name: 'a cool model.skp', description: 'some text', date_modified: '2018.12.03', size: 200, sharable_link: 'linkCCCC' },
+  { id: '4', name: 'xyz.skp', description: 'some text', date_modified: '2018.12.04', size: 95, sharable_link: 'linkDDDD' },
 ]
 setTimeout(function () { vueAppApi.insert_file_list(temp_file_data) }, 800);

@@ -5,6 +5,9 @@
 
 {% block nav_menu_items %}
 <li class="nav-item">
+    <a class="nav-link" href="index.html">Home</a>
+</li>
+<li class="nav-item">
     <a class="nav-link" href="docs-getting-started.html">Documentation</a>
 </li>
 <li class="nav-item">
@@ -13,29 +16,24 @@
 <li class="nav-item">
     <a class="nav-link" href="tutorials.html">Tutorials</a>
 </li>
-<li class="nav-item">
-    <a class="nav-link" href="blog.html">Blog</a>
-</li>
 {% endblock nav_menu_items %}
 
 {% block main_content %}
 {% raw %}
 
 <div class="container">
-    <h1>VR Sketch Cloud</h1>
     <div id="cloud-app">
-        <h2>Connection stats</h2>
-        <p>Logged in as: {{user_name}}</p>
-        <p>Status: {{connection_status}}</p>
-
         <h2>Active file</h2>
+        <p>Logged in as: {{user_name}}.&nbsp; Connection status: {{connection_status}}</p>
         <div v-if="active_file !== false">
             <active-file v-bind:file="active_file" />
         </div>
         <div v-else>
             <p>No active file. Please select one from the list below...</p>
         </div>
-        <div>Connection status</div>
+
+
+
 
         <h2>Your files</h2>
         <cloud-file-list v-bind:files="files"></cloud-file-list>
@@ -64,8 +62,19 @@
 
 <script type="text/x-template" id="cloud-file-list">
     <div>
-        <button v-on:click="order_by_name">Sort by name</button>
-        <button v-on:click="order_by_name_rev">Sort by name D</button>
+        <div class="row">
+           <div class="col">
+                <button v-on:click="order_by_name" class="btn btn-outline-secondary">Name</button>                   
+           </div>
+           <div class="col">
+                <button v-on:click="order_by_size" class="btn btn-outline-secondary">Size</button>
+            </div>
+            <div class="col">
+                <button v-on:click="order_by_date" class="btn btn-outline-secondary">Date Modified</button>
+            </div>
+            <div class="col">
+            </div>
+        </div>
 
         <div v-for="file in files">
             <cloud-file 
@@ -81,11 +90,12 @@
     <div>
         <div class="row c-file">
             <div class="col">
-                {{file.name}}
+                <strong>{{file.name}}</strong>
+                <p>{{file.description}}</P>
             </div>
             <div class="col">
-                    {{file.description}}
-                </div>
+                    {{file.size}}
+            </div>
             <div class="col">
                     {{file.date_modified}}
             </div>
