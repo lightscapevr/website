@@ -124,6 +124,7 @@ var vueAppApi = {};
         this.$root.show_notification_for_time(this.file.name + ' sent to VR');
         this.$root.set_active_file(this.file);
       },
+      remove_active_file: function () { this.$root.remove_active_file(this.file); },
       on_change_tab: function (tab_name) { this.current_tab = tab_name },
       on_save_edit: function (changed_values) {
         console.log("TODO: do save of name and description (" + changed_values.name + ")(" + changed_values.description + ")");
@@ -137,6 +138,7 @@ var vueAppApi = {};
       on_download_file: function () {
         console.log("TODO: Download file:" + this.file.name);
         this.$root.show_notification_for_time('Downloading ' + this.file.name);
+        this.toggle_details_tabs();
         // TODO download file
       },
       on_delete_file: function () {

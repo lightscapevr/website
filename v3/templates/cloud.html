@@ -144,7 +144,7 @@
             <div class="col-3 my-auto">
                 <div class="float-right">
                   <button v-if="is_active" v-on:click="send_file_to_vr" class="btn btn-outline-primary">Send to VR</button>
-                  <button v-else v-on:click="send_file_to_vr" class="btn btn-secondary">Stop</button>
+                  <button v-else v-on:click="remove_active_file" class="btn btn-secondary">Stop</button>
 
                   <button v-if="is_selected" v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Hide</button>
                   <button v-else v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Details</button>
@@ -214,8 +214,8 @@
 <script type="text/x-template" id="cloud-file-share">
     <div class="c-info">
         <div class="row">
-           <input type="text" v-bind:value="sharable_link" :id="'share-link-'+id" readonly>
-           <button v-on:click="$emit('share')" class="btn btn-primary">Copy link to clipboard</button>
+            <input type="text" class="form-control w-50" v-bind:value="sharable_link" :id="'share-link-'+id" readonly>
+           <button v-on:click="$emit('share')" class="btn btn-primary ml-auto">Copy link to clipboard</button>
            <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-outline-secondary">Close</button>
         </div>
     </div>
