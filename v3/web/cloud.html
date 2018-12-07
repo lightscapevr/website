@@ -72,6 +72,7 @@
         <active-file v-bind:file="active_file"></active-file>
         <span class="text-muted float-right">Connection status: {{connection_status}}</span>
 
+        <!-- <upload-file></upload-file> -->
 
         <cloud-file-list v-bind:files="files"></cloud-file-list>
         <notification-bar v-bind:notification="notification" v-bind:close="hide_notification">
@@ -83,7 +84,7 @@
 <script type="text/x-template" id="active-file">
     <div>
         <h3 class="text-muted">{{title}}</h3>
-        <div v-if="this.file != false">
+        <div v-if="file != false">
             <div class="c-file c-file-active border-bottom">
                 <div class="row h100">
                     <div class="col-4">
@@ -127,6 +128,12 @@
     </div>
 </script>
 
+<!-- -------------------------------------------------------- Upload -------------------------------------------------------- -->
+<script type="text/x-template" id="upload-file">
+    <div class="">
+        TODO
+    </div>
+</script>
 
 <!-- -------------------------------------------------------- File list -------------------------------------------------------- -->
 <script type="text/x-template" id="cloud-file-list">

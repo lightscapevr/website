@@ -28,6 +28,21 @@ var vueAppApi = {};
     template: '#active-file'
   })
 
+
+
+  Vue.component('upload-file', {
+    // A way to upload sketchup files to the cloud
+    methods: {
+      upload_file: function () {
+        console.log("TODO: Upload file to cloud")
+        this.$root.show_notification_for_time('Uploading file...');
+      }
+    },
+    template: '#upload-file'
+  })
+
+
+
   Vue.component('cloud-file-list', {
     // List of all the files the user has uploaded
     props: ['files'],
@@ -67,6 +82,8 @@ var vueAppApi = {};
     },
     template: '#cloud-file-list'
   })
+
+
 
   Vue.component('cloud-file', {
     // The individual file information
@@ -124,10 +141,14 @@ var vueAppApi = {};
     template: '#cloud-file'
   })
 
+
+
   Vue.component('cloud-file-details', {
     // Tab providing all the options the the user can do to the file
     template: '#cloud-file-details'
   })
+
+
 
   Vue.component('cloud-file-edit', {
     // Tab to rename and change the description
@@ -142,16 +163,22 @@ var vueAppApi = {};
     template: '#cloud-file-edit'
   })
 
+
+
   Vue.component('cloud-file-delete', {
     // Tab to confirm the deletion of a file
     template: '#cloud-file-delete'
   })
+
+
 
   Vue.component('cloud-file-share', {
     // Tab to share the file
     props: ['sharable_link', 'id'],
     template: '#cloud-file-share'
   })
+
+
 
   Vue.component('notification-bar', {
     // Area to display messages to the user
@@ -201,7 +228,9 @@ var vueAppApi = {};
     app.connection_status = status;
   }
 
-  public_api.insert_file_list = function (files) { app.files = files; }
+  public_api.insert_file_data = function (files) { app.files = files; }
+  // File data schema
+  // id, name, description, date_modified, size,sharable_link
 
   public_api.show_notification = function (message, type) { app.show_notification_for_time(message, type); }
 
@@ -241,4 +270,5 @@ var temp_file_data = [
   { id: '3', name: 'a cool model.skp', description: 'some text', date_modified: '2018.12.03', size: 200, sharable_link: 'linkCCCC' },
   { id: '4', name: 'xyz.skp', description: 'some text', date_modified: '2018.12.04', size: 95, sharable_link: 'linkDDDD' },
 ]
-setTimeout(function () { vueAppApi.insert_file_list(temp_file_data) }, 400);
+
+setTimeout(function () { vueAppApi.insert_file_data(temp_file_data) }, 400);
