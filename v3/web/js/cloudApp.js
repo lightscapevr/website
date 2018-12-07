@@ -6,10 +6,18 @@ var vueAppApi = {};
   Vue.component('active-file', {
     // Indicates which file is currently being synced and provides info about that file.
     props: ['file'],
+    data: function () {
+      return {
+        link: 'Paste a shared link here...'
+      }
+    },
     methods: {
       remove_active_file: function () {
         this.$root.remove_active_file();
         this.$root.show_notification_for_time('File deactivated');
+      },
+      send_link_to_vr: function () {
+        console.log("TODO: send link to vr. Link:" + this.link)
       }
     },
     template: '#active-file'
@@ -67,6 +75,7 @@ var vueAppApi = {};
       toggle_details_tabs: function () {
         if (this.current_tab == 'cloud-file-details') { this.current_tab = '' }
         else { this.current_tab = 'cloud-file-details' }
+
       },
       send_file_to_vr: function () {
         console.log("TODO: send file to vr");
@@ -82,6 +91,10 @@ var vueAppApi = {};
         this.$root.show_notification_for_time('Changes saved');
         // TODO update server version, not just local state
         this.current_tab = 'cloud-file-details'
+      },
+      on_download_file: function () {
+        console.log("TODO: Download file:" + this.file.name);
+        // TODO download file
       },
       on_delete_file: function () {
         console.log("TODO: delete file")
@@ -146,7 +159,6 @@ var vueAppApi = {};
     data: {
       files: [],
       active_file: false,
-      user_name: 'Not logged in',
       connection_status: 'Not connected',
       notification: { show: false, message: '', type: 'alert-info', timer: {} }
     },
@@ -173,9 +185,6 @@ var vueAppApi = {};
   })
 
   // -------------------------------------- public api function -------------------------------------- 
-  public_api.set_user_name = function (name) {
-    app.user_name = name;
-  }
   public_api.set_connection_status = function (status) {
     app.show_notification_for_time('Connection status: ' + status);
     app.connection_status = status;
@@ -210,7 +219,6 @@ var vueAppApi = {};
 })(vueAppApi);
 
 // Populate with test data.
-setTimeout(function () { vueAppApi.set_user_name('Tim') }, 200);
 setTimeout(function () { vueAppApi.set_connection_status('Connected') }, 500);
 var temp_file_data = [
   { id: '1', name: 'My house.skp', description: 'some text', date_modified: '2018.12.01', size: 13, sharable_link: 'linkAAAA' },

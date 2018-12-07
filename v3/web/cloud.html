@@ -65,57 +65,76 @@
 
 
 <div class="container">
-    <div id="cloud-app">
-        <h2>Active file</h2>
-        <p>Logged in as: {{user_name}}.&nbsp; Connection status: {{connection_status}}</p>
-        <div v-if="active_file !== false">
-            <active-file v-bind:file="active_file" />
-        </div>
-        <div v-else>
-            <p>No active file. Please select one from the list below...</p>
-        </div>
+    <div id="cloud-app" class="mt-5">
+        <h3 class="text-muted">Active file</h3>
+        <active-file v-bind:file="active_file"></active-file>
+        <span class="text-muted float-right">Connection status: {{connection_status}}</span>
 
-
-
-
-        <h2>Your files</h2>
+        <h3 class="mt-5 text-muted">Your files</h3>
         <cloud-file-list v-bind:files="files"></cloud-file-list>
         <notification-bar v-bind:notification="notification" v-bind:close="hide_notification">
     </div>
 </div>
 
-<script type="text/x-template" id="notification-bar">
+<script type="text/x-template" id="active-file">
     <div>
-        <div v-show="notification.show">
-            <div class="alert fixed-bottom" :class="notification.type" role="alert">
-                {{notification.message}}
-                <button v-on:click="close">x</button>
-            </div>
+        <div v-if="this.file != false">
+            <div class="c-file c-file-active border-bottom">
+                <div class="row h100">
+                    <div class="col-4">
+                        <strong>{{file.name}}</strong>
+                        <p>{{file.description}}</P>
+                    </div>
+                    <div class="col my-auto text-muted">
+
+                    </div>
+                    <div class="col my-auto text-muted">
+
+                    </div>
+                    <div class="col-3 my-auto">
+                        <div class="float-right">
+                          <button v-on:click="remove_active_file" class="btn btn-outline-secondary">Stop sync</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div v-else>
+            <div class="c-file c-file-active border-bottom">
+                <div class="row">
+                    <div class="col">
+                        <strong>Send a file to VR</strong>
+                        <p>No active file selected</P>
+                    </div>
+                    <div class="col my-auto">
+                        <div class="float-right">
+                            <div class="input-group">
+                                <input type="text" class="form-control" v-model="link" placeholder="Paste a shared link here" aria-label="Paste a shared link here" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-primary ml-0" type="button" v-on:click="send_link_to_vr">Send to VR</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
         </div>
     </div>
 </script>
 
-<script type="text/x-template" id="active-file">
-    <div>
-        <h4>name: {{file.name}}</h4>
-        <p>name: {{file.description}}</p>
-        <button v-on:click="remove_active_file">Remove</button>
-    </div>
-</script>
-
 <script type="text/x-template" id="cloud-file-list">
-    <div>
+    <div class="pb-5">
         <div class="row">
-           <div class="col">
-                <button v-on:click="order_by_name" class="btn btn-outline-secondary">Name</button>                   
+           <div class="col-4">
+                <button v-on:click="order_by_name" class="btn btn-link text-muted">Name</button>                   
            </div>
            <div class="col">
-                <button v-on:click="order_by_size" class="btn btn-outline-secondary">Size</button>
+                <button v-on:click="order_by_size" class="btn btn-link text-muted pl-0">Size</button>
             </div>
             <div class="col">
-                <button v-on:click="order_by_date" class="btn btn-outline-secondary">Date Modified</button>
+                <button v-on:click="order_by_date" class="btn btn-link text-muted pl-0">Date Modified</button>
             </div>
-            <div class="col">
+            <div class="col-3">
             </div>
         </div>
 
@@ -130,70 +149,99 @@
 
 
 <script type="text/x-template" id="cloud-file">
-    <div>
-        <div class="row c-file">
-            <div class="col">
+    <div class="c-file">
+        <div class="row h100">
+            <div class="col-4">
                 <strong>{{file.name}}</strong>
                 <p>{{file.description}}</P>
             </div>
-            <div class="col">
-                    {{file.size}}
+            <div class="col my-auto text-muted">
+                    {{file.size}}&nbsp;k
             </div>
-            <div class="col">
+            <div class="col my-auto text-muted">
                     {{file.date_modified}}
             </div>
-            <div class="col">
-                <button v-on:click="send_file_to_vr" class="btn btn-outline-primary">Send to VR</button>
-                <button v-on:click="toggle_details_tabs" class="btn btn-light">Details</button>
+            <div class="col-3 my-auto">
+                <div class="float-right">
+                  <button v-on:click="send_file_to_vr" class="btn btn-outline-primary">Send to VR</button>
+                  <button v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">{{(current_tab == '')?'Details':'Hide'}}</button>
+                </div>
             </div>
         </div>
         <component
             v-bind:is="current_tab"
-
             v-bind:file_name="file.name"
             v-bind:file_description="file.description"
-
             v-bind:sharable_link="file.sharable_link"
             v-bind:id="file.id"
-
             v-on:change-tab="on_change_tab"
             v-on:save-edit="on_save_edit"
+            v-on:download-file="on_download_file"
             v-on:delete-file="on_delete_file"
             v-on:share="on_share"
       ></component>
-    </div>
+    </div>  
 </script>
 
 <script type="text/x-template" id="cloud-file-details">
-    <div class="row">
-        <button v-on:click="$emit('change-tab','cloud-file-share')" class="btn btn-primary">Share</button>
-        <button v-on:click="$emit('change-tab','cloud-file-edit')" class="btn btn-light">Edit</button>
-        <button v-on:click="$emit('change-tab','cloud-file-delete')" class="btn btn-light">Delete</button>
-        <button v-on:click="$emit('change-tab','')" class="btn btn-light">Close Details</button>
+    <div class="c-info">
+        <div class="row">
+            <button v-on:click="$emit('change-tab','cloud-file-share')" class="btn btn-outline-primary ml-auto">Share</button>
+            <button v-on:click="$emit('change-tab','cloud-file-edit')" class="btn btn-outline-secondary">Edit</button>
+            <button v-on:click="$emit('download-file')" class="btn btn-outline-secondary">Download</button>
+            <button v-on:click="$emit('change-tab','cloud-file-delete')" class="btn btn-outline-secondary">Delete</button>
+        </div>
     </div>
 </script>
 
 <script type="text/x-template" id="cloud-file-edit">
-    <div class="row">
-        <input v-model="new_name" placeholder="Edit name...">
-        <input v-model="new_description" placeholder="Edit dicription...">
-        <button v-on:click="$emit('save-edit',{name:new_name,description:new_description})" class="btn btn-primary">Save</button>
-        <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-light">Cancel</button>
+    <div class="c-info">
+        <div class="row">
+            <div class="input-group ml-2 mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">File name:</span>
+                </div>
+                <input v-model="new_name"type="text" class="form-control" placeholder="Edit name..." aria-label="Edit name..." aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group ml-2 mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">File description:</span>
+                </div>
+                <input v-model="new_description"type="text" class="form-control" placeholder="Edit description..." aria-label="Edit description..." aria-describedby="basic-addon1">
+            </div>
+            <button v-on:click="$emit('save-edit',{name:new_name,description:new_description})" class="btn btn-primary ml-auto">Save</button>
+            <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-outline-secondary">Cancel</button>
+        </div>
     </div>
 </script>
 
 <script type="text/x-template" id="cloud-file-delete">
-    <div class="row">
-        <button v-on:click="$emit('delete-file')" class="btn btn-danger">Delete</button>
-        <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-light">Cancel</button>
+    <div class="c-info">
+        <div class="row">
+            <button v-on:click="$emit('delete-file')" class="btn btn-danger ml-auto">Delete</button>
+            <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-outline-secondary">Cancel</button>
+        </div>
     </div>
 </script>
 
 <script type="text/x-template" id="cloud-file-share">
-    <div class="row">
-       <input type="text" v-bind:value="sharable_link" :id="'share-link-'+id" readonly>
-       <button v-on:click="$emit('share')" class="btn btn-primary">Copy link to clipboard</button>
-       <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-light">Close</button>
+    <div class="c-info">
+        <div class="row">
+           <input type="text" v-bind:value="sharable_link" :id="'share-link-'+id" readonly>
+           <button v-on:click="$emit('share')" class="btn btn-primary">Copy link to clipboard</button>
+           <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-outline-secondary">Close</button>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-template" id="notification-bar">
+    <div>
+        <div v-show="notification.show">
+            <div class="alert fixed-bottom w-50 mb-4 mx-auto" :class="notification.type" role="alert">
+                {{notification.message}}
+                <button v-on:click="close" class="close float-right"><span aria-hidden="true">&times;</span></button>
+            </div>
+        </div>
     </div>
 </script>
 

@@ -1,8 +1,29 @@
 .c-file{
-    background-color: rgb(233, 248, 241);
-    margin-bottom: 5px;
+    padding: $spacer;
+    border-top: solid $border-width $border-color; 
+
+    .c-info{
+        margin-right: $spacer;
+    }
+
+    .btn{
+        margin-left: $spacer;
+    }
+}
+.c-file:hover{
+    background-color: rgb(235, 252, 243);
+    border-radius: $border-radius;
 }
 
-.c-file:hover{
-    background-color: rgb(214, 243, 227);
+.c-file-active{
+    background-color: rgb(235, 252, 243);
+}
+.c-file-active:hover{
+    background-color: rgb(222, 247, 233);
+}
+
+#cloud-app{
+    h3{
+        margin-bottom: $spacer *0.5;
+    }
 }
