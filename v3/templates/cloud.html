@@ -144,11 +144,14 @@
             <div class="col-3 my-auto">
                 <div class="float-right">
                   <button v-if="is_active" v-on:click="send_file_to_vr" class="btn btn-outline-primary">Send to VR</button>
-                  <button v-else="is_active" v-on:click="send_file_to_vr" class="btn btn-secondary">Stop</button>
-                  <button v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">{{(current_tab == '')?'Details':'Hide'}}</button>
+                  <button v-else v-on:click="send_file_to_vr" class="btn btn-secondary">Stop</button>
+
+                  <button v-if="is_selected" v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Hide</button>
+                  <button v-else v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Details</button>
                 </div>
             </div>
         </div>
+        <div v-if="is_selected">
         <component
             v-bind:is="current_tab"
             v-bind:file_name="file.name"
@@ -161,6 +164,7 @@
             v-on:delete-file="on_delete_file"
             v-on:share="on_share"
       ></component>
+    </div>
     </div>  
 </script>
 

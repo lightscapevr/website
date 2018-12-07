@@ -51,10 +51,12 @@ var vueAppApi = {};
     props: ['files'],
     data: function () {
       return {
-        order: ''
+        order: '',
+        selected_file: ''
       }
     },
     methods: {
+      set_selected_file: function (file) { this.selected_file = file; },
       order_by_name: function () {
         if (this.order != 'name') {
           this.files.sort(utils.sort_by_name);
@@ -97,12 +99,24 @@ var vueAppApi = {};
       }
     },
     computed: {
-      is_active: function () { return this.$root.active_file != this.file; }
+      is_active: function () { return this.$root.active_file != this.file; },
+      is_selected: function () {
+        var is_sel = this.$parent.selected_file == this.file;
+        if (!is_sel)
+          this.current_tab = '';
+        return is_sel;
+      }
     },
     methods: {
       toggle_details_tabs: function () {
-        if (this.current_tab == 'cloud-file-details') { this.current_tab = '' }
-        else { this.current_tab = 'cloud-file-details' }
+        if (this.current_tab == 'cloud-file-details') {
+          this.current_tab = '';
+          this.$parent.set_selected_file('')
+        }
+        else {
+          this.current_tab = 'cloud-file-details';
+          this.$parent.set_selected_file(this.file)
+        }
 
       },
       send_file_to_vr: function () {
