@@ -8944,34 +8944,34 @@ a.text-logo-dark:hover, a.text-logo-dark:focus {
   padding-bottom: 1em;
 }
 
-.c-file {
+#cloud-app h3 {
+  margin-bottom: 0.5rem;
+}
+
+#cloud-app .active {
+  background-color: #defcec;
+}
+
+#cloud-app .active:hover {
+  background-color: #cbf3de;
+}
+
+#cloud-app .c-file {
   padding: 1rem;
   border-top: solid 1px #e0e6de;
 }
 
-.c-file .c-info {
+#cloud-app .c-file .c-info {
   margin-right: 1rem;
 }
 
-.c-file .btn {
+#cloud-app .c-file .btn {
   margin-left: 1rem;
 }
 
-.c-file:hover {
+#cloud-app .c-file:hover {
   background-color: #ebfcf3;
   border-radius: 0.25rem;
-}
-
-.c-file-active {
-  background-color: #ebfcf3;
-}
-
-.c-file-active:hover {
-  background-color: #def7e9;
-}
-
-#cloud-app h3 {
-  margin-bottom: 0.5rem;
 }
 
 article .question {

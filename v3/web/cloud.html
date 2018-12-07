@@ -68,8 +68,16 @@
 <!--  Cloud App  -->
 <div class="container">
     <div id="cloud-app" class="mt-5">
-        <active-file v-bind:file="active_file"></active-file>
-        <span class="text-muted">Connection status: {{connection_status}}</span>
+        <!-- <active-file v-bind:file="active_file"></active-file> -->
+        <div class="row mt-5">
+            <div class="col-7">
+                <h3 class="text-muted">Your files</h3>
+            </div>
+            <div class="col-5">
+                <upload-file></upload-file>
+            </div>
+        </div>
+        <!-- <span class="text-muted">Connection status: {{connection_status}}</span> -->
 
         <cloud-file-list v-bind:files="files"></cloud-file-list>
         <notification-bar v-bind:notification="notification" v-bind:close="hide_notification">
@@ -138,14 +146,6 @@
 <!--  File list  -->
 <script type="text/x-template" id="cloud-file-list">
     <div class="pb-5">
-        <div class="row mt-5">
-            <div class="col-7">
-                <h3 class="text-muted">Your files</h3>
-            </div>
-            <div class="col-5">
-               <upload-file></upload-file>                
-            </div>
-        </div>
         <div class="row">
            <div class="col-4">
                 <button v-on:click="order_by_name" class="btn btn-link text-muted">Name</button>                   
@@ -160,19 +160,18 @@
             </div>
         </div>
 
-        <div v-for="file in files">
-            <cloud-file 
+        <cloud-file v-for="file in files"
             :key="file.id" 
             v-bind:file="file"
-            ></cloud-file>
-        </div>
+             class="test"
+        ></cloud-file>
     </div>
 </script>
 
 
 <!--  File  -->
 <script type="text/x-template" id="cloud-file">
-    <div class="c-file">
+    <div class="c-file" v-bind:class="{active:is_active}">
         <div class="row h100">
             <div class="col-4">
                 <strong>{{file.name}}</strong>
@@ -186,28 +185,37 @@
             </div>
             <div class="col-3 my-auto">
                 <div class="float-right">
-                  <button v-if="is_active" v-on:click="send_file_to_vr" class="btn btn-outline-primary">Send to VR</button>
-                  <button v-else v-on:click="remove_active_file" class="btn btn-secondary">Stop</button>
-
-                  <button v-if="is_selected" v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Hide</button>
-                  <button v-else v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Details</button>
+                    <!-- <button v-if="!is_active" v-on:click="send_file_to_vr" class="btn btn-outline-primary">Send to VR</button>
+                    
+                    <button v-if="is_selected" v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Hide</button>
+                    <button v-else v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Options</button>
+                     -->
+                    <div v-if="!is_active">
+                        <button v-on:click="send_file_to_vr" class="btn btn-outline-primary">Send to VR</button>
+                        <button v-if="!is_selected" v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Options</button>
+                        <button v-else v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Hide</button>
+                    </div>
+                    <div v-else>
+                        <button v-on:click="remove_active_file" class="btn btn-secondary">Stop VR</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div v-if="is_selected">
-        <component
-            v-bind:is="current_tab"
-            v-bind:file_name="file.name"
-            v-bind:file_description="file.description"
-            v-bind:sharable_link="file.sharable_link"
-            v-bind:id="file.id"
-            v-on:change-tab="on_change_tab"
-            v-on:save-edit="on_save_edit"
-            v-on:download-file="on_download_file"
-            v-on:delete-file="on_delete_file"
-            v-on:share="on_share"
-      ></component>
-    </div>
+        <cloud-file-active v-if="is_active"></cloud-file-active>
+        <div v-else-if="is_selected">
+           <component
+               v-bind:is="current_tab"
+               v-bind:file_name="file.name"
+               v-bind:file_description="file.description"
+               v-bind:sharable_link="file.sharable_link"
+               v-bind:id="file.id"
+               v-on:change-tab="on_change_tab"
+               v-on:save-edit="on_save_edit"
+               v-on:download-file="on_download_file"
+               v-on:delete-file="on_delete_file"
+               v-on:share="on_share"
+            ></component>
+        </div>
     </div>  
 </script>
 
@@ -220,6 +228,15 @@
             <button v-on:click="$emit('change-tab','cloud-file-edit')" class="btn btn-outline-secondary">Edit</button>
             <button v-on:click="$emit('download-file')" class="btn btn-outline-secondary">Download</button>
             <button v-on:click="$emit('change-tab','cloud-file-delete')" class="btn btn-outline-secondary">Delete</button>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-template" id="cloud-file-active">
+    <div class="c-info">
+        <div class="row">
+            <span class="text-muted">Connection status: {{connection_status}}</span>
+            &nbsp;<span v-for="user in users_in_vr">{{user}}&nbsp;</span>
         </div>
     </div>
 </script>

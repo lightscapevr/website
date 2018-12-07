@@ -4,29 +4,29 @@ var vueAppApi = {};
 
 
   // -------------------------------------- Components -------------------------------------- 
-  Vue.component('active-file', {
-    // Indicates which file is currently being synced and provides info about that file.
-    props: ['file'],
-    data: function () {
-      return {
-        link: 'Paste a shared link here...',
-      }
-    },
-    computed: {
-      title: function () { return (this.file != false) ? 'File sent to VR' : 'Choose a file to send to VR' }
-    },
-    methods: {
-      remove_active_file: function () {
-        this.$root.remove_active_file();
-        this.$root.show_notification_for_time('File de-activated');
-      },
-      send_link_to_vr: function () {
-        console.log("TODO: send link to vr. Link:" + this.link)
-        this.$root.show_notification_for_time('Loading file from link');
-      }
-    },
-    template: '#active-file'
-  })
+  // Vue.component('active-file', {
+  //   // Indicates which file is currently being synced and provides info about that file.
+  //   props: ['file'],
+  //   data: function () {
+  //     return {
+  //       link: 'Paste a shared link here...',
+  //     }
+  //   },
+  //   computed: {
+  //     title: function () { return (this.file != false) ? 'File sent to VR' : 'Choose a file to send to VR' }
+  //   },
+  //   methods: {
+  //     remove_active_file: function () {
+  //       this.$root.remove_active_file();
+  //       this.$root.show_notification_for_time('File de-activated');
+  //     },
+  //     send_link_to_vr: function () {
+  //       console.log("TODO: send link to vr. Link:" + this.link)
+  //       this.$root.show_notification_for_time('Loading file from link');
+  //     }
+  //   },
+  //   template: '#active-file'
+  // })
 
 
 
@@ -99,7 +99,7 @@ var vueAppApi = {};
       }
     },
     computed: {
-      is_active: function () { return this.$root.active_file != this.file; },
+      is_active: function () { return this.$root.active_file == this.file; },
       is_selected: function () {
         var is_sel = this.$parent.selected_file == this.file;
         if (!is_sel)
@@ -108,17 +108,9 @@ var vueAppApi = {};
       }
     },
     methods: {
-      toggle_details_tabs: function () {
-        if (this.current_tab == 'cloud-file-details') {
-          this.current_tab = '';
-          this.$parent.set_selected_file('')
-        }
-        else {
-          this.current_tab = 'cloud-file-details';
-          this.$parent.set_selected_file(this.file)
-        }
-
-      },
+      toggle_details_tabs: function () { (this.current_tab == 'cloud-file-details') ? this.hide_details() : this.show_details(); },
+      hide_details: function () { this.current_tab = ''; this.$parent.set_selected_file('') },
+      show_details: function () { this.current_tab = 'cloud-file-details'; this.$parent.set_selected_file(this.file) },
       send_file_to_vr: function () {
         console.log("TODO: send file to vr");
         this.$root.show_notification_for_time(this.file.name + ' sent to VR');
@@ -170,7 +162,27 @@ var vueAppApi = {};
     template: '#cloud-file-details'
   })
 
-
+  Vue.component('cloud-file-active', {
+    // Tab providing info on the active file (file being sent to VR)
+    data: function () {
+      return {
+        users_in_vr: ['Tim', 'Sally'],
+      }
+    },
+    computed: {
+      connection_status: function () { return this.$root.connection_status; }
+    },
+    methods: {
+      // TODO, find way to add, remove and clear users
+      add_user: function (user) { this.users_in_vr.push(user) },
+      clear_users: function () { this.users_in_vr = [] },
+      remove_users: function (user) {
+        var index = this.users_in_vr.indexOf(user);
+        this.users_in_vr.splice(index, 1);
+      }
+    },
+    template: '#cloud-file-active'
+  })
 
   Vue.component('cloud-file-edit', {
     // Tab to rename and change the description
@@ -285,7 +297,7 @@ var vueAppApi = {};
 })(vueAppApi);
 
 // Populate with test data.
-setTimeout(function () { vueAppApi.set_connection_status('Connected') }, 200);
+setTimeout(function () { vueAppApi.set_connection_status('Connected') }, 2000);
 var temp_file_data = [
   { id: '1', name: 'My house.skp', description: 'some text', date_modified: '2018.12.01', size: 13, sharable_link: 'linkAAAA' },
   { id: '2', name: 'Homework-final.skp', description: 'some text', date_modified: '2018.12.02', size: 152, sharable_link: 'linkBBBB' },
@@ -293,4 +305,4 @@ var temp_file_data = [
   { id: '4', name: 'xyz.skp', description: 'some text', date_modified: '2018.12.04', size: 95, sharable_link: 'linkDDDD' },
 ]
 
-setTimeout(function () { vueAppApi.insert_file_data(temp_file_data) }, 400);
+setTimeout(function () { vueAppApi.insert_file_data(temp_file_data) }, 4000);
