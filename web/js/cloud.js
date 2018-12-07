@@ -32,6 +32,7 @@ function State(auth_token, fullname, email) {
     this.connected = false;
     this.can_edit = false;
     this.currently_visiting_model = null;
+    this.not_loaded_yet = true;
     return this;
 }
 
@@ -52,7 +53,8 @@ var BASE = "http://127.0.0.1:17355/vrsketch/";
 var BASE_URL = "https://test.vrsketch.eu/cloud.html?file=";
 
 function load_file(filename, file_id) {
-    $.get(BASE + "view?name=" + filename + "&key=" + file_id);
+    console.log("loading file");
+    $.get(BASE + "view?name=" + encodeURIComponent(filename) + "&key=" + encodeURIComponent(file_id));
 }
 
 function show_file_url(container, file_id)
@@ -65,7 +67,7 @@ function show_file_url(container, file_id)
 
 function load_file_edit(filename, file_id)
 {
-    $.get(BASE + "edit?key=" + file_id + "&name=" + filename);
+    $.get(BASE + "edit?key=" + encodeURIComponent(file_id) + "&name=" + encodeURIComponent(filename));
 }
 
 function pollVrSketch()
@@ -73,7 +75,7 @@ function pollVrSketch()
     if (state.connected)
         return;
     if (state.token) {
-        $.get(BASE + "ping?token=" + state.token);
+        $.get(BASE + "ping?token=" + encodeURIComponent(state.token) + "&name=" + encodeURIComponent(state.fullname));
     }
     setTimeout(pollVrSketch, 500);
 }
@@ -86,6 +88,8 @@ function getStatusUpdate(initial)
                 console.log("It should never have returned success: false");
                 return;
             }
+            console.log(r);
+            const urlParams = new URLSearchParams(window.location.search);
             if (r.closed) {
                 $("#current-status").removeClass("text-success").addClass("text-danger");
                 $("#current-status").html("NOT CONNECTED");
@@ -101,12 +105,12 @@ function getStatusUpdate(initial)
             }
             if (r.filename) {
                 $("#currently-visiting").show();
-                $("#currently-visiting-file").html("Currently visiting " + r.filename);
+                var extra = "";
+                if (urlParams.get('file')) {
+                    extra = " shared with you by " + r.owner;
+                }
+                $("#currently-visiting-file").text("Currently visiting " + r.filename + extra);
                 state.currently_visiting_model = r.filename;
-            }
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('file')) {
-                load_file("foo filename", urlParams.get("file"));
             }
             $("#current-status").removeClass("text-danger").addClass("text-success");
             $("#current-status").html("CONNECTED");
@@ -115,6 +119,10 @@ function getStatusUpdate(initial)
             if (r.ready_to_edit) {
                 $(".load-button-edit").removeClass("disabled").attr("disabled", false);
                 state.can_edit = true;
+            }
+            if (urlParams.get('file') && state.not_loaded_yet) {
+                load_file(state.currently_visiting_model, urlParams.get("file"));
+                state.not_loaded_yet = false;
             }
             getStatusUpdate(false);
         }, show_error);
@@ -142,7 +150,7 @@ function not_logged_in()
 function on_sign_in()
 {
     var auth2 = gapi.auth2.getAuthInstance();
-    $("#logged-in").html(auth2.currentUser.get().getBasicProfile().getName());
+    $("#logged-in").text(auth2.currentUser.get().getBasicProfile().getName());
     var googleUser = auth2.currentUser.get();
     var profile = googleUser.getBasicProfile();
     // The ID token you need to pass to your backend:
@@ -155,6 +163,11 @@ function on_sign_in()
     setTimeout(pollVrSketch, 0);
 }
 
+function ping()
+{
+    connection.session.call('com.ping');
+    setTimeout(ping, 10000);
+}
 
 $(document).ready(function() {
     var wsuri;
@@ -170,8 +183,12 @@ $(document).ready(function() {
       realm: "vrsketch",
       max_retries: -1,
       max_retry_delay: 3,
-      auto_ping_interval: 10.0,
+      autoping_interval: 10.0,
     });
+    connection.onclose = function(arg) {
+        console.log("dropped connection");
+        console.log(arg);
+    }
     connection.onopen = function (session, dets) {
         gapi.load('auth2', function () {
             auth2 = gapi.auth2.init({ 'client_id': CLIENT_TOKEN_ID });
@@ -183,6 +200,12 @@ $(document).ready(function() {
                 }
             });
         });
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('file')) {
+            $("#currently-visiting-file").html("waiting for connection to load file...");
+            $("#currently-visiting").show();
+        }
 
         var url = document.location.protocol + "//" + document.location.host + "/checkout/files/new";
         $('#fileupload').fileupload({
@@ -210,6 +233,7 @@ $(document).ready(function() {
             },
         }).on("fileuploadadd", function (e, data) {
         });
+        setTimeout(ping, 10000);
     };
     connection.open();
     nunjucks.configure({'web': {'async': true}});
