@@ -37,7 +37,8 @@ def render_template_to_file(template_path, view_data):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
-    write_string_file(output_folder + '\\' + template_path, rendered_html)
+    write_string_file(os.path.join(output_folder, template_path),
+                      rendered_html)
 
 
 def html_from_markdown(markdown_path, output_path):
