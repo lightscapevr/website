@@ -75,7 +75,7 @@ function pollVrSketch()
     if (state.connected)
         return;
     if (state.token) {
-        $.get(BASE + "ping?token=" + encodeURIComponent(state.token) + "&name=" + encodeURIComponent(state.fullname));
+        $.get(BASE + "ping", {key: encodeURIComponent(state.token), name: encodeURIComponent(state.fullname)});
     }
     setTimeout(pollVrSketch, 500);
 }
