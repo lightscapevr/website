@@ -145,7 +145,7 @@ var vueAppApi = {};
         document.getElementById(input_name).select();
         var copy_result = document.execCommand('copy');
         if (copy_result) {
-          this.$root.show_notification_for_time('Like copied to your clipboard');
+          this.$root.show_notification_for_time('Link copied to your clipboard');
         } else {
           this.$root.show_notification_for_time('Could not copy link');
         }
