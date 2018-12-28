@@ -25,19 +25,24 @@
 <!--  Cloud App  -->
 <div class="container">
     <div id="cloud-app" class="mt-5">
-        <!-- <active-file v-bind:file="active_file"></active-file> -->
-        <div class="row mt-5">
-            <div class="col-7">
-                <h3 class="text-muted">Your files</h3>
+        <div v-if="logged_in">
+            <!-- <active-file v-bind:file="active_file"></active-file> -->
+            <div class="row mt-5">
+                <div class="col-7">
+                    <h3 class="text-muted">Your files</h3>
+                </div>
+                <div class="col-5">
+                    <upload-file></upload-file>
+                </div>
             </div>
-            <div class="col-5">
-                <upload-file></upload-file>
-            </div>
-        </div>
-        <!-- <span class="text-muted">Connection status: {{connection_status}}</span> -->
+            <!-- <span class="text-muted">Connection status: {{connection_status}}</span> -->
 
-        <cloud-file-list v-bind:files="files"></cloud-file-list>
-        <notification-bar v-bind:notification="notification" v-bind:close="hide_notification">
+            <cloud-file-list v-bind:files="files"></cloud-file-list>
+            <notification-bar v-bind:notification="notification" v-bind:close="hide_notification">
+        </div>
+        <div v-else>
+            Please log in to see your files.
+        </div>
     </div>
 </div>
 
@@ -94,8 +99,10 @@
 <script type="text/x-template" id="upload-file">
     <div class="align-bottom">
         <div class="custom-file">
-            <input type="file" class="custom-file-input" id="validatedCustomFile" required  accept=".skp" v-on:change="upload_files_on_change">
-            <label class="custom-file-label" for="validatedCustomFile">Choose a SketchUp file to upload...</label>
+            <form enctype="multipart/form-data">
+                <input type="file" class="custom-file-input" id="validatedCustomFile" required  accept=".skp" v-on:change="upload_files_on_change">
+                <label class="custom-file-label" for="validatedCustomFile">Choose a SketchUp file to upload...</label>
+            </form>
         </div>
     </div>
 </script>
@@ -148,7 +155,7 @@
                     <button v-else v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Options</button>
                      -->
                     <div v-if="!is_active">
-                        <button v-on:click="send_file_to_vr" class="btn btn-outline-primary">Send to VR</button>
+                        <!-- <button v-on:click="send_file_to_vr" class="btn btn-outline-primary">Send to VR</button> -->
                         <button v-if="!is_selected" v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Options</button>
                         <button v-else v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Hide</button>
                     </div>
@@ -256,5 +263,6 @@
 
 {% block js_imports %}
 <script src="js/libraries/vue.js"></script>
+<script src="js/libraries/v-file-upload.js"></script>
 <script src="js/cloudApp.js"></script>
 {% endblock js_imports %}

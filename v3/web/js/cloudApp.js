@@ -1,3 +1,7 @@
+function show_error(err) {
+  vueAppApi.show_error(err);
+}
+
 var vueAppApi = {};
 (function (public_api) {
   'use strict';
@@ -34,11 +38,29 @@ var vueAppApi = {};
     // A way to upload sketchup files to the cloud
     methods: {
       upload_files_on_change: function (event) {
+        var file_upload = new FileUpload("/checkout/files/new", {}, function(ev) {
+          var percentage = Math.floor((ev.loaded / ev.total) * 100);
+          notify('Uploading (' + percentage + '%) ...', undefined, 0);
+        });
         var files = event.target.files || event.dataTransfer.files;
         if (!files.length)
           return;
-        Array.prototype.forEach.call(files, function (file) { console.log("TODO: Upload file to cloud. File:" + file.name) });
-        this.$root.show_notification_for_time('Uploading file...');
+        let notify = this.$root.show_notification_for_time;
+        Array.prototype.forEach.call(files, function (file) {
+          file_upload.upload(file, {}, function (r) {
+            if (!r.success) {
+              show_error(r.error);
+            } else {
+              connection.session.call('com.files.add', [app.token, file.name,
+                r.fname]).then(public_api.list_files, show_error);
+            }
+            notify('Done uploading ' + file.name);
+            //connection.session.call('com.files.add', [app.token, ])
+           }, function() {
+            notify('Uploading error', 'alert-danger')
+          });
+          notify('Uploading ' + file.name + ' ...', undefined, 0);
+        });
       }
     },
     template: '#upload-file'
@@ -115,6 +137,9 @@ var vueAppApi = {};
         console.log("TODO: send file to vr");
         this.$root.show_notification_for_time(this.file.name + ' sent to VR');
         this.$root.set_active_file(this.file);
+      },
+      show_error: function (err) {
+        this.$root.show_notification_for_time(err, 'alert-danger');
       },
       remove_active_file: function () { this.$root.remove_active_file(this.file); },
       on_change_tab: function (tab_name) { this.current_tab = tab_name },
@@ -227,6 +252,7 @@ var vueAppApi = {};
     el: '#cloud-app',
     data: {
       files: [],
+      logged_in: false,
       active_file: false,
       connection_status: 'Not connected',
       notification: { show: false, message: '', type: 'alert-info', timer: {} }
@@ -239,15 +265,23 @@ var vueAppApi = {};
       },
       set_active_file: function (file) { this.active_file = file; },
       remove_active_file: function (file) { this.active_file = false; },
-      show_notification_for_time: function (message, type) {
+      show_notification_for_time: function (message, type, timeout) {
         this.notification.show = true;
         this.notification.message = message;
         if (type == undefined)
           this.notification.type = 'alert-info';
         else
           this.notification.type = type;
-        clearTimeout(this.timer);
-        this.timer = setTimeout(this.hide_notification, 4000);
+        if (this.timer) {
+          clearTimeout(this.timer);
+        }
+        if (timeout == undefined) {
+          this.timer = setTimeout(this.hide_notification, 4000);
+        } else if (timeout != 0) {
+          this.timer = setTimeout(this.hide_notification, timeout);
+        } else {
+          this.timer = null;
+        }
       },
       hide_notification: function () { this.notification.show = false; this.notification.message = ''; this.notification.type = 'alert-info'; }
     }
@@ -267,6 +301,25 @@ var vueAppApi = {};
   // id, name, description, date_modified, size,sharable_link
 
   public_api.show_notification = function (message, type) { app.show_notification_for_time(message, type); }
+
+  public_api.list_files = function () {
+    connection.session.call('com.files.list', [app.token]).then(function (r) {
+      if (!r.success) {
+        show_error(r.error);
+      } else {
+        app.files = r.result;
+      }
+    }, show_error);
+  }
+
+  public_api.log_in = function (name, token)
+  {
+    app.logged_in = true;
+    app.token = token;
+    /* This should probably be done differently, but I'm avoiding the mess for now */
+    $("#login-button").text(name);
+    public_api.list_files();
+  };
 
 
 
@@ -296,6 +349,44 @@ var vueAppApi = {};
   }
 })(vueAppApi);
 
+connection = null;
+
+$(document).ready(function () {
+  wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
+           document.location.host + "/ws";
+  connection = new autobahn.Connection({
+    url: wsuri,
+    realm: "vrsketch",
+    max_retries: -1,
+    max_retry_delay: 3,
+  });
+  connection.onopen = function(session, dets) {
+    gapi.load('auth2', function() {
+      auth2 = gapi.auth2.init({'client_id': GOOGLE_CLIENT_TOKEN_ID});
+      auth2.then(function () {
+        if (auth2.isSignedIn.get()) {
+          let cu = auth2.currentUser.get();
+          vueAppApi.log_in(cu.getBasicProfile().getName(), cu.getAuthResponse().id_token);
+
+/*          connection.session.call('com.files.list', [cu]);*/
+        }
+      });
+    });
+
+    /* autoping functionality not implemented */
+    function ping_server() {
+      connection.session.call('com.ping', []);
+      setTimeout(ping_server, 10000);
+    }
+
+    ping_server();
+
+  };
+  connection.open();
+});
+
+/*
+
 // Populate with test data.
 setTimeout(function () { vueAppApi.set_connection_status('Connected') }, 2000);
 var temp_file_data = [
@@ -305,4 +396,4 @@ var temp_file_data = [
   { id: '4', name: 'xyz.skp', description: 'some text', date_modified: '2018.12.04', size: 95, sharable_link: 'linkDDDD' },
 ]
 
-setTimeout(function () { vueAppApi.insert_file_data(temp_file_data) }, 4000);
+setTimeout(function () { vueAppApi.insert_file_data(temp_file_data) }, 4000);*/
