@@ -380,7 +380,7 @@ $(document).ready(function () {
     max_retry_delay: 3,
   });
   connection.onopen = function(session, dets) {
-    if (window.location.hash[0] == 'P') {
+    if (window.location.hash.startsWith('#P')) {
       /* don't log in with google, but instead use the value of the
          hash-tag as license key */
       vueAppApi.log_in_license_key(window.location.hash.substring(1));
