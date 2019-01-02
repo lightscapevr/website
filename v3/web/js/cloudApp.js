@@ -303,7 +303,19 @@ var vueAppApi = {};
   public_api.show_notification = function (message, type) { app.show_notification_for_time(message, type); }
 
   public_api.list_files = function () {
-    connection.session.call('com.files.list', [app.token]).then(function (r) {
+    if (app.token)
+    {
+        call_name = 'com.files.list';
+        call_arg = app.token;
+    }
+    else if (app.license_key)
+    {
+        call_name = 'com.files.list_license_key';
+        call_arg = app.license_key;
+    }
+    else
+        return;
+    connection.session.call(call_name, [call_arg]).then(function (r) {
       if (!r.success) {
         show_error(r.error);
       } else {
@@ -318,6 +330,13 @@ var vueAppApi = {};
     app.token = token;
     /* This should probably be done differently, but I'm avoiding the mess for now */
     $("#login-button").text(name);
+    public_api.list_files();
+  };
+
+  public_api.log_in_license_key = function (license_key)
+  {
+    app.logged_in = true;
+    app.license_key = license_key;
     public_api.list_files();
   };
 
@@ -361,6 +380,12 @@ $(document).ready(function () {
     max_retry_delay: 3,
   });
   connection.onopen = function(session, dets) {
+    if (window.location.hash[0] == 'P') {
+      /* don't log in with google, but instead use the value of the
+         hash-tag as license key */
+      vueAppApi.log_in_license_key(window.location.hash.substring(1));
+      return;
+    }
     gapi.load('auth2', function() {
       auth2 = gapi.auth2.init({'client_id': GOOGLE_CLIENT_TOKEN_ID});
       auth2.then(function () {
