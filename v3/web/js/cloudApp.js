@@ -383,7 +383,7 @@ $(document).ready(function () {
     if (window.location.hash.startsWith('#P')) {
       /* don't log in with google, but instead use the value of the
          hash-tag as license key */
-      vueAppApi.log_in_license_key(window.location.hash.substring(2));
+      vueAppApi.log_in_license_key(window.location.hash.substring(2, 2+64));
       return;
     }
     gapi.load('auth2', function() {
