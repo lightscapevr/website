@@ -305,13 +305,13 @@ var vueAppApi = {};
   public_api.list_files = function () {
     if (app.token)
     {
-        call_name = 'com.files.list';
-        call_arg = app.token;
+        var call_name = 'com.files.list';
+        var call_arg = app.token;
     }
     else if (app.license_key)
     {
-        call_name = 'com.files.list_license_key';
-        call_arg = app.license_key;
+        var call_name = 'com.files.list_license_key';
+        var call_arg = app.license_key;
     }
     else
         return;
