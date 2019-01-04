@@ -410,15 +410,3 @@ $(document).ready(function () {
   connection.open();
 });
 
-/*
-
-// Populate with test data.
-setTimeout(function () { vueAppApi.set_connection_status('Connected') }, 2000);
-var temp_file_data = [
-  { id: '1', name: 'My house.skp', description: 'some text', date_modified: '2018.12.01', size: 13, sharable_link: 'linkAAAA' },
-  { id: '2', name: 'Homework-final.skp', description: 'some text', date_modified: '2018.12.02', size: 152, sharable_link: 'linkBBBB' },
-  { id: '3', name: 'a cool model.skp', description: 'some text', date_modified: '2018.12.03', size: 200, sharable_link: 'linkCCCC' },
-  { id: '4', name: 'xyz.skp', description: 'some text', date_modified: '2018.12.04', size: 95, sharable_link: 'linkDDDD' },
-]
-
-setTimeout(function () { vueAppApi.insert_file_data(temp_file_data) }, 4000);*/
