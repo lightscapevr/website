@@ -370,6 +370,11 @@ var vueAppApi = {};
 
 connection = null;
 
+function on_sign_in(cu)
+{
+  vueAppApi.log_in(cu.getBasicProfile().getName(), cu.getAuthResponse().id_token);  
+}
+
 $(document).ready(function () {
   wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
            document.location.host + "/ws";
@@ -390,10 +395,10 @@ $(document).ready(function () {
       auth2 = gapi.auth2.init({'client_id': GOOGLE_CLIENT_TOKEN_ID});
       auth2.then(function () {
         if (auth2.isSignedIn.get()) {
-          let cu = auth2.currentUser.get();
-          vueAppApi.log_in(cu.getBasicProfile().getName(), cu.getAuthResponse().id_token);
-
-/*          connection.session.call('com.files.list', [cu]);*/
+          on_sign_in(auth2.currentUser.get());
+        } else {
+          // attach the google log in button to login button
+          auth2.attachClickHandler($("#login-button")[0], {}, on_sign_in, show_error);
         }
       });
     });
