@@ -398,7 +398,8 @@ $(document).ready(function () {
           on_sign_in(auth2.currentUser.get());
         } else {
           // attach the google log in button to login button
-          auth2.attachClickHandler($("#login-button")[0], {}, on_sign_in, show_error);
+          auth2.attachClickHandler($("#login-button")[0], {ux_mode: 'redirect'},
+                                   on_sign_in, show_error);
         }
       });
     });
