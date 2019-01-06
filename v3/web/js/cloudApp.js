@@ -330,8 +330,23 @@ var vueAppApi = {};
     app.token = token;
     /* This should probably be done differently, but I'm avoiding the mess for now */
     $("#login-button").text(name);
+    $("#login-button").addClass("dropdown-toggle");
+    $("#login-button").attr("data-toggle", "dropdown");
     public_api.list_files();
   };
+
+  public_api.logout = function () 
+  {
+    app.logged_in = false;
+    app.token = null;
+    app.files = [];
+    $("#login-button").text("Log in");
+    $("#login-button").removeClass("dropdown-toggle");
+    let auth2 = gapi.auth2.getAuthInstance();
+    auth2.attachClickHandler($("#login-button")[0], {ux_mode: 'redirect'},
+                             on_sign_in, show_error);
+    auth2.signOut();
+  }
 
   public_api.log_in_license_key = function (license_key)
   {
@@ -372,7 +387,8 @@ connection = null;
 
 function on_sign_in(cu)
 {
-  vueAppApi.log_in(cu.getBasicProfile().getName(), cu.getAuthResponse().id_token);  
+  vueAppApi.log_in(cu.getBasicProfile().getName(), cu.getAuthResponse().id_token);
+  $("#login-button").replaceWith($("#login-button").clone()); // remove event listeners
 }
 
 $(document).ready(function () {

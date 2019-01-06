@@ -46,7 +46,14 @@
 </li>
 
                         </ul>
-                        <button class="btn btn-outline-primary" id="login-button">Log in</button>
+                        <span class="dropdown">
+                            <button class="btn btn-outline-primary" id="login-button">Log in
+                            </button>
+                            <ul id="login-dropdown" class="dropdown-menu">
+                                <li><a href="#" onclick="vueAppApi.logout()">Log out</a></li>
+                            </ul>
+                        </span>
+                        
                     </div>
 
                     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
