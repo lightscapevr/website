@@ -148,13 +148,13 @@ var vueAppApi = {};
         // TODO check that the input is valid
         this.file.name = changed_values.name;
         this.file.description = changed_values.description;
-        this.$root.show_notification_for_time('Changes saved');
+        this.$root.show_notification_for_time('Changes saved (XXX not implemented)');
         // TODO update server version, not just local state
         this.current_tab = 'cloud-file-details'
       },
       on_download_file: function () {
         console.log("TODO: Download file:" + this.file.name);
-        this.$root.show_notification_for_time('Downloading ' + this.file.name);
+        this.$root.show_notification_for_time('Downloading ' + this.file.name + ' (XXX not implemented)');
         this.toggle_details_tabs();
         // TODO download file
       },
@@ -162,7 +162,7 @@ var vueAppApi = {};
         console.log("TODO: delete file")
         // TODO send delete request to server
         this.$root.remove_file_by_id(this.file);
-        this.$root.show_notification_for_time('File deleted');
+        this.$root.show_notification_for_time('File deleted (XXX not implemented)');
         this.current_tab = 'cloud-file-details'
       },
       on_share: function () {
