@@ -138,9 +138,6 @@ var vueAppApi = {};
         this.$root.show_notification_for_time(this.file.name + ' sent to VR');
         this.$root.set_active_file(this.file);
       },
-      show_error: function (err) {
-        this.$root.show_notification_for_time(err, 'alert-danger');
-      },
       remove_active_file: function () { this.$root.remove_active_file(this.file); },
       on_change_tab: function (tab_name) { this.current_tab = tab_name },
       on_save_edit: function (changed_values) {
@@ -300,21 +297,23 @@ var vueAppApi = {};
   // File data schema
   // id, name, description, date_modified, size,sharable_link
 
-  public_api.show_notification = function (message, type) { app.show_notification_for_time(message, type); }
+  public_api.show_notification = function (message, type) { app.show_notification_for_time(message, type); };
+
+  public_api.show_error = function (error) { app.show_notification_for_time(error, 'alert-danger'); };
 
   public_api.list_files = function () {
     if (app.token)
     {
-        var call_name = 'com.files.list';
-        var call_arg = app.token;
+      var call_name = 'com.files.list';
+      var call_arg = app.token;
     }
     else if (app.license_key)
     {
-        var call_name = 'com.files.list_license_key';
-        var call_arg = app.license_key;
+      var call_name = 'com.files.list_license_key';
+      var call_arg = app.license_key;
     }
     else
-        return;
+      return;
     connection.session.call(call_name, [call_arg]).then(function (r) {
       if (!r.success) {
         show_error(r.error);
@@ -322,7 +321,7 @@ var vueAppApi = {};
         app.files = r.result;
       }
     }, show_error);
-  }
+  };
 
   public_api.log_in = function (name, token)
   {
