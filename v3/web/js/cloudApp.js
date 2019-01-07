@@ -403,11 +403,13 @@ $(document).ready(function () {
     if (window.location.hash.startsWith('#P')) {
       /* don't log in with google, but instead use the value of the
          hash-tag as license key */
-      vueAppApi.log_in_license_key(window.location.hash.substring(2, 2+64));
+      let h = window.location.hash;
+      window.location.hash = '';
+      vueAppApi.log_in_license_key(h.substring(2, 2+64));
       return;
     }
     gapi.load('auth2', function() {
-      auth2 = gapi.auth2.init({'client_id': GOOGLE_CLIENT_TOKEN_ID});
+      let auth2 = gapi.auth2.init({'client_id': GOOGLE_CLIENT_TOKEN_ID});
       auth2.then(function () {
         if (auth2.isSignedIn.get()) {
           on_sign_in(auth2.currentUser.get());
