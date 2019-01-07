@@ -309,8 +309,6 @@ $(document).ready(function () {
     });
     var cbinst = Chargebee.init({site: 'baroquesoftware'});
 
-    Sentry.init({ dsn: 'https://38c4d64c82484e57b0199aef2d2e83cf@sentry.io/1306011' });
-
 });
 
 function signout() {
