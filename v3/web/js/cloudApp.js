@@ -303,6 +303,8 @@ var vueAppApi = {};
     app.files = [];
     $("#login-button").text("Log in");
     $("#login-button").removeClass("dropdown-toggle");
+    $("#login-button").attr("data-toggle", null);
+    $("#login-dropdown").hide();
     let auth2 = gapi.auth2.getAuthInstance();
     auth2.attachClickHandler($("#login-button")[0], {ux_mode: 'redirect'},
                              on_sign_in, show_error);
