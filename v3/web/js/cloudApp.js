@@ -367,6 +367,7 @@ $(document).ready(function () {
       /* don't log in with google, but instead use the value of the
          hash-tag as license key */
       let license_id = window.location.hash.substring(2, 2+64);
+      window.location.hash = '';
       connection.session.call('com.user.get_basic_info', [license_id]).then(
         function (res) {
           if (!res.success) {
