@@ -2,37 +2,25 @@ function show_error(err) {
   vueAppApi.show_error(err);
 }
 
+function format_size(s)
+{
+  if (s > 1024 * 1024)
+    return (s / 1024 / 1024).toFixed(1).toString() + "M";
+  else if (s > 1024)
+    return (s / 1024).toFixed(0).toString() + "k";
+  else
+    return s.toString();
+}
+
+function format_localtime(tstamp)
+{
+  let FORMAT = "DD MMMM YYYY hh:ss";
+  return moment(new Date(tstamp * 1000)).format(FORMAT);
+}
+
 var vueAppApi = {};
 (function (public_api) {
   'use strict';
-
-
-  // -------------------------------------- Components -------------------------------------- 
-  // Vue.component('active-file', {
-  //   // Indicates which file is currently being synced and provides info about that file.
-  //   props: ['file'],
-  //   data: function () {
-  //     return {
-  //       link: 'Paste a shared link here...',
-  //     }
-  //   },
-  //   computed: {
-  //     title: function () { return (this.file != false) ? 'File sent to VR' : 'Choose a file to send to VR' }
-  //   },
-  //   methods: {
-  //     remove_active_file: function () {
-  //       this.$root.remove_active_file();
-  //       this.$root.show_notification_for_time('File de-activated');
-  //     },
-  //     send_link_to_vr: function () {
-  //       console.log("TODO: send link to vr. Link:" + this.link)
-  //       this.$root.show_notification_for_time('Loading file from link');
-  //     }
-  //   },
-  //   template: '#active-file'
-  // })
-
-
 
   Vue.component('upload-file', {
     // A way to upload sketchup files to the cloud
@@ -121,7 +109,6 @@ var vueAppApi = {};
       }
     },
     computed: {
-      is_active: function () { return this.$root.active_file == this.file; },
       is_selected: function () {
         var is_sel = this.$parent.selected_file == this.file;
         if (!is_sel)
@@ -130,15 +117,13 @@ var vueAppApi = {};
       }
     },
     methods: {
-      toggle_details_tabs: function () { (this.current_tab == 'cloud-file-details') ? this.hide_details() : this.show_details(); },
-      hide_details: function () { this.current_tab = ''; this.$parent.set_selected_file('') },
-      show_details: function () { this.current_tab = 'cloud-file-details'; this.$parent.set_selected_file(this.file) },
-      send_file_to_vr: function () {
-        console.log("TODO: send file to vr");
-        this.$root.show_notification_for_time(this.file.name + ' sent to VR');
-        this.$root.set_active_file(this.file);
-      },
-      remove_active_file: function () { this.$root.remove_active_file(this.file); },
+      toggle_details_tabs: function () { (this.current_tab == 'cloud-file-details' || this.current_tab == 'cloud-file-sharing')
+           ? this.hide_details() : this.show_details(); },
+      toggle_sharing_tab: function() { this.current_tab == 'cloud-file-sharing' ? this.hide_sharing() : this.show_sharing(); },
+      hide_details: function () { this.current_tab = ''; this.$parent.set_selected_file(''); },
+      show_details: function () { this.current_tab = 'cloud-file-details'; this.$parent.set_selected_file(this.file); },
+      hide_sharing: function () { this.current_tab = ''; this.$parent.set_selected_file(''); },
+      show_sharing: function () { this.current_tab = 'cloud-file-sharing'; this.$parent.set_selected_file(this.file); },
       on_change_tab: function (tab_name) { this.current_tab = tab_name },
       on_save_edit: function (changed_values) {
         console.log("TODO: do save of name and description (" + changed_values.name + ")(" + changed_values.description + ")");
@@ -156,10 +141,19 @@ var vueAppApi = {};
         // TODO download file
       },
       on_delete_file: function () {
-        console.log("TODO: delete file")
-        // TODO send delete request to server
-        this.$root.remove_file_by_id(this.file);
-        this.$root.show_notification_for_time('File deleted (XXX not implemented)');
+        let root = this.$root;
+        let current_file = this.file;
+        connection.session.call('com.files.delete', [app.token, this.file.id]).then(
+          function (r) {
+            if (r) {
+              root.remove_file_by_id(current_file);
+              root.show_notification_for_time('File deleted');
+            } else {
+              root.show_notification_for_time('File delete failed', 'alert-danger');
+            }
+          }, function () {
+            root.show_notification_for_time('File delete failed', 'alert-danger');
+          });
         this.current_tab = 'cloud-file-details'
       },
       on_share: function () {
@@ -171,7 +165,6 @@ var vueAppApi = {};
         } else {
           this.$root.show_notification_for_time('Could not copy link');
         }
-        this.current_tab = 'cloud-file-details'
       }
     },
     template: '#cloud-file'
@@ -182,28 +175,6 @@ var vueAppApi = {};
   Vue.component('cloud-file-details', {
     // Tab providing all the options the the user can do to the file
     template: '#cloud-file-details'
-  })
-
-  Vue.component('cloud-file-active', {
-    // Tab providing info on the active file (file being sent to VR)
-    data: function () {
-      return {
-        users_in_vr: ['Tim', 'Sally'],
-      }
-    },
-    computed: {
-      connection_status: function () { return this.$root.connection_status; }
-    },
-    methods: {
-      // TODO, find way to add, remove and clear users
-      add_user: function (user) { this.users_in_vr.push(user) },
-      clear_users: function () { this.users_in_vr = [] },
-      remove_users: function (user) {
-        var index = this.users_in_vr.indexOf(user);
-        this.users_in_vr.splice(index, 1);
-      }
-    },
-    template: '#cloud-file-active'
   })
 
   Vue.component('cloud-file-edit', {
@@ -228,10 +199,10 @@ var vueAppApi = {};
 
 
 
-  Vue.component('cloud-file-share', {
+  Vue.component('cloud-file-sharing', {
     // Tab to share the file
     props: ['sharable_link', 'id'],
-    template: '#cloud-file-share'
+    template: '#cloud-file-sharing'
   })
 
 
@@ -250,7 +221,6 @@ var vueAppApi = {};
     data: {
       files: [],
       logged_in: false,
-      active_file: false,
       connection_status: 'Not connected',
       notification: { show: false, message: '', type: 'alert-info', timer: {} }
     },
@@ -258,13 +228,10 @@ var vueAppApi = {};
       remove_file_by_id: function (file) {
         var index = this.files.indexOf(file);
         if (index !== -1) { this.files.splice(index, 1); }
-        if (file == this.active_file) { this.active_file = false; }
       },
-      set_active_file: function (file) { this.active_file = file; },
-      remove_active_file: function (file) { this.active_file = false; },
       show_notification_for_time: function (message, type, timeout) {
         this.notification.show = true;
-        this.notification.message = message;
+        this.notification.message = message.toString();
         if (type == undefined)
           this.notification.type = 'alert-info';
         else
@@ -302,22 +269,17 @@ var vueAppApi = {};
   public_api.show_error = function (error) { app.show_notification_for_time(error, 'alert-danger'); };
 
   public_api.list_files = function () {
-    if (app.token)
-    {
-      var call_name = 'com.files.list';
-      var call_arg = app.token;
-    }
-    else if (app.license_key)
-    {
-      var call_name = 'com.files.list_license_key';
-      var call_arg = app.license_key;
-    }
-    else
-      return;
-    connection.session.call(call_name, [call_arg]).then(function (r) {
+    connection.session.call('com.files.list', [app.token]).then(function (r) {
       if (!r.success) {
         show_error(r.error);
       } else {
+        // format results
+        for (var i = 0; i < r.result.length; i++)
+        {
+          let elem = r.result[i];
+          elem.date_modified = format_localtime(elem.date_modified);
+          elem.size = format_size(elem.size);
+        }
         app.files = r.result;
       }
     }, show_error);
@@ -349,6 +311,7 @@ var vueAppApi = {};
 
   public_api.log_in_license_key = function (license_key)
   {
+    connection.session.call('com.user.')
     app.logged_in = true;
     app.license_key = license_key;
     public_api.list_files();
@@ -403,11 +366,23 @@ $(document).ready(function () {
     if (window.location.hash.startsWith('#P')) {
       /* don't log in with google, but instead use the value of the
          hash-tag as license key */
-      vueAppApi.log_in_license_key(window.location.hash.substring(2, 2+64));
+      let license_id = window.location.hash.substring(2, 2+64);
+      connection.session.call('com.user.get_basic_info', [license_id]).then(
+        function (res) {
+          if (!res.success) {
+            show_error(res.error);
+            return;
+          }
+          vueAppApi.log_in(res.name, license_id);
+        }, show_error);
+      // load the gapi anyway, but don't do anything with it
+      gapi.load('auth2', function() {
+        let auth2 = gapi.auth2.init({'client_id': GOOGLE_CLIENT_TOKEN_ID});
+      });
       return;
     }
     gapi.load('auth2', function() {
-      auth2 = gapi.auth2.init({'client_id': GOOGLE_CLIENT_TOKEN_ID});
+      let auth2 = gapi.auth2.init({'client_id': GOOGLE_CLIENT_TOKEN_ID});
       auth2.then(function () {
         if (auth2.isSignedIn.get()) {
           on_sign_in(auth2.currentUser.get());

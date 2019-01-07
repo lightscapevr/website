@@ -26,7 +26,6 @@
 <div class="container">
     <div id="cloud-app" class="mt-5">
         <div v-if="logged_in">
-            <!-- <active-file v-bind:file="active_file"></active-file> -->
             <div class="row mt-5">
                 <div class="col-7">
                     <h3 class="text-muted">Your files</h3>
@@ -45,55 +44,6 @@
         </div>
     </div>
 </div>
-
-
-<!--  active-file -->
-<script type="text/x-template" id="active-file">
-    <div>
-        <h3 class="text-muted">{{title}}</h3>
-        <div v-if="file != false">
-            <div class="c-file c-file-active border-bottom">
-                <div class="row h100">
-                    <div class="col-4">
-                        <strong>{{file.name}}</strong>
-                        <p>{{file.description}}</P>
-                    </div>
-                    <div class="col my-auto text-muted">
-
-                    </div>
-                    <div class="col my-auto text-muted">
-
-                    </div>
-                    <div class="col-3 my-auto">
-                        <div class="float-right">
-                          <button v-on:click="remove_active_file" class="btn btn-secondary">Stop sync</button>
-                        </div>
-                    </div>
-                </div>
-            </div> 
-        </div>
-        <div v-else>
-            <div class="c-file c-file-active border-bottom">
-                <div class="row">
-                    <div class="col">
-                        <strong>Send a file to VR</strong>
-                        <p>No active file selected</P>
-                    </div>
-                    <div class="col my-auto">
-                        <div class="float-right">
-                            <div class="input-group">
-                                <input type="text" class="form-control" v-model="link" placeholder="Paste a shared link here" aria-label="Paste a shared link here" aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-primary ml-0" type="button" v-on:click="send_link_to_vr">Send to VR</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> 
-        </div>
-    </div>
-</script>
 
 <!--  Upload  -->
 <script type="text/x-template" id="upload-file">
@@ -135,38 +85,27 @@
 
 <!--  File  -->
 <script type="text/x-template" id="cloud-file">
-    <div class="c-file" v-bind:class="{active:is_active}">
+    <div class="c-file">
         <div class="row h100">
             <div class="col-4">
                 <strong>{{file.name}}</strong>
                 <p>{{file.description}}</P>
             </div>
             <div class="col my-auto text-muted">
-                    {{file.size}}&nbsp;k
+                    {{file.size}}
             </div>
             <div class="col my-auto text-muted">
                     {{file.date_modified}}
             </div>
             <div class="col-3 my-auto">
                 <div class="float-right">
-                    <!-- <button v-if="!is_active" v-on:click="send_file_to_vr" class="btn btn-outline-primary">Send to VR</button>
-                    
-                    <button v-if="is_selected" v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Hide</button>
-                    <button v-else v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Options</button>
-                     -->
-                    <div v-if="!is_active">
-                        <!-- <button v-on:click="send_file_to_vr" class="btn btn-outline-primary">Send to VR</button> -->
-                        <button v-if="!is_selected" v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Options</button>
-                        <button v-else v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Hide</button>
-                    </div>
-                    <div v-else>
-                        <button v-on:click="remove_active_file" class="btn btn-secondary">Stop VR</button>
-                    </div>
+                    <button v-on:click="toggle_sharing_tab" class="btn btn-outline-primary ml-auto">Share</button>
+                    <button v-if="!is_selected" v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Options</button>
+                    <button v-else v-on:click="toggle_details_tabs" class="btn btn-outline-secondary">Hide</button>
                 </div>
             </div>
         </div>
-        <cloud-file-active v-if="is_active"></cloud-file-active>
-        <div v-else-if="is_selected">
+        <div v-if="is_selected">
            <component
                v-bind:is="current_tab"
                v-bind:file_name="file.name"
@@ -188,19 +127,11 @@
 <script type="text/x-template" id="cloud-file-details">
     <div class="c-info">
         <div class="row">
-            <button v-on:click="$emit('change-tab','cloud-file-share')" class="btn btn-outline-primary ml-auto">Share</button>
-            <button v-on:click="$emit('change-tab','cloud-file-edit')" class="btn btn-outline-secondary">Edit</button>
-            <button v-on:click="$emit('download-file')" class="btn btn-outline-secondary">Download</button>
-            <button v-on:click="$emit('change-tab','cloud-file-delete')" class="btn btn-outline-secondary">Delete</button>
-        </div>
-    </div>
-</script>
-
-<script type="text/x-template" id="cloud-file-active">
-    <div class="c-info">
-        <div class="row">
-            <span class="text-muted">Connection status: {{connection_status}}</span>
-            &nbsp;<span v-for="user in users_in_vr">{{user}}&nbsp;</span>
+            <div class="float-right">
+<!--            <button v-on:click="$emit('change-tab','cloud-file-edit')" class="btn btn-outline-secondary">Edit</button>
+                <button v-on:click="$emit('download-file')" class="btn btn-outline-secondary">Download</button>-->
+                <button v-on:click="$emit('change-tab','cloud-file-delete')" class="btn btn-outline-secondary">Delete</button>
+            </div>
         </div>
     </div>
 </script>
@@ -235,12 +166,11 @@
     </div>
 </script>
 
-<script type="text/x-template" id="cloud-file-share">
+<script type="text/x-template" id="cloud-file-sharing">
     <div class="c-info">
         <div class="row">
             <input type="text" class="form-control w-50" v-bind:value="sharable_link" :id="'share-link-'+id" readonly>
            <button v-on:click="$emit('share')" class="btn btn-primary ml-auto">Copy link to clipboard</button>
-           <button v-on:click="$emit('change-tab','cloud-file-details')" class="btn btn-outline-secondary">Close</button>
         </div>
     </div>
 </script>
