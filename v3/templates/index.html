@@ -8,7 +8,7 @@
 {% endblock nav_menu_items %}
 
 {% block main_content %}
-<div id="cloud-app">
+<div id="index-app">
     <section id="landing" class="bg-light text-dark py-5">
         <div class="container">
             <div class="row">
@@ -17,8 +17,8 @@
                     <p class="lead">VR Sketch is an extension for SketchUp which gives anyone the ability to
                         create,
                         edit and view their models in VR.</p>
-                    <a class="btn btn-outline-primary btn-lg" href="#" role="button">Try for free</a>
-                    <a class="btn btn-primary btn-lg shadow" href="#" role="button">Get a licence</a>
+                    <a class="btn btn-outline-primary btn-lg" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer" role="button">Try for free</a>
+                    <a class="btn btn-primary btn-lg shadow" href="#pricing" role="button">Get a licence</a>
                 </div>
                 <div class="col-md mb-3">
                     <div id="hero-images-carousel" class="carousel slide carousel-fade" data-ride="carousel">
@@ -506,7 +506,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" onclick="order_hobbyist()">Agree</button>
-                    <button type="button" class="btn btn-second" onclick="$('hobbyist-modal').hide()" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -516,7 +516,7 @@
 {% endblock main_content %}
 
 {% block js_imports %}
-<script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="baroquesoftware"></script>  
+<script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="{{ chargebee_site }}"></script>  
 <script src="js/libraries/vue.js"></script>
 <script src="js/global.js"></script>
 <script src="js/index.js"></script>

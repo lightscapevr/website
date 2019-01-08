@@ -1,10 +1,13 @@
 #!/usr/bin/env python
+""" Run build.py (--prod|--test) to rebuild html
+"""
 
 import os
 from jinja2 import Environment, PackageLoader, select_autoescape
 import json
 import markdown
 import sass
+import sys
 
 # Set up Jinja2 environment
 jinja_env = Environment(
@@ -21,11 +24,16 @@ def convert_all_markdown(src_folder, output_folder):
                                output_folder + '//' + name_only + '.html')
 
 
-def render_all_templates():
+def render_all_templates(prod):
     for filename in os.listdir('templates'):
         if filename.endswith('.html'):
             page_title = generate_title_from_html_filename(filename)
-            render_template_to_file(filename, dict(title=page_title))
+            d = {'title': page_title}
+            if prod:
+                d['chargebee_site'] = 'baroquesoftware'
+            else:
+                d['chargebee_site'] = 'baroquesoftware-test'
+            render_template_to_file(filename, d)
 
 
 def render_template_to_file(template_path, view_data):
@@ -86,8 +94,11 @@ def generate_title_from_html_filename(filename):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) != 2 or (sys.argv[1] != '--prod' and sys.argv[1] != '--test'):
+        print __doc__
+        sys.exit(1)
     convert_all_markdown('markdown', 'templates/generated/')
-    render_all_templates()
+    render_all_templates(sys.argv[1] == '--prod')
     covert_sass_to_css('scss/styles.scss', 'web/css/styles.css')
     # TODO vue app must not be passed through jinja because {{}} gets removed
     # After jinga is done, then add in the vue app

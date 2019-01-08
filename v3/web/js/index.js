@@ -16,14 +16,6 @@ function show_error(err) {
     console.log(JSON.stringify(err, undefined, 2));
 }
 
-function State(auth_token, fullname, email) {
-    this.auth_token = auth_token;
-    this.fullname = fullname;
-    this.email = email;
-    this.callLater = null;
-    return this;
-}
-
 var FORMAT = "DD MMMM YYYY";
 
 function formatDate(tstamp) {
@@ -55,18 +47,14 @@ function getUserInfo() {
 }
 
 function on_sign_in(cu) {
-    vueAppApi.log_in(cu.getBasicProfile().getName(), cu.getAuthResponse().id_token);
+    vueAppApi.log_in(cu.getBasicProfile().getName(), cu.getBasicProfile().getEmail(),
+        cu.getAuthResponse().id_token);
 
     $("#login-button").replaceWith($("#login-button").clone()); // remove event listeners
     return;
-    state = new State(id_token, name, profile.getEmail());
     if (connection.session.isOpen) {
         getUserInfo();
-    } else {
-        state.callLater = getUserInfo;
     }
-    $("#user-modal-user").text("Logged in as " + name);
-    $("#login-contents").text(name);
 }
 
 function showLicenseModal() {
@@ -122,16 +110,16 @@ function logInIfNotLoggedIn(continuation) {
 
 function createHostedPage(plan) {
     // first check if user does not have a plan already
-    connection.session.call('com.user.get_info', [state.auth_token,
-    state.fullname, state.email]).then(function (r) {
+    connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
+    vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
         if (r.subscriptions) {
             showManageButtons();
         } else {
             var cbinst = Chargebee.getInstance();
             cbinst.openCheckout({
                 hostedPage: function () {
-                    return connection.session.call('com.hostedpage', [state.auth_token,
-                    state.fullname, state.email, plan]);
+                    return connection.session.call('com.hostedpage', [vueAppApi.get_auth_token(),
+                    vueAppApi.get_name(), vueAppApi.get_email(), plan]);
                 },
                 success: function (hostedPageId) {
                     connection.session.call('com.user.successful_payment',
@@ -229,21 +217,29 @@ var vueAppApi = {};
   'use strict';
 
   var app = new Vue({
-    el: "#cloud-app",
+    el: "#index-app",
     data: {
         logged_in: false,
+        name: null,
+        email: null,
         token: null
     },
     methods: {}
   });
 
-  public_api.log_in = function(name, token) {
+  public_api.log_in = function(name, email, token) {
     app.logged_in = true;
     app.token = token;
+    app.name = name;
+    app.email = email;
     $("#login-button").text(name);
     $("#login-button").addClass("dropdown-toggle");
     $("#login-button").attr("data-toggle", "dropdown");
   };
+
+  public_api.get_auth_token = function() { return app.token; };
+  public_api.get_name = function() { return app.name; };
+  public_api.get_email = function() { return app.email; };
 
   public_api.logout = function()
   {
@@ -271,10 +267,27 @@ $(document).ready(function () {
         max_retry_delay: 3,
     });
     connection.onopen = function (session, details) {
-        if (state && state.callLater) {
-            state.callLater();
-        }
+        gapi.load('auth2', function () {
+            // Retrieve the singleton for the GoogleAuth library and set up the client.
+            auth2 = gapi.auth2.init({
+                client_id: GOOGLE_CLIENT_TOKEN_ID,
+                cookiepolicy: 'single_host_origin',
 
+                // Request scopes in addition to 'profile' and 'email'
+                //scope: 'additional_scope'
+            });
+
+            auth2.then(function () {
+                if (auth2.isSignedIn.get()) {
+                    on_sign_in(auth2.currentUser.get());
+                } else {
+                    auth2.attachClickHandler($("#login-button")[0],
+                        {ux_mode: 'redirect'}, on_sign_in,
+                        show_error);
+                }
+
+            }, show_error);
+        });
         /* autoping functionality not implemented */
         function ping_server() {
           connection.session.call('com.ping', []);
@@ -286,28 +299,7 @@ $(document).ready(function () {
     }
     connection.open();
 
-    gapi.load('auth2', function () {
-        // Retrieve the singleton for the GoogleAuth library and set up the client.
-        auth2 = gapi.auth2.init({
-            client_id: GOOGLE_CLIENT_TOKEN_ID,
-            cookiepolicy: 'single_host_origin',
-
-            // Request scopes in addition to 'profile' and 'email'
-            //scope: 'additional_scope'
-        });
-
-        auth2.then(function () {
-            if (auth2.isSignedIn.get()) {
-                on_sign_in(auth2.currentUser.get());
-            } else {
-                auth2.attachClickHandler($("#login-button")[0],
-                    {ux_mode: 'redirect'}, on_sign_in,
-                    show_error);
-            }
-
-        }, show_error);
-    });
-    var cbinst = Chargebee.init({site: 'baroquesoftware'});
+    var cbinst = Chargebee.init({site: CHARGEBEE_SITE});
 
 });
 
