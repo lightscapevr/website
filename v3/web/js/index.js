@@ -1,6 +1,5 @@
 var auth2 = null;
 var connection;
-var state = null;
 
 function hide_error() {
     $("#error").html("");
@@ -8,11 +7,12 @@ function hide_error() {
 
 function show_error(err) {
     if (err && err.error == 'wamp.error.runtime_error' && err.args[0].startsWith('Token expired')) {
-        signout();
+        vueAppApi.logout();
         return;
     }
     Sentry.captureMessage(err);
     $("#error").html("Error encountered <span onclick='hide_error()'>&times;</span>");
+    console.trace();
     console.log(JSON.stringify(err, undefined, 2));
 }
 
@@ -23,7 +23,6 @@ function formatDate(tstamp) {
 }
 
 function showManageButtons() {
-    $("#manage-subscription-section").show();
     $("#pricing").hide();
     $("#get-a-license").attr("onclick", "showLicenseModal(); return false;");
     $("#get-a-license").html("Manage licenses");
@@ -31,18 +30,17 @@ function showManageButtons() {
 
 function showPricingInfo() {
     $("#pricing").show();
-    $("#manage-subscription-section").hide();
     $("#get-a-license").attr("onclick", "return true;");
     $("#get-a-license").html("Get a License");
 }
 
 function getUserInfo() {
-    connection.session.call('com.user.get_info', [state.auth_token,
-    state.fullname, state.email]).then(function (r) {
-        if (r.subscriptions) {
-            showManageButtons();
-        }
-    },
+    connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
+        vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
+            if (r.subscriptions) {
+                showManageButtons();
+            }
+        },
         show_error);
 }
 
@@ -51,51 +49,12 @@ function on_sign_in(cu) {
         cu.getAuthResponse().id_token);
 
     $("#login-button").replaceWith($("#login-button").clone()); // remove event listeners
-    return;
-    if (connection.session.isOpen) {
-        getUserInfo();
-    }
+    getUserInfo();
 }
 
 function showLicenseModal() {
-    $("#user-modal")[0].style.display = "block";
-    showLicenses();
-}
-
-function showLicenses() {
-    connection.session.call('com.user.get_info', [state.auth_token,
-    state.fullname, state.email]).then(function (r) {
-        if (!r.result) {
-            $("#user-modal-body").html("No license present, please sign up for one");
-        } else {
-            r.number = r.subscriptions.length;
-            for (var i in r.subscriptions) {
-                var sub = r.subscriptions[i];
-                if (sub.license_type == 'vr-sketch-hobbyist')
-                    sub.license_type = "hobbyist";
-                else if (sub.license_type == 'vr-sketch' ||
-                    sub.license_type == "vr-sketch-2" ||
-                    sub.license_type == "vr-sketch-yearly")
-                    sub.license_type = "";
-                else
-                    sub.license_type = "educational, automatically renewed";
-
-                sub.ends_at = formatDate(sub.ends_at);
-                if (sub.deleted) {
-                    sub.deleted = "cancelled";
-                } else {
-                    sub.deleted = "";
-                }
-            }
-            nunjucks.render('templates/subscriptions.html', r, function (err, html) {
-                if (err) {
-                    show_error(err);
-                } else {
-                    $("#user-modal-body").html(html);
-                }
-            });
-        }
-    }, show_error);
+    $("#user-modal").modal('show');
+    vueAppApi.show_licenses();
 }
 
 function logInIfNotLoggedIn(continuation) {
@@ -123,9 +82,9 @@ function createHostedPage(plan) {
                 },
                 success: function (hostedPageId) {
                     connection.session.call('com.user.successful_payment',
-                        [state.auth_token, hostedPageId]).then(function (r) {
-                            $("#user-modal").show();
-                            showLicenses();
+                        [vueAppApi.get_auth_token(), hostedPageId]).then(function (r) {
+                            $("#user-modal").modal('show');
+                            vueAppApi.show_licenses();
                             getUserInfo();
                         }, show_error);
                 },
@@ -142,12 +101,12 @@ function order_regular() {
 }
 
 function order_regular_monthly() {
-    $("#billing-period-choice-modal").hide();
+    $("#billing-period-choice-modal").modal('hide');
     createHostedPage('vr-sketch-2');
 }
 
 function order_regular_yearly() {
-    $("#billing-period-choice-modal").hide();
+    $("#billing-period-choice-modal").modal('hide');
     createHostedPage("vr-sketch-yearly");
 }
 
@@ -155,18 +114,18 @@ function order_regular_yearly() {
 function showEduModal() {
     if (!logInIfNotLoggedIn(showEduModal))
         return;
-    $("#edu-modal")[0].style.display = "block";
+    $("#edu-modal").show();
 }
 
 function order_hobbyist() {
-    $("#hobbyist-modal")[0].style.display = "";
+    $("#hobbyist-modal").modal('hide');
     createHostedPage('vr-sketch-hobbyist');
 }
 
 function showHobbyistModal() {
     if (!logInIfNotLoggedIn(showHobbyistModal))
         return;
-    $("#hobbyist-modal")[0].style.display = "block";
+    $("#hobbyist-modal").show();
 }
 
 function checkEduAndOrder() {
@@ -177,22 +136,23 @@ function checkEduAndOrder() {
         $("#edu-modal-error").html("please check the checkbox");
         return;
     }
-    connection.session.call('com.register_edu', [state.auth_token, state.fullname, state.email,
+    connection.session.call('com.register_edu', [vueAppApi.get_auth_token(),
+        vueAppApi.get_name(), vueAppApi.get_email(),
     $("#edu-purpose").val(), $("#edu-role").val(), $("#edu-institution").val()]).then(function (r) {
-        $("#edu-modal").hide();
+        $("#edu-modal").modal('hide');
         if (r.success) {
             showLicenseModal();
             getUserInfo();
         }
         else
-            show_error();
+            show_error(r.error);
     }, show_error);
 }
 
 function manage_subscriptions() {
     cbinst = Chargebee.getInstance();
     cbinst.setPortalSession(function () {
-        return connection.session.call('com.portalsession', [state.auth_token]).then(
+        return connection.session.call('com.portalsession', [vueAppApi.get_auth_token()]).then(
             function (r) {
                 if (!r.success)
                     show_error(r.error);
@@ -201,12 +161,12 @@ function manage_subscriptions() {
     });
     cbinst.createChargebeePortal().open({
         close: function () {
-            connection.session.call('com.user.update_info', [state.auth_token]).then(
+            connection.session.call('com.user.update_info', [vueAppApi.get_auth_token()]).then(
                 function (res) {
                     if (!res.success)
                         show_error(res.error)
                     else
-                        showLicenses();
+                        vueAppApi.show_licenses();
                 }, show_error);
         }
     });
@@ -216,13 +176,22 @@ var vueAppApi = {};
 (function (public_api) {
   'use strict';
 
+  Vue.component('user-details', {
+    // Area to display user licenses
+    props: ['licenses', 'licenses_loaded', 'no_license'],
+    template: '#user-details'
+  })
+
   var app = new Vue({
     el: "#index-app",
     data: {
         logged_in: false,
         name: null,
         email: null,
-        token: null
+        token: null,
+        licenses_loaded: false,
+        no_license: false,
+        licenses: [],
     },
     methods: {}
   });
@@ -241,6 +210,39 @@ var vueAppApi = {};
   public_api.get_name = function() { return app.name; };
   public_api.get_email = function() { return app.email; };
 
+  public_api.show_licenses = function(arg) {
+    connection.session.call('com.user.get_info', [app.token, app.name, app.email]).then(
+        function (r) {
+            app.licenses_loaded = true;
+            if (!r.result) {
+                app.no_license = true;
+                app.licenses = [];
+                return;
+            }
+            app.no_license = false;
+            let licenses = [];
+            for (var i = 0; i < r.subscriptions.length; i++) {
+                let sub = r.subscriptions[i];
+                let d = {
+                    deleted: sub.deleted ? "deleted" : "",
+                    quantity: sub.quantity,
+                    license_id: sub.license_id,
+                    ends_at: formatDate(sub.ends_at)          
+                }
+                if (sub.license_type == 'vr-sketch-hobbyist')
+                    d.license_type = "hobbyist";
+                else if (sub.license_type == 'vr-sketch' ||
+                    d.license_type == "vr-sketch-2" ||
+                    d.license_type == "vr-sketch-yearly")
+                    d.license_type = "";
+                else
+                    d.license_type = "educational, automatically renewed";
+                licenses.push(d);
+            }
+            app.licenses = licenses;
+        }, show_error);
+  };
+
   public_api.logout = function()
   {
     app.logged_in = false;
@@ -253,6 +255,7 @@ var vueAppApi = {};
     auth2.attachClickHandler($("#login-button")[0], {ux_mode: 'redirect'},
                              on_sign_in, show_error);
     auth2.signOut();
+    showPricingInfo();
   }
 
 })(vueAppApi);
@@ -302,16 +305,3 @@ $(document).ready(function () {
     var cbinst = Chargebee.init({site: CHARGEBEE_SITE});
 
 });
-
-function signout() {
-    auth2.signOut().then(function () {
-        $("#user-modal-user").text("not logged in");
-        $("#login-contents").text("Log in");
-        $("#login-bar").replaceWith($("#login-bar").clone()); // remove event listeners
-        auth2.attachClickHandler($("#login-bar")[0], {}, on_sign_in,
-            show_error);
-        let modal = $("#user-modal")[0];
-        modal.style.display = "none";
-        showPricingInfo();
-    });
-}

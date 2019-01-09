@@ -8,6 +8,8 @@
 {% endblock nav_menu_items %}
 
 {% block main_content %}
+{% raw %}
+
 <div id="index-app">
     <section id="landing" class="bg-light text-dark py-5">
         <div class="container">
@@ -18,7 +20,7 @@
                         create,
                         edit and view their models in VR.</p>
                     <a class="btn btn-outline-primary btn-lg" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer" role="button">Try for free</a>
-                    <a class="btn btn-primary btn-lg shadow" href="#pricing" role="button">Get a licence</a>
+                    <a class="btn btn-primary btn-lg shadow" id="get-a-license" href="#pricing" role="button">Get a licence</a>
                 </div>
                 <div class="col-md mb-3">
                     <div id="hero-images-carousel" class="carousel slide carousel-fade" data-ride="carousel">
@@ -298,17 +300,6 @@
         </div>
     </section>
 
-
-    <section id="manage-subscription-section" class="bg-white text-dark py-5" style="display: none">
-        <div class="container">
-            <h2 class="text-center">My licenses</h2>
-            <button class="btn btn-outline-primary" data-toggle="modal" data-target="#user-modal" onclick="showLicenseModal()">Manage
-                my subscriptions</button>
-        </div>
-    </section>
-
-
-
     <section id="gallery" class="bg-light py-5">
         <div class="container">
             <h2 class="text-center">Gallery</h2>
@@ -384,8 +375,8 @@
 
 
     <!-- Modals -->
-    <div id="user-modal" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
+    <div id="user-modal" class="modal" tabindex="-1" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title"><span id="user-modal-user">My subscriptions</span></h5>
@@ -394,11 +385,11 @@
                     </button>
                 </div>
                 <div id="user-modal-body" class="modal-body">
-                    Loading license info... <i class="fa fa-spin fa-spinner"></i>
+                    <user-details v-bind:licenses="licenses" v-bind:licenses_loaded="licenses_loaded" v-bind:no_license="no_license">
+                    </user-details>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="user-modal-logout" class="btn btn-primary" onclick="signout()">Log out</button>
-                    <button type="button" id="user-modal-close" class="btn btn-second" onclick="$('user-modal').hide()" data-dismiss="modal">Close</button>
+                    <button type="button" id="user-modal-close" class="btn btn-secondary" onclick="$('user-modal').hide()" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -415,7 +406,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div id="edu-modal-error"></div>
+                    <div id="edu-modal-error" class="alert-danger"></div>
                     <p>
                         We give away educational licenses for free to students and educators. Please
                         fill in the necessary details.
@@ -442,7 +433,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" onclick="checkEduAndOrder()">Submit
                         and subscribe</button>
-                    <button type="button" class="btn btn-second" onclick="$('edu-modal').hide()" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-second" onclick="$('edu-modal').modal('hide')" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -513,6 +504,35 @@
     </div>
 </div>
 
+<script type="text/x-template" id="user-details">
+<div>
+    <div v-if="!licenses_loaded">
+        Loading license info... <i class="fa fa-spin fa-spinner"></i>        
+    </div>
+    <div v-else>
+    <div v-if="no_license">
+        No license present, please sign up for one
+    </div>
+    <div v-else>
+        <button onclick="manage_subscriptions()" class="btn-primary">Manage subscriptions, invoices and payment details</button>
+        <div class="container" v-for="license in licenses">
+            <div class="row">
+                Found valid {{ license.license_type }}
+                <span v-if="license.quantity != 1">
+                   You are allowed to use this license for at most {{ license.quantity }} different computers at any given time
+                </span>
+            </div>
+            <div class="row">
+                Next charge at {{ license.ends_at }}, {{ license.deleted }} License key to copy-paste:
+                <span class="subscription_id">{{ license.license_id }}</span>
+            </div>
+        </div>
+    </div>
+   </div>
+</div>
+</script>
+
+{% endraw %}
 {% endblock main_content %}
 
 {% block js_imports %}
