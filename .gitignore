@@ -4,6 +4,6 @@ web/documentation.html
 .vscode/*
 
 v3/web/*.html
-v3/web/css/*
+v3/web/css/*.css
 *~
 *.pyc
