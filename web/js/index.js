@@ -253,7 +253,7 @@ $(document).ready(function () {
     gapi.load('auth2', function () {
         // Retrieve the singleton for the GoogleAuth library and set up the client.
         auth2 = gapi.auth2.init({
-            client_id: '1076106158582-2hr4jav5kbn2gccs0jsdbdhr4sg1d399.apps.googleusercontent.com',
+            client_id: '1076106158582-vekr6opr52b6i8eeu3cc8si7828hisgj.apps.googleusercontent.com',
             cookiepolicy: 'single_host_origin',
             // Request scopes in addition to 'profile' and 'email'
             //scope: 'additional_scope'
@@ -311,8 +311,8 @@ $(document).ready(function () {
         }
     }
 
-    var cbinst = Chargebee.init({ site: 'baroquesoftware-test' });
-    nunjucks.configure({ 'web': { 'async': true } });
+    var cbinst = Chargebee.init({site: 'baroquesoftware'});
+    nunjucks.configure({'web': {'async': true}});
 
     Sentry.init({ dsn: 'https://38c4d64c82484e57b0199aef2d2e83cf@sentry.io/1306011' });
 });
