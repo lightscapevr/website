@@ -1,0 +1,104 @@
+// ---------------------------------- Sign up ---------------------------------- //
+
+#mc_embed_signup{
+    display: flex;
+    justify-content: center;
+
+    form {
+        width: 100%;
+    max-width: 500px;
+    }
+
+    h4 {
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .subscribe {
+        display: flex;
+        border-color: $primary;
+        background-color: $white;
+        border-style: solid;
+        border-radius: 15px;
+        border-width: 2px;
+        overflow: hidden;
+
+        input {
+            height: 40px;
+            border: none;
+            outline: none;
+        }
+
+        input[type=submit] {
+            color: $primary;
+            font-weight: 500;
+            border-color: $white;
+            color: $white;
+            background-color: $primary;
+            flex: 1;
+        }
+
+        input[type=submit]:hover {
+            font-weight: 600;
+        }
+
+        input[type=email] {
+            flex: 2;
+            padding: 0 15px;
+        }
+    }
+}
+
+#mce-responses {
+    display: flex;
+    justify-content: center;
+}
+#mce-success-response {
+    margin-top: 20px;
+    font-size: 30px;
+    color: $primary;
+    font-weight: 500;
+}
+#mce-error-response {
+    margin-top: 20px;
+    font-size: 30px;
+    color: $warning;
+    font-weight: 500;
+}
+#mc_link:hover{color: $primary;}
+
+// ---------------------------------- Testimonial ---------------------------------- //
+
+#testimonials-carousel{
+    .carousel-item{
+        height: 10em;
+        overflow: visible;
+    } 
+
+    .carousel-item img{
+        float: left;
+        margin-right: 1rem;
+        margin-bottom: 3em;
+    } 
+}
+
+
+// ---------------------------------- Pricing ---------------------------------- //
+
+#pricing{
+    small{
+        font-size: $font-size-base;
+    }
+}
+// ---------------------------------- Documentation ---------------------------------- //
+
+#learn{
+    i {
+        font-size: $font-size-base *2.5;
+        color: $primary;
+        padding-top: 1em;
+        padding-bottom: 1em;
+
+    }
+}

@@ -1,5 +1,9 @@
+.vscode/*
 web/documentation2.html 
 web/documentation.html
 .vscode/*
-*~
 
+v3/web/*.html
+v3/web/css/*
+*~
+*.pyc
