@@ -62,7 +62,7 @@ function logInIfNotLoggedIn(continuation) {
         return true;
     // show the log in dialog
     gapi.auth2.getAuthInstance().signIn().then(function (googleUser) {
-        onSignedIn(googleUser);
+        on_sign_in(googleUser);
         continuation();
     });
 }
