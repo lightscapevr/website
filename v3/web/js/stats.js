@@ -73,7 +73,7 @@ $(document).ready(function () {
     });
     connection.onopen = function(session, dets) {
         gapi.load('auth2', function() {
-            var auth2 = gapi.auth2.init({'client_id': CLIENT_TOKEN_ID});
+            var auth2 = gapi.auth2.init({'client_id': GOOGLE_CLIENT_TOKEN_ID});
             auth2.then(function () {
                 token = auth2.currentUser.get().getAuthResponse().id_token;
                 connection.session.call('com.stats.trials', [token]).then(
