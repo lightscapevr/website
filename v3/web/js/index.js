@@ -1,4 +1,3 @@
-var auth2 = null;
 var connection;
 
 function hide_error() {
@@ -58,10 +57,11 @@ function showLicenseModal() {
 }
 
 function logInIfNotLoggedIn(continuation) {
+    let auth2 = gapi.auth2.getAuthInstance();
     if (auth2.currentUser.get().isSignedIn())
         return true;
     // show the log in dialog
-    gapi.auth2.getAuthInstance().signIn().then(function (googleUser) {
+    auth2.signIn().then(function (googleUser) {
         on_sign_in(googleUser);
         continuation();
     });
@@ -272,7 +272,7 @@ $(document).ready(function () {
     connection.onopen = function (session, details) {
         gapi.load('auth2', function () {
             // Retrieve the singleton for the GoogleAuth library and set up the client.
-            auth2 = gapi.auth2.init({
+            let auth2 = gapi.auth2.init({
                 client_id: GOOGLE_CLIENT_TOKEN_ID,
                 cookiepolicy: 'single_host_origin',
 
