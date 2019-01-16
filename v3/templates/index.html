@@ -506,24 +506,24 @@
 
 <script type="text/x-template" id="user-details">
 <div>
-    <div v-if="!licenses_loaded">
+    <div v-if="!licenses_loaded" class="mb-3">
         Loading license info... <i class="fa fa-spin fa-spinner"></i>        
     </div>
     <div v-else>
-    <div v-if="no_license">
-        No license present, please sign up for one
-    </div>
-    <div v-else>
-        <button onclick="manage_subscriptions()" class="btn-primary">Manage subscriptions, invoices and payment details</button>
+     <div v-if="no_license">
+         No license present, please sign up for one
+     </div>
+     <div v-else>
+        <button onclick="manage_subscriptions()" class="btn btn-primary mb-3">Manage subscriptions, invoices and payment details</button>
         <div class="container" v-for="license in licenses">
-            <div class="row">
+            <div class="row mb-3">
                 Found valid {{ license.license_type }}
                 <span v-if="license.quantity != 1">
                    You are allowed to use this license for at most {{ license.quantity }} different computers at any given time
                 </span>
             </div>
-            <div class="row">
-                Next charge at {{ license.ends_at }}, {{ license.deleted }} License key to copy-paste:
+            <div class="row mb-3">
+                Next charge at {{ license.ends_at }}, {{ license.deleted }} License key to copy-paste:<br>
                 <span class="subscription_id">{{ license.license_id }}</span>
             </div>
         </div>
