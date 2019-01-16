@@ -84,6 +84,14 @@ Template blocks
     <script src="js/libraries/autobahn.min.js"></script>
     <script src="https://browser.sentry-cdn.com/4.1.1/bundle.min.js"></script>
     <script src="js/global.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43265909-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-43265909-2');
+    </script>
     {% block js_imports %}{% endblock js_imports %}
 </body>
 
