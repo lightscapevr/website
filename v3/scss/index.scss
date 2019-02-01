@@ -87,9 +87,46 @@
 // ---------------------------------- Pricing ---------------------------------- //
 
 #pricing{
+    h3{
+        font-size: 1.5em;
+    }
     small{
         font-size: $font-size-base;
+    } 
+    .title{
+        margin-top: 30px;
+        font-size: 2em;
     }
+    .price{
+        font-size: 5em;
+    }
+
+    
+
+    .non-commercial{
+        background-color: $light;
+        margin-bottom: 30px;
+    }
+    .commercial{
+        background-color: $light;
+    }
+
+    @media (min-width: 768px) { 
+        .non-commercial{
+            z-index: 90;
+            position: relative;
+            top: 60px;
+            left: 20px;
+           // background-color: #d7dcdf;
+        }
+        .commercial{
+            z-index: 100;
+            position: relative;
+            right: 20px;
+        }
+     }
+    
+    
 }
 // ---------------------------------- Documentation ---------------------------------- //
 

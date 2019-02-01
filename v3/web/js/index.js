@@ -128,6 +128,17 @@ function showHobbyistModal() {
     $("#hobbyist-modal").show();
 }
 
+function showEnterpriseModal() {
+    // TODO
+    console.log('No logic implemented for enterprise yet...')
+    $("#enterprise-modal").show();
+}
+
+function order_enterprise() {
+    // TODO
+    console.error('No logic implemented for enterprise yet...')
+}
+
 function checkEduAndOrder() {
     if (!$("#edu-purpose").val() || !$("#edu-role").val() || !$("#edu-institution").val()) {
         $("#edu-modal-error").html("please fill in the fields");
