@@ -1,5 +1,9 @@
 # VR Sketch Website
 
+## Branches
+* master - Automatically updates the test site at "https://test.vrsketch.eu/"
+* prod - Automatically updates the main site at "https://vrsketch.eu/"
+
 ### Folders
 Working files go in "resources/"
 Public files go in "web/"
