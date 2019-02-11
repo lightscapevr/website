@@ -80,7 +80,7 @@ $(document).ready(function () {
                     function (r) { plot(r, "#trial-stats", "trial activations (weekly)"); }, show_error
                 );
                 connection.session.call('com.stats.use-total', [token]).then(
-                    function (r) { plot2(r, "#use-stats", "total number of days used (weekly)"); }, show_error
+                    function (r) { plot2(r, "#use-stats", "total number of days used (rolling weekly)"); }, show_error
                 );
                 connection.session.call('com.stats.use-unique', [token]).then(
                     function (r) { plot2(r, "#use-unique", "unique users (rolling weekly)"); }, show_error
