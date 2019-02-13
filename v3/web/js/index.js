@@ -136,10 +136,12 @@ function checkEduAndOrder() {
         $("#edu-modal-error").html("please check the checkbox");
         return;
     }
+    $("#edu-subscribe-button").attr("disabled", "disabled");
     connection.session.call('com.register_edu', [vueAppApi.get_auth_token(),
         vueAppApi.get_name(), vueAppApi.get_email(),
     $("#edu-purpose").val(), $("#edu-role").val(), $("#edu-institution").val()]).then(function (r) {
         $("#edu-modal").modal('hide');
+        $("#edu-subscribe-button").attr("disabled", null);
         if (r.success) {
             showLicenseModal();
             getUserInfo();
