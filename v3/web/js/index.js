@@ -65,6 +65,7 @@ function logInIfNotLoggedIn(continuation) {
         on_sign_in(googleUser);
         continuation();
     });
+    return false;
 }
 
 function createHostedPage(plan) {
@@ -138,14 +139,9 @@ function showHobbyistModal() {
 }
 
 function showEnterpriseModal() {
-    // TODO
-    console.log('No logic implemented for enterprise yet...')
+    if (!logInIfNotLoggedIn(showEnterpriseModal))
+        return;
     $("#enterprise-modal").show();
-}
-
-function order_enterprise() {
-    // TODO
-    console.error('No logic implemented for enterprise yet...')
 }
 
 function checkEduAndOrder() {
