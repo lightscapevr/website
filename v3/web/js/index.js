@@ -35,11 +35,11 @@ function showPricingInfo() {
 
 function getUserInfo() {
     connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
-        vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
-            if (r.subscriptions) {
-                showManageButtons();
-            }
-        },
+    vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
+        if (r.subscriptions) {
+            showManageButtons();
+        }
+    },
         show_error);
 }
 
@@ -110,6 +110,15 @@ function order_regular_yearly() {
     createHostedPage("vr-sketch-yearly");
 }
 
+function order_enterprise_monthly() {
+    $("#enterprise-modal").modal('hide');
+    createHostedPage('vr-sketch-enterprise');
+}
+
+function order_enterprise_yearly() {
+    $("#enterprise-modal").modal('hide');
+    createHostedPage("vr-sketch-enterprise-annual");
+}
 
 function showEduModal() {
     if (!logInIfNotLoggedIn(showEduModal))
@@ -128,6 +137,17 @@ function showHobbyistModal() {
     $("#hobbyist-modal").show();
 }
 
+function showEnterpriseModal() {
+    // TODO
+    console.log('No logic implemented for enterprise yet...')
+    $("#enterprise-modal").show();
+}
+
+function order_enterprise() {
+    // TODO
+    console.error('No logic implemented for enterprise yet...')
+}
+
 function checkEduAndOrder() {
     if (!$("#edu-purpose").val() || !$("#edu-role").val() || !$("#edu-institution").val()) {
         $("#edu-modal-error").html("please fill in the fields");
@@ -138,7 +158,7 @@ function checkEduAndOrder() {
     }
     $("#edu-subscribe-button").attr("disabled", "disabled");
     connection.session.call('com.register_edu', [vueAppApi.get_auth_token(),
-        vueAppApi.get_name(), vueAppApi.get_email(),
+    vueAppApi.get_name(), vueAppApi.get_email(),
     $("#edu-purpose").val(), $("#edu-role").val(), $("#edu-institution").val()]).then(function (r) {
         $("#edu-modal").modal('hide');
         $("#edu-subscribe-button").attr("disabled", null);
@@ -176,95 +196,94 @@ function manage_subscriptions() {
 
 var vueAppApi = {};
 (function (public_api) {
-  'use strict';
+    'use strict';
 
-  Vue.component('user-details', {
-    // Area to display user licenses
-    props: ['licenses', 'licenses_loaded', 'no_license'],
-    template: '#user-details'
-  })
+    Vue.component('user-details', {
+        // Area to display user licenses
+        props: ['licenses', 'licenses_loaded', 'no_license'],
+        template: '#user-details'
+    })
 
-  var app = new Vue({
-    el: "#index-app",
-    data: {
-        logged_in: false,
-        name: null,
-        email: null,
-        token: null,
-        licenses_loaded: false,
-        no_license: false,
-        licenses: [],
-    },
-    methods: {}
-  });
+    var app = new Vue({
+        el: "#index-app",
+        data: {
+            logged_in: false,
+            name: null,
+            email: null,
+            token: null,
+            licenses_loaded: false,
+            no_license: false,
+            licenses: [],
+        },
+        methods: {}
+    });
 
-  public_api.log_in = function(name, email, token) {
-    app.logged_in = true;
-    app.token = token;
-    app.name = name;
-    app.email = email;
-    $("#login-button").text(name);
-    $("#login-button").addClass("dropdown-toggle");
-    $("#login-button").attr("data-toggle", "dropdown");
-  };
+    public_api.log_in = function (name, email, token) {
+        app.logged_in = true;
+        app.token = token;
+        app.name = name;
+        app.email = email;
+        $("#login-button").text(name);
+        $("#login-button").addClass("dropdown-toggle");
+        $("#login-button").attr("data-toggle", "dropdown");
+    };
 
-  public_api.get_auth_token = function() { return app.token; };
-  public_api.get_name = function() { return app.name; };
-  public_api.get_email = function() { return app.email; };
+    public_api.get_auth_token = function () { return app.token; };
+    public_api.get_name = function () { return app.name; };
+    public_api.get_email = function () { return app.email; };
 
-  public_api.show_licenses = function(arg) {
-    connection.session.call('com.user.get_info', [app.token, app.name, app.email]).then(
-        function (r) {
-            app.licenses_loaded = true;
-            if (!r.result) {
-                app.no_license = true;
-                app.licenses = [];
-                return;
-            }
-            app.no_license = false;
-            let licenses = [];
-            for (var i = 0; i < r.subscriptions.length; i++) {
-                let sub = r.subscriptions[i];
-                let d = {
-                    deleted: sub.deleted ? "deleted" : "",
-                    quantity: sub.quantity,
-                    license_id: sub.license_id,
-                    ends_at: formatDate(sub.ends_at)          
+    public_api.show_licenses = function (arg) {
+        connection.session.call('com.user.get_info', [app.token, app.name, app.email]).then(
+            function (r) {
+                app.licenses_loaded = true;
+                if (!r.result) {
+                    app.no_license = true;
+                    app.licenses = [];
+                    return;
                 }
-                if (sub.license_type == 'vr-sketch-hobbyist')
-                    d.license_type = "hobbyist";
-                else if (sub.license_type == 'vr-sketch' ||
-                    d.license_type == "vr-sketch-2" ||
-                    d.license_type == "vr-sketch-yearly")
-                    d.license_type = "";
-                else
-                    d.license_type = "educational, automatically renewed";
-                licenses.push(d);
-            }
-            app.licenses = licenses;
-        }, show_error);
-  };
+                app.no_license = false;
+                let licenses = [];
+                for (var i = 0; i < r.subscriptions.length; i++) {
+                    let sub = r.subscriptions[i];
+                    let d = {
+                        deleted: sub.deleted ? "deleted" : "",
+                        quantity: sub.quantity,
+                        license_id: sub.license_id,
+                        ends_at: formatDate(sub.ends_at)
+                    }
+                    if (sub.license_type == 'vr-sketch-hobbyist')
+                        d.license_type = "hobbyist";
+                    else if (sub.license_type == 'vr-sketch' ||
+                        d.license_type == "vr-sketch-2" ||
+                        d.license_type == "vr-sketch-yearly")
+                        d.license_type = "";
+                    else
+                        d.license_type = "educational, automatically renewed";
+                    licenses.push(d);
+                }
+                app.licenses = licenses;
+            }, show_error);
+    };
 
-  public_api.logout = function()
-  {
-    app.logged_in = false;
-    app.token = null;
-    $("#login-button").text("Log in");
-    $("#login-button").removeClass("dropdown-toggle");
-    $("#login-button").attr("data-toggle", null);
-    $("#login-dropdown").hide();
-    let auth2 = gapi.auth2.getAuthInstance();
-    auth2.attachClickHandler($("#login-button")[0], {ux_mode: 'redirect'},
-                             on_sign_in, show_error);
-    auth2.signOut();
-    showPricingInfo();
-  }
+    public_api.logout = function () {
+        app.logged_in = false;
+        app.token = null;
+        $("#login-button").text("Log in");
+        $("#login-button").removeClass("dropdown-toggle");
+        $("#login-button").attr("data-toggle", null);
+        $("#login-dropdown").hide();
+        let auth2 = gapi.auth2.getAuthInstance();
+        auth2.attachClickHandler($("#login-button")[0], { ux_mode: 'redirect' },
+            on_sign_in, show_error);
+        auth2.signOut();
+        showPricingInfo();
+    }
 
 })(vueAppApi);
 
 $(document).ready(function () {
     let wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
-                document.location.host + "/ws";
+        document.location.host + "/ws";
     connection = new autobahn.Connection({
         url: wsuri,
         realm: "vrsketch",
@@ -287,7 +306,7 @@ $(document).ready(function () {
                     on_sign_in(auth2.currentUser.get());
                 } else {
                     auth2.attachClickHandler($("#login-button")[0],
-                        {ux_mode: 'redirect'}, on_sign_in,
+                        { ux_mode: 'redirect' }, on_sign_in,
                         show_error);
                 }
 
@@ -295,8 +314,8 @@ $(document).ready(function () {
         });
         /* autoping functionality not implemented */
         function ping_server() {
-          connection.session.call('com.ping', []);
-          setTimeout(ping_server, 10000);
+            connection.session.call('com.ping', []);
+            setTimeout(ping_server, 10000);
         }
 
         ping_server();
@@ -304,6 +323,6 @@ $(document).ready(function () {
     }
     connection.open();
 
-    var cbinst = Chargebee.init({site: CHARGEBEE_SITE});
+    var cbinst = Chargebee.init({ site: CHARGEBEE_SITE });
 
 });

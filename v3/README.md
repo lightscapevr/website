@@ -1,5 +1,10 @@
 # VR Sketch Website version 3
 
+## Branches
+* master - Automatically updates the test site at "https://test.vrsketch.eu/"
+* prod - Automatically updates the main site at "https://vrsketch.eu/"
+
+
 ### Dependencies
 * Jinja2 http://jinja.pocoo.org/docs/2.10/
 * libsass https://sass.github.io/libsass-python/
@@ -18,3 +23,14 @@
 1. Concerts all markdown files in '/markdown' into html in '/templates/generated'
 2. Renders all templates from '/templates' and placed them in '/web'
 3. Compiles '/sass/styles.scss' into '/web/css/styles.css'
+
+### Dev server
+While in the "web" directory:
+```bash
+python -m SimpleHTTPServer 8080 index.html        
+```
+
+### Build
+```bash
+python build.py --test       
+```
