@@ -253,32 +253,64 @@
 
     <section id="pricing" class="bg-white text-dark py-5">
         <div class="container">
-            <h2 class="text-center">Licenses</h2>
+            <h2 class="text-center mb-5">Licenses</h2>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="non-commercial rounded p-4 text-center shadow">
+                        <h3>Non-commercial</h3>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="title">Student</div>
+                                <div class="price">Free</div>
+                                <div class="pb-3">For student and educators</div>
+                                <button type="button" class="btn btn-lg btn-block btn-outline-primary my-4" data-toggle="modal" data-target="#edu-modal" onclick="showEduModal()">Choose Student</button>
+                            </div>
+                            <div class="col-sm">
+                                <div class="title">Hobbyist</div>
+                                <div class="price">5<small class="text-muted">€ / mo</small></div>
+                                <div class="pb-3">For non-commercial use</div>
+                                <button type="button" class="btn btn-lg btn-block btn-outline-primary my-4" data-toggle="modal" data-target="#hobbyist-modal" onclick="showHobbyistModal()">Choose Hobbyist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="commercial rounded p-4 text-center shadow-lg">
+                        <h3>Commercial</h3>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="title">Standard</div>
+                                <div class="price">30<small class="text-muted">€ / mo</small></div>
+                                <div>For commercial use<br> Monthly or annual subscription</div>
+                                <button type="button" class="btn btn-lg btn-block btn-primary my-4" data-toggle="modal" data-target="#billing-period-choice-modal" onclick="order_regular()">Choose Standard</button>
+                            </div>
+                            <div class="col-sm">
+                                <div class="col-sm">
+                                    <div class="title">Enterprise</div>
+                                    <div class="price">100<small class="text-muted">€ / mo</small></div>
+                                    <div>Add custom made features and priority support</div>
+                                    <button type="button" class="btn btn-lg btn-block btn-outline-primary my-4" data-toggle="modal" data-target="#enterprise-modal" onclick="showEnterpriseModal()">Choose Enterprise</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="card-deck mb-3 text-center">
+            </div>
+
+
+            <!-- 
+            <div class="card-deck mb-3 text-center non-commercial">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-header">
                         <h4 class="my-0 font-weight-normal">Student</h4>
                     </div>
                     <div class="card-body d-flex flex-column">
-                        <h1 class="card-title">0 <small class="text-muted">€ / mo</small></h1>
+                        <h1 class="card-title">Free</h1>
                         <ul class="list-unstyled mt-3 mb-4">
                             <li>For student and educators</li>
                         </ul>
                         <button type="button" class="btn btn-lg btn-block btn-outline-primary mt-auto" data-toggle="modal" data-target="#edu-modal" onclick="showEduModal()">Free</button>
-                    </div>
-                </div>
-                <div class="card mb-4 shadow-lg">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Standard</h4>
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                        <h1 class="card-title">30 <small class="text-muted">€ / mo</small></h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>For commercial use</li>
-                            <li>Monthly or annual subscription</li>
-                        </ul>
-                        <button type="button" class="btn btn-lg btn-block btn-primary mt-auto" data-toggle="modal" data-target="#billing-period-choice-modal" onclick="order_regular()">Sign up</button>
                     </div>
                 </div>
                 <div class="card mb-4 shadow-sm">
@@ -294,7 +326,37 @@
                     </div>
                 </div>
             </div>
-            <p class="text-center text-muted">
+            <div class="card-deck mb-3 text-center commercial">
+                <div class="card mb-4 shadow-lg">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Standard</h4>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h1 class="card-title">30 <small class="text-muted">€ / mo</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>For commercial use</li>
+                            <li>Monthly or annual subscription</li>
+                        </ul>
+                        <button type="button" class="btn btn-lg btn-block btn-primary mt-auto" data-toggle="modal" data-target="#billing-period-choice-modal" onclick="order_regular()">Sign up</button>
+                    </div>
+                </div>
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Enterprise</h4>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h1 class="card-title">100 <small class="text-muted">€ / mo</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Custom added features</li>
+                        </ul>
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary mt-auto" data-toggle="modal" data-target="#enterprise-modal" onclick="shownEterpriseistModal()">Sign up</button>
+                    </div>
+                </div>
+            </div>
+ -->
+
+
+            <p class="text-center text-muted mt-5">
                 If you have any questions please free to visit our <a href="faqs.html">FAQ</a> section or mail us at: <a href="mailto:info@baroquesoftware.com">info@baroquesoftware.com</a>
             </p>
         </div>
@@ -502,6 +564,34 @@
             </div>
         </div>
     </div>
+    <div id="enterprise-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Enterprise license details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        The Enterprise licence features:
+                    </p>
+                    <ul>
+                        <li>Custom tool creations</li>
+                        <li>Priority support</li>
+                        <li>Custom 3D environments</li>
+                        <li>Custom branded splash screen</li>
+                    </ul>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="order_enterprise()">Order Enterprise licence</button>
+                    <button type="button" class="btn btn-secondary" onclick="$('enterprise-modal').modal('hide')" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script type="text/x-template" id="user-details">
@@ -536,7 +626,7 @@
 {% endblock main_content %}
 
 {% block js_imports %}
-<script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="{{ chargebee_site }}"></script>  
+<script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="{{ chargebee_site }}"></script>
 <script src="js/libraries/vue.js"></script>
 <script src="js/global.js"></script>
 <script src="js/index.js"></script>
