@@ -578,15 +578,31 @@
                         The Enterprise licence features:
                     </p>
                     <ul>
-                        <li>Custom tool creations</li>
                         <li>Priority support</li>
                         <li>Custom 3D environments</li>
                         <li>Custom branded splash screen</li>
                     </ul>
 
+                    <div class="card-deck">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Monthly</h5>
+                                <p class="card-text"><strong>€100</strong> <span class="text-muted"> per month (+VAT)</span></p>
+                                <p class="card-text"><small class="text-muted">billed monthly</small></p>
+                                <button type="button" class="btn btn-primary" onclick="order_enterprise_monthly()">Monthly</button>
+                            </div>
+                        </div>
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Annually</h5>
+                                <p class="card-text"><strong>€1100</strong> <span class="text-muted"> per year (+VAT)</span></p>
+                                <p class="card-text"><small class="text-muted">billed annually</small></p>
+                                <button type="button" class="btn btn-primary" onclick="order_enterprise_yearly()">Annually</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="order_enterprise()">Order Enterprise licence</button>
                     <button type="button" class="btn btn-secondary" onclick="$('enterprise-modal').modal('hide')" data-dismiss="modal">Close</button>
                 </div>
             </div>

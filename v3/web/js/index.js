@@ -110,6 +110,15 @@ function order_regular_yearly() {
     createHostedPage("vr-sketch-yearly");
 }
 
+function order_enterprise_monthly() {
+    $("#enterprise-modal").modal('hide');
+    createHostedPage('vr-sketch-enterprise');
+}
+
+function order_enterprise_yearly() {
+    $("#enterprise-modal").modal('hide');
+    createHostedPage("vr-sketch-enterprise-annual");
+}
 
 function showEduModal() {
     if (!logInIfNotLoggedIn(showEduModal))
