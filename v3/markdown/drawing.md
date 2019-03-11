@@ -384,3 +384,9 @@ How to end or stop doing an action.
 * When drawing with one controller you can move the other controller over a point to create a reference point and guideline that the first controller can snap to.
 * You can also use a single-controller movement: move over a point to create a reference point, and then move back to where you want to be (similar to SketchUp with the mouse).
 
+### Dynamic Components
+* VR Sketch supports interaction with basic SketchUp dynamic components.
+* To interact with a dynamic components, have the **Teleport** tool active and touch the component. A light blue box will appear to indicate that the component is intractable. While touching the component pull the **trigger** and move the controller. 
+* Currently we only support dynamic components that make use of the `ANIMATE()` function for both position and rotation.
+* If you need a particular function please let us know.
+
