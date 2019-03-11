@@ -20,9 +20,14 @@ Once your file is upload you can easily share it and invite others to join you i
 * To Share a file click **Share**. This will you show a URL link and an option to **Copy link to clipboard**. Send this link to anyone you wish to invite to your model.
 
 ### Open a cloud model
-* To open a cloud model, open SketchUp, then click **Extensions**, then click, **VR Sketch** and finally click **View cloud model**.
+* To open a cloud model, open SketchUp, click **Extensions**, then click, **VR Sketch** and finally click **View cloud model**.
 * This will open a window where you can paste in a URL link of a cloud model. (To get a link to a cloud model, go to your cloud page)
 * Paste in the link and click **Go!**. This will open the cloud file from the link in VR Sketch.
+
+### Try the demo model
+* Anyone with VR Sketch can join the public demo model.
+* To open the demo model, in SketchUp click **Extensions**, then click, **VR Sketch** and finally click **View cloud model**.
+* This will open a window with a button **Visit our demo model**.
 
 
 # VR Videos
