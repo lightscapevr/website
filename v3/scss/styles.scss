@@ -1,0 +1,168 @@
+@import "bootstrap-scss/functions";
+@import "bootstrap-scss/mixins";
+
+// ---------------------------------- Options ---------------------------------- //
+$enable-shadows:            true;
+
+// ---------------------------------- Colours ---------------------------------- //
+
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #edeff0;
+$gray-300: #e0e6de;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+$grays: ();
+$grays: map-merge(
+  (
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900
+  ),
+  $grays
+);
+
+$logo-light:  #9ae15f;
+$logo-dark:   #5aa679;
+
+$green:             rgb(81, 190, 81);
+$green-light:       rgba(81, 190, 81, 0.2);
+$blue:              rgb(113, 222, 255);
+$red:               rgb(255, 51, 0);
+$orange:            rgb(255, 136, 0);
+$teal:              rgb(12, 221, 169);
+
+
+$colors: ();
+$colors: map-merge(
+  (
+    "logo-light":           $logo-light,
+    "logo-dark":            $logo-dark,
+    "green":                $green,
+    "green-light":          $green-light,
+    "blue":                 $blue,
+    "red":                  $red,
+    "orange":               $orange,
+    "teal":                 $teal,
+    "white":                $white,
+    "gray-light":           $gray-100,
+    "gray":                 $gray-600,
+    "gray-dark":            $gray-800
+  ),
+  $colors
+);
+
+$primary:       $green;
+$secondary:     $gray-600;
+$success:       $green;
+$info:          $teal;
+$warning:       $orange;
+$danger:        $red;
+$light:         $gray-200;
+$dark:          $gray-800;
+
+$theme-colors: ();
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark,
+    "logo-light": $logo-light,
+    "logo-dark":  $logo-dark
+  ),
+  $theme-colors
+);
+
+// ---------------------------------- Spacing ---------------------------------- //
+
+$spacer: 1rem;
+$spacers: ();
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 5)
+  ),
+  $spacers
+);
+
+// ---------------------------------- Text ---------------------------------- //
+$font-size-base:              1rem;
+
+$h1-font-size:                $font-size-base * 3 ;
+$h2-font-size:                $font-size-base * 2.75;
+$h3-font-size:                $font-size-base * 2;
+$h4-font-size:                $font-size-base * 1.75;
+$headings-margin-bottom:      $spacer*2;
+
+$code-color:                        rgb(128, 32, 207);
+
+// ---------------------------------- Imports ---------------------------------- //
+@import "bootstrap-scss/bootstrap.scss";
+@import "index.scss";
+@import "cloud.scss";
+@import "blog.scss";
+@import "docs.scss";
+@import "faqs.scss";
+
+
+// ---------------------------------- Custom styles ---------------------------------- //
+
+main{
+  min-height: 70vh; // Keep footer close to bottom even when there is very little content
+}
+
+.btn-outline-primary {
+  background-color: $green-light;
+}
+
+.btn{
+  padding-top: .3rem;
+}
+
+main{
+  margin-top: 3.5rem;
+}
+
+.navbar-toggler{
+  color: $primary;
+}
+
+.fa-quote-right, .fa-quote-left{
+  color: $gray-400;
+  font-size: 60%;
+  vertical-align: top;
+}
+
+// ---------------------------------- footer ---------------------------------- //
+
+footer{
+  a, i{
+    color: $gray-600;
+  }
+
+  h5{
+    margin-bottom: 0;
+    color: $gray-400;
+  }
+}

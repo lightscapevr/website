@@ -1,0 +1,283 @@
+/* -------------------- Whole page -------------------- */
+h2{
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+section{
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.white{
+    background-color: white;
+}
+
+/* -------------------- Landing -------------------- */
+#landing{
+    padding-top: 90px;
+}
+#landing-title{
+    font-size: 4em;
+    font-weight: 100;
+    margin-bottom: 15px;
+}
+@media only screen and (max-width: 500px) {
+    /* applicable for all items under max-width*/
+    #landing{
+        padding-top: 30px;
+    }
+    #landing-title{
+        font-size: 2.5em;
+    }
+}
+
+#landing-description{
+    padding-right: 40px;
+}
+
+#landing-ctas{
+    padding-top: 15px;
+}
+
+.hero-slide{
+    margin-top: 15px;
+    display: block;
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+}
+/* -------------------- Testimonial -------------------- */
+
+#testimonial {
+    padding-top: 60px;
+    height: 8em;
+}
+.testimonial-img{
+    border-radius: 50%;
+    float: left;
+}
+.testimonial-text{
+    padding-left: 80px;
+}
+
+.testimonial-author{
+    padding-left: 80px;
+    margin-top: 0.5em;
+    font-style: italic;
+}
+.slide-off{
+    display: none;
+}
+.slide-on{
+    float: left;
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+    animation-duration: 6s; /*Time interval must match js*/
+}
+@keyframes fadeInOpacity {
+	0% {opacity: 0;}
+    10% {opacity: 1;}
+    90% {opacity: 1;}
+    100% {opacity: 0;}
+}
+/* -------------------- Video -------------------- */
+/* -------------------- Pricing -------------------- */
+body a .card{
+    color: rgb(77,77,77);
+}
+#pricing a{
+    outline:none;
+}
+.card{
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    margin: 15px;
+    padding: 30px 15px 15px 15px;
+}
+.price-amount{
+    font-size: 5em;
+}
+.price-info{
+    font-size: 0.8em;
+    padding-bottom: 1em;
+}
+
+.price-cta{
+    background-color: rgb(94,184,94);
+    color: rgb(255, 255, 255);
+    margin: 30px -15px -15px -15px;
+    padding: 15px;
+}
+
+.card:hover{
+    -webkit-box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.2);
+    box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.2); 
+}
+.card:hover .price-cta{
+    background-color: rgb(105, 204, 105);
+    font-weight: bold;
+}
+.manage-btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+/* -------------------- Features -------------------- */
+.quote-text{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.feature-card{
+    padding: 30px 15px;
+}
+.feature-card h4{
+    font-size: 1.5em;
+}
+.feature-card img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+/* -------------------- Subscribe -------------------- */
+
+#mc_embed_signup {
+    display: flex;
+    justify-content: center;
+}
+#mc_embed_signup form {
+    width: 100%;
+    max-width: 500px;
+}
+#mc_embed_signup h4 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+#mc_embed_signup .subscribe {
+    display: flex;
+    border-color: rgb(94, 184, 94);
+    background-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 2px;
+    overflow: hidden;
+}
+#mce-responses {
+    display: flex;
+    justify-content: center;
+}
+#mce-success-response {
+    margin-top: 20px;
+    font-size: 30px;
+    color: rgb(94, 184, 94);
+    font-weight: 500;
+}
+#mce-error-response {
+    margin-top: 20px;
+    font-size: 30px;
+    color: rgb(239, 91, 91);
+    font-weight: 500;
+}
+#mc_embed_signup .subscribe input {
+    height: 40px;
+    border: none;
+    outline: none;
+}
+#mc_embed_signup .subscribe input[type=submit] {
+    color: rgb(94, 184, 94);
+    font-weight: 500;
+    border-color: white;
+    color: white;
+    background-color: rgb(94, 184, 94);
+    flex: 1;
+}
+#mc_embed_signup .subscribe input[type=submit]:hover {
+    font-weight: 900;
+}
+#mc_embed_signup .subscribe input[type=email] {
+    flex: 2;
+    padding: 0 15px;
+}
+#mc_link:hover{color: rgb(94, 184, 94);}
+/* -------------------- Gallery -------------------- */
+.video-card{
+    padding: 30px 15px;
+}
+
+.video-card p{
+    margin-top: 15px;
+    color: rgb(131, 131, 131);
+}
+
+/* -------------------- Learning -------------------- */
+
+#learn h2{
+    margin-bottom: 60px;
+}
+#learn a{
+    outline:none;
+}
+.learning-card{
+    background-color: rgb(255, 255, 255);
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 30px;
+    padding: 15px 15px 30px 15px;
+    text-align: center;
+}
+.learning-card:hover{
+    -webkit-box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.2);
+    box-shadow: 0px 5px 20px 10px rgba(0,0,0,0.2); 
+}
+.learning-card:hover i{
+    color: rgb(94, 184, 94);
+}
+.learning-card h4{
+    font-size: 1.5em;
+    color: rgb(77, 77, 77);
+    height: 2em;
+}
+.learning-card i{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: rgb(223, 223, 223);
+}
+.learning-card p{
+    color: rgb(134, 134, 134);
+    padding-left: 15px;
+    min-height: 5em;
+    text-align: left;
+}
+
+/* -------------------- Other ----------------------- */
+
+.subscription_id {
+    border: 1px solid;
+    padding-left: 2px;
+    padding-right: 2px;
+    border-color: black;
+}
+
+#edu-modal-error {
+    color: rgb(200, 50, 50);
+    margin-bottom: 10px;
+}
+
+.extra-mail-margin {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#billing-period-choice-modal-content {
+    background-color: rgb(242, 242, 242);
+}

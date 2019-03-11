@@ -1,0 +1,27 @@
+{% extends "layouts/layout-base.html" %}
+
+{% block custom_style_imports %}
+{% endblock custom_style_imports %}
+
+{% block nav_menu_items %}
+{% include 'partials/nav-menu-learn.html' %}
+{% endblock nav_menu_items %}
+
+{% block main_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <ul>
+                <li>List of tutorials</li>
+            </ul>
+        </div>
+        <div class="col-md">
+            {% block tutorial_content %}
+            {% endblock tutorial_content %}
+        </div>
+    </div>
+</div>
+{% endblock main_content %}
+
+{% block js_imports %}
+{% endblock js_imports %}

@@ -1,261 +1,444 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>VR Sketch</title>
-    <meta name="description" content="Use SketchUp inside Virtual Reality, A tool for architects and interior designers to draw inside virtual reality">
+    <title>Blog | VR Sketch</title>
+    <meta name="description" content="The VR Sketch Blog. VR Sketch is a virtual reality drawing tools for architects and designers. A SketchUp extension allowing anyone to use SketchUp from inside virtual reality">
     <meta name="author" content="VR Sketch">
-    <meta name="keywords" content="vr, virtual reality, draw, edit, draft, sketch, sketchup, architect, architecture, vive, design"
+    <meta name="keywords" content="blog, vr sketch, vr, virtual reality, draw, edit, draft, sketch, sketchup, architect, architecture, vive, oculus rift, design"
     />
-
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-    <link rel="stylesheet" href="css/nav-top-bar.css?v=1.0">
-    <link rel="stylesheet" href="css/blog.css?v=1.0">
-
-
     <link rel="shortcut icon" href="img/logos/favicon.ico" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>VR Sketch blog</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/layout.css?v=1.0">
+    <link rel="stylesheet" href="css/global.css?v=1.0">
+    <link rel="stylesheet" href="css/blog.css?v=1.0">
 </head>
 
-<body id="home">
-    <div class="document">
-        <nav class="navbar navbar-fixed-top navbar-default shadow" role="navigation">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-
-                        <button type="button" class="navbar-toggle pull-right hidden-md hidden-lg" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                        <div class="navbar-header">
-                            <a class="navbar-brand nav-link" href="https://vrsketch.eu/">
-                                <img src="svg/vr-sketch-logo.svg" alt="VR Sketch" height="40px">
-                            </a>
-                        </div>
-
-                        <div class="collapse navbar-collapse navbar-ex1-collapse">
-                            <ul class="nav navbar-nav navbar-right text-left">
-                                <li class="test">
-                                    <a class="nav-prime grad-green" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try now</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+<body id="top">
+    <header id="nav-container" class="full-width">
+        <nav id="nav-main">
+            <div class="width-control">
+                <div id="logo">
+                    <a href="https://vrsketch.eu/">
+                        <img src="svg/vr-sketch-logo.svg" alt="VR Sketch logo">
+                    </a>
                 </div>
+                <a class="nav-menu" href="javascript:void(0);" onclick="toggle_menu()">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <ul>
+                    <li>
+                        <a class="nav-btn nav-link" href="index.html" onclick="hide_menu()">Home</a>
+                    </li>
+                    <li>
+                        <a class="nav-btn nav-link" href="#top" onclick="hide_menu()">Top</a>
+                    </li>
+                    <li>
+                        <a class="nav-btn nav-link" href="#contact" onclick="hide_menu()">Contact</a>
+                    </li>
+                </ul>
             </div>
         </nav>
+    </header>
+    <div id="nav-spacer"></div>
 
-        <div class="full-width shadow colour-dark">
-            <div class="container navbar-spacer maxwidth">
-                <article>
-                    <div class="blog-header">Published on: 4 April 2018 by Maciej Fijalkowski</div>
-                    <div class="section" id="virtual-reality-for-architecture-state-of-the-art">
-                        <a name="adam-interview" href="#adam-interview">
-                            <h1>Interview with Adam Wysocki from Studio de Materia</h1>
-                        </a>
-                        <div class="section" id="interview">
-                            <p>This post is an interview with Adam Wysocki from
-                                <a href="http://studiodemateria.com/en">Studio de Materia</a>, who is an early user and has contributed a lot of early feedback for
-                                VR Sketch. The interview has been translated from Polish and edited for clarity.
-                            </p>
-                            <img class="shadow img scale" src="img/blog/studiodemateria-0.jpg" alt="studio de materia" width="770px">
+    <main>
+        <div class="width-control">
+            <article>
+                <header>
+                    <h1 class="post-title" id="jarl-interview">Interview with Jarl Vindnæs from Stykka.com</h1>
+                    <p class="post-info">Published on: 22 August 2018 by Maciej Fijalkowski</p>
+                </header>
+                <section>
+                    <p>This post is an interview with Jarl Vindnæs from <a href="http://stykka.com/">Stykka</a>
+                        and <a href="https://cotter.dk/">Cotter.dk</a>, who is a happy VR sketch user and contributed some
+                        feedback. We met Jarl during ARCHITECT@WORK Copenhagen and visited his furniture factory. The interview
+                        has been edited for clarity.
+                    </p>
+                    <img class="shadow img" src="img/blog/stykka6.png" alt="Stykka home page">
+                    <p class="question">
+                        Hi Jarl! Great to meet you. Can you please introduce your company, Stykka, tell our readers what it does and how does it
+                        relate to virtual reality?
+                    </p>
+                    <p class="answer">
+                        Stykka is a revolutionary new service that lets businesses print furniture. We make custom furniture, in a record time of
+                        three weeks from thought to ready product at mass market prices. Most of the furniture we currently
+                        design in-house. All of our inhouse designs are made under creative commons licenses, (open source).
+                        Allowing you as an architect, space planner or others free download, modify / customize designs and
+                        print on demand. We just opened our “Stykka LAB” west of Copenhagen, Denmark. Here we invite customers
+                        and designers to come and collaborate and design directly in VR. All our designs can be downloaded
+                        in sketchup format, and using VR sketch we let users customize and tweak the designs to fit their
+                        exact needs.
+                    </p>
+                    <p class="question">
+                        How did you hear about VR Sketch? What made you try and use it?
+                    </p>
+                    <p class="answer">
+                        We wanted a visually engaging way to communicate to our customers, how they can interact and print custom furniture on demand.
+                        From the start we knew we needed to give users a seamless and effortless tool to shape and sculpt
+                        the furniure. We looked at multiple solutions. Since we are currently using 3d warehouse and sketchup
+                        as a platform for all the designs we are currently releasing, we needed a simple tool that was plug
+                        and play for our development pipeline. We looked through the plugins provided in the extension warehouse
+                        and by far VR sketch seemed most promising
+                    </p>
+                    <img class="shadow img" src="img/blog/stykka1.png" alt="VR Sketch being used to design and demo furniture">
+                    <p class="question">
+                        How does virtual reality and VR Sketch in particular improve your workflow?
+                    </p>
 
-                            <p class="question">Hi Adam. Glad you could make it. I would like to ask you a few questions about your work as an
-                                architect and your experience with VR Sketch. Please introduce yourself to our readers first
-                                and tell us a bit about your work.</p>
-                            <p class="answer">Hi, thanks for the interview. My name is Adam Wysocki and I’m an architect from Poznan, Poland.
-                                Since 2013, I have been running my own studio. Since then we have developed small, diverse
-                                projects, mainly residential. Our goal is to add valuable buildings to our environment through
-                                a customized architecture whose function and form are in harmony. For example, we are now
-                                building a complex of two mountain lodges in Karkonosze national park.</p>
+                    <p class="answer">
+                        VR Sketch is an amazingly efficient way to test our designs, where you get an amazing sense of scale and proportions. Since
+                        it is integrated directly in sketchup, it is virtually effortless for us to test designs and in a
+                        short amount of time VR sketch is now an integral part of our design process and customer review
+                        process. VR Sketch lets us preview our designs directly in VR in our permanent studio setup, and
+                        since it is so friction free we use it multiple times a day to validate sizes, design features and
+                        we even go through technical details and installation processes in VR with our engineers.
+                    </p>
 
-                            <img class="shadow img scale" src="img/blog/studiodemateria-1.jpg" alt="studio de materia" width="770px">
-                            <p class="question">Please tell me something about your daily work - how involved are you in the various stages of
-                                the architectural projects.</p>
-                            <p class="answer">My studio is very small, so I’m personally involved in all the steps, starting from the first
-                                contact with the client. During the conceptual stages of the project, I have direct contact
-                                with all the decisions made. Only during the later stages of the project, other people are
-                                getting more involved, either my co-workers or external contractors.</p>
-                            <p class="answer">The first conceptual part is very important for me as this part defines the foundations of all
-                                the future decisions. The crucial piece of the conceptual part of the project is interaction
-                                with client, while taking into account the laws and restrictions on buildings. I try to put
-                                emphasis on “client first” strategy here - at the end of the day their wishes have to be
-                                articulated in the building. Creating perfectly functioning spatial choreography dressed
-                                with architectural guise that expresses my formal preferences is my goal for the design.</p>
-                            <p class="answer">This part of the project often drags on, until both the client and I are satisfied with selected
-                                solutions.
-                            </p>
+                    <p class="question">
+                        I'm definitely glad to hear that. What do you want VR Sketch to do in the future? Where would you like our software to go?
+                        Where do you see role of VR in architecture/interior design/furniture design in general?
+                    </p>
+                    <p class="answer">
+                        Well... To be honest, when we first installed the tool, we thought it would be a cool gimmick that would help us deliver
+                        a memorable experience to our customers and to help us show them how we worked. But we where very
+                        surprised at how efficeient this is for our workflow and how much of a game changer this has been
+                        for us. I tried a lot of VR visualisation tools before, but I think this is the first time where
+                        I really “got” how effective a tool this is for co-creation and problem solving. In our field of
+                        work, having learned a lot from inviting users to participate directly in our creative processes
+                        - and observing how people think and work with this new tool set - I know users will want and expect
+                        this level of interactiveness in the future. Customers really react to this idea of co creating and
+                        it really gives our customers a sense of ownership of the finished product So I would like to see
+                        this tool to keep pushing the limits of how intuitive a tool set can be, how can you empower users
+                        to interact, to precisely manipulate geometry, but without having to learn a lot in advance.
+                    </p>
+                    <p class="question">
+                        Do you think people will take bigger agency in designing their own houses/interiors/furniture as an effect?
+                    </p>
+                    <p class="answer">
+                        Yes exactly, by empowering users and giving them a sense of actually being able to tweak and express thoughts and ideas,
+                        by making the tool set so intuitive, you allow the tech to almost disappear and for people to focus
+                        on solving problems and challenges
+                    </p>
+                    <img class="shadow img" src="img/blog/stykka3.png" alt="Furniture made by Stykka with help from VR Sketch">
+                    <p class="question">
+                        Do you think the era of expensive software that comes with special courses is over for architecture?
+                    </p>
+                    <p class="answer">
+                        Definetly! Like with so many other creative processes, the tools are evolving so quickly For example, building a recording
+                        studio, a film set or a broadcasting studio can now be done using cheap off the shelf software that
+                        enable users to make previously unimaginable quality at a fraction of the usual cost. The true democratisation
+                        of the design process will also eventually come to furniture design and architecture..
 
-                            <img class="shadow img scale" src="img/blog/studiodemateria-2.jpg" alt="studio de materia" width="770px">
-                            <p class="question">How does virtual reality in general and VR Sketch in particular play a role here?</p>
-                            <p class="answer">I had the opportunity to use virtual reality for the last couple months. This has revolutionized
-                                the conceptual part of the project. I can, directly and at all times, control the spatial
-                                relationships that happen in the project. Besides the fact that virtual reality is a great
-                                tool for designing objects at different scales, from the smallest detail to urban planning,
-                                it has immense impact on the verification of decisions taken as if they were real. For me,
-                                once I start BEING in the virtual reality, it BECOMES reality. When I enter my own project,
-                                I am able to shape it like a sculptor or demiurg.</p>
-                            <p class="answer">I still begin with flat drawings in autocad and later I export them to Sketchup and VR Sketch.
-                                Modelling in virtual reality my early ideas become tested. Using virtual reality lets me
-                                experiment much more easily with new solutions that would otherwise be considered too risky.</p>
-                            <p class="answer">In this day and age, Computer Aided Design is very advanced and we can do a lot just using design
-                                programs that don’t require VR. However, VR Sketch is a very easy way to work on a model
-                                while having real control. It’s akin to creating a life-size mockup with the difference being
-                                the ability to make dynamic and spontaneous changes while looking from a perspective from
-                                ant-size to king-kong.</p>
-                            <p class="answer">I can’t say that what I do would be impossible without VR, but it would be definitely a lot less
-                                fun.
-                            </p>
+                    </p>
+                    <p class="question">
+                        Can you imagine future where people with their own VR headsets would use VR sketch to design furniture and Stykka would ship
+                        to them their own designs?
+                    </p>
+                    <p class="answer">
+                        Yes, I think this would be an amazing opportunity to let users interact and create, while using our designs as a starting
+                        point for adapting and designing furniture for their homes, offices or where ever you might need
+                        to make custom furniture! We are aiming to launch the stykka service internationally and this will
+                        enable everyone to download design and build amazing, bespoke designs All you need is VR sketch and
+                        our “print service”!
 
-                            <img class="shadow img scale" src="img/blog/studiodemateria-3.jpg" alt="studio de materia" width="770px">
-                            <p class="question">How do you think Virtual Reality will change architecture?</p>
-                            <p class="answer">I think that my clients, who often find it hard to read complicated drawings and “frozen” visualizations,
-                                can now use tools to quickly verify the quality of chosen solutions. At the same time, architects
-                                could choose even more audacious solutions to both formal and functional problems. It will
-                                certainly help avoid a lot of mistakes and architecture will gain.</p>
+                    </p>
+                    <img class="shadow img" src="img/blog/stykka5.png" alt="Stykka clients using VR Sketch to design and demo furniture in virtual reality">
+                    <p class="question">
+                        That sounds like a very exciting future! Thanks for your vision and thanks for the interview! I surely hope stykka is a very
+                        successful new model of how to do things in the future!
 
-                            <img class="shadow img" src="img/blog/studiodemateria-4.jpg" alt="studio de materia" width="300px">
-                            <p class="question">What would you tell people who have not tried VR Sketch just yet?</p>
-                            <p class="answer">Entering the project in VR, or even a demo often brings the fear of unknown. Don’t be afraid!
-                                I don’t understand why people are so skeptical - it’s enough to put a virtual reality helmet
-                                on once and you will feel the difference immediately. These days I definitely prefer working
-                                in Virtual Reality, where the sun always shines than in front of a sad monitor :-) The revolution
-                                in design is coming in seven mile steps.</p>
+                    </p>
+                </section>
+            </article>
 
-                            <img class="shadow img scale" src="img/blog/studiodemateria-5.jpg" alt="studio de materia" width="770px">
-                            <p class="question">What would you say about the VR Sketch user interface?</p>
-                            <p class="answer">It’s very good, but it requires some time and effort to be proficient. The real pleasure only
-                                comes after learning how to use it for a bit, when you realize it’s actually very simple
-                                and intuitive. I don’t think you even need to know sketchup well - it’s simple enough to
-                                learn directly in VR.</p>
 
-                            <p class="question">Thanks a lot! I hope it will be useful for our readers!</p>
-                            <img class="shadow img scale" src="img/blog/studiodemateria-6.jpg" alt="studio de materia" width="770px">
+            <article>
+                <header>
+                    <h1 class="post-title" id="adam-interview">Interview with Adam Wysocki from Studio de Materia</h1>
+                    <p class="post-info">Published on: 4 April 2018 by Maciej Fijalkowski</p>
+                </header>
+                <section>
+                    <p>This post is an interview with Adam Wysocki from
+                        <a href="http://studiodemateria.com/en">Studio de Materia</a>, who is an early user and has contributed
+                        a lot of early feedback for VR Sketch. The interview has been translated from Polish and edited for
+                        clarity.
+                    </p>
 
+                    <img class="shadow img" src="img/blog/studiodemateria-0.jpg" alt="studio de materia">
+
+                    <p class="question">Hi Adam. Glad you could make it. I would like to ask you a few questions about your
+                        work as an architect and your experience with VR Sketch. Please introduce yourself to our readers
+                        first and tell us a bit about your work.</p>
+                    <p class="answer">Hi, thanks for the interview. My name is Adam Wysocki and I’m an architect from Poznan,
+                        Poland. Since 2013, I have been running my own studio. Since then we have developed small, diverse
+                        projects, mainly residential. Our goal is to add valuable buildings to our environment through a
+                        customized architecture whose function and form are in harmony. For example, we are now building
+                        a complex of two mountain lodges in Karkonosze national park.</p>
+
+                    <img class="shadow img" src="img/blog/studiodemateria-1.jpg" alt="studio de materia">
+
+                    <p class="question">Please tell me something about your daily work - how involved are you in the various
+                        stages of the architectural projects.
+                    </p>
+                    <p class="answer">My studio is very small, so I’m personally involved in all the steps, starting from
+                        the first contact with the client. During the conceptual stages of the project, I have direct contact
+                        with all the decisions made. Only during the later stages of the project, other people are getting
+                        more involved, either my co-workers or external contractors.</p>
+                    <p class="answer">The first conceptual part is very important for me as this part defines the foundations
+                        of all the future decisions. The crucial piece of the conceptual part of the project is interaction
+                        with client, while taking into account the laws and restrictions on buildings. I try to put emphasis
+                        on “client first” strategy here - at the end of the day their wishes have to be articulated in the
+                        building. Creating perfectly functioning spatial choreography dressed with architectural guise that
+                        expresses my formal preferences is my goal for the design.</p>
+                    <p class="answer">This part of the project often drags on, until both the client and I are satisfied
+                        with selected solutions.
+                    </p>
+
+                    <img class="shadow img" src="img/blog/studiodemateria-2.jpg" alt="studio de materia">
+
+                    <p class="question">How does virtual reality in general and VR Sketch in particular play a role here?</p>
+                    <p class="answer">I had the opportunity to use virtual reality for the last couple months. This has revolutionized
+                        the conceptual part of the project. I can, directly and at all times, control the spatial relationships
+                        that happen in the project. Besides the fact that virtual reality is a great tool for designing objects
+                        at different scales, from the smallest detail to urban planning, it has immense impact on the verification
+                        of decisions taken as if they were real. For me, once I start BEING in the virtual reality, it BECOMES
+                        reality. When I enter my own project, I am able to shape it like a sculptor or demiurg.</p>
+                    <p class="answer">I still begin with flat drawings in autocad and later I export them to Sketchup and
+                        VR Sketch. Modelling in virtual reality my early ideas become tested. Using virtual reality lets
+                        me experiment much more easily with new solutions that would otherwise be considered too risky.</p>
+                    <p class="answer">In this day and age, Computer Aided Design is very advanced and we can do a lot just
+                        using design programs that don’t require VR. However, VR Sketch is a very easy way to work on a model
+                        while having real control. It’s akin to creating a life-size mockup with the difference being the
+                        ability to make dynamic and spontaneous changes while looking from a perspective from ant-size to
+                        king-kong.
+                    </p>
+                    <p class="answer">I can’t say that what I do would be impossible without VR, but it would be definitely
+                        a lot less fun.
+                    </p>
+
+                    <img class="shadow img" src="img/blog/studiodemateria-3.jpg" alt="studio de materia">
+
+                    <p class="question">How do you think Virtual Reality will change architecture?</p>
+                    <p class="answer">I think that my clients, who often find it hard to read complicated drawings and “frozen”
+                        visualizations, can now use tools to quickly verify the quality of chosen solutions. At the same
+                        time, architects could choose even more audacious solutions to both formal and functional problems.
+                        It will certainly help avoid a lot of mistakes and architecture will gain.</p>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <img class="shadow img img-portrait center" src="img/blog/studiodemateria-4.jpg" alt="studio de materia">
 
                         </div>
-                </article>
-                <article>
-                    <div class="blog-header">Published on: 23 March 2018 by Maciej Fijalkowski</div>
-                    <div class="section" id="virtual-reality-for-architecture-state-of-the-art">
-                        <a name="virtual-reality-state-of-the-art" href="#virtual-reality-state-of-the-art">
-                            <h1>Virtual reality for architecture - state of the art</h1>
-                        </a>
-                        <p>Hello everyone.</p>
-                        <p>VR Sketch is an editing/visualization tool for architects. Currently integrates with
-                            <a class="reference external" href="https://www.sketchup.com">sketchup</a>, with more software coming in the future. If you want to learn more, see the
-                            <a class="reference external" href="https://vrsketch.eu">main page</a>. This blog post is about the current state of affairs in virtual reality for architecture
-                            from the perspective of VR sketch.</p>
+                        <div class="col-6">
+                            <img class="shadow img img-portrait center" src="img/blog/studiodemateria-7.jpg" alt="studio de materia">
+
+                        </div>
+
                     </div>
-                    <div class="section" id="introduction">
-                        <h3>Introduction</h3>
-                        <p>I don't think it's a secret that Virtual Reality is the future interface for architecture. Everyone
-                            is talking about it, looking at and investigating it. In this blog post I would like to do a
-                            review of the current potential of VR ecosystem, mostly focusing on the hardware and low level
-                            software. I'm deliberately
-                            <strong>not</strong> going to talk about the architecture software for VR, since I'm more interested
-                            in what's possible as opposed to what has been done.
-                        </p>
-                        <p>First, let me reiterate the obvious - being able to
-                            <strong>see</strong> the building you're designing (or a car or a piece of wood, metal part or anything
-                            like that) is an incredible improvement over the status quo. It's akin to what-you-see-is-what-you-get
-                            in text editors. There is a good reason why Word is much more popular than TeX, punch cards got
-                            obsolete and we draw lines with a mouse as opposed to typing
-                            <tt class="docutils literal">line(0,0,100,100)</tt>. There are two more slightly less obvious benefits of using VR - you have
-                            a very good camera control, as humans are used to just moving their head to have new perspective
-                            and you have a clunky, but usable, 3D point input with the controllers.</p>
-                    </div>
-                    <div class="section" id="vr-visualizations-and-editing">
-                        <h3>VR visualizations and editing</h3>
-                        <img class="img" width="80%" src="img/VRSketch1.png">
-                        <p>Right now the king in VR for architecture is visualizations, especially for the end client. There
-                            is a good reason for that - the minimum work required to get the visualization going is relatively
-                            limited and does not require deep interaction with controllers as UI. Doing visualizations that
-                            look good is
-                            <strong>tons of work</strong> of course, but that part is (mostly) left out to users themselves and not
-                            to the software. Obviously software has to allow it and some make it easier than others. The
-                            obvious next step is seeing the buildings as you design them and sooner or later one starts feeling
-                            that taking the helmet on and off is annoying. That's where editing and VR sketch, comes to play.</p>
-                        <p>Which brings us to the long list of limitations that are present. I hope we will get around to addressing
-                            all of them, either in VR Sketch or in the hardware.
-                        </p>
-                    </div>
-                    <div class="section" id="headsets">
-                        <h3>Headsets</h3>
-                        <p>VR Sketch for now works only in HTC Vive, but there is nothing stopping us from working with other
-                            high-end headsets, other than having those headsets. The headsets are
-                            <strong>good</strong>. Unlike the low-end tier, the illusion is very real and the feel of space is good
-                            enough. I would not mind better resolution for photo realism, more text etc. but it's all coming.
-                            Disclaimer: I haven't had a chance to play with the new headsets - Vive Pro or Samsung Odyssey.</p>
-                    </div>
-                    <div class="section" id="controllers-and-input">
-                        <h3>Controllers and input</h3>
-                        <img class="img" src="./img/blog/headsets-600x150.png">
-                        <p>The controllers and the general input is the main limiting factor of doing editing right in the VR.
-                            One loses access to keyboard &amp; mouse, while gaining access to relatively clunky controllers
-                            with limited buttons. The controllers themselves are based a lot on gaming controllers plus six
-                            degress of freedom. This works great for the primary purpose which is gaming! But for something
-                            more professional, like work of architects, the lack of precision, lack of buttons and lack of
-                            basic software research done in the terms of VR user experience is a serious problem. We believe
-                            we did a good job given the constraints, but there are very serious limitations that will make
-                            it uneconomic to do certain edits in VR. We believe that those factors will diminish over time
-                            -- we will improve the software, the controllers will get better and eventually disappear in
-                            favor of hand gestures and people will find it easier to do more and more stuff in VR. There
-                            is also issue of text/measurment input which will probably be solved in a bunch of ways, including
-                            voice support that we're working on.</p>
-                    </div>
-                    <div class="section" id="ergonomics-of-office-space">
-                        <h3>Ergonomics of office space</h3>
-                        <p>Right now, since the building blocks are relatively large (think duplo instead of lego), we need
-                            large space in order to work on a building. That brings fatigue, due to large hand movements
-                            and requires a lot of free office space. In the future, we will see stuff getting smaller and
-                            smaller to the point where building buildings will remind a lot more about building stuff from
-                            legos, but without stepping on them, then it is right now.</p>
-                    </div>
-                    <div class="section" id="road-to-the-future">
-                        <h3>Road to the future</h3>
-                        <p>The future is exciting :-) At VR Sketch we believe most architects will move to editing in VR for
-                            day to day operations within 5-15 years. We are a bit ahead of the curve here, but we will stick
-                            around to see it raise. You should
-                            <a class="reference external" href="https://twitter.com/VrSketch">follow us on twitter</a>,
-                            <a class="reference external" href="https://vrsketch.eu/#mailinglist">sign up to the mailing list</a> and
-                            <a class="reference external" href="https://extensions.sketchup.com/pl/node/4716">download and use</a>
-                            our software.</p>
-                        <p>Exciting features we're working on right now:</p>
-                        <ul class="simple">
-                            <li>Revit support.</li>
-                            <li>Voice recognition.</li>
-                            <li>Multi-user support.</li>
-                            <li>Optimizing hand gestures to minimize movements.</li>
+                    <p class="question">What would you tell people who have not tried VR Sketch just yet?</p>
+                    <p class="answer">Entering the project in VR, or even a demo often brings the fear of unknown. Don’t
+                        be afraid! I don’t understand why people are so skeptical - it’s enough to put a virtual reality
+                        helmet on once and you will feel the difference immediately. These days I definitely prefer working
+                        in Virtual Reality, where the sun always shines than in front of a sad monitor :-) The revolution
+                        in design is coming in seven mile steps.</p>
+
+                    <img class="shadow img" src="img/blog/studiodemateria-5.jpg" alt="studio de materia">
+
+                    <p class="question">What would you say about the VR Sketch user interface?</p>
+                    <p class="answer">It’s very good, but it requires some time and effort to be proficient. The real pleasure
+                        only comes after learning how to use it for a bit, when you realize it’s actually very simple and
+                        intuitive. I don’t think you even need to know sketchup well - it’s simple enough to learn directly
+                        in VR.</p>
+
+                    <p class="question">Thanks a lot! I hope it will be useful for our readers!</p>
+
+                    <img class="shadow img" src="img/blog/studiodemateria-6.jpg" alt="studio de materia">
+
+                </section>
+            </article>
+            <article>
+                <header>
+                    <h1 class="post-title" id="vr-for-arch-state-of-the-art">Virtual reality for architecture - state of
+                        the art</h1>
+                    <p class="post-info">Published on: 23 March 2018 by Maciej Fijalkowski</p>
+                </header>
+                <section>
+                    <p>Hello everyone.</p>
+                    <p>VR Sketch is an editing/visualization tool for architects. Currently integrates with
+                        <a class="reference external" href="https://www.sketchup.com">sketchup</a>, with more software coming
+                        in the future. If you want to learn more, see the
+                        <a class="reference external" href="https://vrsketch.eu">main page</a>. This blog post is about the
+                        current state of affairs in virtual reality for architecture from the perspective of VR sketch.</p>
+                </section>
+                <section id="introduction">
+                    <h3>Introduction</h3>
+                    <p>I don't think it's a secret that Virtual Reality is the future interface for architecture. Everyone
+                        is talking about it, looking at and investigating it. In this blog post I would like to do a review
+                        of the current potential of VR ecosystem, mostly focusing on the hardware and low level software.
+                        I'm deliberately
+                        <strong>not</strong> going to talk about the architecture software for VR, since I'm more interested
+                        in what's possible as opposed to what has been done.
+                    </p>
+                    <p>First, let me reiterate the obvious - being able to
+                        <strong>see</strong> the building you're designing (or a car or a piece of wood, metal part or anything
+                        like that) is an incredible improvement over the status quo. It's akin to what-you-see-is-what-you-get
+                        in text editors. There is a good reason why Word is much more popular than TeX, punch cards got obsolete
+                        and we draw lines with a mouse as opposed to typing
+                        <code>line(0,0,100,100)</code>. There are two more slightly less obvious benefits of using VR - you
+                        have a very good camera control, as humans are used to just moving their head to have new perspective
+                        and you have a clunky, but usable, 3D point input with the controllers.</p>
+                </section>
+                <section id="vr-visualizations-and-editing">
+                    <h3>VR visualizations and editing</h3>
+                    <img class="img shadow" src="img/blog/VRSketch1.png">
+                    <p>Right now the king in VR for architecture is visualizations, especially for the end client. There
+                        is a good reason for that - the minimum work required to get the visualization going is relatively
+                        limited and does not require deep interaction with controllers as UI. Doing visualizations that look
+                        good is
+                        <strong>tons of work</strong> of course, but that part is (mostly) left out to users themselves and
+                        not to the software. Obviously software has to allow it and some make it easier than others. The
+                        obvious next step is seeing the buildings as you design them and sooner or later one starts feeling
+                        that taking the helmet on and off is annoying. That's where editing and VR sketch, comes to play.</p>
+                    <p>Which brings us to the long list of limitations that are present. I hope we will get around to addressing
+                        all of them, either in VR Sketch or in the hardware.
+                    </p>
+                </section>
+                <section id="headsets">
+                    <h3>Headsets</h3>
+                    <p>VR Sketch for now works only in HTC Vive, but there is nothing stopping us from working with other
+                        high-end headsets, other than having those headsets. The headsets are
+                        <strong>good</strong>. Unlike the low-end tier, the illusion is very real and the feel of space is
+                        good enough. I would not mind better resolution for photo realism, more text etc. but it's all coming.
+                        Disclaimer: I haven't had a chance to play with the new headsets - Vive Pro or Samsung Odyssey.</p>
+                </section>
+                <section id="controllers-and-input">
+                    <h3>Controllers and input</h3>
+                    <img class="img img-fixed" src="./img/blog/headsets-600x150.png">
+                    <p>The controllers and the general input is the main limiting factor of doing editing right in the VR.
+                        One loses access to keyboard &amp; mouse, while gaining access to relatively clunky controllers with
+                        limited buttons. The controllers themselves are based a lot on gaming controllers plus six degress
+                        of freedom. This works great for the primary purpose which is gaming! But for something more professional,
+                        like work of architects, the lack of precision, lack of buttons and lack of basic software research
+                        done in the terms of VR user experience is a serious problem. We believe we did a good job given
+                        the constraints, but there are very serious limitations that will make it uneconomic to do certain
+                        edits in VR. We believe that those factors will diminish over time -- we will improve the software,
+                        the controllers will get better and eventually disappear in favor of hand gestures and people will
+                        find it easier to do more and more stuff in VR. There is also issue of text/measurment input which
+                        will probably be solved in a bunch of ways, including voice support that we're working on.</p>
+                </section>
+                <section id="ergonomics-of-office-space">
+                    <h3>Ergonomics of office space</h3>
+                    <p>Right now, since the building blocks are relatively large (think duplo instead of lego), we need large
+                        space in order to work on a building. That brings fatigue, due to large hand movements and requires
+                        a lot of free office space. In the future, we will see stuff getting smaller and smaller to the point
+                        where building buildings will remind a lot more about building stuff from legos, but without stepping
+                        on them, then it is right now.</p>
+                </section>
+                <section id="road-to-the-future">
+                    <h3>Road to the future</h3>
+                    <p>The future is exciting :-) At VR Sketch we believe most architects will move to editing in VR for
+                        day to day operations within 5-15 years. We are a bit ahead of the curve here, but we will stick
+                        around to see it raise. You should
+                        <a class="reference external" href="https://twitter.com/VrSketch">follow us on twitter</a>,
+                        <a class="reference external" href="https://vrsketch.eu/#mailinglist">sign up to the mailing list</a>
+                        and
+                        <a class="reference external" href="https://extensions.sketchup.com/pl/node/4716">download and use</a>
+                        our software.</p>
+                    <p>Exciting features we're working on right now:</p>
+                    <ul class="simple">
+                        <li>Revit support.</li>
+                        <li>Voice recognition.</li>
+                        <li>Multi-user support.</li>
+                        <li>Optimizing hand gestures to minimize movements.</li>
+                    </ul>
+                    <p>We are releasing new version with new cool features roughly every 2 months, so you should
+                        <a class="reference external" href="https://extensions.sketchup.com/pl/node/4716">download and use</a>
+                        our software right now and follow our development!
+                    </p>
+                    <p>Cheers! Maciej Fijalkowski &amp; the whole VR sketch team.</p>
+                </section>
+            </article>
+        </div>
+    </main>
+    <footer id="contact">
+        <div class="width-control">
+            <div class="footer-logo">
+                <a href="https://vrsketch.eu/">
+                    <img src="svg/vr-sketch-logo.svg" alt="VR Sketch" width="280px">
+                </a>
+                <br>
+                <small>VR drawing tools for architects and designers</small>
+            </div>
+            <div class="row">
+                <div class="fixed-6">
+                    <div class="footer-left">
+                        <ul>
+                            <li>
+                                <a href="https://twitter.com/VrSketch" target="_blank">
+                                    <i class="fab fa-twitter"></i> Twitter</a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag" target="_blank">
+                                    <i class="fab fa-youtube"></i> YouTube</a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/vr_sketch/" target="_blank">
+                                    <i class="fab fa-instagram"></i> Instagram</a>
+                            </li>
+                            <li>
+                                <a href="mailto:info@baroquesoftware.com">
+                                    <i class="far fa-envelope-open"></i> info@baroquesoftware.com</a>
+                            </li>
                         </ul>
-                        <p>We are releasing new version with new cool features roughly every 2 months, so you should
-                            <a class="reference external" href="https://extensions.sketchup.com/pl/node/4716">download and use</a> our software right now and follow our development!
-                        </p>
-                        <p>Cheers! Maciej Fijalkowski &amp; the whole VR sketch team.</p>
                     </div>
-                </article>
+                </div>
+
+                <div class="fixed-6">
+                    <div class="footer-right">
+                        <ul>
+                            <li>
+                                <a href="documentation.html">Documentation</a>
+                            </li>
+                            <li>
+                                <a href="#subscribe">Subscribe</a>
+                            </li>
+                            <li>
+                                <a href="/checkout/">Log in</a>
+                            </li>
+
+                            <li>
+                                <a href="blog.html">Blog</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+            <div class="footer-legal">
+                <p>Made with love by the
+                    <a class="footer-green" href="https://baroquesoftware.com/" target="_blank">Baroque Software</a> team.
+                    © 2018 VR Sketch</p>
+            </div>
         </div>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43265909-2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
+        <script src="js/global.js"></script>
+        <noscript>Your browser either does not support JavaScript or it not active. Please activate JavaScript.</noscript>
+    </footer>
 
-            gtag('config', 'UA-43265909-2');
-        </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43265909-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-43265909-2');
+    </script>
 </body>
 
 </html>
