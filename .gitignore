@@ -7,3 +7,5 @@ v3/web/*.html
 v3/web/css/*.css
 *~
 *.pyc
+
+v3/templates/generated/

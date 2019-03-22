@@ -31,9 +31,13 @@ Template blocks
 
     <!-- Custom imports -->
     {% block custom_style_imports %}{% endblock custom_style_imports %}
+
 </head>
 
 <body>
+    <div class="loading-indicator" style="position:fixed;left:0px;top:0px;width:100%;height:100%;z-index:9999;display:flex;justify-content:center;align-items:center;background-color:#ffffff;">
+        <p style="color:#343a40;font-size:1.2em;">Loading...</p>
+    </div>
     <header>
         <div class="fixed-top bg-white">
             <nav class="container">
@@ -54,7 +58,7 @@ Template blocks
                                 <li><a href="#" class="dropdown-item" onclick="vueAppApi.logout()">Log out</a></li>
                             </ul>
                         </span>
-                        
+
                     </div>
 
                     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,6 +95,11 @@ Template blocks
         gtag('js', new Date());
 
         gtag('config', 'UA-43265909-2');
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.loading-indicator').fadeOut();
+        });
     </script>
     {% block js_imports %}{% endblock js_imports %}
 </body>
