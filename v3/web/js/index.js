@@ -322,3 +322,25 @@ $(document).ready(function () {
     var cbinst = Chargebee.init({ site: CHARGEBEE_SITE });
 
 });
+
+// Load youtube videos
+$(document).ready(function ($) {
+    var video_players = $('.youtube-player');
+
+    // Add onlick event
+    video_players.click(function () {
+        var id = $(this).attr('data-embed');
+        var vid = '<iframe src="//www.youtube.com/embed/' + id + '?showinfo=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+        $(this).append(vid);
+        $(this).children('.youtube-play-btn').remove();
+    })
+
+    // Add cover images
+    video_players.each(function () {
+        var id = $(this).attr('data-embed');
+        $(this).css('background-image', 'url("https://img.youtube.com/vi/' + id + '/maxresdefault.jpg")');
+        //var img = '<img src="https://img.youtube.com/vi/' + id + '/maxresdefault.jpg" alt="youtube video">';
+        //$(this).append(img);
+    });
+
+});
