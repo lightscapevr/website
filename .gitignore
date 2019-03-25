@@ -1,9 +1,7 @@
 .vscode/*
-web/documentation2.html 
-web/documentation.html
-v3/web/*.html
-v3/web/css/*.css
 *~
 *.pyc
 
-v3/templates/generated/
+templates/generated/
+web/css/*.css
+web/*.html
