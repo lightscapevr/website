@@ -322,3 +322,43 @@ $(document).ready(function () {
     var cbinst = Chargebee.init({ site: CHARGEBEE_SITE });
 
 });
+
+// Load youtube videos
+$(document).ready(function () {
+    var video_players = $('.youtube-player');
+
+    // Add onlick event
+    video_players.click(function () {
+        var id = $(this).attr('data-embed');
+        var vid = '<iframe src="//www.youtube.com/embed/' + id + '?showinfo=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
+        $(this).append(vid);
+        $(this).children('.youtube-play-btn').remove();
+    })
+
+    // Add cover images
+    video_players.each(function () {
+        var id = $(this).attr('data-embed');
+        if ($(this)[0].offsetWidth > 540) {
+            $(this).css('background-image', 'url("https://img.youtube.com/vi/' + id + '/maxresdefault.jpg")');
+        } else {
+            $(this).css('background-image', 'url("https://img.youtube.com/vi/' + id + '/0.jpg")');
+        }
+    });
+});
+
+// Delay add images to carrousel
+$(document).ready(function () {
+    var images = [
+        { src: "img/slides/slide-2-600x337.jpg", alt: "Drawing a building in virtual reality with VR Sketch" },
+        { src: "img/slides/slide-3-600x337.jpg", alt: "Creating in virtual reality with VR Sketch" },
+        { src: "img/slides/slide-5-600x337.jpg", alt: "Teleport navigation in virtual reality with VR Sketch" },
+        { src: "img/slides/slide-7-600x337.jpg", alt: "Selecting tools in virtual reality with VR Sketch" },
+        { src: "img/slides/slide-8-600x337.jpg", alt: "Drawing architecture in virtual reality with VR Sketch" },
+        { src: "img/slides/slide-9-600x337.jpg", alt: "Visiting famous buildings in virtual reality with VR Sketch" }
+    ]
+    var carrousel = $('#js-carousel');
+    for (var i = 0; i < images.length; i++) {
+        console.log(carrousel)
+        carrousel.append('<div class="carousel-item"><img class="d-block w-100" src="' + images[i].src + '" alt="' + images[i].alt + '"></div>')
+    }
+});
