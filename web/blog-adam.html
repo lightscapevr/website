@@ -1,7 +1,318 @@
-<html>
+
+<!doctype html>
+<html lang="en">
+
 <head>
-<meta http-equiv="refresh" content="0; url=https://vrsketch.eu/blog.html##adam-interview" />
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Content description -->
+    <title>Blog-Adam | VR Sketch</title>
+    <meta name="description" content="Virtual Reality drawing tools for architects and designers. A SketchUp extension allowing anyone to use SketchUp from inside virtual reality">
+    <meta name="keywords" content="vr sketch, vr, virtual reality, draw, edit, draft, sketch, sketchup, architect, architecture, vive, oculus rift, design">
+    <meta name="author" content="VR Sketch">
+
+    <!-- Template imports -->
+    <link rel="shortcut icon" href="img/logos/favicon.ico" />
+    <link rel="stylesheet" href="css/styles.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!-- Custom imports -->
+    
+
+
 </head>
+
 <body>
+    <div id="loading-indicator" style="display:none;position:fixed;left:0px;top:0px;width:100%;height:100%;z-index:9999;justify-content:center;align-items:center;background-color:#ffffff;">
+        <p style="color:#343a40;font-size:1.2em;">Loading...</p>
+    </div>
+    <script type="text/javascript">
+        (function () {
+            document.getElementById('loading-indicator').style.display = 'flex';
+        })();
+    </script>
+    <header>
+        <div class="fixed-top bg-white">
+            <nav class="container">
+                <div class="navbar navbar-expand-md navbar-light px-0">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="img/logos/vr-sketch-logo.svg" height="28" alt="VR Sketch logo">
+                    </a>
+
+                    <div class="collapse navbar-collapse" id="main-navbar">
+                        <ul class="navbar-nav ml-auto">
+                            
+<li class="nav-item">
+    <a class="nav-link" href="docs-getting-started.html">Documentation</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="faqs.html">FAQs</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="tutorials.html">Tutorials</a>
+</li>
+
+                        </ul>
+                        <span class="dropdown">
+                            <button class="btn btn-outline-primary" id="login-button">Log in
+                            </button>
+                            <ul id="login-dropdown" class="dropdown-menu dropdown-menu-right">
+                                <li><a href="#" class="dropdown-item" onclick="showLicenseModal()">User details</a></li>
+                                <li><a href="#" class="dropdown-item" onclick="vueAppApi.logout()">Log out</a></li>
+                            </ul>
+                        </span>
+
+                    </div>
+
+                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main">
+        
+<div class="container pt-3 pb-5">
+    <div class="row">
+        <div class="col-md-3 mb-5">
+            <h4>Past blog posts</h4>
+            <ul class="list-unstyled">
+                <li class="border-bottom mb-3">
+                    <a href="blog-jarl.html">Interview with Jarl Vindnæs from stykka.com</a>
+                </li>
+                <li class="border-bottom mb-3">
+                    <a href="blog-adam.html">Interview with Adam Wysocki from Studio de Materia</a>
+                </li>
+                <li class="border-bottom mb-3">
+                    <a href="blog-vr-for-architects.html">Virtual reality for architecture - state of the art</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md">
+            
+<article>
+    <header>
+        <h1 class="post-title" id="adam-interview">Interview with Adam Wysocki from Studio de Materia</h1>
+        <p class="text-muted">Published on: 4 April 2018 by Maciej Fijalkowski</p>
+    </header>
+    <section>
+        <p>This post is an interview with Adam Wysocki from
+            <a href="http://studiodemateria.com/en">Studio de Materia</a>, who is an early user and has contributed
+            a lot of early feedback for VR Sketch. The interview has been translated from Polish and edited for
+            clarity.
+        </p>
+
+        <img class="img-fluid shadow my-3" src="img/blog/studiodemateria-0.jpg" alt="studio de materia">
+
+        <p class="question">Hi Adam. Glad you could make it. I would like to ask you a few questions about your
+            work as an architect and your experience with VR Sketch. Please introduce yourself to our readers
+            first and tell us a bit about your work.</p>
+        <p class="answer">Hi, thanks for the interview. My name is Adam Wysocki and I’m an architect from Poznan,
+            Poland. Since 2013, I have been running my own studio. Since then we have developed small, diverse
+            projects, mainly residential. Our goal is to add valuable buildings to our environment through a
+            customized architecture whose function and form are in harmony. For example, we are now building
+            a complex of two mountain lodges in Karkonosze national park.</p>
+
+        <img class="img-fluid shadow my-3" src="img/blog/studiodemateria-1.jpg" alt="studio de materia">
+
+        <p class="question">Please tell me something about your daily work - how involved are you in the various
+            stages of the architectural projects.
+        </p>
+        <p class="answer">My studio is very small, so I’m personally involved in all the steps, starting from
+            the first contact with the client. During the conceptual stages of the project, I have direct contact
+            with all the decisions made. Only during the later stages of the project, other people are getting
+            more involved, either my co-workers or external contractors.</p>
+        <p class="answer">The first conceptual part is very important for me as this part defines the foundations
+            of all the future decisions. The crucial piece of the conceptual part of the project is interaction
+            with client, while taking into account the laws and restrictions on buildings. I try to put emphasis
+            on “client first” strategy here - at the end of the day their wishes have to be articulated in the
+            building. Creating perfectly functioning spatial choreography dressed with architectural guise that
+            expresses my formal preferences is my goal for the design.</p>
+        <p class="answer">This part of the project often drags on, until both the client and I are satisfied
+            with selected solutions.
+        </p>
+
+        <img class="img-fluid shadow my-3" src="img/blog/studiodemateria-2.jpg" alt="studio de materia">
+
+        <p class="question">How does virtual reality in general and VR Sketch in particular play a role here?</p>
+        <p class="answer">I had the opportunity to use virtual reality for the last couple months. This has revolutionized
+            the conceptual part of the project. I can, directly and at all times, control the spatial relationships
+            that happen in the project. Besides the fact that virtual reality is a great tool for designing objects
+            at different scales, from the smallest detail to urban planning, it has immense impact on the verification
+            of decisions taken as if they were real. For me, once I start BEING in the virtual reality, it BECOMES
+            reality. When I enter my own project, I am able to shape it like a sculptor or demiurg.</p>
+        <p class="answer">I still begin with flat drawings in autocad and later I export them to Sketchup and
+            VR Sketch. Modelling in virtual reality my early ideas become tested. Using virtual reality lets
+            me experiment much more easily with new solutions that would otherwise be considered too risky.</p>
+        <p class="answer">In this day and age, Computer Aided Design is very advanced and we can do a lot just
+            using design programs that don’t require VR. However, VR Sketch is a very easy way to work on a model
+            while having real control. It’s akin to creating a life-size mockup with the difference being the
+            ability to make dynamic and spontaneous changes while looking from a perspective from ant-size to
+            king-kong.
+        </p>
+        <p class="answer">I can’t say that what I do would be impossible without VR, but it would be definitely
+            a lot less fun.
+        </p>
+
+        <img class="img-fluid shadow my-3" src="img/blog/studiodemateria-3.jpg" alt="studio de materia">
+
+        <p class="question">How do you think Virtual Reality will change architecture?</p>
+        <p class="answer">I think that my clients, who often find it hard to read complicated drawings and “frozen”
+            visualizations, can now use tools to quickly verify the quality of chosen solutions. At the same
+            time, architects could choose even more audacious solutions to both formal and functional problems.
+            It will certainly help avoid a lot of mistakes and architecture will gain.</p>
+
+        <div class="row">
+            <div class="col-6">
+                <img class="img-fluid shadow my-3 img-portrait center" src="img/blog/studiodemateria-4.jpg" alt="studio de materia">
+
+            </div>
+            <div class="col-6">
+                <img class="img-fluid shadow my-3 img-portrait center" src="img/blog/studiodemateria-7.jpg" alt="studio de materia">
+
+            </div>
+
+        </div>
+        <p class="question">What would you tell people who have not tried VR Sketch just yet?</p>
+        <p class="answer">Entering the project in VR, or even a demo often brings the fear of unknown. Don’t
+            be afraid! I don’t understand why people are so skeptical - it’s enough to put a virtual reality
+            helmet on once and you will feel the difference immediately. These days I definitely prefer working
+            in Virtual Reality, where the sun always shines than in front of a sad monitor :-) The revolution
+            in design is coming in seven mile steps.</p>
+
+        <img class="img-fluid shadow my-3" src="img/blog/studiodemateria-5.jpg" alt="studio de materia">
+
+        <p class="question">What would you say about the VR Sketch user interface?</p>
+        <p class="answer">It’s very good, but it requires some time and effort to be proficient. The real pleasure
+            only comes after learning how to use it for a bit, when you realize it’s actually very simple and
+            intuitive. I don’t think you even need to know sketchup well - it’s simple enough to learn directly
+            in VR.</p>
+
+        <p class="question">Thanks a lot! I hope it will be useful for our readers!</p>
+
+        <img class="img-fluid shadow my-3" src="img/blog/studiodemateria-6.jpg" alt="studio de materia">
+
+    </section>
+</article>
+
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <footer class="bg-dark text-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 mb-4">
+                <div>
+                    <a href="https://vrsketch.eu/">
+                        <img src="img/logos/vr-sketch-logo.svg" alt="VR Sketch" width="280px">
+                    </a>
+                    <br>
+                    <small>VR drawing tools for architects and designers</small>
+                </div>
+            </div>
+            <div class="col-md">
+                <div>
+                    <h5>Social</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="https://twitter.com/VrSketch" target="_blank"><i class="fab fa-twitter"></i>&nbsp;Twitter</a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCQhcsQ4QqbcT1_Hk7F2hKag" target="_blank"><i class="fab fa-youtube"></i>&nbsp;YouTube</a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/vr_sketch/" target="_blank"><i class="fab fa-instagram"></i>&nbsp;Instagram</a>
+                        </li>
+                        <li>
+                            <a href="blog.html"><i class="fas fa-pencil-alt"></i>&nbsp;Blog</a>
+                        </li>
+                        <li>
+                            <a href="https://forum.vrsketch.eu">Forum</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div>
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="docs-getting-started.html">Documentation</a>
+                        </li>
+                        <li>
+                            <a href="faqs.html">FAQ's</a>
+                        </li>
+                        <li>
+                            <a href="about.html">About</a>
+                        </li>
+                        <li>
+                            <a href="https://drive.google.com/open?id=1uDbTl4JJtLobN8Lc-bz3OibkYomQlUPX">Media pack</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div>
+                    <h5>Actions</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="mailto:info@baroquesoftware.com">Email us</a>
+                        </li>
+                        <li>
+                            <a href="#subscribe">Subscribe to newsletter</a>
+                        </li>
+                        <li>
+                            <a href="https://extensions.sketchup.com/en/content/lightscape-vr-designer">Try now</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Log in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p class="text-muted mt-5">
+            Made with love by the
+            <a href="https://baroquesoftware.com/" target="_blank">Baroque Software</a>
+            team. © 2019 VR Sketch
+        </p>
+    </div>
+</footer>
+
+    <!-- JS imports -->
+    <noscript style="position:fixed;bottom:20px;width:100%;;padding:10px;;background-color:rgb(255, 146, 112);text-align:center;z-index:150;">Your browser either does not support JavaScript or it not active. Please activate JavaScript.</noscript>
+    
+    <script src="js/libraries/jquery-3.1.1.min.js"></script>
+    <script src="js/libraries/popper.min.js"></script>
+    <script src="js/libraries/moment.min.js"></script>
+    <script src="js/libraries/bootstrap.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="js/libraries/autobahn.min.js"></script>
+    <script src="https://browser.sentry-cdn.com/4.1.1/bundle.min.js"></script>
+    <script src="js/global.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43265909-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-43265909-2');
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#loading-indicator').fadeOut();
+        });
+    </script>
+    
+
 </body>
+
 </html>
