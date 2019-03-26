@@ -35,9 +35,14 @@ Template blocks
 </head>
 
 <body>
-    <div class="loading-indicator" style="position:fixed;left:0px;top:0px;width:100%;height:100%;z-index:9999;display:flex;justify-content:center;align-items:center;background-color:#ffffff;">
+    <div id="loading-indicator" style="display:none;position:fixed;left:0px;top:0px;width:100%;height:100%;z-index:9999;justify-content:center;align-items:center;background-color:#ffffff;">
         <p style="color:#343a40;font-size:1.2em;">Loading...</p>
     </div>
+    <script type="text/javascript">
+        (function () {
+            document.getElementById('loading-indicator').style.display = 'flex';
+        })();
+    </script>
     <header>
         <div class="fixed-top bg-white">
             <nav class="container">
@@ -76,7 +81,7 @@ Template blocks
     {% include 'partials/footer.html' %}
 
     <!-- JS imports -->
-    <noscript>Your browser either does not support JavaScript or it not active. Please activate JavaScript.</noscript>
+    <noscript style="position:fixed;bottom:20px;width:100%;;padding:10px;;background-color:rgb(255, 146, 112);text-align:center;z-index:150;">Your browser either does not support JavaScript or it not active. Please activate JavaScript.</noscript>
     {#
     <!-- Bootstrap imports. Order matters: 1. jQuery 2. Popper.js 3. Bootstrap JS -->
     #}
@@ -98,7 +103,7 @@ Template blocks
     </script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('.loading-indicator').fadeOut();
+            $('#loading-indicator').fadeOut();
         });
     </script>
     {% block js_imports %}{% endblock js_imports %}
