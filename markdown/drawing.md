@@ -128,12 +128,12 @@ How to work with Groups and Components.
   </video> 
 </div>
 
-#### Entering a Group or Component. 
+##### Entering a Group or Component
   * Use the **select** tool to double click on any Group or Component to open it.
   * Or with the Group or Component selected, press in the **Context Menu button** and choose the **Open Group** tool.
   * When inside a Group or Component the rest of the model changes colour and cannot be edited; or it might disappear from view altogether. (This is controlled by the standard SketchUp option "View, Component Edit, Hide Rest Of Model".)
 
-#### Exiting a Group or Component.
+##### Exiting a Group or Component
   * While inside a Group or Component, use the select tool and double click outside of the Group or Component to exit.
   * Or while inside a Group or Component, press in the **Context Menu button** and choose the **Exit Group** tool to exit the current Group or Component.
 
@@ -143,14 +143,15 @@ How to work with Groups and Components.
   </video> 
 </div>
 
-#### Creating Group or Component.
+##### Creating Group or Component
   * Use the select tool to select the geometry you wish to group. Then press in the **Context Menu button** and choose either the **Make Group** tool or the **Make Component** tool.
 
-#### Converting groups into Components.
+##### Converting groups into Components
   * Use the select tool to select the Group you wish to convert, then press in the **Context Menu button** and choose **Turn Group into Component** tool.
 
-#### Exploding Groups or Components
+##### Exploding Groups or Components
   * Use the select tool to select the Group or Component, then press in the **Context Menu button** and choose **Explode** tool to un-group the Group or Component.
+
 
 ### Axis Tool
 The tool to re-position and re-align the axis of a group or component.
@@ -432,97 +433,6 @@ The tool to undo or redo any action.
 * When you move the controller over the red action arrow icon, more actions appear below it. Lower icons correspond to older actions. If you select a lower icon, all actions up to that one are undone.
 * To redo an action that you have just undone, hold down the **⋮ menu button**, move the controller over the green arrow icon and then release the **⋮ menu button**.
 * The redo arrow icon only shows if you have just used the **Undo** tool. If you have undone more than one step, you can also redo more than one step at once.
-
-## View Tools
-These tools can be found by hovering the controller above the **Teleport** tool.
-
-### Tape measure tool
-Tape measure can be used for measuring distances and angles.
-
-* The tool always projects a laser in front of it, with a green cross at the end. This green cross is also visible on the computer screen (it is a way to communicate between the person in VR and the person in front of the computer).
-* The approximate distance between the controller and the green cross is displayed along the line.
-* When the green cross is showing on a face, click the **trigger** to measure the length perpendicular to the face. (This is useful to measure e.g. the width of a corridor.)
-* If you move the controller over an object, the tool switches to a different mode: Click the **trigger** once on the starting point, and another time on the ending point. You will see the distance between the two points. After this, move the controller around to see angles.
-* The location of the second click is recorded as a special guide point. This point will show up for alignment in all tools that you use afterwards. To remove it, use the **eraser** tool.
-
-#### Tape measure tool Context Menu options
-* Lock direction to... - Locks the direction to an axis or plain.
-* Unlock direction - Removes any locking constraints. This option only shows if the direction is locked.
-
-### Section cut tool
-The tool to temporarily cut your model.
-
-* Move the controller to the point at which you want to draw the section plane. Click with the **trigger** to set the position of the plane, then move the controller to choose the axis perpendicular to the section plane. Click a second time to set the orientation of the plane.
-* To remove a section plane, hold in the **⋮ menu button** and choose the **Delete section plane** tool. This tool is only visible if you have already created a section plane.
-* You can also use the **eraser**, the **move** and the **rotate** tools on the section plane.
-* You can only create one section plane at a time.
-
-### Camera Tool
-This tool lets you capture photos and videos of your model from inside VR.
-
-* When the Camera tool is active you will see a preview window from the cameras point of view.
-* Use the **Context Menu button** to change from Photo mode to Video mode.
-* Click with the **trigger** to take a photo or if you are in video mode start or stop recording a video.
-* Any photos you take will be saved to the current users "Pictures/VR Sketch" folder.
-* Any videos you record will be saved to the current users "Videos/VR Sketch" folder.
-
-### Markup Tool
-Draw colourful free hand lines that are not part of the geometry.
-
-* To select a colour touch the **touchpad/thumbstick** to the colour you wish to draw with.
-* To drawing, hold in the **trigger** and move the controller. Release the **trigger** to stop drawing.
-* To erase a drawing touch the **touchpad/thumbstick** to the drawing eraser tool. (In the same way you choose a colour) With the drawing eraser selected (Not the Eraser tool) hold in the **trigger** and move the controller. Release the **trigger** to stop erasing. The speed you move the eraser determines how big the eraser is.
-* To drawing or erasing markup lines will not effect any geometry.
-* Markup lines can be saved with SketchUp files.
-
-
-## Settings Panel
-This panel gives you easy access to settings and tools 
-
-* With the panel open, when you move a controller in front of the panel you will see a mouse pointer appear on the panel. You can use this pointer to interact with the panel.  
-* When the pointer is visible you can only use the pointer and so cannot use other tools.
-* Move your controller away from in front of the panel to get your normal tools back.
-* The panel will stay active until you close it and will stay positioned relative to you not relative to your model.
-* To position the panel, use the **trigger** to click on the top bar and drag it to where you want it. Alternatively, move the controller until it intersects with the panel and then hold in the **↔ grip** and drag the panel to where you want it.
-* To close the panel use the **trigger** to click on the close icon on the top right of the panel.
-* To change tabs, use the **trigger** to click on the tabs on the left.
-
-### Rendering tab
-* Options follow SketchUp - Choose if the settings in this panel must be synchronized with SketchUps settings.
-* Show edges - Toggle whether edges are visible or not in VR.
-  * Component edit: hide rest of model - Choose if you want to hide the rest of the model when you are inside a group or component.
-  * Highlight animated components - Toggle whether animated components must be highlighted or not.
-* Shadows
-  * Time slider - Set the position of the sun based on the time of day.
-  * Date slider - Set the position of the sun based on the date.
-* Fog
-  * Amount - Set the density of the fog.
-  * Brightness - Choose the brightness of the fog, from black to white.
-
-### Components tab
-* Shows a list of all the components loaded into your model.
-* To place a component from the list, click on it with the **trigger** then click in the model where you want it to be placed.
-
-### 3D warehouse tab
-* Use the search bar to search SketchUps 3D warehouse for models.
-* Use the **trigger** to click on the keyboard.
-* To download and place a model, click on the model you wish to download then click in the model where you want to place it.
-
-### Scenes tab
-* To go to a scene, click with the **trigger** on the scene.
-* To rename a scene, hover over the scene and then click on the menu icon on the right, then click Rename and enter the new name.
-* To delete a scene, hover over the scene and then click on the menu icon on the right, then click Delete. Note that this can not be undone.
-* To add a scenes, click on the add scene button. Now use the controller to set the position of the scene. The rotation of the scene will match your current rotation. Click with the **trigger** to create the scene. Press the **touchpad/thumbstick** to stop placing scenes.
-
-
-### Layers tab
-* To hide or show a layer, click with the **trigger** on the eye icon on the left of each layer.
-* Rename a layer by clicking on that layers menu icon, then click rename and edit the name.
-* Delete a layer by clicking on that layers menu icon, then click either:
-  1. "delete layer, move content to Layer 0" to move the contents to Layer 0 before deleting the layer.
-  2. "delete layer, delete content" to the contents on the layer and delete the layer.
-* To add geometry onto a layer, click on the layer name, you will get a selection laser, aim it at the geometry you want to add and click to add it.
-
 
 ## Tool Extras
 
