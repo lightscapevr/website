@@ -20,8 +20,8 @@ def convert_all_markdown(src_folder, output_folder):
     for filename in os.listdir(src_folder):
         if filename.endswith('.md'):
             name_only = filename[:-3]
-            html_from_markdown(src_folder + '//' + filename,
-                               output_folder + '//' + name_only + '.html')
+            html_from_markdown(os.path.join(src_folder, filename),
+                               os.path.join(output_folder, name_only + '.html'))
 
 
 def render_all_templates(prod):
