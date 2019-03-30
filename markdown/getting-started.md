@@ -1,9 +1,13 @@
 # Requirements
 
 * OS: Currently only works on Windows. If you want Mac support and you are willing to sponsor
-  the necessary equipment, please get in touch.
+  the necessary equipment, please get in touch. Note that OS X and VR are, as of 2019, not working
+  well together. If you can show us a combination of software/hardware that works well, we can consider
+  supporting it.
 * VR headsets: HTC Vive or Oculus Touch. Windows Mixed Realities headsets work, but they're not officially supported.
-* Software: Only SketchUp 2017 and 2018 are currently supported. We are considering support for Autodesk Revit.
+* Software: Only SketchUp 2017 and 2018 are currently supported. We are considering support for Autodesk Revit or
+  a standalone version that is able to import a variety of formats. Get in touch with us if you want to let us
+  know how would you like to use VR Sketch.
 
 # Downloading and installing
 
