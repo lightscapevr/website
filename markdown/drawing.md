@@ -4,15 +4,15 @@
 
 #### HTC Vive
   * Trigger - Used to do the action of the current tool. Is similar to clicking with a mouse.
-  * Touchpad - This is the ⋮ menu button. Hold it in to choose which tool you want to use. The touchpad is also used to scroll in various tools.
+  * Touchpad - This is the ⋮ tools button. Hold it in to choose which tool you want to use. The touchpad is also used to scroll in various tools.
   * Grip buttons - Hold in these buttons to move and scale your model.
   * Small top button - This is the context menu button. Hold it in to get additional options for the current tool.
-  * Small bottom button - Is the Steam Home button and will load the Steam Home Page.
+  * Small bottom button - Is the Steam Home button and will load the Steam Home Page. Can be disabled in SteamVR.
 #### Oculus Rift
   * Trigger - Used to do the action of the current tool. Is similar to clicking with a mouse.
   * Thumbstick - Used only to scroll.
   * Grip button - Hold in these buttons to move and scale your model.
-  * X or A buttons - This is the ⋮ menu button. Hold it in to choose which tool you want to use.
+  * X or A buttons - This is the ⋮ tools button. Hold it in to choose which tool you want to use.
   * Y or B buttons - This is the context menu button. Hold it in to get additional options for the current tool.
   * Left menu button - Unassigned.
   * Right Oculus button - Default action of loading the Oculus home page.
@@ -28,7 +28,7 @@ How to choose the tool you want to use with each controller.
   </video>
 </div>
 
-* To choose a tool, hold in the **⋮ menu button**, a list of tools will appear in front of the controller, move the controller to the tool you would like to use. The tool's icon will highlight when the controller is over it. Release the **⋮ menu button** while you are over the tool to select it. You will see the icon on the controller change to the current tool of that controller.
+* To choose a tool, hold in the **⋮ tools button**, a list of tools will appear in front of the controller, move the controller to the tool you would like to use. The tool's icon will highlight when the controller is over it. Release the **⋮ tools button** while you are over the tool to select it. You will see the icon on the controller change to the current tool of that controller.
 * Each controller can have only one active tool.
 * Each controller has the same list of tools available.
 * You can have two different tools on each controller or the same tool on both controllers.
@@ -198,7 +198,7 @@ How to draw a line between two points.
 
 * Click one with the **trigger** to start drawing the line. Move the controller then click a second time to finish the line.
 * It is also possible to start drawing the line by pulling in the **trigger** and holding it in and only releasing it when you want to finish the line.
-* You can cancel drawing a line by pressing the **⋮ menu button**, which is highlighted red while drawing a line.
+* You can cancel drawing a line by pressing the **⋮ tools button**, which is highlighted red while drawing a line.
 * After drawing a line, if the end point is not a pre-existing point, then it is automatically chosen as the start point of the next line. If you do not want to draw more lines, use **cancel** as described above.
 
 #### Line tool Context Menu options
@@ -387,7 +387,7 @@ The tool to scale objects.
 ### Paint tool
 The tool to choose and place colours and textures on the model.
 
-* Choose a material. Hold in the **⋮ menu button** and move the controller over the paint bucket, then move the controller to the right to select a material from the palette and release the **⋮ menu button** to choose that material.
+* Choose a material. Hold in the **⋮ tools button** and move the controller over the paint bucket, then move the controller to the right to select a material from the palette and release the **⋮ tools button** to choose that material.
 * Placing a material. With a material selected aim the laser at the face you wish to paint and click with the **trigger**.
 * Eye-drop a material. With the paint tool selected move the controller to touch the face with the material you want. You will see the tool icon will change to a bucket with a red arrow pointing into the bucket. Click with the **trigger** to make the material of the face become your currently selected material.
 
@@ -406,32 +406,32 @@ Notes tool is designed for leaving temporary notes in the VR. Simple freehand no
 ### Materials
 The tool where you can select, edit and create new materials.
 
-* Enter the material menu. Hold in the **⋮ menu button** and move the controller over the materials icon and then release the button. This will display the materials menu.
-* Select a material. While inside the materials menu, click on the vertical bar on the left to access the full materials menu. Use the **trigger** to click on the material you want. Press the **⋮ menu button** to leave the materials menu.
+* Enter the material menu. Hold in the **⋮ tools button** and move the controller over the materials icon and then release the button. This will display the materials menu.
+* Select a material. While inside the materials menu, click on the vertical bar on the left to access the full materials menu. Use the **trigger** to click on the material you want. Press the **⋮ tools button** to leave the materials menu.
 * You can add more materials to your quick-access palette by clicking on each of them with the **trigger**.
 * The quick-access palette is just a list of the most recently used materials. You can reorganize this list by dragging materials around or out of the quick-access palette.
 * Edit a material: You can edit the currently selected material with the controls on the right.
     * In the colour bowl you can drag the control point by moving the controller over the point and holding in the **trigger** and moving the controller. You will see the preview cube update. Moving the point around the circle changes its hue and saturation while moving the point up and down adjusts its value.
     * You can adjust the amount for red, blue, green and transparency of the material by using the **trigger** to drag the sliders left or right. You will see the preview cube update.
 * As common for SketchUp, if you change the color of a material, it affects anything in your model that is currently using this material. Use the "Duplicate" icon if you want to first make a copy.
-* To exit the material menu, press the **⋮ menu button**.
+* To exit the material menu, press the **⋮ tools button**.
 
 <!-- ### Component tool
 The tool to place component inside your model.
 
-* Select a component: Hold in the **⋮ menu button** and move the controller over the component icon and then release the button. This will display a list of all the components in the model. You can choose the one you want to insert by clicking on it with the **trigger**.
+* Select a component: Hold in the **⋮ tools button** and move the controller over the component icon and then release the button. This will display a list of all the components in the model. You can choose the one you want to insert by clicking on it with the **trigger**.
 * There are two ways to scroll up and down the menu:
     * While in the component selection menu hold in a **grip** button on either controller and move it to move the menu.
     * While in the component selection menu scroll on the **touchpad/thumbstick** to scroll the menu.
-* To exit the component selection menu, press the **⋮ menu button**. 
+* To exit the component selection menu, press the **⋮ tools button**. 
 -->
 
 ### History tool
 The tool to undo or redo any action.
 
-* To undo an action, hold down the **⋮ menu button**, move the controller over the red arrow icon, and then release the **⋮ menu button**.
+* To undo an action, hold down the **⋮ tools button**, move the controller over the red arrow icon, and then release the **⋮ tools button**.
 * When you move the controller over the red action arrow icon, more actions appear below it. Lower icons correspond to older actions. If you select a lower icon, all actions up to that one are undone.
-* To redo an action that you have just undone, hold down the **⋮ menu button**, move the controller over the green arrow icon and then release the **⋮ menu button**.
+* To redo an action that you have just undone, hold down the **⋮ tools button**, move the controller over the green arrow icon and then release the **⋮ tools button**.
 * The redo arrow icon only shows if you have just used the **Undo** tool. If you have undone more than one step, you can also redo more than one step at once.
 
 ## Tool Extras
@@ -439,7 +439,7 @@ The tool to undo or redo any action.
 ### Canceling any action
 How to end or stop doing an action.
 
-* To end an action you don't want to finish, press the **⋮ menu button**. This button is shown in red when clicking it will cancel an action in progress.
+* To end an action you don't want to finish, press the **⋮ tools button**. This button is shown in red when clicking it will cancel an action in progress.
 
 ### Setting lengths
 * When dragging out a length like when using the **Line** or **Push/Pull** tools, the length snaps to logical increments depending on the current scale. If you are zoomed out the length might snap to the nearest meter. If you are zoomed in the length might snap to the nearest mm.
