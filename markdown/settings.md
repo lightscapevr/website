@@ -24,8 +24,7 @@
 #### Enable actions in VR
 * Teleporting (trigger) - Toggles whether or not you can use the **Teleport** tool in VR.
 * Move/scale/rotate model ("grip" buttons on the side)  - Toggles whether or not you can use the **grip** buttons to move, scale or rotate the model in VR.
-    * Rotate can flip the model - if enabled, rotating with the grip buttons can flip the model 90 degrees on its side. This is disabled by default because it can be very confusing for the VR user.
-* Editing (change tools with the touchpad) - Turn on or off the ⋮ menu button.
+* Editing (change tools with the touchpad) - Turn on or off the ⋮ tools button.
 #### Rendering
 * Shadows follow SketchUp sun direction - Toggle whether or not the shadows follow the SketchUp setting for the sun direction (outside the warehouse only). Can be slightly confusing for the VR user, because when he or she rotates the model, the sun direction rotates too. This breaks the illusion that we are turning a model in our hands.
 * Edges, Hide Rest Of Model, Fog - these are settings that you should configure normally inside SketchUp, and which will be mirrored in VR automatically.
