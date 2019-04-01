@@ -37,6 +37,17 @@ We have completely revamped the view tools. They are now all available while
 hovering over the teleport tool. You can explore yourself or read [our docs](docs-viewing.html).
 Don't miss the new camera tool!
 
+### Box tool
+<img class="img-fluid my-3" src="./img/docs/new-5/box-tool.jpg" alt="Box tool in VR Sketch 5.0"> 
+
+Draw 3D boxes with ease with this new tool. You can find it above the rectangle tool.
+
+### Laser Select tool
+<img class="img-fluid my-3" src="./img/docs/new-5/laser-select.jpg" alt="Laser select tool in VR Sketch 5.0"> 
+
+Now you can select things from a distance using the Laser Select tool. It work very similar way to the
+standard select tool. You can find it above the standard select tool.
+
 ## Things that aren't new, but you might not have heard about them
 
 ### Collaboration
