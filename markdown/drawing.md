@@ -37,6 +37,7 @@ How to choose the tool you want to use with each controller.
 
 ### The Context Menu
 Each tool has its' own Context Menu, which is a list of additional command or settings for that tool. You can think of it as being similar to a "right click" menu.
+
 * To open the context menu, hold down the **Context Menu** button, on a Vive this is the small top menu button, on an Oculus Rift this is button Y of B.
 * While holding the **Context Menu** button in move the controller, you will see a small pointer move with your controller.
 * Move the pointer over the option you wish to select and then release the **Context Menu** button to select it.
