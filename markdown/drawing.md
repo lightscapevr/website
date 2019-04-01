@@ -396,14 +396,6 @@ The tool to choose and place colours and textures on the model.
 * Sample material - Select the material you pointing at and set it to the current tool. Works like an eye-dropper tool.
 * Add "Material" to quick palette - Adds the selected material to the quick selection palette.
 
-### Notes tool
-Notes tool is designed for leaving temporary notes in the VR. Simple freehand notes that can be removed later.
-
-* Draw by holding the **trigger** down.
-* You can change color by moving the **touchpad/thumbstick** left or right.
-* To remove notes, use the **eraser** tool.
-* Notes appear in SketchUp too, but only if the "Send to VR" tool is currently selected in SketchUp.
-
 ### Materials
 The tool where you can select, edit and create new materials.
 

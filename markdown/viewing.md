@@ -32,7 +32,7 @@ This tool lets you capture photos and videos of your model from inside VR.
 * Any videos you record will be saved to the current users "Videos/VR Sketch" folder.
 * The **Context Menu button** can also be used to change to "fixed" mode.  Move in front of the camera to take photos and videos of yourself (or group selfies when viewing a cloud model).  You can still move a fixed camera by click and drag.
 
-### Markup Tool
+### Markup Tool (a.k.a. Notes Tool)
 Draw colourful free hand lines that are not part of the geometry.
 
 * To select a colour touch the **touchpad/thumbstick** to the colour you wish to draw with.
@@ -41,4 +41,5 @@ Draw colourful free hand lines that are not part of the geometry.
 * Drawing or erasing markup lines will not effect any geometry.
 * Markup lines can be saved with SketchUp files.
 * When viewing cloud models, you can draw markup lines but (so far) not save them.
+* Markup lines appear in SketchUp too, but only if the "Send to VR" tool is currently selected in SketchUp.
 
