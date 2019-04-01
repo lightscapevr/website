@@ -19,4 +19,4 @@ We render the following elements in VR: faces (with or without texture); edges; 
 Textures may very occasionally appear badly positioned when you open a subgroup. (This issue cannot occur if you don't have any group or component opened for editing.) After release 2.2 we have improved the situation but not completely. The cause is SketchUp's textures, which can be either "positioned" or "non-positioned" (right-click, Texture, "Reset Position" makes it non-positioned). However, non-positioned textures are reported at a bogus position by SketchUp's Ruby API when editing inside groups or components. We work around that by computing this bogus position on our own; then, if that is precisely what we get, we assume that it was a non-positioned texture that is misreported, and fix it manually. This might occasionally be foiled if it was actually a positioned texture that happened to be exactly at the same position.
 
 ### Reporting problems
-Please report any other bug to the issue tracker or by writing to the e-mail below.
+Please report any other bug to the issue tracker or by writing to info@baroquesoftware.com

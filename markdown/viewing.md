@@ -18,7 +18,7 @@ Tape measure can be used for measuring distances and angles.
 The tool to temporarily cut your model.
 
 * Move the controller to the point at which you want to draw the section plane. Click with the **trigger** to set the position of the plane, then move the controller to choose the axis perpendicular to the section plane. Click a second time to set the orientation of the plane.
-* To remove a section plane, hold in the **⋮ menu button** and choose the **Delete section plane** tool. This tool is only visible if you have already created a section plane.
+* To remove a section plane, hold in the **⋮ tools button** and choose the **Delete section plane** tool. This tool is only visible if you have already created a section plane.
 * You can also use the **eraser**, the **move** and the **rotate** tools on the section plane.
 * You can only create one section plane at a time.
 
