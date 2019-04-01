@@ -436,7 +436,7 @@ How to end or stop doing an action.
 
 ### Setting lengths
 * When dragging out a length like when using the **Line** or **Push/Pull** tools, the length snaps to logical increments depending on the current scale. If you are zoomed out the length might snap to the nearest meter. If you are zoomed in the length might snap to the nearest mm.
-* Whenever the length measurement is visible it is possible to manually input a precise length: click on the numbers with the other controller. For example if you start drawing a line with your right controller, you can use the left controller to click on the measurement text. A small calculator window will appear where you can use the **trigger** to input any length you wish the line to be.
+* Whenever the length measurement is visible it is possible to manually input a precise length: choose "set length" or a variation in the **Context menu**, or directly click on the numbers with the other controller. For example if you start drawing a line with your right controller, you can use the left controller to click on the measurement text. A small calculator window will appear where you can use the **trigger** to input any length you wish the line to be.
 
 ### Snapping
 * Axis snapping. Many actions like drawing a line or rectangle automatically snap to the x,y,z axis. The guidelines change colour (red, green and blue) to match the axis currently snapped to. 
@@ -448,7 +448,7 @@ How to end or stop doing an action.
     * Move the **touchpad/thumbstick** left or right. This will temporarily reduce the snapping distance.
 
 ### Locking
-* Locking an axis or plane. Many actions like drawing a line or rectangle can have their axis locked. This is done by using the controller not doing the action to click on the length indicator line or plane indicator guideline or by using that tools **Context Menu**.
+* Locking an axis or plane. Many actions like drawing a line or rectangle can have their axis locked. This is done by using the controller not doing the action to click on the length indicator line or plane indicator guideline or by using that tool's **Context Menu**.
 * When locking is available an icon of a lock will appear on the length indicator line.
 * To unlock a locked axis or plane, pull the **trigger** of the controller not doing the main action.
 * The rectangle tool has got more advanced locking rules: you can lock any edge of the rectangle being drawn, which fixes this edge's direction and length. It is possible to draw a rectangle which is not aligned to any axis, by locking an edge and moving the other, possibly several times.
@@ -459,7 +459,7 @@ How to end or stop doing an action.
 * You can also use a single-controller movement: move over a point to create a reference point, and then move back to where you want to be (similar to SketchUp with the mouse).
 
 ### Dynamic Components
-* VR Sketch supports interaction with basic SketchUp dynamic components.
-* To interact with a dynamic components, have the **Teleport** tool active and touch the component. A light blue box will appear to indicate that the component is intractable. While touching the component pull the **trigger** and move the controller. 
-* Currently we only support dynamic components that make use of the `ANIMATE()` function for both position and rotation.
-* If you need a particular function please let us know.
+* VR Sketch supports animating SketchUp's dynamic components.
+* To interact with a dynamic component, use the **Teleport** tool touch the component. A light blue box will appear to indicate that the component is intractable. While touching the component pull the **trigger** and move the controller.
+* You can change in the Rendering settings (**Cog wheel** tool) how visibly or discreetly the blue boxes are drawn.
+* Currently we only support dynamic components that make use of one of the `ANIMATE...()` functions and that directly set the position (X, Y, Z) or the rotation (RotX, RotY, RotZ).  If these functions are used to set a custom variable instead, the animation will not be recognized by VR Sketch.  Please let us know if you need more cases.
