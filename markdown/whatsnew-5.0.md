@@ -15,7 +15,8 @@ menu that depends on the tool. You can read about all the posibilities in
 ### Viewing tools
 
 We have completely revamped the view tools. They are now all available while
-hovering over the teleport tool. You can explore yourself or read [our docs](docs-viewing.html)
+hovering over the teleport tool. You can explore yourself or read [our docs](docs-viewing.html).
+Don't miss the new camera tool!
 
 ### 3d warehouse
 
@@ -24,7 +25,10 @@ go to components like usual, above select, and select the 3D warehouse panel.
 
 ### Scenes and Layers
 
-Scenes now are accessible from the settings menu, near **Teleport tool**
+Scenes now are accessible from the settings menu, near **Teleport tool**.
+You can also make new scenes from your current viewpoint.  And in the
+layers page, you can enable or disable them, as well as change the layer
+in which groups and components are.
 
 ## Things that aren't new, but you might not have heard about them
 
