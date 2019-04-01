@@ -460,6 +460,6 @@ How to end or stop doing an action.
 
 ### Dynamic Components
 * VR Sketch supports animating SketchUp's dynamic components.
-* To interact with a dynamic component, use the **Teleport** tool touch the component. A light blue box will appear to indicate that the component is intractable. While touching the component pull the **trigger** and move the controller.
+* To interact with a dynamic component, use the **Teleport** tool touch the component. A light blue box will appear to indicate that the component is interactable. While touching the component pull the **trigger** and move the controller.
 * You can change in the Rendering settings (**Cog wheel** tool) how visibly or discreetly the blue boxes are drawn.
 * Currently we only support dynamic components that make use of one of the `ANIMATE...()` functions and that directly set the position (X, Y, Z) or the rotation (RotX, RotY, RotZ).  If these functions are used to set a custom variable instead, the animation will not be recognized by VR Sketch.  Please let us know if you need more cases.
