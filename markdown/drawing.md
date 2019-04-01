@@ -99,12 +99,12 @@ The tool to select individual or multiple lines, faces or groups.
 * De-select individual things: With the select tool active, click on any currently selected geometry to de-select it. There is a pink preview highlighting what will be de-selected.
 
 ### Laser-select tool
-The tool to select individual or multiple lines, faces or groups from a distance.
+The tool to select individual or multiple faces or groups from a distance.
 
 * Aim the laser at the geometry you wish to select, click with the **trigger** to add it to your selection. If that geometry is already selected it will deselect it.
-* If you pull the **trigger** twice quickly, like double clicking, you will select the geometry adjacent the object your controller is touching. If you double-click on an edge that is part of a longer curve, all the edges along that curve are selected. There is also a **Context Menu** tool to do this.
-* If you pull the **trigger** three times quickly, you will select all the geometry touching the object your controller is touching. There is also a **Context Menu** tool to do this.
-* The select tool gives you a preview of what will be selected by highlighting the geometry in blue.
+* The laser-select tool cannot be used to select or de-select individual edges---you can only point to faces or groups.  However, you can select all the edges adjacent to a face by pulling the **trigger** twice quickly, like double clicking. There is also a **Context Menu** tool to do this.
+* If you pull the **trigger** three times quickly, you will select all the geometry connected to the face. There is also a **Context Menu** tool to do this.
+* The laser-select tool gives you a preview of what will be selected by highlighting the geometry in blue.  You can move your hand while holding down the **trigger** to select more things.
 * De-select everything: With the laser-select or normal select tool active, click on nothing to de-select any current selections. There is also a **Context Menu** tool to do this.
 * De-select individual things: With the laser-select or normal select tool active, click on any currently selected geometry to de-select it. There is a pink preview highlighting what will be de-selected.
 
@@ -130,12 +130,12 @@ How to work with Groups and Components.
 </div>
 
 ##### Entering a Group or Component
-  * Use the **select** tool to double click on any Group or Component to open it.
+  * Use the **select** or **laser-select** tool to double click on any Group or Component to open it.
   * Or with the Group or Component selected, press in the **Context Menu button** and choose the **Open Group** tool.
-  * When inside a Group or Component the rest of the model changes colour and cannot be edited; or it might disappear from view altogether. (This is controlled by the standard SketchUp option "View, Component Edit, Hide Rest Of Model".)
+  * When inside a Group or Component the rest of the model changes colour and cannot be edited; or it might disappear from view altogether. (This can be changed in the Rendering settings in VR, or the standard SketchUp option "View, Component Edit, Hide Rest Of Model".)
 
 ##### Exiting a Group or Component
-  * While inside a Group or Component, use the select tool and double click outside of the Group or Component to exit.
+  * While inside a Group or Component, use the select or laser-select tool and double click outside of the Group or Component to exit.
   * Or while inside a Group or Component, press in the **Context Menu button** and choose the **Exit Group** tool to exit the current Group or Component.
 
 <div class="docs-vid embed-responsive embed-responsive-16by9 mb-3 shadow">
