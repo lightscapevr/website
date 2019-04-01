@@ -115,7 +115,7 @@ $h3-font-size:                $font-size-base * 2;
 $h4-font-size:                $font-size-base * 1.75;
 $headings-margin-bottom:      $spacer*2;
 
-$code-color:                        rgb(128, 32, 207);
+$code-color: #208046;
 
 // ---------------------------------- Imports ---------------------------------- //
 @import "bootstrap-scss/bootstrap.scss";
@@ -154,6 +154,12 @@ main{
   color: $gray-400;
   font-size: 60%;
   vertical-align: top;
+}
+
+code{
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  background-color: $gray-200;
 }
 
 // ---------------------------------- footer ---------------------------------- //
