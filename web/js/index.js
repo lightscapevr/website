@@ -350,11 +350,14 @@ $(document).ready(function () {
 $(document).ready(function () {
     var images = [
         { src: "img/slides/slide-2-600x337.jpg", alt: "Drawing a building in virtual reality with VR Sketch" },
+        { src: "img/slides/slide-10-600x337.jpg", alt: "Multiple people working together in virtual reality with VR Sketch" },
         { src: "img/slides/slide-3-600x337.jpg", alt: "Creating in virtual reality with VR Sketch" },
+        { src: "img/slides/slide-11-600x337.jpg", alt: "Control scenes and layer from inside virtual reality with VR Sketch" },
         { src: "img/slides/slide-5-600x337.jpg", alt: "Teleport navigation in virtual reality with VR Sketch" },
         { src: "img/slides/slide-7-600x337.jpg", alt: "Selecting tools in virtual reality with VR Sketch" },
         { src: "img/slides/slide-8-600x337.jpg", alt: "Drawing architecture in virtual reality with VR Sketch" },
-        { src: "img/slides/slide-9-600x337.jpg", alt: "Visiting famous buildings in virtual reality with VR Sketch" }
+        { src: "img/slides/slide-9-600x337.jpg", alt: "Visiting famous buildings in virtual reality with VR Sketch" },
+        { src: "img/slides/slide-12-600x337.jpg", alt: "Using the Laser Selecting tool in VR Sketch" }
     ]
     var carrousel = $('#js-carousel');
     for (var i = 0; i < images.length; i++) {
