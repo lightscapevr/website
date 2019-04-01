@@ -244,6 +244,13 @@ The tool for drawing rectangles.
 * Set length - Opens the calculator input panel where you can set the length of rectangle. 
 * set width - Opens the calculator input panel where you can set the width of rectangle. 
 
+### Box tool
+The tool for drawing boxes.
+
+* Either click the **trigger** once or hold it in to start drawing the box. Click a second time or just release the **trigger** to end the box.
+* The box is always axis-aligned.
+* You can set the width, length and height of the box manually. See the section on **Setting lengths** for more information.
+
 ### Polygon tool
 The tool for drawing polygons with any number of sides. Very similar to the **circle** tool.
 
