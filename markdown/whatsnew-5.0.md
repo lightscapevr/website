@@ -19,8 +19,8 @@ hovering over the teleport tool. You can explore yourself or read [our docs](doc
 
 ### 3d warehouse
 
-You can now place components from a 3D warehouse directly! To do that,
-go to components like usual, above select, and select a 3D warehouse panel.
+You can now place components from the 3D warehouse directly! To do that,
+go to components like usual, above select, and select the 3D warehouse panel.
 
 ### Scenes and Layers
 
