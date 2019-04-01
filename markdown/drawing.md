@@ -71,7 +71,7 @@ The tool for moving around your model at 1:1 scale.
 ### Zoom and Pan
 Navigate around your model at any scale. This is not a standard tool; instead, it is always available, using the **↔ grip** button.
 
-* Zoom with both controllers. Press in the **↔ grip** button on both controllers at the same time, then move the controllers away from each other to zoom in or towards each other to zoom out.
+* Zoom with both controllers. Press in the **↔ grip** button on both controllers at the same time, then move the controllers away from each other to zoom in or towards each other to zoom out.  You can also rotate the model horizontally in this way.
 * Zoom with one controller. Hold in the **↔ grip** button on a controller and then scroll on the **touchpad/thumbstick** to zoom in or out.
 * Pan. Press in the **↔ grip** button on one controller and move the controller. The model will move with the controller until you release the **↔ grip** button.
 * When zooming, red text will appear between the two controllers indicating what scale you are at. The scale will snap to certain common scales.
