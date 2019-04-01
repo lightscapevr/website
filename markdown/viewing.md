@@ -30,14 +30,15 @@ This tool lets you capture photos and videos of your model from inside VR.
 * Click with the **trigger** to take a photo or if you are in video mode start or stop recording a video.
 * Any photos you take will be saved to the current users "Pictures/VR Sketch" folder.
 * Any videos you record will be saved to the current users "Videos/VR Sketch" folder.
+* The **Context Menu button** can also be used to change to "fixed" mode.  Move in front of the camera to take photos and videos of yourself (or group selfies when viewing a cloud model).  You can still move a fixed camera by click and drag.
 
 ### Markup Tool
 Draw colourful free hand lines that are not part of the geometry.
 
 * To select a colour touch the **touchpad/thumbstick** to the colour you wish to draw with.
-* To drawing, hold in the **trigger** and move the controller. Release the **trigger** to stop drawing.
+* To draw, hold in the **trigger** and move the controller. Release the **trigger** to stop drawing.
 * To erase a drawing touch the **touchpad/thumbstick** to the drawing eraser tool. (In the same way you choose a colour) With the drawing eraser selected (Not the Eraser tool) hold in the **trigger** and move the controller. Release the **trigger** to stop erasing. The speed you move the eraser determines how big the eraser is.
-* To drawing or erasing markup lines will not effect any geometry.
+* Drawing or erasing markup lines will not effect any geometry.
 * Markup lines can be saved with SketchUp files.
-
+* When viewing cloud models, you can draw markup lines but (so far) not save them.
 
