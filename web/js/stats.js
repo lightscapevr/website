@@ -73,20 +73,20 @@ $(document).ready(function () {
     });
     connection.onopen = function(session, dets) {
         gapi.load('auth2', function() {
-            var auth2 = gapi.auth2.init({'client_id': CLIENT_TOKEN_ID});
+            var auth2 = gapi.auth2.init({'client_id': GOOGLE_CLIENT_TOKEN_ID});
             auth2.then(function () {
                 token = auth2.currentUser.get().getAuthResponse().id_token;
                 connection.session.call('com.stats.trials', [token]).then(
                     function (r) { plot(r, "#trial-stats", "trial activations (weekly)"); }, show_error
                 );
                 connection.session.call('com.stats.use-total', [token]).then(
-                    function (r) { plot2(r, "#use-stats", "total number of days used (weekly)"); }, show_error
+                    function (r) { plot2(r, "#use-stats", "total number of days used (rolling weekly)"); }, show_error
                 );
                 connection.session.call('com.stats.use-unique', [token]).then(
-                    function (r) { plot2(r, "#use-unique", "unique users (weekly)"); }, show_error
+                    function (r) { plot2(r, "#use-unique", "unique users (rolling weekly)"); }, show_error
                 );
                 connection.session.call('com.stats.use-unique-monthly', [token]).then(
-                    function (r) { plot2(r, "#use-unique-monthly", "unique users (rolling 28 day window)"); }, show_error
+                    function (r) { plot2(r, "#use-unique-monthly", "unique users (rolling 30 day window)"); }, show_error
                 );
             });
         });

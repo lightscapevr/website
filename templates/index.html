@@ -1,0 +1,576 @@
+{% extends "layouts/layout-base.html" %}
+
+{% block custom_style_imports %}
+{% endblock custom_style_imports %}
+
+{% block nav_menu_items %}
+{% include 'partials/nav-menu-index.html' %}
+{% endblock nav_menu_items %}
+
+{% block main_content %}
+{% raw %}
+
+<div id="index-app">
+    <section id="landing" class="bg-light text-dark py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md pb-5">
+                    <h1 class="display-4">Design inside virtual reality</h1>
+                    <p class="lead">VR Sketch is an extension for SketchUp which gives anyone the ability to
+                        create,
+                        edit and view their models in VR.</p>
+                    <a class="btn btn-outline-primary btn-lg" href="https://extensions.sketchup.com/en/content/lightscape-vr-designer" role="button">Try for free</a>
+                    <a class="btn btn-primary btn-lg shadow" id="get-a-license" href="#pricing" role="button">Get a licence</a>
+                </div>
+                <div class="col-md mb-3">
+                    <div id="hero-images-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+                        <div class="carousel-inner shadow" id="js-carousel">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="img/slides/slide-1-600x337.jpg" alt="Drawing a city in virtual reality with VR Sketch">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-4">
+                <div class="col">
+                    <div id="testimonials-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="img/people/blank-60.png" class="img-fluid rounded-circle" alt="bank image">
+                                <blockquote><i class="fas fa-quote-left"></i>
+                                    Great work. I have experimented with many VR based design apps. This is the
+                                    best VR
+                                    design experience I’ve had.
+                                    <i class="fas fa-quote-right"></i></blockquote>
+                                <p class="text-muted">Jonah Hawk, Associate Partner, <a href="https://www.zgf.com/">ZGF
+                                        Architects</a></p>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/people/jarl-60.png" class="img-fluid rounded-circle" alt="Jarl">
+                                <blockquote><i class="fas fa-quote-left"></i>
+                                    VR Sketch is an amazingly efficient way to test our designs!
+                                    <i class="fas fa-quote-right"></i></blockquote>
+                                <p class="text-muted">Jarl Vindnaes - Co-Founder of
+                                    <a href="https://stykka.com" target="_blank">Stykka.com</a>
+                                </p>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/people/adam-wysocki-60.png" class="img-fluid rounded-circle" alt="Adam">
+                                <blockquote><i class="fas fa-quote-left"></i>
+                                    VR Sketch has revolutionized the conceptual part of our projects!
+                                    <i class="fas fa-quote-right"></i></blockquote>
+                                <p class="text-muted">
+                                    Adam Wysocki - Architect and Director of
+                                    <a href="http://studiodemateria.com/en" target="_blank">Studio De Materia</a>
+                                </p>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/people/blank-60.png" class="img-fluid rounded-circle" alt="blank">
+                                <blockquote><i class="fas fa-quote-left"></i>
+                                    Used VR Sketchup for my Design tech class. It's a great collaborative tool.
+                                    <i class="fas fa-quote-right"></i></blockquote>
+                                <p class="text-muted">Fadi Boutanos - High School teacher in Ontario</p>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/people/blank-60.png" class="img-fluid rounded-circle" alt="blank">
+                                <blockquote><i class="fas fa-quote-left"></i>
+                                    Wow this is incredible!
+                                    <i class="fas fa-quote-right"></i></blockquote>
+                                <p class="text-muted">DaveyDisc</p>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/people/jarl-60.png" class="img-fluid rounded-circle" class="rounded-circle" alt="Jarl">
+                                <blockquote><i class="fas fa-quote-left"></i>
+                                    VR sketch is now an integral part of our design process and customer review
+                                    process.
+                                    <i class="fas fa-quote-right"></i></blockquote>
+                                <p class="text-muted">
+                                    Jarl Vindnaes - Co-Founder of
+                                    <a href="https://stykka.com" target="_blank">Stykka.com</a>
+                                </p>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/people/adam-wysocki-60.png" class="img-fluid rounded-circle" alt="Adam">
+                                <blockquote><i class="fas fa-quote-left"></i>
+                                    The revolution in design is coming in seven mile steps!
+                                    <i class="fas fa-quote-right"></i></blockquote>
+                                <p class="text-muted">
+                                    Adam Wysocki - Architect and Director of
+                                    <a href="http://studiodemateria.com/en" class="img-fluid rounded-circle" target="_blank">Studio
+                                        De Materia</a>
+                                </p>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/people/jarl-60.png" class="img-fluid rounded-circle" alt="Jarl">
+                                <blockquote><i class="fas fa-quote-left"></i>
+                                    We were very surprised at how efficient it is and how much of a game changer
+                                    this
+                                    has been for us.
+                                    <i class="fas fa-quote-right"></i></blockquote>
+                                <p class="text-muted">
+                                    Jarl Vindnaes - Co-Founder of
+                                    <a href="https://stykka.com" target="_blank">Stykka.com</a>
+                                </p>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/people/adam-wysocki-60.png" class="img-fluid rounded-circle" alt="Adam">
+                                <blockquote><i class="fas fa-quote-left"></i>
+                                    VR Sketch is a very easy way to work on a model while having real control. It’s
+                                    akin to creating a life-size mockup.
+                                    <i class="fas fa-quote-right"></i></blockquote>
+                                <p class="text-muted">
+                                    Adam Wysocki - Architect and Director of
+                                    <a href="http://studiodemateria.com/en" target="_blank">Studio De Materia</a>
+                                </p>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/people/blank-60.png" class="img-fluid rounded-circle" alt="blank">
+                                <blockquote><i class="fas fa-quote-left"></i>
+                                    The extension worked flawlessly with Sketchup on the first try with my Vive.
+                                    <i class="fas fa-quote-right"></i></blockquote>
+                                <p class="text-muted">Goat D.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/people/blank-60.png" class="img-fluid rounded-circle" alt="blank">
+                                <blockquote><i class="fas fa-quote-left"></i>
+                                    This is really great! I love the way you can keep scaling way past 1:1.
+                                    <i class="fas fa-quote-right"></i></blockquote>
+                                <p class="text-muted">Alex B.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="features" class="bg-white text-dark pt-5">
+        <div class="container">
+            <h2 class="text-center">Features</h2>
+            <blockquote class="text-center text-muted mb-5">
+                <i class="fas fa-quote-left"></i>
+                VR Sketch gives designers the ability to communicate space clearly
+                allowing well informed decisions to made with instant feedback
+                <i class="fas fa-quote-right"></i></blockquote>
+            <div class="row">
+                <div class="col-sm pb-5">
+                    <h4 class="text-center">Draw in VR</h4>
+                    <img class="d-block mx-auto" src="img/icons/ico-design-150x150.png" alt="Draw in VR" width="150px" height="150px">
+                    <p class="text-center">Draw, drag, push-pull, multiply... create with your hands the way you
+                        would expect</p>
+                </div>
+                <div class="col-sm pb-5">
+                    <h4 class="text-center">Integrated</h4>
+                    <img class="d-block mx-auto" src="img/icons/ico-flow-150x150.png" alt="Live-link" width="150px" height="150px">
+                    <p class="text-center">Fits into your current work flow. No importing, no exporting</p>
+                </div>
+                <div class="col-sm pb-5">
+                    <h4 class="text-center">Real-time-sync</h4>
+                    <img class="d-block mx-auto" src="img/icons/ico-link-150x150.png" alt="Present" width="150px" height="150px">
+                    <p class="text-center">Update VR from SketchUp and SketchUp from inside VR in real time</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm pb-5">
+                    <h4 class="text-center">Compatible</h4>
+                    <img class="d-block mx-auto" src="img/icons/ico-headsets-150x150.png" alt="Draw in VR" width="150px" height="150px">
+                    <p class="text-center">Works with both the Oculus Rift and HTC Vive</p>
+                </div>
+                <div class="col-sm pb-5">
+                    <h4 class="text-center">Present in VR</h4>
+                    <img class="d-block mx-auto" src="img/icons/ico-present-150x150.png" alt="Live-link" width="150px" height="150px">
+                    <p class="text-center">Easily show others your designs with built in navigation helper tools</p>
+                </div>
+                <div class="col-sm pb-5">
+                    <h4 class="text-center">Multi-user</h4>
+                    <img class="d-block mx-auto" src="img/icons/ico-multi-150x150.png" alt="Present" width="150px" height="150px">
+                    <p class="text-center">Have multiple people work in the same file at once</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="subscribe" class="bg-white text-dark pb-5">
+        <div class="container">
+            <!--mc_embed_signup-->
+            <a name="mailinglist">
+                <div id="mc_embed_signup">
+                    <form action="https://vrsketch.us17.list-manage.com/subscribe/post?u=10998a87051e51823e657d167&amp;id=0c08f3f681" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <h4 id="mce-EMAIL" for="mce-EMAIL">Subscribe to our mailing list:</h4>
+                        <div class="subscribe">
+                            <input type="email" id="email-input" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Add your email address here...">
+                            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">
+                        </div>
+                        <div id="mce-responses">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>
+                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                            <input type="text" name="b_10998a87051e51823e657d167_0c08f3f681" tabindex="-1" value="">
+                        </div>
+                    </form>
+                </div>
+            </a>
+            <!--End mc_embed_signup-->
+        </div>
+    </section>
+
+    <section id="video" class="bg-light text-light py-5">
+        <div class="container">
+            <div class="youtube-player embed-responsive embed-responsive-16by9 shadow" data-embed="FyLR_Cmze2Y">
+                <i class="fab fa-youtube youtube-play-btn"></i>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="bg-white text-dark py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Licenses</h2>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="non-commercial rounded p-4 text-center shadow">
+                        <h3>Non-commercial</h3>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="title">Student</div>
+                                <div class="price">Free</div>
+                                <div class="pb-3">For student and educators</div>
+                                <button type="button" class="btn btn-lg btn-block btn-outline-primary my-4" data-toggle="modal" data-target="#edu-modal" onclick="showEduModal()">Choose Student</button>
+                            </div>
+                            <div class="col-sm">
+                                <div class="title">Hobbyist</div>
+                                <div class="price">5<small class="text-muted">€ / mo</small></div>
+                                <div class="pb-3">For non-commercial use</div>
+                                <button type="button" class="btn btn-lg btn-block btn-outline-primary my-4" data-toggle="modal" data-target="#hobbyist-modal" onclick="showHobbyistModal()">Choose Hobbyist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="commercial rounded p-4 text-center shadow-lg">
+                        <h3>Commercial</h3>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="title">Standard</div>
+                                <div class="price">30<small class="text-muted">€ / mo</small></div>
+                                <div>For commercial use<br> Monthly or annual subscription</div>
+                                <button type="button" class="btn btn-lg btn-block btn-primary my-4" data-toggle="modal" data-target="#billing-period-choice-modal" onclick="order_regular()">Choose Standard</button>
+                            </div>
+                            <div class="col-sm">
+                                <div class="col-sm">
+                                    <div class="title">Enterprise</div>
+                                    <div class="price">100<small class="text-muted">€ / mo</small></div>
+                                    <div>Add custom made features and priority support</div>
+                                    <button type="button" class="btn btn-lg btn-block btn-outline-primary my-4" data-toggle="modal" data-target="#enterprise-modal" onclick="showEnterpriseModal()">Choose Enterprise</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="text-center text-muted mt-5">
+                If you have any questions please free to visit our <a href="faqs.html">FAQ</a> section or mail us at: <a href="mailto:info@baroquesoftware.com">info@baroquesoftware.com</a>
+            </p>
+        </div>
+    </section>
+
+    <section id="gallery" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center">Gallery</h2>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="youtube-player embed-responsive embed-responsive-16by9 shadow" data-embed="oEqkljJ1lvo">
+                        <i class="fab fa-youtube youtube-play-btn"></i>
+                    </div>
+                    <p class="text-center">Drawing a coffee table in VR Sketch</p>
+                </div>
+                <div class="col-sm">
+                    <div class="youtube-player embed-responsive embed-responsive-16by9 shadow" data-embed="UeFDodQSkMQ">
+                        <i class="fab fa-youtube youtube-play-btn"></i>
+                    </div>
+                    <p class="text-center">Drawing a Penthouse in VR Sketch</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="youtube-player embed-responsive embed-responsive-16by9 shadow" data-embed="il-h82c8-fE">
+                        <i class="fab fa-youtube youtube-play-btn"></i>
+                    </div>
+                    <p class="text-center">Drawing in VR</p>
+                </div>
+                <div class="col-sm">
+                    <div class="youtube-player embed-responsive embed-responsive-16by9 shadow" data-embed="mtSg9u-YzFQ">
+                        <i class="fab fa-youtube youtube-play-btn"></i>
+                    </div>
+                    <p class="text-center">Live-Sync SketchUp to VR and back again</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="learn" class="bg-white text-dark py-5">
+        <div class="container">
+            <h2 class="text-center">Learning Resources</h2>
+
+            <div class="card-deck mb-3 text-center">
+
+                <div class="card">
+                    <div class="card-body d-flex flex-column shadow-sm">
+                        <i class="far fa-newspaper"></i>
+
+                        <p class="card-text">Watch a range of helpful video tutorials to help you with common tasks</p>
+                        <a href="tutorials.html" class="btn btn-outline-primary btn-block mt-auto">Tutorials</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body d-flex flex-column shadow-sm">
+                        <i class="far fa-comments"></i>
+
+                        <p class="card-text">Find answers to common questions</p>
+                        <a href="faqs.html" class="btn btn-outline-primary btn-block mt-auto">FAQ's</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body d-flex flex-column shadow-sm">
+                        <i class="far fa-copy"></i>
+
+                        <p class="card-text">Instructions on how to download and install as well as detailed
+                            descriptions of how to use
+                            each tool</p>
+                        <a href="docs-getting-started.html" class="btn btn-outline-primary btn-block mt-auto">Documentation</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Modals -->
+    <div id="user-modal" class="modal" tabindex="-1" role="document">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><span id="user-modal-user">My subscriptions</span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="user-modal-body" class="modal-body">
+                    <user-details v-bind:licenses="licenses" v-bind:licenses_loaded="licenses_loaded" v-bind:no_license="no_license">
+                    </user-details>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="user-modal-close" class="btn btn-secondary" onclick="$('user-modal').hide()" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="edu-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Educational license details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="edu-modal-error" class="alert-danger"></div>
+                    <p>
+                        We give away educational licenses for free to students and educators. Please
+                        fill in the necessary details.
+                    </p>
+                    <form target="#" class="pt-3">
+                        <div class="form-check pb-3">
+                            <input type="checkbox" id="edu-check" class="form-check-input">
+                            <label for="edu-check" class="form-check-label ml-3">I agree that I will use the educational license for educational purposes only</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="edu-institution">Institution</label>
+                            <input type="text" id="edu-institution" class="form-control" placeholder="Delft University of Technology">
+                        </div>
+                        <div class="form-group">
+                            <label for="edu-role">Year of graduation</label>
+                            <input type="text" id="edu-role" class="form-control" placeholder="2019">
+                        </div>
+                        <div class="form-group">
+                            <label for="edu-purpose">Type of program</label>
+                            <input type="text" id="edu-purpose" class="form-control" placeholder="MSc Architecture, Urbanism and Building Sciences">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="edu-subscribe-button" class="btn btn-primary" onclick="checkEduAndOrder()">Submit
+                        and subscribe</button>
+                    <button type="button" class="btn btn-second" onclick="$('edu-modal').modal('hide')" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="billing-period-choice-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Choose your billing period</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card-deck">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Monthly</h5>
+                                <p class="card-text"><strong>€30</strong> <span class="text-muted"> per month (+VAT)</span></p>
+                                <p class="card-text"><small class="text-muted">billed monthly</small></p>
+                                <button type="button" class="btn btn-primary" onclick="order_regular_monthly()">Monthly</button>
+                            </div>
+                        </div>
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Annually</h5>
+                                <p class="card-text"><strong>€330</strong> <span class="text-muted"> per year (+VAT)</span></p>
+                                <p class="card-text"><small class="text-muted">billed annually</small></p>
+                                <button type="button" class="btn btn-primary" onclick="order_regular_yearly()">Annually</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-second" onclick="$('billing-period-choice-modal').hide()" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="hobbyist-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Hobbyist license details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Hobbyist license is for users who are not using VR Sketch
+                        in professional capacity.
+                    </p>
+                    <p>Do you agree to those conditions?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="order_hobbyist()">Agree</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="enterprise-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Enterprise license details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        The Enterprise licence features:
+                    </p>
+                    <ul>
+                        <li>Priority support</li>
+                        <li>Custom 3D environments</li>
+                        <li>Custom branded splash screen</li>
+                    </ul>
+
+                    <div class="card-deck">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Monthly</h5>
+                                <p class="card-text"><strong>€100</strong> <span class="text-muted"> per month (+VAT)</span></p>
+                                <p class="card-text"><small class="text-muted">billed monthly</small></p>
+                                <button type="button" class="btn btn-primary" onclick="order_enterprise_monthly()">Monthly</button>
+                            </div>
+                        </div>
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Annually</h5>
+                                <p class="card-text"><strong>€1100</strong> <span class="text-muted"> per year (+VAT)</span></p>
+                                <p class="card-text"><small class="text-muted">billed annually</small></p>
+                                <button type="button" class="btn btn-primary" onclick="order_enterprise_yearly()">Annually</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="$('enterprise-modal').modal('hide')" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/x-template" id="user-details">
+<div>
+    <div v-if="!licenses_loaded" class="mb-3">
+        Loading license info... <i class="fa fa-spin fa-spinner"></i>        
+    </div>
+    <div v-else>
+     <div v-if="no_license">
+         No license present, please sign up for one
+     </div>
+     <div v-else>
+        <button onclick="manage_subscriptions()" class="btn btn-primary mb-3">Manage subscriptions, invoices and payment details</button>
+        <div class="container" v-for="license in licenses">
+            <div class="row mb-3">
+                Found valid {{ license.license_type }}
+                <span v-if="license.quantity != 1">
+                   You are allowed to use this license for at most {{ license.quantity }} different computers at any given time
+                </span>
+            </div>
+            <div class="row mb-3">
+                Next charge at {{ license.ends_at }}, {{ license.deleted }} License key to copy-paste:<br>
+                <span class="subscription_id">{{ license.license_id }}</span>
+            </div>
+        </div>
+    </div>
+   </div>
+</div>
+</script>
+
+{% endraw %}
+{% endblock main_content %}
+
+{% block js_imports %}
+<script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="{{ chargebee_site }}"></script>
+<script src="js/libraries/vue.js"></script>
+<script src="js/global.js"></script>
+<script src="js/index.js"></script>
+<!-- Stats -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43265909-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-43265909-2');
+    </script>
+    -->
+{% endblock js_imports %}

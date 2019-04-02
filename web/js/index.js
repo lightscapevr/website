@@ -1,6 +1,4 @@
-var auth2 = null;
 var connection;
-var state = null;
 
 function hide_error() {
     $("#error").html("");
@@ -8,20 +6,13 @@ function hide_error() {
 
 function show_error(err) {
     if (err && err.error == 'wamp.error.runtime_error' && err.args[0].startsWith('Token expired')) {
-        signout();
+        vueAppApi.logout();
         return;
     }
     Sentry.captureMessage(err);
     $("#error").html("Error encountered <span onclick='hide_error()'>&times;</span>");
+    console.trace();
     console.log(JSON.stringify(err, undefined, 2));
-}
-
-function State(auth_token, fullname, email) {
-    this.auth_token = auth_token;
-    this.fullname = fullname;
-    this.email = email;
-    this.callLater = null;
-    return this;
 }
 
 var FORMAT = "DD MMMM YYYY";
@@ -31,7 +22,6 @@ function formatDate(tstamp) {
 }
 
 function showManageButtons() {
-    $("#manage-subscription-section").show();
     $("#pricing").hide();
     $("#get-a-license").attr("onclick", "showLicenseModal(); return false;");
     $("#get-a-license").html("Manage licenses");
@@ -39,14 +29,13 @@ function showManageButtons() {
 
 function showPricingInfo() {
     $("#pricing").show();
-    $("#manage-subscription-section").hide();
     $("#get-a-license").attr("onclick", "return true;");
     $("#get-a-license").html("Get a License");
 }
 
 function getUserInfo() {
-    connection.session.call('com.user.get_info', [state.auth_token,
-    state.fullname, state.email]).then(function (r) {
+    connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
+    vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
         if (r.subscriptions) {
             showManageButtons();
         }
@@ -54,93 +43,49 @@ function getUserInfo() {
         show_error);
 }
 
-function onSignedIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    // The ID token you need to pass to your backend:
-    var id_token = googleUser.getAuthResponse().id_token;
+function on_sign_in(cu) {
+    vueAppApi.log_in(cu.getBasicProfile().getName(), cu.getBasicProfile().getEmail(),
+        cu.getAuthResponse().id_token);
 
-    var name = profile.getName();
-    $("#login-bar").replaceWith($("#login-bar").clone()); // remove event listeners
-    state = new State(id_token, name, profile.getEmail());
-    connectModalAndTrigger("user-modal", "login-bar", showLicenseModal);
-    if (connection.session.isOpen) {
-        getUserInfo();
-    } else {
-        state.callLater = getUserInfo;
-    }
-    $("#user-modal-user").text("Logged in as " + name);
-    $("#login-contents").text(name);
+    $("#login-button").replaceWith($("#login-button").clone()); // remove event listeners
+    getUserInfo();
 }
 
 function showLicenseModal() {
-    $("#user-modal")[0].style.display = "block";
-    showLicenses();
-}
-
-function showLicenses() {
-    connection.session.call('com.user.get_info', [state.auth_token,
-    state.fullname, state.email]).then(function (r) {
-        if (!r.result) {
-            $("#user-modal-body").html("No license present, please sign up for one");
-        } else {
-            r.number = r.subscriptions.length;
-            for (var i in r.subscriptions) {
-                var sub = r.subscriptions[i];
-                if (sub.license_type == 'vr-sketch-hobbyist')
-                    sub.license_type = "hobbyist";
-                else if (sub.license_type == 'vr-sketch' ||
-                    sub.license_type == "vr-sketch-2" ||
-                    sub.license_type == "vr-sketch-yearly")
-                    sub.license_type = "";
-                else
-                    sub.license_type = "educational, automatically renewed";
-
-                sub.ends_at = formatDate(sub.ends_at);
-                if (sub.deleted) {
-                    sub.deleted = "cancelled";
-                } else {
-                    sub.deleted = "";
-                }
-            }
-            nunjucks.render('templates/subscriptions.html', r, function (err, html) {
-                if (err) {
-                    show_error(err);
-                } else {
-                    $("#user-modal-body").html(html);
-                }
-            });
-        }
-    }, show_error);
+    $("#user-modal").modal('show');
+    vueAppApi.show_licenses();
 }
 
 function logInIfNotLoggedIn(continuation) {
+    let auth2 = gapi.auth2.getAuthInstance();
     if (auth2.currentUser.get().isSignedIn())
         return true;
     // show the log in dialog
-    gapi.auth2.getAuthInstance().signIn().then(function (googleUser) {
-        onSignedIn(googleUser);
+    auth2.signIn().then(function (googleUser) {
+        on_sign_in(googleUser);
         continuation();
     });
+    return false;
 }
 
 function createHostedPage(plan) {
     // first check if user does not have a plan already
-    connection.session.call('com.user.get_info', [state.auth_token,
-    state.fullname, state.email]).then(function (r) {
+    connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
+    vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
         if (r.subscriptions) {
             showManageButtons();
         } else {
             var cbinst = Chargebee.getInstance();
             cbinst.openCheckout({
                 hostedPage: function () {
-                    return connection.session.call('com.hostedpage', [state.auth_token,
-                    state.fullname, state.email, plan]);
+                    return connection.session.call('com.hostedpage', [vueAppApi.get_auth_token(),
+                    vueAppApi.get_name(), vueAppApi.get_email(), plan]);
                 },
                 success: function (hostedPageId) {
                     connection.session.call('com.user.successful_payment',
-                        [state.auth_token, hostedPageId]).then(function (r) {
-                            $("#user-modal").show();
-                            showLicenses();
+                        [vueAppApi.get_auth_token(), hostedPageId]).then(function (r) {
+                            $("#user-modal").modal('show');
+                            vueAppApi.show_licenses();
                             getUserInfo();
                         }, show_error);
                 },
@@ -157,31 +102,46 @@ function order_regular() {
 }
 
 function order_regular_monthly() {
-    $("#billing-period-choice-modal").hide();
+    $("#billing-period-choice-modal").modal('hide');
     createHostedPage('vr-sketch-2');
 }
 
 function order_regular_yearly() {
-    $("#billing-period-choice-modal").hide();
+    $("#billing-period-choice-modal").modal('hide');
     createHostedPage("vr-sketch-yearly");
 }
 
+function order_enterprise_monthly() {
+    $("#enterprise-modal").modal('hide');
+    createHostedPage('vr-sketch-enterprise');
+}
+
+function order_enterprise_yearly() {
+    $("#enterprise-modal").modal('hide');
+    createHostedPage("vr-sketch-enterprise-annual");
+}
 
 function showEduModal() {
     if (!logInIfNotLoggedIn(showEduModal))
         return;
-    $("#edu-modal")[0].style.display = "block";
+    $("#edu-modal").show();
 }
 
 function order_hobbyist() {
-    $("#hobbyist-modal")[0].style.display = "";
+    $("#hobbyist-modal").modal('hide');
     createHostedPage('vr-sketch-hobbyist');
 }
 
 function showHobbyistModal() {
     if (!logInIfNotLoggedIn(showHobbyistModal))
         return;
-    $("#hobbyist-modal")[0].style.display = "block";
+    $("#hobbyist-modal").show();
+}
+
+function showEnterpriseModal() {
+    if (!logInIfNotLoggedIn(showEnterpriseModal))
+        return;
+    $("#enterprise-modal").show();
 }
 
 function checkEduAndOrder() {
@@ -192,22 +152,25 @@ function checkEduAndOrder() {
         $("#edu-modal-error").html("please check the checkbox");
         return;
     }
-    connection.session.call('com.register_edu', [state.auth_token, state.fullname, state.email,
+    $("#edu-subscribe-button").attr("disabled", "disabled");
+    connection.session.call('com.register_edu', [vueAppApi.get_auth_token(),
+    vueAppApi.get_name(), vueAppApi.get_email(),
     $("#edu-purpose").val(), $("#edu-role").val(), $("#edu-institution").val()]).then(function (r) {
-        $("#edu-modal").hide();
+        $("#edu-modal").modal('hide');
+        $("#edu-subscribe-button").attr("disabled", null);
         if (r.success) {
             showLicenseModal();
             getUserInfo();
         }
         else
-            show_error();
+            show_error(r.error);
     }, show_error);
 }
 
 function manage_subscriptions() {
     cbinst = Chargebee.getInstance();
     cbinst.setPortalSession(function () {
-        return connection.session.call('com.portalsession', [state.auth_token]).then(
+        return connection.session.call('com.portalsession', [vueAppApi.get_auth_token()]).then(
             function (r) {
                 if (!r.success)
                     show_error(r.error);
@@ -216,146 +179,188 @@ function manage_subscriptions() {
     });
     cbinst.createChargebeePortal().open({
         close: function () {
-            connection.session.call('com.user.update_info', [state.auth_token]).then(
+            connection.session.call('com.user.update_info', [vueAppApi.get_auth_token()]).then(
                 function (res) {
                     if (!res.success)
                         show_error(res.error)
                     else
-                        showLicenses();
+                        vueAppApi.show_licenses();
                 }, show_error);
         }
     });
 }
 
-$(document).ready(function () {
-    var wsuri;
-    if (document.location.origin == "file://") {
-        wsuri = "ws://127.0.0.1:8080/ws";
+var vueAppApi = {};
+(function (public_api) {
+    'use strict';
 
-    } else {
-        wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
-            document.location.host + "/ws";
+    Vue.component('user-details', {
+        // Area to display user licenses
+        props: ['licenses', 'licenses_loaded', 'no_license'],
+        template: '#user-details'
+    })
+
+    var app = new Vue({
+        el: "#index-app",
+        data: {
+            logged_in: false,
+            name: null,
+            email: null,
+            token: null,
+            licenses_loaded: false,
+            no_license: false,
+            licenses: [],
+        },
+        methods: {}
+    });
+
+    public_api.log_in = function (name, email, token) {
+        app.logged_in = true;
+        app.token = token;
+        app.name = name;
+        app.email = email;
+        $("#login-button").text(name);
+        $("#login-button").addClass("dropdown-toggle");
+        $("#login-button").attr("data-toggle", "dropdown");
+    };
+
+    public_api.get_auth_token = function () { return app.token; };
+    public_api.get_name = function () { return app.name; };
+    public_api.get_email = function () { return app.email; };
+
+    public_api.show_licenses = function (arg) {
+        connection.session.call('com.user.get_info', [app.token, app.name, app.email]).then(
+            function (r) {
+                app.licenses_loaded = true;
+                if (!r.result) {
+                    app.no_license = true;
+                    app.licenses = [];
+                    return;
+                }
+                app.no_license = false;
+                let licenses = [];
+                for (var i = 0; i < r.subscriptions.length; i++) {
+                    let sub = r.subscriptions[i];
+                    let d = {
+                        deleted: sub.deleted ? "deleted" : "",
+                        quantity: sub.quantity,
+                        license_id: sub.license_id,
+                        ends_at: formatDate(sub.ends_at)
+                    }
+                    if (sub.license_type == 'vr-sketch-hobbyist')
+                        d.license_type = "hobbyist";
+                    else if (sub.license_type == 'vr-sketch' ||
+                        d.license_type == "vr-sketch-2" ||
+                        d.license_type == "vr-sketch-yearly")
+                        d.license_type = "";
+                    else
+                        d.license_type = "educational, automatically renewed";
+                    licenses.push(d);
+                }
+                app.licenses = licenses;
+            }, show_error);
+    };
+
+    public_api.logout = function () {
+        app.logged_in = false;
+        app.token = null;
+        $("#login-button").text("Log in");
+        $("#login-button").removeClass("dropdown-toggle");
+        $("#login-button").attr("data-toggle", null);
+        $("#login-dropdown").hide();
+        let auth2 = gapi.auth2.getAuthInstance();
+        auth2.attachClickHandler($("#login-button")[0], { ux_mode: 'redirect' },
+            on_sign_in, show_error);
+        auth2.signOut();
+        showPricingInfo();
     }
+
+})(vueAppApi);
+
+$(document).ready(function () {
+    let wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
+        document.location.host + "/ws";
     connection = new autobahn.Connection({
         url: wsuri,
         realm: "vrsketch",
         max_retries: -1,
         max_retry_delay: 3,
-        auto_ping_interval: 10.0
     });
     connection.onopen = function (session, details) {
-        if (state && state.callLater) {
-            state.callLater();
+        gapi.load('auth2', function () {
+            // Retrieve the singleton for the GoogleAuth library and set up the client.
+            let auth2 = gapi.auth2.init({
+                client_id: GOOGLE_CLIENT_TOKEN_ID,
+                cookiepolicy: 'single_host_origin',
+
+                // Request scopes in addition to 'profile' and 'email'
+                //scope: 'additional_scope'
+            });
+
+            auth2.then(function () {
+                if (auth2.isSignedIn.get()) {
+                    on_sign_in(auth2.currentUser.get());
+                } else {
+                    auth2.attachClickHandler($("#login-button")[0],
+                        { ux_mode: 'redirect' }, on_sign_in,
+                        show_error);
+                }
+
+            }, show_error);
+        });
+        /* autoping functionality not implemented */
+        function ping_server() {
+            connection.session.call('com.ping', []);
+            setTimeout(ping_server, 10000);
         }
+
+        ping_server();
+
     }
     connection.open();
 
-    gapi.load('auth2', function () {
-        // Retrieve the singleton for the GoogleAuth library and set up the client.
-        auth2 = gapi.auth2.init({
-            client_id: '1076106158582-vekr6opr52b6i8eeu3cc8si7828hisgj.apps.googleusercontent.com',
-            cookiepolicy: 'single_host_origin',
-            // Request scopes in addition to 'profile' and 'email'
-            //scope: 'additional_scope'
-        });
+    var cbinst = Chargebee.init({ site: CHARGEBEE_SITE });
 
-        auth2.then(function () {
-            if (auth2.isSignedIn.get()) {
-                onSignedIn(auth2.currentUser.get());
-            } else {
-                auth2.attachClickHandler($("#login-bar")[0], {}, onSignedIn,
-                    show_error);
-            }
-
-        }, show_error);
-    });
-    let modal = $("#user-modal")[0];
-    $("#user-modal-close").click(function () { modal.style.display = "none"; });
-    connectModalAndTrigger("hobbyist-modal", null, null);
-    connectModalAndTrigger("edu-modal", null, null);
-    connectModalAndTrigger("billing-period-choice-modal", null, null);
-
-
-    // index testimonial fade scroll logic
-    let slideIndex = 0;
-    cycle_slides();
-    function cycle_slides() {
-        let slide_array = document.getElementsByClassName("slide");
-
-        for (let i = 0; i < slide_array.length; i++) {
-            slide_array[i].classList.add("slide-off");
-            slide_array[i].classList.remove("slide-on");
-        }
-
-        slideIndex++;
-        if (slideIndex > slide_array.length) { slideIndex = 1 }
-        slide_array[slideIndex - 1].classList.remove("slide-off");
-        slide_array[slideIndex - 1].classList.add("slide-on");
-
-        setTimeout(cycle_slides, 6000); //time interval must match css
-    }
-
-    // FAQ Logic
-    let accordions = document.getElementsByClassName("accordion");
-    if (accordions != undefined && accordions.length > 0) {
-        for (let i = 0; i < accordions.length; i++) {
-            accordions[i].addEventListener("click", function () {
-                this.classList.toggle("accordion-active");
-                let panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                }
-            });
-        }
-    }
-
-    var cbinst = Chargebee.init({site: 'baroquesoftware'});
-    nunjucks.configure({'web': {'async': true}});
-
-    Sentry.init({ dsn: 'https://38c4d64c82484e57b0199aef2d2e83cf@sentry.io/1306011' });
 });
 
-function signout() {
-    auth2.signOut().then(function () {
-        $("#user-modal-user").text("not logged in");
-        $("#login-contents").text("Log in");
-        $("#login-bar").replaceWith($("#login-bar").clone()); // remove event listeners
-        auth2.attachClickHandler($("#login-bar")[0], {}, onSignedIn,
-            show_error);
-        let modal = $("#user-modal")[0];
-        modal.style.display = "none";
-        showPricingInfo();
-    });
-}
+// Load youtube videos
+$(document).ready(function () {
+    var video_players = $('.youtube-player');
 
+    // Add onlick event
+    video_players.click(function () {
+        var id = $(this).attr('data-embed');
+        var vid = '<iframe src="//www.youtube.com/embed/' + id + '?showinfo=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
+        $(this).append(vid);
+        $(this).children('.youtube-play-btn').remove();
+    })
 
-window.addEventListener("DOMContentLoaded", function () {
-    // Hero slide show
-    let heroImg = document.getElementById("hero-img");
-    let timeInterval = 3000; //milliseconds
-
-    let imagePaths = new Array();
-    for (let i = 1; i <= 9; i++) {
-        imagePaths.push("img/slides/slide-" + i + "-600x337.jpg");
-    }
-
-    let imageIndex = 0;
-
-    setInterval(function () {
-        imageIndex++;
-        if (imageIndex >= imagePaths.length) {
-            imageIndex = 0;
-            //Use cached image if already downloaded?
+    // Add cover images
+    video_players.each(function () {
+        var id = $(this).attr('data-embed');
+        if ($(this)[0].offsetWidth > 540) {
+            $(this).css('background-image', 'url("https://img.youtube.com/vi/' + id + '/maxresdefault.jpg")');
+        } else {
+            $(this).css('background-image', 'url("https://img.youtube.com/vi/' + id + '/0.jpg")');
         }
-        let downloadedImg = new Image();
-        // Once the new image is downloaded, set the heroImg src to the new image
-        downloadedImg.addEventListener("load", function () {
-            heroImg.src = this.src;
-        });
-        // Start downloading the new image
-        downloadedImg.setAttribute("src", imagePaths[imageIndex])
-    }, timeInterval);
+    });
 });
 
+// Delay add images to carrousel
+$(document).ready(function () {
+    var images = [
+        { src: "img/slides/slide-2-600x337.jpg", alt: "Drawing a building in virtual reality with VR Sketch" },
+        { src: "img/slides/slide-10-600x337.jpg", alt: "Multiple people working together in virtual reality with VR Sketch" },
+        { src: "img/slides/slide-3-600x337.jpg", alt: "Creating in virtual reality with VR Sketch" },
+        { src: "img/slides/slide-11-600x337.jpg", alt: "Control scenes and layer from inside virtual reality with VR Sketch" },
+        { src: "img/slides/slide-5-600x337.jpg", alt: "Teleport navigation in virtual reality with VR Sketch" },
+        { src: "img/slides/slide-7-600x337.jpg", alt: "Selecting tools in virtual reality with VR Sketch" },
+        { src: "img/slides/slide-8-600x337.jpg", alt: "Drawing architecture in virtual reality with VR Sketch" },
+        { src: "img/slides/slide-9-600x337.jpg", alt: "Visiting famous buildings in virtual reality with VR Sketch" },
+        { src: "img/slides/slide-12-600x337.jpg", alt: "Using the Laser Selecting tool in VR Sketch" }
+    ]
+    var carrousel = $('#js-carousel');
+    for (var i = 0; i < images.length; i++) {
+        carrousel.append('<div class="carousel-item"><img class="d-block w-100" src="' + images[i].src + '" alt="' + images[i].alt + '"></div>')
+    }
+});

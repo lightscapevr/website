@@ -1,0 +1,20 @@
+// ---------------------------------- YouTube ---------------------------------- //
+
+.youtube-player{
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+    background-size:     cover;                     
+    background-repeat:   no-repeat;
+    background-position: center center; 
+
+    .youtube-play-btn{
+        color: #ffffff;
+        text-shadow: 0 0 10px #3b3b3b;
+        font-size: 72px; 
+        margin: -33px 0 0 -31px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 999;
+    }
+}

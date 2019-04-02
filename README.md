@@ -1,17 +1,36 @@
-# VR Sketch Website
+# VR Sketch Website version 3
+
+## Branches
+* master - Automatically updates the test site at "https://test.vrsketch.eu/"
+* prod - Automatically updates the main site at "https://vrsketch.eu/"
+
+
+### Dependencies
+* Jinja2 http://jinja.pocoo.org/docs/2.10/
+* libsass https://sass.github.io/libsass-python/
 
 ### Folders
-Working files go in "resources/"
-Public files go in "web/"
-Sources for the text go in "src/"
+'/markdown' = Where all markdown file go. It will be converted to html and placed in '/templates/generated'.
+'/scss' = The source files for sass that then get compiled into '/web/css'
+'/scss/bootstrap-scss' = Bootstrap source files that our custom 'styles.scss' imports from
+'/templates' = Where all html template files go before the are rendered and placed in '/web'.
+'/templates/generated' = Only auto-generated files go here. They are the converted markdown files.
+'/templates/layouts' = Where the layouts the the other template inherit from go.
+'/templates/partials' = Where elements that will be 'included' go.
+'/web' = All css,img,js files. This is the public folder
 
-### update_website.py
-This script is called when we commit to the master branch.
-It compiles selected files from "src/" to "web/"
+### build.py
+1. Concerts all markdown files in '/markdown' into html in '/templates/generated'
+2. Renders all templates from '/templates' and placed them in '/web'
+3. Compiles '/sass/styles.scss' into '/web/css/styles.css'
 
-### src/template.html
-This is the example template layout to copy/paste from. (one day we will use a real templating engine)
+### Dev server
+While in the "web" directory:
+```bash
+python -m SimpleHTTPServer 8080 index.html        
+```
 
-### src/documentation.html
-This is the *template*.  The update_website script reads it together with
-src/documentation.md, and emits web/documentation.html.
+### Build
+```bash
+python build.py --test       
+```
