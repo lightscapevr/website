@@ -1,4 +1,5 @@
 var connection;
+var PENDING = null
 
 function hide_error() {
     $("#error").html("");
@@ -58,7 +59,7 @@ function showLicenseModal() {
 
 function logInIfNotLoggedIn(continuation) {
     // gapi.auth might not be loaded by the time a user calls this function
-    // if no gapi.auth2 yet then store this function in gapi.pending which will be called when gapi is loaded
+    // if no gapi.auth2 yet then store this function in PENDING which will be called when gapi is loaded
     if (gapi.auth2) {
         let auth2 = gapi.auth2.getAuthInstance();
         if (auth2.currentUser.get().isSignedIn())
@@ -69,7 +70,7 @@ function logInIfNotLoggedIn(continuation) {
             continuation();
         });
     } else {
-        gapi.pending = function () {
+        PENDING = function () {
             logInIfNotLoggedIn(continuation);
         }
     }
@@ -270,17 +271,23 @@ var vueAppApi = {};
     };
 
     public_api.logout = function () {
-        app.logged_in = false;
-        app.token = null;
-        $("#login-button").text("Log in");
-        $("#login-button").removeClass("dropdown-toggle");
-        $("#login-button").attr("data-toggle", null);
-        $("#login-dropdown").hide();
-        let auth2 = gapi.auth2.getAuthInstance();
-        auth2.attachClickHandler($("#login-button")[0], { ux_mode: 'redirect' },
-            on_sign_in, show_error);
-        auth2.signOut();
-        showPricingInfo();
+        if (gapi.auth2) {
+            app.logged_in = false;
+            app.token = null;
+            $("#login-button").text("Log in");
+            $("#login-button").removeClass("dropdown-toggle");
+            $("#login-button").attr("data-toggle", null);
+            $("#login-dropdown").hide();
+            let auth2 = gapi.auth2.getAuthInstance();
+            auth2.attachClickHandler($("#login-button")[0], { ux_mode: 'redirect' },
+                on_sign_in, show_error);
+            auth2.signOut();
+            showPricingInfo();
+        } else {
+            PENDING = function () {
+                public_api.logout()
+            }
+        }
     }
 
 })(vueAppApi);
@@ -306,8 +313,9 @@ $(document).ready(function () {
             });
 
             // If there is a pending function, call it
-            if (gapi.pending) {
-                gapi.pending();
+            if (PENDING) {
+                PENDING();
+                PENDING = null;
             }
 
             auth2.then(function () {
