@@ -57,14 +57,22 @@ function showLicenseModal() {
 }
 
 function logInIfNotLoggedIn(continuation) {
-    let auth2 = gapi.auth2.getAuthInstance();
-    if (auth2.currentUser.get().isSignedIn())
-        return true;
-    // show the log in dialog
-    auth2.signIn().then(function (googleUser) {
-        on_sign_in(googleUser);
-        continuation();
-    });
+    // gapi.auth might not be loaded by the time a user calls this function
+    // if no gapi.auth2 yet then store this function in gapi.pending which will be called when gapi is loaded
+    if (gapi.auth2) {
+        let auth2 = gapi.auth2.getAuthInstance();
+        if (auth2.currentUser.get().isSignedIn())
+            return true;
+        // show the log in dialog
+        auth2.signIn().then(function (googleUser) {
+            on_sign_in(googleUser);
+            continuation();
+        });
+    } else {
+        gapi.pending = function () {
+            logInIfNotLoggedIn(continuation);
+        }
+    }
     return false;
 }
 
@@ -296,6 +304,11 @@ $(document).ready(function () {
                 // Request scopes in addition to 'profile' and 'email'
                 //scope: 'additional_scope'
             });
+
+            // If there is a pending function, call it
+            if (gapi.pending) {
+                gapi.pending();
+            }
 
             auth2.then(function () {
                 if (auth2.isSignedIn.get()) {
