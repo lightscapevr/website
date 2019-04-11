@@ -362,13 +362,17 @@ $(document).ready(function () {
                 //scope: 'additional_scope'
             });
 
-            if (auth2.isSignedIn.get()) {
-                on_sign_in(auth2.currentUser.get());
-            } else {
-                auth2.attachClickHandler($("#login-button")[0],
-                    { ux_mode: 'redirect' }, on_sign_in,
-                    show_error);
-            }
+            auth2.then(function () {
+                console.log('auth2.then')
+                console.trace()
+                if (auth2.isSignedIn.get()) {
+                    on_sign_in(auth2.currentUser.get());
+                } else {
+                    auth2.attachClickHandler($("#login-button")[0],
+                        { ux_mode: 'redirect' }, on_sign_in,
+                        show_error);
+                }
+            }, show_error);
 
             // If there is a pending function, call it
             if (PENDING) {
