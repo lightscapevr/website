@@ -45,16 +45,19 @@ function getUserInfo() {
 }
 
 function log_in_button() {
-    $("#login-button").html('Log in&nbsp;<i class="fa fa-spin fa-spinner">');
-    PENDING = function () {
-        $("#login-button").html('Log in');
-        $("#login-button")[0].click();
+    // Only used until gapi.auth2 is loaded
+    var btn = $("#login-button");
+    if (btn.html() == 'Log in') {
+        btn.html('Log in&nbsp;<i class="fa fa-spin fa-spinner">');
+        PENDING = function () {
+            btn.html('Log in');
+            btn[0].click();
+        }
     }
 }
 
 function on_sign_in(cu) {
     console.log('on sign in happened')
-    console.trace()
     vueAppApi.log_in(cu.getBasicProfile().getName(), cu.getBasicProfile().getEmail(),
         cu.getAuthResponse().id_token);
 
@@ -71,7 +74,6 @@ function logInIfNotLoggedIn(continuation) {
     // gapi.auth might not be loaded by the time a user calls this function
     // if no gapi.auth2 yet then store this function in PENDING which will be called when gapi is loaded
     console.log('logInIfNotLoggedIn called.')
-    console.log(gapi.auth2)
     if (gapi.auth2) {
         let auth2 = gapi.auth2.getAuthInstance();
         console.log('got auth2')
@@ -98,9 +100,7 @@ function logInIfNotLoggedIn(continuation) {
 
 function createHostedPage(plan) {
     // first check if user does not have a plan already
-    console.log(vueAppApi.get_auth_token());
     console.log(vueAppApi.get_name());
-    console.log(vueAppApi.get_email());
     connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
     vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
         console.log('r');
@@ -273,7 +273,6 @@ var vueAppApi = {};
 
     public_api.log_in = function (name, email, token) {
         console.log('LOG IN happened')
-        console.trace()
         app.logged_in = true;
         app.token = token;
         app.name = name;
@@ -364,10 +363,11 @@ $(document).ready(function () {
 
             auth2.then(function () {
                 console.log('auth2.then')
-                console.trace()
                 if (auth2.isSignedIn.get()) {
                     on_sign_in(auth2.currentUser.get());
                 } else {
+                    console.log('Remove on click event')
+                    $("#login-button").removeAttr('onclick');
                     auth2.attachClickHandler($("#login-button")[0],
                         { ux_mode: 'redirect' }, on_sign_in,
                         show_error);
