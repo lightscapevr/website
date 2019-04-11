@@ -53,6 +53,8 @@ function log_in_button() {
 }
 
 function on_sign_in(cu) {
+    console.log('on sign in happened')
+    console.trace()
     vueAppApi.log_in(cu.getBasicProfile().getName(), cu.getBasicProfile().getEmail(),
         cu.getAuthResponse().id_token);
 
@@ -87,6 +89,10 @@ function logInIfNotLoggedIn(continuation) {
 
 function createHostedPage(plan) {
     // first check if user does not have a plan already
+    console.log(vueAppApi);
+    console.log(vueAppApi.get_auth_token());
+    console.log(vueAppApi.get_name());
+    console.log(vueAppApi.get_email());
     connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
     vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
         console.log('r');
@@ -106,12 +112,12 @@ function createHostedPage(plan) {
                             $("#user-modal").modal('show');
                             vueAppApi.show_licenses();
                             getUserInfo();
-                        }, function (err) { console.log('error 3.'); show_error(err) });
+                        }, show_error);
                 },
-                error: function (err) { console.log('error 2.'); show_error(err) }
+                error: show_error
             });
         }
-    }, function (err) { console.log('error 1.'); show_error(err) });
+    }, show_error);
 }
 
 function showRegularModal() {
@@ -258,6 +264,8 @@ var vueAppApi = {};
     });
 
     public_api.log_in = function (name, email, token) {
+        console.log('LOG IN happened')
+        console.trace()
         app.logged_in = true;
         app.token = token;
         app.name = name;
