@@ -26,12 +26,14 @@ function formatDate(tstamp) {
 
 function showManageButtons() {
     $("#pricing").hide();
+    $('.nav-link[href="#pricing"]').hide();
     $("#get-a-license").attr("onclick", "showLicenseModal(); return false;");
     $("#get-a-license").html("Manage licenses");
 }
 
 function showPricingInfo() {
     $("#pricing").show();
+    $('.nav-link[href="#pricing"]').show();
     $("#get-a-license").attr("onclick", "return true;");
     $("#get-a-license").html("Get a License");
 }
