@@ -51,16 +51,13 @@ function log_in_button() {
         btn.html('Log in&nbsp;<i class="fa fa-spin fa-spinner">');
         PENDING = function () {
             btn.html('Log in');
-            console.log('Click')
             btn[0].click();
-            console.log('Remove on click event')
             $("#login-button").removeAttr('onclick');
         }
     }
 }
 
 function on_sign_in(cu) {
-    console.log('on sign in happened')
     vueAppApi.log_in(cu.getBasicProfile().getName(), cu.getBasicProfile().getEmail(),
         cu.getAuthResponse().id_token);
 
@@ -76,38 +73,28 @@ function showLicenseModal() {
 function logInIfNotLoggedIn(continuation) {
     // gapi.auth might not be loaded by the time a user calls this function
     // if no gapi.auth2 yet then store this function in PENDING which will be called when gapi is loaded
-    console.log('logInIfNotLoggedIn called.')
     if (gapi.auth2) {
         let auth2 = gapi.auth2.getAuthInstance();
-        console.log('got auth2')
         if (auth2.currentUser.get().isSignedIn()) {
-            console.log('is Signed in, returning true')
             return true;
         }
-        console.log('not signed in')
         // show the log in dialog
         auth2.signIn().then(function (googleUser) {
-            console.log('about to sign in')
             on_sign_in(googleUser);
             continuation();
         });
     } else {
-        console.log('using pending')
         PENDING = function () {
             logInIfNotLoggedIn(continuation);
         }
     }
-    console.log('returning false')
     return false;
 }
 
 function createHostedPage(plan) {
     // first check if user does not have a plan already
-    console.log(vueAppApi.get_name());
     connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
     vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
-        console.log('r');
-        console.log(r);
         if (r.subscriptions) {
             showManageButtons();
         } else {
@@ -275,7 +262,6 @@ var vueAppApi = {};
     });
 
     public_api.log_in = function (name, email, token) {
-        console.log('LOG IN happened')
         app.logged_in = true;
         app.token = token;
         app.name = name;
@@ -365,7 +351,6 @@ $(document).ready(function () {
             });
 
             auth2.then(function () {
-                console.log('auth2.then')
                 if (auth2.isSignedIn.get()) {
                     on_sign_in(auth2.currentUser.get());
                 } else {
