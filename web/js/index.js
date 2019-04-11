@@ -44,6 +44,14 @@ function getUserInfo() {
         show_error);
 }
 
+function log_in_button() {
+    $("#login-button").append('&nbsp;<i class="fa fa-spin fa-spinner">');
+    PENDING = function () {
+        $("#login-button").html('Log in');
+        $("#login-button")[0].click();
+    }
+}
+
 function on_sign_in(cu) {
     vueAppApi.log_in(cu.getBasicProfile().getName(), cu.getBasicProfile().getEmail(),
         cu.getAuthResponse().id_token);
@@ -312,23 +320,21 @@ $(document).ready(function () {
                 //scope: 'additional_scope'
             });
 
+            if (auth2.isSignedIn.get()) {
+                on_sign_in(auth2.currentUser.get());
+            } else {
+                auth2.attachClickHandler($("#login-button")[0],
+                    { ux_mode: 'redirect' }, on_sign_in,
+                    show_error);
+            }
+
             // If there is a pending function, call it
             if (PENDING) {
                 PENDING();
                 PENDING = null;
             }
-
-            auth2.then(function () {
-                if (auth2.isSignedIn.get()) {
-                    on_sign_in(auth2.currentUser.get());
-                } else {
-                    auth2.attachClickHandler($("#login-button")[0],
-                        { ux_mode: 'redirect' }, on_sign_in,
-                        show_error);
-                }
-
-            }, show_error);
         });
+
         /* autoping functionality not implemented */
         function ping_server() {
             connection.session.call('com.ping', []);
