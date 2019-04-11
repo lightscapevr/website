@@ -6,7 +6,6 @@ function hide_error() {
 }
 
 function show_error(err) {
-    console.log(err);
     if (err && err.error == 'wamp.error.runtime_error' && err.args[0].startsWith('Token expired')) {
         vueAppApi.logout();
         return;
@@ -67,8 +66,6 @@ function showLicenseModal() {
 }
 
 function logInIfNotLoggedIn(continuation) {
-    console.log(continuation);
-    console.trace();
     // gapi.auth might not be loaded by the time a user calls this function
     // if no gapi.auth2 yet then store this function in PENDING which will be called when gapi is loaded
     if (gapi.auth2) {
@@ -89,11 +86,6 @@ function logInIfNotLoggedIn(continuation) {
 }
 
 function createHostedPage(plan) {
-    console.log(gapi)
-    console.log('creating hosted plan')
-    console.trace();
-    console.log('vueAppApi.get_auth_token()')
-    console.log(vueAppApi.get_auth_token())
     // first check if user does not have a plan already
     connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
     vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
@@ -114,12 +106,12 @@ function createHostedPage(plan) {
                             $("#user-modal").modal('show');
                             vueAppApi.show_licenses();
                             getUserInfo();
-                        }, show_error);
+                        }, function (err) { console.log('error 3.'); show_error(err) });
                 },
-                error: show_error
+                error: function (err) { console.log('error 2.'); show_error(err) }
             });
         }
-    }, show_error);
+    }, function (err) { console.log('error 1.'); show_error(err) });
 }
 
 function showRegularModal() {
