@@ -70,16 +70,21 @@ function showLicenseModal() {
 function logInIfNotLoggedIn(continuation) {
     // gapi.auth might not be loaded by the time a user calls this function
     // if no gapi.auth2 yet then store this function in PENDING which will be called when gapi is loaded
+    console.log('logInIfNotLoggedIn called.')
+    console.log(gapi.auth2)
     if (gapi.auth2) {
         let auth2 = gapi.auth2.getAuthInstance();
         if (auth2.currentUser.get().isSignedIn())
             return true;
+        console.log('not signed in')
         // show the log in dialog
         auth2.signIn().then(function (googleUser) {
+            console.log('about to sign in')
             on_sign_in(googleUser);
             continuation();
         });
     } else {
+        console.log('using pending')
         PENDING = function () {
             logInIfNotLoggedIn(continuation);
         }
@@ -89,7 +94,6 @@ function logInIfNotLoggedIn(continuation) {
 
 function createHostedPage(plan) {
     // first check if user does not have a plan already
-    console.log(vueAppApi);
     console.log(vueAppApi.get_auth_token());
     console.log(vueAppApi.get_name());
     console.log(vueAppApi.get_email());
