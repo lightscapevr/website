@@ -74,8 +74,11 @@ function logInIfNotLoggedIn(continuation) {
     console.log(gapi.auth2)
     if (gapi.auth2) {
         let auth2 = gapi.auth2.getAuthInstance();
-        if (auth2.currentUser.get().isSignedIn())
+        console.log('got auth2')
+        if (auth2.currentUser.get().isSignedIn()) {
+            console.log('is Signed in, returning true')
             return true;
+        }
         console.log('not signed in')
         // show the log in dialog
         auth2.signIn().then(function (googleUser) {
@@ -89,6 +92,7 @@ function logInIfNotLoggedIn(continuation) {
             logInIfNotLoggedIn(continuation);
         }
     }
+    console.log('returning false')
     return false;
 }
 
