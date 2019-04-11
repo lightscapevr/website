@@ -51,7 +51,10 @@ function log_in_button() {
         btn.html('Log in&nbsp;<i class="fa fa-spin fa-spinner">');
         PENDING = function () {
             btn.html('Log in');
+            console.log('Click')
             btn[0].click();
+            console.log('Remove on click event')
+            $("#login-button").removeAttr('onclick');
         }
     }
 }
@@ -366,19 +369,17 @@ $(document).ready(function () {
                 if (auth2.isSignedIn.get()) {
                     on_sign_in(auth2.currentUser.get());
                 } else {
-                    console.log('Remove on click event')
-                    $("#login-button").removeAttr('onclick');
                     auth2.attachClickHandler($("#login-button")[0],
                         { ux_mode: 'redirect' }, on_sign_in,
                         show_error);
                 }
-            }, show_error);
 
-            // If there is a pending function, call it
-            if (PENDING) {
-                PENDING();
-                PENDING = null;
-            }
+                // If there is a pending function, call it
+                if (PENDING) {
+                    PENDING();
+                    PENDING = null;
+                }
+            }, show_error);
         });
 
         /* autoping functionality not implemented */
