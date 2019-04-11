@@ -2,7 +2,8 @@ var connection;
 var PENDING = null
 
 function hide_error() {
-    $("#error").html("");
+    $("#error").hide();
+    $("#error-msg").html("");
 }
 
 function show_error(err) {
@@ -11,7 +12,8 @@ function show_error(err) {
         return;
     }
     Sentry.captureMessage(err);
-    $("#error").html("Error encountered <span onclick='hide_error()'>&times;</span>");
+    $("#error").show();
+    $("#error-msg").html('Error encountered <button type="button" class="close" onclick="hide_error()">&times;</button>');
     console.trace();
     console.log(JSON.stringify(err, undefined, 2));
 }

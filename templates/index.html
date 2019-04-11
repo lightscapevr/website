@@ -525,6 +525,12 @@
     </div>
 </div>
 
+<div id="error" style="display:none;position:fixed;bottom:60px;left:0;width:100%;z-index:2000">
+    <div id="error-msg" class="alert alert alert-danger text-center m-3" role="alert">
+        There was an error <button type="button" class="close" onclick="hide_error()">&times;</button>
+    </div>
+</div>
+
 <script type="text/x-template" id="user-details">
 <div>
     <div v-if="!licenses_loaded" class="mb-3">
