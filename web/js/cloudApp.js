@@ -213,8 +213,8 @@ var vueAppApi = {};
     template: '#notification-bar'
   })
 
-  Vue.component('oculus-menu', {
-    template: '#oculus-menu',
+  Vue.component('oculus', {
+    template: '#oculus',
     props: ['show']
   })
 

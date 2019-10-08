@@ -21,7 +21,7 @@
                 <div class="col-7">
                     <button v-on:click="toggle_oculus_menu" class="btn btn-primary">Oculus Quest menu</button>
                 </div>
-                <oculus-menu v-bind:oculus="oculus"></oculus-menu>
+                <oculus v-bind:oculus="oculus"></oculus>
             </div>
             <div class="row mt-1">
                 <div class="col-7">
@@ -186,7 +186,7 @@
 </script>
 
 <!--- Oculus menu -->
-<script type="text/x-template" id="oculus-menu">
+<script type="text/x-template" id="oculus">
     <div>
         <div v-show="oculus.show">
             <div class="row">
