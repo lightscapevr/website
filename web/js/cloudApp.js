@@ -222,14 +222,15 @@ var vueAppApi = {};
       files: [],
       logged_in: false,
       connection_status: 'Not connected',
-      notification: { show: false, message: '', type: 'alert-info', timer: {} }
+      notification: { show: false, message: '', type: 'alert-info', timer: {} },
+      oculus: { show: false }
     },
     methods: {
       remove_file_by_id: function (file) {
         var index = this.files.indexOf(file);
         if (index !== -1) { this.files.splice(index, 1); }
       },
-      toggle_oculus_menu: function() {},
+      toggle_oculus_menu: function() { this.oculus.show = true; },
       show_notification_for_time: function (message, type, timeout) {
         this.notification.show = true;
         this.notification.message = message.toString();
