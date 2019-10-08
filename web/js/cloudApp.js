@@ -120,6 +120,7 @@ var vueAppApi = {};
       toggle_details_tabs: function () { (this.current_tab == 'cloud-file-details' || this.current_tab == 'cloud-file-sharing')
            ? this.hide_details() : this.show_details(); },
       toggle_sharing_tab: function() { this.current_tab == 'cloud-file-sharing' ? this.hide_sharing() : this.show_sharing(); },
+      toggle_oculus_menu: function() {},
       hide_details: function () { this.current_tab = ''; this.$parent.set_selected_file(''); },
       show_details: function () { this.current_tab = 'cloud-file-details'; this.$parent.set_selected_file(this.file); },
       hide_sharing: function () { this.current_tab = ''; this.$parent.set_selected_file(''); },

@@ -18,9 +18,12 @@
     <div id="cloud-app" class="mt-5">
         <div v-if="logged_in">
             <div class="row">
-                <button class="btn btn-primary">Oculus Quest menu</button>
+                <div class="col-7">
+                    <button v-on:click="toggle_oculus_menu" class="btn btn-primary">Oculus Quest menu</button>
+                </div>
+                <oculus-menu></oculus-menu>
             </div>
-            <div class="row">
+            <div class="row mt-1">
                 <div class="col-7">
                     <h3 class="text-muted">Your files</h3>
                 </div>
@@ -178,6 +181,15 @@
                 {{notification.message}}
                 <button v-on:click="close" class="close float-right"><span aria-hidden="true">&times;</span></button>
             </div>
+        </div>
+    </div>
+</script>
+
+<!--- Oculus menu -->
+<script type="text/x-template" id="oculus-menu">
+    <div>
+        <div class="row">
+            one two three
         </div>
     </div>
 </script>
