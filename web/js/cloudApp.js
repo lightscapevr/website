@@ -120,7 +120,6 @@ var vueAppApi = {};
       toggle_details_tabs: function () { (this.current_tab == 'cloud-file-details' || this.current_tab == 'cloud-file-sharing')
            ? this.hide_details() : this.show_details(); },
       toggle_sharing_tab: function() { this.current_tab == 'cloud-file-sharing' ? this.hide_sharing() : this.show_sharing(); },
-      toggle_oculus_menu: function() {},
       hide_details: function () { this.current_tab = ''; this.$parent.set_selected_file(''); },
       show_details: function () { this.current_tab = 'cloud-file-details'; this.$parent.set_selected_file(this.file); },
       hide_sharing: function () { this.current_tab = ''; this.$parent.set_selected_file(''); },
@@ -230,6 +229,7 @@ var vueAppApi = {};
         var index = this.files.indexOf(file);
         if (index !== -1) { this.files.splice(index, 1); }
       },
+      toggle_oculus_menu: function() {},
       show_notification_for_time: function (message, type, timeout) {
         this.notification.show = true;
         this.notification.message = message.toString();
