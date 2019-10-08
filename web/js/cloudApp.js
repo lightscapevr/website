@@ -215,6 +215,7 @@ var vueAppApi = {};
 
   Vue.component('oculus', {
     template: '#oculus',
+    props: ['oculus']
   })
 
   // -------------------------------------- Vue instance -------------------------------------- 
