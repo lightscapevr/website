@@ -233,7 +233,7 @@ var vueAppApi = {};
         var index = this.files.indexOf(file);
         if (index !== -1) { this.files.splice(index, 1); }
       },
-      toggle_oculus_menu: function() { this.oculus.show = true; },
+      toggle_oculus_menu: function() { console.log("clicked"); this.oculus.show = true; },
       show_notification_for_time: function (message, type, timeout) {
         this.notification.show = true;
         this.notification.message = message.toString();
