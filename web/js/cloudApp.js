@@ -254,7 +254,9 @@ var vueAppApi = {};
       },
       hide_notification: function () { this.notification.show = false; this.notification.message = ''; this.notification.type = 'alert-info'; }
     }
-  })
+  });
+
+  globApp = app;
 
 
 
