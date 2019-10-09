@@ -256,7 +256,7 @@ var vueAppApi = {};
     }
   });
 
-  globApp = app;
+  // globApp = app;
 
 
 
