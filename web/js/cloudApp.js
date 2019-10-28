@@ -225,7 +225,7 @@ var vueAppApi = {};
       logged_in: false,
       connection_status: 'Not connected',
       notification: { show: false, message: '', type: 'alert-info', timer: {} },
-      oculus: { show: false }
+      oculus: { show: true }
     },
     methods: {
       remove_file_by_id: function (file) {
