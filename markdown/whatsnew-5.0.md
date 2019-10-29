@@ -1,10 +1,18 @@
 <img class="img-fluid my-3" src="./img/docs/new-5/whats-new.jpg" alt="Whats in in VR Sketch 5.0"> 
 
 
-# What's new in 5.0
+# What's new in VR Sketch
+<ul>
+<li><a href="https://forum.vrsketch.eu/t/vr-sketch-8-0-0-is-out/115"><b>What's new in 8.0...</b></a></li>
+<li><a href="https://forum.vrsketch.eu/t/vr-sketch-7-0/102"><b>What's new in 7.0...</b></a></li>
+</ul>
+<br><br>
 
-5.0 is a massive release for us. We implemented many things we have been
-talking about and we have streamlines a lot of things that have been there
+
+## What's new in 5.0
+
+5.0 was a massive release for us. We implemented many things we have been
+talking about and we have streamlined a lot of things that have been there
 already. Overall VR Sketch 5.0 is we believe a massive improvement over previous
 versions!
 
