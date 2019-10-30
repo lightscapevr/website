@@ -218,7 +218,6 @@ var vueAppApi = {};
     template: '#oculus',
     methods: {
       save_short_id: function() {
-        console.log("short id clicked ");
       }
     }
   })
@@ -231,14 +230,14 @@ var vueAppApi = {};
       logged_in: false,
       connection_status: 'Not connected',
       notification: { show: false, message: '', type: 'alert-info', timer: {} },
-      oculus: { show: true, short_id: '' }
+      oculus: { show: false, short_id: '' }
     },
     methods: {
       remove_file_by_id: function (file) {
         var index = this.files.indexOf(file);
         if (index !== -1) { this.files.splice(index, 1); }
       },
-      toggle_oculus_menu: function () { console.log("clicked"); this.oculus.show = !this.oculus.show; },
+      toggle_oculus_menu: function () { this.oculus.show = !this.oculus.show; },
       show_notification_for_time: function (message, type, timeout) {
         this.notification.show = true;
         this.notification.message = message.toString();

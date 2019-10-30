@@ -191,6 +191,7 @@
         <div v-show="oculus.show">
             <div class="row">
                 <span class="input-group-text" id="oculus-password">Number displayed on your oculus:</span>
+                <input v-model="short_id" type="text" class="form-control" placeholder="Add short id..." aria-label="Add short id..." aria-describedby="oculus-password">
                 <button v-on:click="save_short_id">Send</button>
             </div>
         </div>
