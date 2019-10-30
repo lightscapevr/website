@@ -221,11 +221,13 @@ var vueAppApi = {};
         short_id: '',
       }
     },
-    mounted: function () { this.oculus_short_id = this.short_id; },
+    mounted: function () { },
     methods: {
       save_short_id: function() {
-        globFoo = this;
-      }
+        $.post("/oculus/associate/", {
+          oculus_short_id: this.short_id,
+          user_id: app.token
+      }).then(function (r) { console.log(r); });
     }
   })
 
