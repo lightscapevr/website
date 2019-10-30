@@ -224,7 +224,7 @@ var vueAppApi = {};
     mounted: function () { },
     methods: {
       save_short_id: function() {
-        $.post("/oculus/associate/", {
+        $.post("/checkout/oculus/associate/", {
           oculus_short_id: this.short_id,
           user_id: app.token
       }).then(function (r) { console.log(r); });
