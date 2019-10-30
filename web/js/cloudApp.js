@@ -228,6 +228,7 @@ var vueAppApi = {};
           oculus_short_id: this.short_id,
           user_id: app.token
       }).then(function (r) { console.log(r); });
+      }
     }
   })
 
