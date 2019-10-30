@@ -215,7 +215,12 @@ var vueAppApi = {};
 
   Vue.component('oculus', {
     props: ['oculus'],
-    template: '#oculus'
+    template: '#oculus',
+    methods: {
+      save_short_id: function() {
+        console.log("short id clicked ");
+      }
+    }
   })
 
   // -------------------------------------- Vue instance -------------------------------------- 
@@ -226,7 +231,7 @@ var vueAppApi = {};
       logged_in: false,
       connection_status: 'Not connected',
       notification: { show: false, message: '', type: 'alert-info', timer: {} },
-      oculus: { show: true }
+      oculus: { show: true, short_id: '' }
     },
     methods: {
       remove_file_by_id: function (file) {
