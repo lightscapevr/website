@@ -218,6 +218,7 @@ var vueAppApi = {};
     template: '#oculus',
     methods: {
       save_short_id: function() {
+        globFoo = this;
       }
     }
   })
@@ -420,3 +421,4 @@ $(document).ready(function () {
   connection.open();
 });
 
+globFoo = null;
