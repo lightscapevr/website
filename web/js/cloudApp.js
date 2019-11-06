@@ -230,7 +230,7 @@ var vueAppApi = {};
           user_id: app.token
       }).then(function (r) {
         if (r.success) {
-          this.associated = true;
+          parent.associated = true;
         } else {
           this.error = false;
         }
