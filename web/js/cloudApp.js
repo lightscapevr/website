@@ -214,7 +214,7 @@ var vueAppApi = {};
   })
 
   Vue.component('oculus', {
-    props: ['associated', 'error', 'error_message'],
+    props: ['oculus', 'associated', 'error', 'error_message'],
     template: '#oculus',
     data: function () {
       return {
