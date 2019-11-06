@@ -189,10 +189,13 @@
 <script type="text/x-template" id="oculus">
     <div>
         <div v-show="oculus.show">
+            <div class="row" v-show="oculus.associated">
+                Oculus Quest associated
+            </div>
             <div class="row">
-                <span class="input-group-text" id="oculus-password">Number displayed on your oculus:</span>
+                <span id="oculus-password">Number displayed on your oculus:</span>
                 <input v-model="short_id" type="text" class="form-control" placeholder="Add short id..." aria-label="Add short id..." aria-describedby="oculus-password">
-                <button v-on:click="save_short_id">Send</button>
+                <button v-on:click="save_short_id">Associate new Oculus Quest</button>
             </div>
         </div>
     </div>

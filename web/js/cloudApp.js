@@ -227,7 +227,9 @@ var vueAppApi = {};
         $.post("/checkout/oculus/associate/", {
           oculus_short_id: this.short_id,
           user_id: app.token
-      }).then(function (r) { console.log(r); });
+      }).then(function (r) {
+        this.associated = true;
+      });
       }
     }
   })
@@ -240,7 +242,7 @@ var vueAppApi = {};
       logged_in: false,
       connection_status: 'Not connected',
       notification: { show: false, message: '', type: 'alert-info', timer: {} },
-      oculus: { show: false, oculus_short_id: '' }
+      oculus: { show: false, associated: false, oculus_short_id: '' }
     },
     methods: {
       remove_file_by_id: function (file) {
