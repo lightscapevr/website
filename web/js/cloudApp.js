@@ -214,7 +214,7 @@ var vueAppApi = {};
   })
 
   Vue.component('oculus', {
-    props: ['oculus'],
+    props: ['associated', 'error', 'error_message'],
     template: '#oculus',
     data: function () {
       return {
@@ -229,9 +229,9 @@ var vueAppApi = {};
           user_id: app.token
       }).then(function (r) {
         if (r.success) {
-          this.oculus.associated = true;
+          this.associated = true;
         } else {
-          this.oculus.error = false;
+          this.error = false;
         }
       });
       }
