@@ -228,8 +228,11 @@ var vueAppApi = {};
           oculus_short_id: this.short_id,
           user_id: app.token
       }).then(function (r) {
-        console.log(r);
-        this.associated = true;
+        if (r.success) {
+          this.oculus.associated = true;
+        } else {
+          this.oculus.error = false;
+        }
       });
       }
     }
@@ -243,7 +246,7 @@ var vueAppApi = {};
       logged_in: false,
       connection_status: 'Not connected',
       notification: { show: false, message: '', type: 'alert-info', timer: {} },
-      oculus: { show: false, associated: false, oculus_short_id: '' }
+      oculus: { show: false, associated: false, error: false, oculus_short_id: '', error_message: 'wrong id' }
     },
     methods: {
       remove_file_by_id: function (file) {

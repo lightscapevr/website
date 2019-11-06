@@ -192,6 +192,9 @@
             <div class="row" v-show="oculus.associated">
                 Oculus Quest associated
             </div>
+            <div class="row" v-show="oculus.error">
+                {{ oculus.error_message }}
+            </div>
             <div class="row">
                 <span id="oculus-password">Number displayed on your oculus:</span>
                 <input v-model="short_id" type="text" class="form-control" placeholder="Add short id..." aria-label="Add short id..." aria-describedby="oculus-password">
