@@ -233,7 +233,7 @@ var vueAppApi = {};
           parent.oculus.associated = true;
         } else {
           parent.oculus.error = true;
-          parent.oculus.error_message = r.error;
+          parent.oculus.error_message = r.reason;
         }
       });
       }
