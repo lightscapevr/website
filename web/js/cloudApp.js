@@ -230,9 +230,10 @@ var vueAppApi = {};
           user_id: app.token
       }).then(function (r) {
         if (r.success) {
-          parent.associated = true;
+          parent.oculus.associated = true;
         } else {
-          this.error = false;
+          parent.oculus.error = true;
+          parent.oculus.error_message = r.error;
         }
       });
       }
