@@ -229,6 +229,7 @@ var vueAppApi = {};
           oculus_short_id: this.short_id,
           user_id: app.token
       }).then(function (r) {
+        r = JSON.parse(r);
         if (r.success) {
           parent.oculus.associated = true;
         } else {
