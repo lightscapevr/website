@@ -1,7 +1,9 @@
 var connection;
+var PENDING = null
 
 function hide_error() {
-    $("#error").html("");
+    $("#error").hide();
+    $("#error-msg").html("");
 }
 
 function show_error(err) {
@@ -10,7 +12,8 @@ function show_error(err) {
         return;
     }
     Sentry.captureMessage(err);
-    $("#error").html("Error encountered <span onclick='hide_error()'>&times;</span>");
+    $("#error").show();
+    $("#error-msg").html('Error encountered <button type="button" class="close" onclick="hide_error()">&times;</button>');
     console.trace();
     console.log(JSON.stringify(err, undefined, 2));
 }
@@ -23,12 +26,14 @@ function formatDate(tstamp) {
 
 function showManageButtons() {
     $("#pricing").hide();
+    $('.nav-link[href="#pricing"]').hide();
     $("#get-a-license").attr("onclick", "showLicenseModal(); return false;");
     $("#get-a-license").html("Manage licenses");
 }
 
 function showPricingInfo() {
     $("#pricing").show();
+    $('.nav-link[href="#pricing"]').show();
     $("#get-a-license").attr("onclick", "return true;");
     $("#get-a-license").html("Get a License");
 }
@@ -41,6 +46,19 @@ function getUserInfo() {
         }
     },
         show_error);
+}
+
+function log_in_button() {
+    // Only used until gapi.auth2 is loaded
+    var btn = $("#login-button");
+    if (btn.html() == 'Log in') {
+        btn.html('Log in&nbsp;<i class="fa fa-spin fa-spinner">');
+        PENDING = function () {
+            btn.html('Log in');
+            btn[0].click();
+            $("#login-button").removeAttr('onclick');
+        }
+    }
 }
 
 function on_sign_in(cu) {
@@ -57,14 +75,23 @@ function showLicenseModal() {
 }
 
 function logInIfNotLoggedIn(continuation) {
-    let auth2 = gapi.auth2.getAuthInstance();
-    if (auth2.currentUser.get().isSignedIn())
-        return true;
-    // show the log in dialog
-    auth2.signIn().then(function (googleUser) {
-        on_sign_in(googleUser);
-        continuation();
-    });
+    // gapi.auth might not be loaded by the time a user calls this function
+    // if no gapi.auth2 yet then store this function in PENDING which will be called when gapi is loaded
+    if (gapi.auth2) {
+        let auth2 = gapi.auth2.getAuthInstance();
+        if (auth2.currentUser.get().isSignedIn()) {
+            return true;
+        }
+        // show the log in dialog
+        auth2.signIn().then(function (googleUser) {
+            on_sign_in(googleUser);
+            continuation();
+        });
+    } else {
+        PENDING = function () {
+            logInIfNotLoggedIn(continuation);
+        }
+    }
     return false;
 }
 
@@ -95,56 +122,72 @@ function createHostedPage(plan) {
     }, show_error);
 }
 
-function order_regular() {
-    if (!logInIfNotLoggedIn(order_regular))
-        return;
+function showRegularModal() {
     $("#billing-period-choice-modal").show();
 }
 
 function order_regular_monthly() {
+    addSpinnerForTime('order-regular-monthly-btn');
+    if (!logInIfNotLoggedIn(order_regular_monthly))
+        return;
+
     $("#billing-period-choice-modal").modal('hide');
     createHostedPage('vr-sketch-2');
 }
 
 function order_regular_yearly() {
+    addSpinnerForTime('order-regular-yearly-btn');
+    if (!logInIfNotLoggedIn(order_regular_yearly))
+        return;
+
     $("#billing-period-choice-modal").modal('hide');
     createHostedPage("vr-sketch-yearly");
 }
 
+function showEnterpriseModal() {
+    $("#enterprise-modal").show();
+}
+
 function order_enterprise_monthly() {
+    addSpinnerForTime('order-enterprise-monthly-btn');
+    if (!logInIfNotLoggedIn(order_enterprise_monthly))
+        return;
+
     $("#enterprise-modal").modal('hide');
     createHostedPage('vr-sketch-enterprise');
 }
 
 function order_enterprise_yearly() {
+    addSpinnerForTime('order-enterprise-yearly-btn');
+    if (!logInIfNotLoggedIn(order_enterprise_yearly))
+        return;
+
     $("#enterprise-modal").modal('hide');
     createHostedPage("vr-sketch-enterprise-annual");
 }
 
-function showEduModal() {
-    if (!logInIfNotLoggedIn(showEduModal))
-        return;
-    $("#edu-modal").show();
+function showHobbyistModal() {
+    $("#hobbyist-modal").show();
 }
 
 function order_hobbyist() {
+    addSpinnerForTime('order-hobbyist-btn');
+    if (!logInIfNotLoggedIn(order_hobbyist))
+        return;
+
     $("#hobbyist-modal").modal('hide');
     createHostedPage('vr-sketch-hobbyist');
 }
 
-function showHobbyistModal() {
-    if (!logInIfNotLoggedIn(showHobbyistModal))
-        return;
-    $("#hobbyist-modal").show();
-}
-
-function showEnterpriseModal() {
-    if (!logInIfNotLoggedIn(showEnterpriseModal))
-        return;
-    $("#enterprise-modal").show();
+function showEduModal() {
+    $("#edu-modal").show();
 }
 
 function checkEduAndOrder() {
+    addSpinnerForTime('edu-subscribe-button');
+    if (!logInIfNotLoggedIn(checkEduAndOrder))
+        return;
+
     if (!$("#edu-purpose").val() || !$("#edu-role").val() || !$("#edu-institution").val()) {
         $("#edu-modal-error").html("please fill in the fields");
         return;
@@ -165,6 +208,14 @@ function checkEduAndOrder() {
         else
             show_error(r.error);
     }, show_error);
+}
+
+function addSpinnerForTime(elementId) {
+    var element = $('#' + elementId);
+    var spinner = '&nbsp;<i class="fa fa-spin fa-spinner">';
+    var innerHtml = element.html().replace(spinner, '')
+    element.html(innerHtml + spinner);
+    element.delay(4000).queue(function () { element.html(innerHtml); });
 }
 
 function manage_subscriptions() {
@@ -262,17 +313,23 @@ var vueAppApi = {};
     };
 
     public_api.logout = function () {
-        app.logged_in = false;
-        app.token = null;
-        $("#login-button").text("Log in");
-        $("#login-button").removeClass("dropdown-toggle");
-        $("#login-button").attr("data-toggle", null);
-        $("#login-dropdown").hide();
-        let auth2 = gapi.auth2.getAuthInstance();
-        auth2.attachClickHandler($("#login-button")[0], { ux_mode: 'redirect' },
-            on_sign_in, show_error);
-        auth2.signOut();
-        showPricingInfo();
+        if (gapi.auth2) {
+            app.logged_in = false;
+            app.token = null;
+            $("#login-button").text("Log in");
+            $("#login-button").removeClass("dropdown-toggle");
+            $("#login-button").attr("data-toggle", null);
+            $("#login-dropdown").hide();
+            let auth2 = gapi.auth2.getAuthInstance();
+            auth2.attachClickHandler($("#login-button")[0], { ux_mode: 'redirect' },
+                on_sign_in, show_error);
+            auth2.signOut();
+            showPricingInfo();
+        } else {
+            PENDING = function () {
+                public_api.logout()
+            }
+        }
     }
 
 })(vueAppApi);
@@ -306,8 +363,14 @@ $(document).ready(function () {
                         show_error);
                 }
 
+                // If there is a pending function, call it
+                if (PENDING) {
+                    PENDING();
+                    PENDING = null;
+                }
             }, show_error);
         });
+
         /* autoping functionality not implemented */
         function ping_server() {
             connection.session.call('com.ping', []);

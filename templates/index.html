@@ -259,7 +259,7 @@
                                 <div class="title">Standard</div>
                                 <div class="price">30<small class="text-muted">€ / mo</small></div>
                                 <div>For commercial use<br> Monthly or annual subscription</div>
-                                <button type="button" class="btn btn-lg btn-block btn-primary my-4" data-toggle="modal" data-target="#billing-period-choice-modal" onclick="order_regular()">Choose Standard</button>
+                                <button type="button" class="btn btn-lg btn-block btn-primary my-4" data-toggle="modal" data-target="#billing-period-choice-modal" onclick="showRegularModal()">Choose Standard</button>
                             </div>
                             <div class="col-sm">
                                 <div class="col-sm">
@@ -435,7 +435,7 @@
                                 <h5 class="card-title">Monthly</h5>
                                 <p class="card-text"><strong>€30</strong> <span class="text-muted"> per month (+VAT)</span></p>
                                 <p class="card-text"><small class="text-muted">billed monthly</small></p>
-                                <button type="button" class="btn btn-primary" onclick="order_regular_monthly()">Monthly</button>
+                                <button type="button" class="btn btn-primary" id="order-regular-monthly-btn" onclick="order_regular_monthly()">Monthly</button>
                             </div>
                         </div>
                         <div class="card shadow-sm">
@@ -443,7 +443,7 @@
                                 <h5 class="card-title">Annually</h5>
                                 <p class="card-text"><strong>€330</strong> <span class="text-muted"> per year (+VAT)</span></p>
                                 <p class="card-text"><small class="text-muted">billed annually</small></p>
-                                <button type="button" class="btn btn-primary" onclick="order_regular_yearly()">Annually</button>
+                                <button type="button" class="btn btn-primary" id="order-regular-yearly-btn" onclick="order_regular_yearly()">Annually</button>
                             </div>
                         </div>
                     </div>
@@ -473,7 +473,7 @@
                     <p>Do you agree to those conditions?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="order_hobbyist()">Agree</button>
+                    <button type="button" class="btn btn-primary" id="order-hobbyist-btn" onclick="order_hobbyist()">Agree</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -504,7 +504,7 @@
                                 <h5 class="card-title">Monthly</h5>
                                 <p class="card-text"><strong>€100</strong> <span class="text-muted"> per month (+VAT)</span></p>
                                 <p class="card-text"><small class="text-muted">billed monthly</small></p>
-                                <button type="button" class="btn btn-primary" onclick="order_enterprise_monthly()">Monthly</button>
+                                <button type="button" class="btn btn-primary" id="order-enterprise-monthly-btn" onclick="order_enterprise_monthly()">Monthly</button>
                             </div>
                         </div>
                         <div class="card shadow-sm">
@@ -512,7 +512,7 @@
                                 <h5 class="card-title">Annually</h5>
                                 <p class="card-text"><strong>€1100</strong> <span class="text-muted"> per year (+VAT)</span></p>
                                 <p class="card-text"><small class="text-muted">billed annually</small></p>
-                                <button type="button" class="btn btn-primary" onclick="order_enterprise_yearly()">Annually</button>
+                                <button type="button" class="btn btn-primary" id="order-enterprise-yearly-btn" onclick="order_enterprise_yearly()">Annually</button>
                             </div>
                         </div>
                     </div>
@@ -522,6 +522,12 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div id="error" style="display:none;position:fixed;bottom:60px;left:0;width:100%;z-index:2000">
+    <div id="error-msg" class="alert alert alert-danger text-center m-3" role="alert">
+        There was an error <button type="button" class="close" onclick="hide_error()">&times;</button>
     </div>
 </div>
 
@@ -544,8 +550,8 @@
                 </span>
             </div>
             <div class="row mb-3">
-                Next charge at {{ license.ends_at }}, {{ license.deleted }} License key to copy-paste:<br>
-                <span class="subscription_id">{{ license.license_id }}</span>
+                Next charge at&nbsp;<strong>{{ license.ends_at }}</strong>, {{ license.deleted }} License key to copy-paste:<br>
+                <code class="subscription_id p-2">{{ license.license_id }}</code>
             </div>
         </div>
     </div>
@@ -558,7 +564,7 @@
 
 {% block js_imports %}
 <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="{{ chargebee_site }}"></script>
-<script src="js/libraries/vue.js"></script>
+<script src="js/libraries/vue.min.js"></script>
 <script src="js/global.js"></script>
 <script src="js/index.js"></script>
 <!-- Stats -->

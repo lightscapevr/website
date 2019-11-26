@@ -43,3 +43,16 @@ Draw colourful free hand lines that are not part of the geometry.
 * When viewing cloud models, you can draw markup lines but (so far) not save them.
 * Markup lines appear in SketchUp too, but only if the "Send to VR" tool is currently selected in SketchUp.
 
+
+## VR Videos
+
+### Recording VR videos
+* To start Recording, inside SketchUp, in top menu bar click **Extensions**, then click, **VR Sketch** then click **Recorded a VR Video...**. This will open a window in which you can set where the recording will be saved. As soon as this is set it will start recording.
+* Press the **small top button** to stop your recording.
+* Once you have finished your recording, you can press the **small top button** again to play back what you have just recorded.
+
+### Playing VR videos
+* To play back a VR recording, inside SketchUp, in top menu bar click **Extensions**, then click, **VR Sketch** then click **Play a VR Video...**. This will open a window in where you can choose which recording to open. The recording will start as soon as it is loaded.
+* Press the **small top button** to stop or replay the loaded video.
+
+

@@ -213,7 +213,33 @@ var vueAppApi = {};
     template: '#notification-bar'
   })
 
-
+  Vue.component('oculus', {
+    props: ['oculus', 'associated', 'error', 'error_message'],
+    template: '#oculus',
+    data: function () {
+      return {
+        short_id: '',
+      }
+    },
+    mounted: function () { },
+    methods: {
+      save_short_id: function() {
+        var parent = this;
+        $.post("/checkout/oculus/associate/", {
+          oculus_short_id: this.short_id,
+          user_id: app.token
+      }).then(function (r) {
+        r = JSON.parse(r);
+        if (r.success) {
+          parent.oculus.associated = true;
+        } else {
+          parent.oculus.error = true;
+          parent.oculus.error_message = r.reason;
+        }
+      });
+      }
+    }
+  })
 
   // -------------------------------------- Vue instance -------------------------------------- 
   var app = new Vue({
@@ -222,13 +248,15 @@ var vueAppApi = {};
       files: [],
       logged_in: false,
       connection_status: 'Not connected',
-      notification: { show: false, message: '', type: 'alert-info', timer: {} }
+      notification: { show: false, message: '', type: 'alert-info', timer: {} },
+      oculus: { show: false, associated: false, error: false, oculus_short_id: '', error_message: 'wrong id' }
     },
     methods: {
       remove_file_by_id: function (file) {
         var index = this.files.indexOf(file);
         if (index !== -1) { this.files.splice(index, 1); }
       },
+      toggle_oculus_menu: function () { this.oculus.show = !this.oculus.show; },
       show_notification_for_time: function (message, type, timeout) {
         this.notification.show = true;
         this.notification.message = message.toString();
@@ -249,7 +277,9 @@ var vueAppApi = {};
       },
       hide_notification: function () { this.notification.show = false; this.notification.message = ''; this.notification.type = 'alert-info'; }
     }
-  })
+  });
+
+  // globApp = app;
 
 
 
@@ -409,3 +439,4 @@ $(document).ready(function () {
   connection.open();
 });
 
+globFoo = null;
