@@ -223,6 +223,9 @@ var vueAppApi = {};
     },
     mounted: function () { },
     methods: {
+      remove_device: function(device) {
+        $.post("/checkout/oculus/REMOVE-DEVICE/" + device, {}).then(function(r){});
+      },
       save_short_id: function() {
         var parent = this;
         $.post("/checkout/oculus/associate/", {

@@ -190,11 +190,11 @@
     <div>
         <div v-show="oculus.show">
             <div class="row">
-                {{ oculus.devices }}
                 Oculus Quest devices associated with this account:<br>
                 <ul>
                   <li v-for="device in oculus.devices">
                     Quest #{{ device }}
+                    <button v-on:click="remove_device(device)">Remove</button>
                   </li>
                 </ul>
                 <br>&nbsp;
