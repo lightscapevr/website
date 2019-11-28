@@ -214,7 +214,7 @@ var vueAppApi = {};
   })
 
   Vue.component('oculus', {
-    props: ['oculus', 'associated', 'error', 'error_message'],
+    props: ['oculus', 'associated', 'error', 'error_message', 'devices'],
     template: '#oculus',
     data: function () {
       return {
@@ -222,6 +222,18 @@ var vueAppApi = {};
       }
     },
     mounted: function () { },
+    created: function () {
+      var parent = this;
+      parent.oculus.devices = [];
+      $.post("/checkout/oculus/associated/" {
+        user_id: app.token
+      }).then(function (r) {
+        r = JSON.parse(r);
+        if (r.success) {
+          parent.oculus.devices = r.devices;
+        }
+      });
+    },
     methods: {
       save_short_id: function() {
         var parent = this;

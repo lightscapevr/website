@@ -189,7 +189,11 @@
 <script type="text/x-template" id="oculus">
     <div>
         <div v-show="oculus.show">
-            <div class="row">&nbsp;</div>
+            <div class="row">
+                &nbsp;<br>
+                {{ oculus.devices }}
+                <br>&nbsp;
+            </div>
             <div class="row" v-show="oculus.associated">
                 Oculus Quest associated
             </div>
