@@ -190,12 +190,17 @@
     <div>
         <div v-show="oculus.show">
             <div class="row">
-                &nbsp;<br>
                 {{ oculus.devices }}
+                Oculus Quest devices associated with this account:<br>
+                <ul>
+                  <li v-for="device in oculus.devices">
+                    Quest #{{ device.key }}
+                  </li>
+                </ul>
                 <br>&nbsp;
             </div>
             <div class="row" v-show="oculus.associated">
-                Oculus Quest associated
+                New Oculus Quest associated
             </div>
             <div class="row" v-show="oculus.error">
                 {{ oculus.error_message }}
