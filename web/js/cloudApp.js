@@ -225,7 +225,7 @@ var vueAppApi = {};
     created: function () {
       var parent = this;
       parent.oculus.devices = [];
-      $.post("/checkout/oculus/associated/") {
+      $.post("/checkout/oculus/associated/", {
         user_id: app.token
       }).then(function (r) {
         r = JSON.parse(r);
