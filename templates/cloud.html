@@ -189,6 +189,7 @@
 <script type="text/x-template" id="oculus">
     <div>
         <div v-show="oculus.show">
+            <div class="row">&nbsp;</div>
             <div class="row" v-show="oculus.associated">
                 Oculus Quest associated
             </div>
@@ -196,10 +197,17 @@
                 {{ oculus.error_message }}
             </div>
             <div class="row">
-                <span id="oculus-password">Go to your Oculus Quest in the VR Sketch app, click "My Account", and copy the 4-digits code here:</span>
-                <input v-model="short_id" type="text" class="form-control" placeholder="Add short id..." aria-label="Add short id..." aria-describedby="oculus-password">
+              <table border=2><td><tr>
+                <span id="oculus-password">&nbsp;&nbsp;Go to your Oculus Quest in the VR Sketch app, click "My Account", and copy the 4-digits code here:&nbsp;&nbsp;</span>
+                <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input v-model="short_id" type="text" placeholder="####" size=4 maxlength=4 aria-label="Add short id..." aria-describedby="oculus-password">
+                &nbsp;&nbsp;&nbsp;
                 <button v-on:click="save_short_id">Associate new Oculus Quest</button>
+                <br>
+                <br>
+              </tr></td></table>
             </div>
+            <div class="row">&nbsp;</div>
         </div>
     </div>
 </script>
