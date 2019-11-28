@@ -231,6 +231,7 @@ var vueAppApi = {};
           r = JSON.parse(r);
           if (r.success) {
             parent.oculus.devices = r.devices;
+          }
         });
       },
       save_short_id: function() {
