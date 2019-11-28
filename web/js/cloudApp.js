@@ -221,8 +221,7 @@ var vueAppApi = {};
         short_id: '',
       }
     },
-    mounted: function () { },
-    created: function () {
+    mounted: function () {
       var parent = this;
       parent.oculus.devices = [];
       $.post("/checkout/oculus/associated/", {
