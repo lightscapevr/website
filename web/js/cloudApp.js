@@ -268,7 +268,7 @@ var vueAppApi = {};
               parent.oculus.devices = r.devices;
             }
           });
-        },
+        }
       },
       show_notification_for_time: function (message, type, timeout) {
         this.notification.show = true;
