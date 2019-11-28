@@ -191,13 +191,13 @@
         <div v-show="oculus.show">
             <div class="row" v-show="oculus.devices.length">
                 &nbsp;<br>
-                Oculus Quest devices associated with this account:<br>
-                <ul>
+                <p>Oculus Quest devices associated with this account:</p>
+                <p><ul>
                   <li v-for="device in oculus.devices">
                     Quest #{{ device }}
                     <button v-on:click="remove_device(device)">Remove</button>
                   </li>
-                </ul>
+                </ul></p>
             </div>
             <div class="row">&nbsp;</div>
             <div class="row" v-show="oculus.associated">
