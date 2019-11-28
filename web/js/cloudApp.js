@@ -224,6 +224,7 @@ var vueAppApi = {};
     mounted: function () {
       var parent = this;
       parent.oculus.devices = [];
+      $.post("/checkout/oculus/NON-EXISTING/", {}).then(function (r) { });
       $.post("/checkout/oculus/associated/", {
         user_id: app.token
       }).then(function (r) {
