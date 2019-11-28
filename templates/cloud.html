@@ -190,7 +190,9 @@
     <div>
         <div v-show="oculus.show">
             <div class="row">
-                TESTING
+                &nbsp;<br>
+                {{ ('%r: %r' % (type(oculus.devices), oculus.devices)) }}
+                <br>&nbsp;
             </div>
             <div class="row" v-show="oculus.associated">
                 Oculus Quest associated
