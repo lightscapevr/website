@@ -224,7 +224,14 @@ var vueAppApi = {};
     mounted: function () { },
     methods: {
       remove_device: function(device) {
-        $.post("/checkout/oculus/REMOVE-DEVICE/" + device, {}).then(function(r){});
+        $.post("/checkout/oculus/unassociate/", {
+          device: device,
+          user_id: app.token
+        }).then(function(r) {
+          r = JSON.parse(r);
+          if (r.success) {
+            parent.oculus.devices = r.devices;
+        });
       },
       save_short_id: function() {
         var parent = this;

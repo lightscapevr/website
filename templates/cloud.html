@@ -189,7 +189,7 @@
 <script type="text/x-template" id="oculus">
     <div>
         <div v-show="oculus.show">
-            <div class="row">
+            <div class="row" v-show="oculus.devices.length">
                 Oculus Quest devices associated with this account:<br>
                 <ul>
                   <li v-for="device in oculus.devices">
