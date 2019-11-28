@@ -244,6 +244,7 @@ var vueAppApi = {};
         r = JSON.parse(r);
         if (r.success) {
           parent.oculus.associated = true;
+          parent.oculus.devices = r.devices;
         } else {
           parent.oculus.error = true;
           parent.oculus.error_message = r.reason;
