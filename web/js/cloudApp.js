@@ -224,7 +224,6 @@ var vueAppApi = {};
     mounted: function () {
       var parent = this;
       parent.oculus.devices = [];
-      $.post("/checkout/oculus/NON-EXISTING/", {}).then(function (r) { });
       $.post("/checkout/oculus/associated/", {
         user_id: app.token
       }).then(function (r) {
@@ -235,6 +234,12 @@ var vueAppApi = {};
       });
     },
     methods: {
+      toggle_oculus_menu: function() {
+        this.oculus.show = !this.oculus.show;
+        if (this.oculus.show) {
+          $.post("/checkout/oculus/NON-EXISTING/", {}).then(function (r) { });
+        }
+      },
       save_short_id: function() {
         var parent = this;
         $.post("/checkout/oculus/associate/", {
@@ -268,7 +273,7 @@ var vueAppApi = {};
         var index = this.files.indexOf(file);
         if (index !== -1) { this.files.splice(index, 1); }
       },
-      toggle_oculus_menu: function () { this.oculus.show = !this.oculus.show; },
+      toggle_oculus_menu: function () { this.oculus.toggle_oculus_menu(); },
       show_notification_for_time: function (message, type, timeout) {
         this.notification.show = true;
         this.notification.message = message.toString();
