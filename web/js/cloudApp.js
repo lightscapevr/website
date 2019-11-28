@@ -224,6 +224,7 @@ var vueAppApi = {};
     mounted: function () { },
     methods: {
       remove_device: function(device) {
+        var parent = this;
         $.post("/checkout/oculus/remove-associated/", {
           device: device,
           user_id: app.token
