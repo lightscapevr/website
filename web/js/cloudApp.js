@@ -214,7 +214,7 @@ var vueAppApi = {};
   })
 
   Vue.component('oculus', {
-    props: ['oculus', 'associated', 'error', 'error_message'],
+    props: ['oculus', 'associated', 'error', 'error_message', 'devices'],
     template: '#oculus',
     data: function () {
       return {
@@ -223,6 +223,18 @@ var vueAppApi = {};
     },
     mounted: function () { },
     methods: {
+      remove_device: function(device) {
+        var parent = this;
+        $.post("/checkout/oculus/remove-associated/", {
+          device: device,
+          user_id: app.token
+        }).then(function(r) {
+          r = JSON.parse(r);
+          if (r.success) {
+            parent.oculus.devices = r.devices;
+          }
+        });
+      },
       save_short_id: function() {
         var parent = this;
         $.post("/checkout/oculus/associate/", {
@@ -232,7 +244,10 @@ var vueAppApi = {};
         r = JSON.parse(r);
         if (r.success) {
           parent.oculus.associated = true;
+          parent.oculus.error = false;
+          parent.oculus.devices = r.devices;
         } else {
+          parent.oculus.associated = false;
           parent.oculus.error = true;
           parent.oculus.error_message = r.reason;
         }
@@ -249,14 +264,27 @@ var vueAppApi = {};
       logged_in: false,
       connection_status: 'Not connected',
       notification: { show: false, message: '', type: 'alert-info', timer: {} },
-      oculus: { show: false, associated: false, error: false, oculus_short_id: '', error_message: 'wrong id' }
+      oculus: { show: false, associated: false, error: false, oculus_short_id: '', error_message: 'wrong id', 'devices': [] }
     },
     methods: {
       remove_file_by_id: function (file) {
         var index = this.files.indexOf(file);
         if (index !== -1) { this.files.splice(index, 1); }
       },
-      toggle_oculus_menu: function () { this.oculus.show = !this.oculus.show; },
+      toggle_oculus_menu: function () {
+        this.oculus.show = !this.oculus.show;
+        if (this.oculus.show) {
+          var parent = this;
+          $.post("/checkout/oculus/associated/", {
+            user_id: app.token
+          }).then(function (r) {
+            r = JSON.parse(r);
+            if (r.success) {
+              parent.oculus.devices = r.devices;
+            }
+          });
+        }
+      },
       show_notification_for_time: function (message, type, timeout) {
         this.notification.show = true;
         this.notification.message = message.toString();

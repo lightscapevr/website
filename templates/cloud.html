@@ -189,12 +189,22 @@
 <script type="text/x-template" id="oculus">
     <div>
         <div v-show="oculus.show">
+            <div v-show="oculus.devices.length">
+                &nbsp;<br>
+                <p>Oculus Quest devices associated with this account:</p>
+                <p><ul>
+                  <li v-for="device in oculus.devices">
+                    Quest #{{ device.substring(0,8) }}
+                    <button v-on:click="remove_device(device)">Remove</button>
+                  </li>
+                </ul></p>
+            </div>
             <div class="row">&nbsp;</div>
             <div class="row" v-show="oculus.associated">
-                Oculus Quest associated
+                <b>New Oculus Quest associated</b>
             </div>
             <div class="row" v-show="oculus.error">
-                {{ oculus.error_message }}
+                <b>{{ oculus.error_message }}</b>
             </div>
             <div class="row">
               <table border=2><td><tr>
@@ -207,7 +217,7 @@
                 <br>
               </tr></td></table>
             </div>
-            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;<br>&nbsp;</div>
         </div>
     </div>
 </script>
