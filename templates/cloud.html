@@ -194,7 +194,7 @@
                 <p>Oculus Quest devices associated with this account:</p>
                 <p><ul>
                   <li v-for="device in oculus.devices">
-                    Quest #{{ device }}
+                    Quest #{{ device.substring(0,8) }}
                     <button v-on:click="remove_device(device)">Remove</button>
                   </li>
                 </ul></p>
