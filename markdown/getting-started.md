@@ -11,7 +11,10 @@
 
 # Downloading and installing
 
-You can either download and automatically install the VR Sketch plugin from inside SketchUp or manually download it from their website.
+You can either download and automatically install the VR Sketch plugin from inside SketchUp or manually download it.
+
+### Manual download
+To get the latest version directly from our web site, <a href="https://vrsketch.eu/downloads.html">go to this page.</a>
 
 ### Download and installing from inside SketchUp.
   1. Open SketchUp
