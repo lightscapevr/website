@@ -4,7 +4,7 @@
   the necessary equipment, please get in touch. Note that OS X and VR are, as of 2019, not working
   well together. If you can show us a combination of software/hardware that works well, we can consider
   supporting it.
-* VR headsets: HTC Vive, Valve Index, or Oculus Rift. Windows Mixed Realities headsets work, but they are not officially supported.  See <a href="docs-getting-started-quest.html">here for Oculus Quest.</a>
+* VR headsets: HTC Vive, Valve Index, Oculus Rift, Oculus Link. Windows Mixed Realities headsets work, but they are not officially supported.  See <a href="docs-getting-started-quest.html">here for Oculus Quest.</a>
 * Software: SketchUp 2017 to 2019 are currently supported. (We are considering adding a standalone version that works without SketchUp.)
 
 # Downloading and installing

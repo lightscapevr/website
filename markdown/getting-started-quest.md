@@ -6,6 +6,9 @@ model that you have uploaded to the cloud (via SketchUp running on a PC).
 
 Note that cloud uploads require a registered version of VR Sketch.
 
+Note also that the beta "Oculus Link" offers a different way to use the Quest.
+For this way, see the <a href="docs-getting-started.html">VR Sketch for PC</a> page.
+
 
 ### Installation
 
