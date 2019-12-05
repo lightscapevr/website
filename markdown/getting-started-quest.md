@@ -58,6 +58,12 @@ studio with a floating dialog box in the middle.  In this dialog box, pick one
 of the demo models to see it. You can come back later to this dialog box to
 choose another model (use the "cloud" icon, bottom-right in the tools).
 
+IMPORTANT: VR Sketch on Oculus Quest is running in the same "collaborative
+viewing" mode as VR Sketch on PC when viewing any cloud model.  This means that
+if there are other people that visit the same cloud model at the same time,
+then everybody will see each other's avatars and hear what they say.  Please
+keep it in mind when viewing the public demo models.
+
 
 ### View your own models
 
