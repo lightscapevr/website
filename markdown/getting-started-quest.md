@@ -6,6 +6,9 @@ model that you have uploaded to the cloud (via SketchUp running on a PC).
 
 Note that cloud uploads require a registered version of VR Sketch.
 
+*Coming soon: you will be able to use the Quest to view and edit models
+directly from your local PC running SketchUp.*
+
 Note also that the beta "Oculus Link" offers a different way to use the Quest.
 For this way, see the <a href="docs-getting-started.html">VR Sketch for PC</a> page.
 
@@ -53,7 +56,8 @@ can go to the Library and pick the "Unknown sources" page.  You should see
 
 ### View demos models
 
-In the Quest, run "eu.baroquesoftware.VRSketch".  You are sent to the VR Sketch
+In the Quest, run "eu.baroquesoftware.VRSketch"
+(in "Library", "Unknown sources").  You are sent to the VR Sketch
 studio with a floating dialog box in the middle.  In this dialog box, pick one
 of the demo models to see it. You can come back later to this dialog box to
 choose another model (use the "cloud" icon, bottom-right in the tools).
@@ -65,7 +69,7 @@ then everybody will see each other's avatars and hear what they say.  Please
 keep it in mind when viewing the public demo models.
 
 
-### View your own models
+### View your own cloud models
 
 If you never uploaded any cloud model, send one now.  To do this you need to
 open your model in SketchUp, and go to the menu "VR Sketch", "Upload cloud
@@ -92,3 +96,8 @@ listed below on your <a href="https://vrsketch.eu/cloud.html">cloud account
 page.</a>  You can revoke this access at any time by clicking "Oculus Quest
 menu", "Remove"; or from inside the Quest itself, in the floating dialog box's
 "⋮" menu.
+
+
+### View and edit local files directly from SketchUp
+
+Coming soon: the ability to view and edit local models opened in SketchUp.
