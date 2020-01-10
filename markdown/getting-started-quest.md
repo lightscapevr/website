@@ -42,9 +42,9 @@ Download <a href="downloads.html">VR Sketch for Quest.</a>  It is a file with
 the extension ".apk".
 
 With SideQuest running, drag and drop this apk file from your computer's folder
-to the top-left part of the SideQuest window (it will say "Drop file(s)
-here!"). To view the result, or if there are errors, click the "Tasks" or "No
-Tasks" button in the bottom-left corner.
+to the SideQuest window (you may have to drop it precisely on the green dot in
+the top-left corner; it will say "Drop file(s) here!"). To view the result, or
+if there are errors, click the colorful number "1" among the top-line icons.
 
 If everything worked correctly, then inside the Quest's home environment, you
 can go to the Library and pick the "Unknown sources" page.  You should see
