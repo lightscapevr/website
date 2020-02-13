@@ -34,8 +34,8 @@
             <!-- <span class="text-muted">Connection status: {{connection_status}}</span> -->
 
             <cloud-file-list v-bind:files="files"></cloud-file-list>
-            <notification-bar v-bind:notification="notification" v-bind:close="hide_notification">
-            <div>
+            <notification-bar v-bind:notification="notification" v-bind:close="hide_notification"></notification-bar>
+            <div class="col-7">
                 Add new models from the SketchUp menu: Extensions &rightarrow; VR Sketch &rightarrow; Upload file to Cloud...
             </div>
         </div>
