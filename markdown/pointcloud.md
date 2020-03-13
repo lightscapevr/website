@@ -94,7 +94,7 @@ To load the point cloud in VR Sketch, first send a SketchUp model in VR Sketch,
 and then choose the SketchUp menu `extensions -> VR Sketch -> View a point
 cloud` to add the point cloud over this model.
 
-You cannot move, resize or reorient the point cloud.  You can move and reorient
+You cannot move, resize or reorient the point cloud.  You can move and turn
 the regular SketchUp model instead; more generally, you can use the full VR
 Sketch normally to make or edit your SketchUp model.  The point cloud is not
 saved with the SketchUp model; it needs to be re-loaded explicitly the next
