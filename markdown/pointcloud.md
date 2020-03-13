@@ -61,6 +61,9 @@ Here is a brief summary of the procedure:
 * You can choose the "Highest resolution" option and save as a LAS instead
   of a LAZ: compressing here is pointless, as the LAS is temporary anyway.
 
+You cannot resize or reorient the point cloud in VR Sketch, so make sure it is
+the right way upwards and at the correct scale.
+
 
 ## Convertion from LAS/LAZ to Potree
 
@@ -82,5 +85,22 @@ the previous step; adapt as needed):
 This can take some time for large point clouds.  It outputs in
 `D:\data\potree_converted` a directory structure with the top-level file
 `cloud.js` and more data in the `data` subdirectory.  This is the POTree format
-required by VR Sketch, suitable for use by the menu item `extensions -> VR
-Sketch -> View a point cloud`.
+required by VR Sketch.
+
+
+## Usage in VR Sketch
+
+To load the point cloud in VR Sketch, first send a SketchUp model in VR Sketch,
+and then choose the SketchUp menu `extensions -> VR Sketch -> View a point
+cloud` to add the point cloud over this model.
+
+You cannot move, resize or reorient the point cloud.  You can move and reorient
+the regular SketchUp model instead; more generally, you can use the full VR
+Sketch normally to make or edit your SketchUp model.  The point cloud is not
+saved with the SketchUp model; it needs to be re-loaded explicitly the next
+time if you still want to see it.
+
+You can hide parts of the point cloud using the new tool "point cloud" that
+appears on the right below the paint bucket.  This tool also provides a context
+menu command (via the "menu" button) that lets you show again all the hidden
+points.
