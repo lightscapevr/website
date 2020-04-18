@@ -3,15 +3,17 @@
 Oculus Quest is supported and gives the same capabilities as VR headsets
 connected directly to a PC ("tethered" to a PC).  It works without needing a
 beefy VR-ready PC.  It can work in purely standalone mode to view cloud models,
-or it can work together with a PC running SketchUp.  (A future version might
-work with a Mac running SketchUp.)
+or it can work together with a PC or Mac running SketchUp.
 
-*Note that VR Sketch 9.1 for Quest was limited to viewing cloud models.*
+It is recommended to upgrade at least to VR Sketch 11, on both the Quest and
+(potentially) on the PC/Mac.  This documentation assumes you have VR Sketch
+11.0.
 
-Note that the beta "Oculus Link" offers a different way to use the Quest:
+Note that the "Oculus Link" cable offers a different way to use the Quest:
 tethered to the PC.  In this mode, the rendering is done on the PC like with
 other tethered solutions.  These solutions are described in the <a
-href="docs-getting-started.html">VR Sketch for PC</a> page.
+href="docs-getting-started.html">VR Sketch for PC</a> page.  Like all other
+tethered solutions, this does not work on Mac.
 
 
 ### Installation
@@ -30,8 +32,9 @@ during installation).  The long charging cable that comes with the Quest works
 fine if you have a USB-C connector on your computer.  If you don't, you'll need
 either a USB-C-to-USB-2 cable, or a converter.
 
-Note that this computer doesn't have to be the same computer as the PC which
-runs SketchUp and VR Sketch.  It can be any Windows or Mac or Linux computer.
+Note that the computer that you use to install things into the Quest doesn't
+have to be the same computer as the PC/Mac on which you have SketchUp.
+It can also be any other computer (including Windows, Mac or Linux).
 
 
 ### Install SideQuest
@@ -80,55 +83,49 @@ then everybody will see each other's avatars and hear what they say.  Please
 keep it in mind when viewing the public demo models.
 
 
-### Edit with SketchUp running on your PC
+### Edit with SketchUp running on your PC or Mac
 
-*This requires VR Sketch 10.0 on both the PC and on Quest.*
+*You must install VR Sketch on both the computer and the Quest.*
 
-On your PC running SketchUp, make sure you have installed the latest version
-of <a href="downloads.html">VR Sketch for PC.</a>  (If you just upgraded,
-make sure your restart SketchUp now.)
+On Mac, you need SketchUp 2020 to really be able to edit: previous versions don't
+support the "open group" command from VR.  On PC, any SketchUp from 2017 works
+(including SketchUp 2017 Make).
+
+On your PC or Mac, make sure you have installed the latest version of <a
+href="downloads.html">VR Sketch for PC/Mac.</a>  The same .rbz file works for
+both PC or Mac.  If you just upgraded, make sure your restart SketchUp now.
 
 Then choose "Extensions", "VR Sketch", "Send to VR on Oculus Quest".
 Equivalently, pick the second icon in the VR Sketch toolbar.
 
 Make sure the Quest is currently running VR Sketch, and wake it up now (e.g. by
 putting your hand inside the space where your head normally goes, near the
-glasses).
+top of the nose).
 
-* If your PC is directly connected to the same wireless network as the
-  Quest, then it 6-digit number should appear automatically on the PC.  Pick
-  this number and click "Go".
+You need to enter manually the 6-digit number (see "Start VR Sketch") in the
+SketchUp dialog box and press "Go".
 
-* If your PC is not directly connected to the wireless
-  network, you need to enter manually the 6-digit number (see "Start VR Sketch"
-  above).  In that case, communication between the PC and the Quest will occur
-  via our own cloud servers.
-
-(Security notice if you care about keeping your data to yourself: in local
-wireless mode, communications are not encrypted.  They *are* usually encrypted
-by the wireless protocol itself.  Don't use password-less wireless networks or
-wireless networks with untrusted people on it.  On the other hand, in
-over-the-cloud mode, communications are always encrypted between the PC and our
-servers, and between our servers and the Quest.  Only an attacker that would
-take control of our own servers could see the exchange in clear.)
+For performance reasons, it is recommended to try to connect your PC or Mac to
+the same wireless network as the Quest.  If the Quest is not detected locally,
+you will see "encrypted connection via the cloud".  Use the "(?)" link next to
+this message for more information.
 
 
 ### View your own cloud models
 
 Viewing cloud models on Quest can be done with or without the help of a
-PC running SketchUp.
+computer running SketchUp.
 
 If you have a long model URL of the form
 ``https://vrsketch.eu/m/####################``, then you can go to the
-PC running SketchUp, "Extensions", "VR Sketch", "View cloud model" and
+PC/Mac running SketchUp, "Extensions", "VR Sketch", "View cloud model" and
 paste that long URL there.  Then click "Go on Quest" and finish like
 explained above.
-*This requires VR Sketch 10.0 on both the PC and on Quest.*
 
 On the other hand, you can also associate your Quest with your own cloud
 account.  This requires you to have a registered version of VR Sketch to
-initially upload the model, but you don't need a PC any more once it is
-done (e.g. because you are carrying with you your Quest, but not your PC,
+initially upload the model, but you don't need a PC/Mac any more once it is
+done (e.g. because you are carrying with you your Quest, but not your computer,
 and want to make a demo).
 
 To do so, you need to authorize your Quest to access the models from your cloud
@@ -159,10 +156,13 @@ normal rendering speed of the Quest is 72 frames per second; we don't recommend
 looking at models at less than 40 frames per second for longer than a few
 minutes.
 
-Opening large models (either geometrically complex or with many textures)
-may trigger an out-of-memory condition.  There are several different ways
-this can occur.  It can close the VR Sketch program while loading the model,
-or the screen can turn completely black (exit with the "Oculus" button on
-the right-hand controller).  We try to detect when the situation occurs and
-display a message to this effect, but sometimes it will only be displayed
-the next time you restart VR Sketch.
+When opening models with many or excessively large textures, they will be
+rendered at a lower resolution to fit the memory requirements of the Quest.
+Nevertheless, large models may trigger an out-of-memory condition, notably
+if their geometry is too complex.
+There are several different things that can occur in this case.  It can close
+the VR Sketch program while loading the model, or the screen can turn
+completely black (exit with the "Oculus" button on the right-hand controller).
+We try to detect when the situation occurs and display a message to this
+effect, but sometimes it will only be displayed the next time you restart VR
+Sketch.
