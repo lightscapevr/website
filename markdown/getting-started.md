@@ -12,6 +12,8 @@ Mac:
 
 *For Oculus Quest, see the <a href="docs-getting-started-quest.html">separate documentation page.</a>*
 
+<br><br><br>
+
 # Downloading and installing
 
 You can either download and automatically install the VR Sketch plugin from inside SketchUp or manually download it.
