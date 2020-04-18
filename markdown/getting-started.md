@@ -10,7 +10,7 @@ Mac:
 * Oculus Quest.  (As of 2020, OS X and tethered VR headsets are not working well together in general.)
 * SketchUp 2020.  (Required for proper editing.  SketchUp 2017-2019 work too except the "open group" command from VR.)
 
-**For Oculus Quest, see the <a href="docs-getting-started-quest.html">separate documentation page.</a>**
+*For Oculus Quest, see the <a href="docs-getting-started-quest.html">separate documentation page.</a>*
 
 # Downloading and installing
 
