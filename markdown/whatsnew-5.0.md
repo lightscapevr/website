@@ -3,6 +3,7 @@
 
 # What's new in VR Sketch
 <ul>
+<li><a href="https://forum.vrsketch.eu/t/vr-sketch-10-1-oculus-quest-editing-much-more/157"><b>What's new in 10.0 and 10.1...</b></a></li>
 <li><a href="https://forum.vrsketch.eu/t/vr-sketch-9-0-0-released/132"><b>What's new in 9.0...</b></a></li>
 <li><a href="https://forum.vrsketch.eu/t/vr-sketch-8-0-0-is-out/115"><b>What's new in 8.0...</b></a></li>
 <li><a href="https://forum.vrsketch.eu/t/vr-sketch-7-0/102"><b>What's new in 7.0...</b></a></li>
