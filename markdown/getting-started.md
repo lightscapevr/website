@@ -12,7 +12,7 @@ Mac:
 
 *For Oculus Quest, see the <a href="docs-getting-started-quest.html">separate documentation page.</a>*
 
-<br><br><br>
+<br><br>
 
 # Downloading and installing
 
