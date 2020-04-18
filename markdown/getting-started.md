@@ -2,7 +2,7 @@
 
 Windows:
 
-* a VR headset: HTC Vive/Vive Pro, Valve Index, Oculus Rift/Rift S, Oculus Link, or Oculus Quest.  Windows Mixed Realities headsets work, but they are not officially supported.
+* a VR headset: HTC Vive/Vive Pro, Valve Index, Oculus Rift/Rift S, Oculus Link, or Oculus Quest.  Windows Mixed Realities headsets work, but they are not officially supported.  Vive Cosmos is untested; feedback welcome.
 * Software: SketchUp 2017 to 2020 are currently supported. (We are considering adding a standalone version that works without SketchUp.)
 
 Mac:
