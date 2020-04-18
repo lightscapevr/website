@@ -1,11 +1,14 @@
 # Requirements
 
-* OS: Currently only works on Windows. If you want Mac support and you are willing to sponsor
-  the necessary equipment, please get in touch. Note that OS X and VR are, as of 2019, not working
-  well together. If you can show us a combination of software/hardware that works well, we can consider
-  supporting it.
-* VR headsets: HTC Vive/Vive Pro, Valve Index, Oculus Rift/Rift S, Oculus Link. Windows Mixed Realities headsets work, but they are not officially supported.  See <a href="docs-getting-started-quest.html">here for Oculus Quest.</a>
+Windows:
+
+* a VR headset: HTC Vive/Vive Pro, Valve Index, Oculus Rift/Rift S, Oculus Link, or Oculus Quest.  Windows Mixed Realities headsets work, but they are not officially supported.
 * Software: SketchUp 2017 to 2020 are currently supported. (We are considering adding a standalone version that works without SketchUp.)
+
+Mac:
+
+* Oculus Quest.  (As of 2020, OS X and tethered VR headsets are not working well together in general.)
+* SketchUp 2020.  (Required for proper editing.  SketchUp 2017-2019 work too except the "open group" command from VR.)
 
 # Downloading and installing
 
