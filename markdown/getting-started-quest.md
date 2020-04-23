@@ -15,6 +15,10 @@ other tethered solutions.  These solutions are described in the <a
 href="docs-getting-started.html">VR Sketch for PC</a> page.  Like all other
 tethered solutions, this does not work on Mac.
 
+Please be aware that the Quest itself has troubles rendering very large models,
+because it is not as powerful as the tethered VR solutions.  See [Rendering
+of large models](#large-models) below.
+
 
 ### Installation
 
@@ -148,13 +152,18 @@ href="https://vrsketch.eu/cloud.html">cloud account page</a> again, and in the
 "Oculus Quest menu" pick the "Remove" button.
 
 
-### Rendering of large models
+
+### <a name="large-models">Rendering of large models</a>
 
 Check the rendering speed in the Settings dialog; the Quest doesn't have the
 power of a good PC, but it's still OK if the models are not too large.  The
 normal rendering speed of the Quest is 72 frames per second; we don't recommend
 looking at models at less than 40 frames per second for longer than a few
 minutes.
+
+In SketchUp, go to Window -> Model Info -> Statistics, select "Enable nested
+components", and check the "Faces" line.  The Quest will handle nicely up to
+~200'000 faces as an order of magnitude.
 
 When opening models with many or excessively large textures, they will be
 rendered at a lower resolution to fit the memory requirements of the Quest.
