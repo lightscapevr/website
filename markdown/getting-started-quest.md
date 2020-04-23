@@ -155,22 +155,23 @@ href="https://vrsketch.eu/cloud.html">cloud account page</a> again, and in the
 
 ### <a name="large-models">Rendering of large models</a>
 
-Check the rendering speed in the Settings dialog; the Quest doesn't have the
-power of a good PC, but it's still OK if the models are not too large.  The
-normal rendering speed of the Quest is 72 frames per second; we don't recommend
-looking at models at less than 40 frames per second for longer than a few
-minutes.
-
+The Quest doesn't have the power of a good PC, but it's still OK if the models
+are not too large.
 In SketchUp, go to Window -> Model Info -> Statistics, select "Enable nested
 components", and check the "Faces" line.  The Quest will handle nicely up to
 ~200'000 faces as an order of magnitude.
+
+In VR, you can check the rendering speed in the Settings dialog.  The
+normal rendering speed of the Quest is 72 frames per second; we don't recommend
+looking at models at less than 40 frames per second for longer than a few
+minutes.
 
 When opening models with many or excessively large textures, they will be
 rendered at a lower resolution to fit the memory requirements of the Quest.
 Nevertheless, large models may trigger an out-of-memory condition, notably
 if their geometry is too complex.
 There are several different things that can occur in this case.  It can close
-the VR Sketch program while loading the model, or the screen can turn
+the VR Sketch program while loading the model, or the headset's view can turn
 completely black (exit with the "Oculus" button on the right-hand controller).
 We try to detect when the situation occurs and display a message to this
 effect, but sometimes it will only be displayed the next time you restart VR
