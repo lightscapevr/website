@@ -71,7 +71,15 @@ This is the unique identifier for your Quest.
 
 The Quest must generally be connected to the Internet via wireless.  If it has
 got no connection, it should still be able to display cloud models that have
-already been downloaded before ("cached"), but nothing more.
+already been downloaded before ("cached"), but nothing more---unless you use the
+workaround described next.
+
+If you have problems with the wireless connection, either of setting it up or of
+performance, and if you don't want to go for trying to render on the PC with the
+cable constantly connected, then you can try an unofficial workaround that uses
+the cable only for sending the model.  See
+<a href="https://forum.vrsketch.eu/t/first-impressions-suggestions/114/21">this post</a>
+in the forum.
 
 
 ### View demos models
