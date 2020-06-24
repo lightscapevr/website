@@ -26,7 +26,7 @@ Our software is not officially sanctioned by Oculus.  This makes installing it
 a rather lenghty process; there is nothing we can do about that.  You will even
 have to register on the Oculus web site as a "developer"---even if you are not.
 It is just a poor choice of words in our opinion.  Oculus knows about and
-recognizes such usages.
+recognizes such usages.  (Oculus might be [simplify this in the future](https://twitter.com/c_pruett/status/1275476634246639616).)
 
 
 ### Be sure you have the right cable
