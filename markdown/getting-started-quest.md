@@ -57,15 +57,27 @@ to the SideQuest window (you may have to drop it precisely on the green dot in
 the top-left corner; it will say "Drop file(s) here!"). To view the result, or
 if there are errors, click the colorful number "1" among the top-line icons.
 
-If everything worked correctly, then in VR, inside the Quest's home
-environment, you can go to the Library and pick the "Unknown sources" page.
-You should see "eu.baroquesoftware.VRSketch" there.
+If everything worked correctly, then in VR, "VRSketch" is installed in the
+"Unknown sources" page.  Here is how to find this page:
+
+* version 1 (up to July 2020): inside the Quest's home environment,
+  go to the "Library".  Click "Unknown sources" in the left column.
+  You should see "eu.baroquesoftware.VRSketch" in that page.
+
+* version 2 (from July 2020): in the Quest's home environment,
+  click on the
+  <span style="letter-spacing: -.6em">&#x22ee;&#x22ee;&#x22ee;</span>
+  &nbsp;&nbsp;(3x3 dots) button.  The button in the top-right corner
+  says "All" by default.  Click this button, and scroll down and pick
+  "Unknown sources".  You should see "VRSketch" in this page.
 
 
 ### Start VR Sketch
 
-In the Quest, run "eu.baroquesoftware.VRSketch" (in "Library", "Unknown
-sources").  You are sent to the VR Sketch studio with a floating dialog box in
+In the Quest, run "VRSketch" (from the "Unknown sources" page, as described
+just above).
+
+You are sent to the VR Sketch studio with a floating dialog box in
 the middle.  A 6-digit number appears at the top of this dialog box.
 This is the unique identifier for your Quest.
 
