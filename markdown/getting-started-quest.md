@@ -213,4 +213,4 @@ case on Mac, depending on the exact system version.
 
 If you hit this problem, you need either to disable sleep mode manually in
 the system, or to install a third-party application to do it with one click
-(e.g. Amphetamine on PC/Mac, Caffeine on Mac, etc.).
+(e.g. Amphetamine Mac/PC, Caffeine Mac/PC, etc.).
