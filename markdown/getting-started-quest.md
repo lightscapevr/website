@@ -199,3 +199,18 @@ completely black (exit with the "Oculus" button on the right-hand controller).
 We try to detect when the situation occurs and display a message to this
 effect, but sometimes it will only be displayed the next time you restart VR
 Sketch.
+
+
+### If your computer goes to sleep
+
+When you are working in VR, your computer might go to sleep.  The reason is
+simply that you are not using the mouse or keyboard for a long enough period
+of time.
+
+Note that VR Sketch version 14.0 does (or will) contain an attempt at
+preventing sleep, but it is known to not work reliably.  This is notably the
+case on Mac, depending on the exact system version.
+
+If you hit this problem, you need either to disable sleep mode manually in
+the system, or to install a third-party application to do it with one click
+(e.g. Amphetamine on PC/Mac, Caffeine on Mac, etc.).
