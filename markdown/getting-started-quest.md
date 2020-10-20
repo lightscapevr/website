@@ -5,6 +5,10 @@ connected directly to a PC ("tethered" to a PC).  It works without needing a
 beefy VR-ready PC.  It can work in purely standalone mode to view cloud models,
 or it can work together with a PC or Mac running SketchUp.
 
+We have not tested the Oculus Quest 2 headset yet, but we believe it should
+work out of the box.  If you run into issues about this, feel free to report
+them and we will do our best to fix them.
+
 It is recommended to upgrade at least to VR Sketch 11, on both the Quest and
 (potentially) on the PC/Mac.  This documentation assumes you have VR Sketch
 11.0.
