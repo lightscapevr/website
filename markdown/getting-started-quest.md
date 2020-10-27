@@ -1,17 +1,14 @@
 # Oculus Quest
 
-Oculus Quest is supported and gives the same capabilities as VR headsets
-connected directly to a PC ("tethered" to a PC).  It works without needing a
-beefy VR-ready PC.  It can work in purely standalone mode to view cloud models,
-or it can work together with a PC or Mac running SketchUp.
-
-We have not tested the Oculus Quest 2 headset yet, but we believe it should
-work out of the box.  If you run into issues about this, feel free to report
-them and we will do our best to fix them.
+Oculus Quest and Quest 2 are supported and give almost the same capabilities
+as VR headsets connected directly to a PC ("tethered" to a PC).  They work
+without needing a beefy VR-ready PC.  They can work in purely standalone
+mode to view cloud models, or they can work together with a PC or Mac
+running SketchUp.
 
 It is recommended to upgrade at least to VR Sketch 11, on both the Quest and
 (potentially) on the PC/Mac.  This documentation assumes you have VR Sketch
-11.0.
+11.0 or later.
 
 Note that the "Oculus Link" cable offers a different way to use the Quest:
 tethered to the PC.  In this mode, the rendering is done on the PC like with
