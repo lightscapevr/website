@@ -2,14 +2,14 @@
 
 Windows:
 
-* a VR headset: HTC Vive/Vive Pro, Valve Index, Oculus Rift/Rift S, Oculus Link, or Oculus Quest.  Windows Mixed Realities headsets work, but they are not officially supported.  Vive Cosmos is untested; feedback welcome.
+* a VR headset: HTC Vive/Vive Pro, Valve Index, Oculus Rift/Rift S, Oculus Link, or Oculus Quest (1 or 2).  Windows Mixed Realities headsets work, but they are not officially supported.  Vive Cosmos is untested; feedback welcome.
 * VR controllers: they usually come with the headset, but Vive/Index headsets support mixing controllers and using non-standard ones, like the Logitech VR Ink.
 * Software: SketchUp 2017 to 2020 are currently supported. (We are considering adding a standalone version that works without SketchUp.)
 
 Mac:
 
-* Oculus Quest.  (As of 2020, OS X and tethered VR headsets are not working well together in general.)
-* SketchUp 2020.  (Required for proper editing.  SketchUp 2017-2019 work too except the "open group" command from VR.)
+* Oculus Quest 1 or 2.  (As of 2020, OS X and tethered VR headsets are not working well together in general.)
+* SketchUp 2020.  (Required for proper editing.  SketchUp 2017-2019 would work as well but the "open group" command from VR doesn't.)
 
 *For Oculus Quest, see the <a href="docs-getting-started-quest.html">separate documentation page.</a>*
 
