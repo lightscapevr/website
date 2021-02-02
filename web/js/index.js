@@ -132,7 +132,7 @@ function order_regular_monthly() {
         return;
 
     $("#billing-period-choice-modal").modal('hide');
-    createHostedPage('vr-sketch-2');
+    createHostedPage('vr-sketch-3');
 }
 
 function order_regular_yearly() {
@@ -141,7 +141,7 @@ function order_regular_yearly() {
         return;
 
     $("#billing-period-choice-modal").modal('hide');
-    createHostedPage("vr-sketch-yearly");
+    createHostedPage("vr-sketch-yearly-2");
 }
 
 function showEnterpriseModal() {
@@ -176,7 +176,7 @@ function order_hobbyist() {
         return;
 
     $("#hobbyist-modal").modal('hide');
-    createHostedPage('vr-sketch-hobbyist');
+    createHostedPage('vr-sketch-hobbyist-2');
 }
 
 function showEduModal() {
