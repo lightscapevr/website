@@ -208,7 +208,7 @@ When you are working in VR, your computer might go to sleep.  The reason is
 simply that you are not using the mouse or keyboard for a long enough period
 of time.
 
-Note that VR Sketch version 14.0 does (or will) contain an attempt at
+Note that VR Sketch version 14.0 does contain an attempt at
 preventing sleep, but it is known to not work reliably.  This is notably the
 case on Mac, depending on the exact system version.
 
