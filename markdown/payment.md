@@ -5,9 +5,9 @@ VR Sketch has 4 subscription plans:
 
 <img class="img-fluid my-3" src="./img/docs/payment/plans.jpg" alt="VR Sketch subscription plans"> 
 
-* Standard - 30€ / month
+* Standard - 45€ / month
 * Enterprise - 100€ / month
-* Hobbyist - 5€ / month for non-commercial use
+* Hobbyist - 9€ / month for non-commercial use
 * Student - Free for students and educators
 
 You can also choose to pay per year
