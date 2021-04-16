@@ -182,8 +182,9 @@ href="https://vrsketch.eu/cloud.html">cloud account page</a> again, and in the
 The Quest doesn't have the power of a good PC, but it's still OK if the models
 are not too large.
 In SketchUp, go to Window -> Model Info -> Statistics, select "Enable nested
-components", and check the "Faces" line.  The Quest will handle nicely up to
-~200'000 faces as an order of magnitude.
+components", and check the "Faces" line.  The Quest 1 will handle nicely up to
+~200'000 faces as an order of magnitude.  The Quest 2 will handle models that
+are somewhat bigger, but still in the same order of magnitude.
 
 In VR, you can check the rendering speed in the Settings dialog.  The
 normal rendering speed of the Quest is 72 frames per second; we don't recommend
