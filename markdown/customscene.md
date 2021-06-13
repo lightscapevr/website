@@ -5,11 +5,14 @@ your own Unity scene as the background of a SketchUp model.  When viewing such
 a model inside VR Sketch, you get a superposition of the Unity scene and the
 actual SketchUp model.  You can use this to render the background using the
 extra rendering quality of Unity's static scenes: advanced precomputed
-lighting, particle system effects, custom shaders, and so on.  Inside this
+lighting, particle system effects, custom shaders, and so on.  Within this
 static background, you can view and edit the usual SketchUp model.
 
 Note that there are many limitations and complexities in this approach.  Please
-read on carefully to decide if it is worth it in your case.
+read carefully at least the following section to decide if it is worth it in
+your case.  We also did not test it extensively, so if at some point something
+does not work, try again to follow the instructions here more closely and
+report issues to `info@baroquesoftware.com`.
 
 This document assumes that you are at least somewhat familiar with Unity.
 
@@ -18,9 +21,9 @@ This document assumes that you are at least somewhat familiar with Unity.
 
 * You need to use the same version of Unity that VR Sketch uses, or at
   least a very close one.  At the time of this writing we use Unity
-  2019.1.14f1.  It might change in the future; your background scenes
-  would then need to be updated.  They might fail to open in a version
-  VR Sketch that uses a mismatching Unity version.
+  2019.1.14f1.  However, we upgrade from time to time; your background
+  scenes will then need to be regenerated.  They will likely fail to open
+  in a version of VR Sketch that uses a mismatching Unity version.
 
 * The Unity scene needs to be generated twice: once for use on Windows
   (for PC VR), and once for use on Android (for Oculus Quest).  If you
@@ -29,25 +32,23 @@ This document assumes that you are at least somewhat familiar with Unity.
   Android targets in Unity.
 
 * Your custom scene can use common Unity object types because they are
-  already present in the base VR Sketch program.  It cannot include
-  any custom script (.cs file), for example.  The exact set of Unity
+  already present in the base VR Sketch program.  But it cannot include
+  any custom script (`.cs` file), for example.  The exact set of Unity
   objects that can or cannot be included is not clearly known.  Particle
   systems work; custom shaders should work but are untested so far.
-  On the other hand, Terrain, Batching Static, and Light Probes objects
-  do not work (see next point).
+  Any 3rd-party Unity asset will not work if it relies on runtime code.
+  Also, Terrain, Batching Static, and Light Probes objects do not work
+  (see next point).
 
 * Internally, VR Sketch loads your scene in the following slightly convoluted
   way: it has already got many game objects around that are important, so
   it makes them all DontDestroyOnLoad, then loads your scene (non-additively
   to make sure the lightmap and other settings are applied), then reparents
   everything from your scene into one of the pre-existing DontDestroyOnLoad
-  objects, the one that is moved and rotated and scaled by the user.  That
-  approach should work as long as game objects you put in your scene are
-  happy with being reparented in a mobile object.  Used in the normal way,
-  objects that have static (precomputed) lighting can actually be moved
-  in this way: their lighting is basically an additional texture that will
-  move along.  However, this doesn't work if you apply Batching Static,
-  nor for Terrain or Light Probes objects.
+  objects, the one that is moved and rotated and scaled by the user.  This
+  means that correctly-prepared precomputed lighting works, as described
+  below, but for example Terrain and Light Probes objects are not supported
+  because they cannot be rotated or rescaled at runtime.
 
 
 ## Scene setup in Unity
@@ -195,9 +196,9 @@ To build:
   in Unity.  This is needed to produce the Oculus Quest versions as well
   as the PC versions of your scene.
 
-* Create the file `VRSketchSceneBuilder.cs` into a folder called `Editor`
-  in your assets---the menu "VR Sketch` should show up in the menu bar.
-  The content of the file:
+* Create a script `VRSketchSceneBuilder.cs` into a folder called `Editor`
+  in your assets.  Paste the following code into this file.  This causes
+  the menu `VR Sketch` to show up in the menu bar:
 
         using UnityEngine;
         using UnityEditor;
@@ -319,9 +320,9 @@ To build:
   and call it simply `s`.
 
 * In the same directory, click on the folder with the same name as the
-  scene file.  (This is where the lightmap data is stored.)  The same
+  scene file.  (This is where the lightmap data is stored.)  A similar
   AssetBundle entry should appear in the inspector; you need to click
-  on the folder itself, not open it.  Put the AssetBundle name `t`.
+  once on the folder itself, not open it.  Put the AssetBundle name `t`.
 
 * Now with your scene opened, pick the `VR Sketch` menu, the only item.
   It makes and packages 2 files into a directory called
@@ -354,25 +355,23 @@ It should be the name of a directory with the 4 files called
 
 The goal is that VR Sketch should load files in this directory when you start
 it locally, and that it should upload this data (with proper caching) to other
-people in collaborative-editing mode.  Eventually it will also be uploaded
-when making a cloud model for others to view, though this should be implemented
-only later.
+people in collaborative-editing or in cloud-model-viewing mode.
 
-By default, custom scenes are loaded at 1:1 scale and you're located at
+By default, custom scenes are loaded at 1:1 scale and your starting position is
 SketchUp position `(0, 0, 0)`.  You can change that initial scale and location,
 though it is a bit hard to do without a specific UI.  The easiest is
 to install the SketchUp extension `Attribute Editor` from Eneroth.  Then pick
 `Extensions`, `Attribute Editor`, `Current Model`.  You should see
 the block 'Baroque_VRSketch_scene' that you created with the above command,
 with the `directory` key.  Click `Add key` on the next line, name it
-`initial_position`, click `Point/Vector from Model`, and click in the model on that
-position.  (It should be a point on the floor, I guess.)
+`initial_position`, click `Point/Vector from Model`, and click in the model on
+that position---it should be a point on the floor.
 To the question `Convert point to array?` answer `No`.
-Then click OK.  Click again on the line `initial_position` to change
-it later.  Changing the initial scale is done as follows: click `Add key`,
+Then click OK.  You can click again on the line `initial_position` to change
+it at any time.  Changing the initial scale is done as follows: click `Add key`,
 name it `initial_scale`, and type a number like 0.2 to have the initial scale be
 1/5 (i.e. the custom scene along with the SketchUp model should be initially 5
 times smaller than actual size).  To know the actual scale, you can try to
 load it in VR, and scale down (grip button on both controllers) and look at
 the scale displayed in VR.  Convert that to a single fractional number by
-doing the division manually.  The default `initial_scale` is 1.
+doing the division manually.  If unspecified, the `initial_scale` defaults to 1.
