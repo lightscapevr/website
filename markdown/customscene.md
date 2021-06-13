@@ -1,4 +1,4 @@
-# Making a custom background scene in Unity
+# Custom background scenes in Unity
 
 VR Sketch is written in Unity.  In version 16.0 we added the ability to load
 your own Unity scene as the background of a SketchUp model.  When viewing such
@@ -334,7 +334,7 @@ To build:
   It makes 2 more files in the same directory `Assets/VRSketchScene/`.
 
 
-## Using the custom scene in your own SketchUp models
+## Set up your SketchUp model
 
 The custom scene can't be enabled by default everywhere (for now): it is
 enabled for specific SketchUp models.  When opening that file with VR Sketch,
