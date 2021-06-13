@@ -1,4 +1,4 @@
-# Custom background scenes in Unity
+# Custom Unity scenes
 
 VR Sketch is written in Unity.  In version 16.0 we added the ability to load
 your own Unity scene as the background of a SketchUp model.  When viewing such
