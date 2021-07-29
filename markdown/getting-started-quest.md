@@ -6,10 +6,6 @@ without needing a beefy VR-ready PC.  They can work in purely standalone
 mode to view cloud models, or they can work together with a PC or Mac
 running SketchUp.
 
-It is recommended to upgrade at least to VR Sketch 11, on both the Quest and
-(potentially) on the PC/Mac.  This documentation assumes you have VR Sketch
-11.0 or later.
-
 Note that the "Oculus Link" cable offers a different way to use the Quest:
 tethered to the PC.  In this mode, the rendering is done on the PC like with
 other tethered solutions.  These solutions are described in the <a
@@ -23,63 +19,18 @@ of large models](#large-models) below.
 
 ### Installation
 
-Our software is not officially sanctioned by Oculus.  This makes installing it
-a rather lenghty process; there is nothing we can do about that.  You will even
-have to register on the Oculus web site as a "developer"---even if you are not.
-It is just a poor choice of words in our opinion.  Oculus knows about and
-recognizes such usages.  (Oculus is giving confusing messages about this:
-it announces a plan to [simplify this in the future](https://twitter.com/c_pruett/status/1275476634246639616),
-but from October 8, 2020 it piles on more requirements---either a credit card
-number or a mobile phone number.)
+In the Quest, install the application "VR Sketch".  You have to search for it
+by name (big main page, "Search" button at the top right, enter for example
+"vrsketch").  It is in the "App Lab" category, so you have to click "App Lab".
+Here is a direct link: <a href="Her://www.oculus.com/experiences/quest/3557027837758788/">https://www.oculus.com/experiences/quest/3557027837758788/</a>
 
-
-### Be sure you have the right cable
-
-You will need a cable to physically connect your computer to the Quest (only
-during installation).  The long charging cable that comes with the Quest works
-fine if you have a USB-C connector on your computer.  If you don't, you'll need
-either a USB-C-to-USB-2 cable, or a converter.
-
-Note that the computer that you use to install things into the Quest doesn't
-have to be the same computer as the PC/Mac on which you have SketchUp.
-It can also be any other computer (including Windows, Mac or Linux).
-
-
-### Install SideQuest
-
-<a href="https://sidequestvr.com/#/setup-howto">Install SideQuest.</a>  Follow
-the steps 1 to 5 (step 6 is not required).
-
-
-### Install VR Sketch for Quest
-
-Download <a href="downloads.html">VR Sketch for Quest.</a>  It is a file with
-the extension ".apk".
-
-With SideQuest running, drag and drop this apk file from your computer's folder
-to the SideQuest window (you may have to drop it precisely on the green dot in
-the top-left corner; it will say "Drop file(s) here!"). To view the result, or
-if there are errors, click the colorful number "1" among the top-line icons.
-
-If everything worked correctly, then in VR, "VRSketch" is installed in the
-"Unknown sources" page.  Here is how to find this page:
-
-* version 1 (up to July 2020): inside the Quest's home environment,
-  go to the "Library".  Click "Unknown sources" in the left column.
-  You should see "eu.baroquesoftware.VRSketch" in that page.
-
-* version 2 (from July 2020): in the Quest's home environment,
-  click on the
-  <span style="letter-spacing: -.6em">&#x22ee;&#x22ee;&#x22ee;</span>
-  &nbsp;&nbsp;(3x3 dots) button.  The button in the top-right corner
-  says "All" by default.  Click this button, and scroll down and pick
-  "Unknown sources".  You should see "VRSketch" in this page.
+If you want to use it together with SketchUp on a PC or a Mac, you need to
+install <a href="docs-getting-started.html">VR Sketch for PC/Mac</a> too.
 
 
 ### Start VR Sketch
 
-In the Quest, run "VRSketch" (from the "Unknown sources" page, as described
-just above).
+In the Quest, run the app "VR Sketch" (from the "Apps" tab on the floating panel).
 
 You are sent to the VR Sketch studio with a floating dialog box in
 the middle.  A 6-digit number appears at the top of this dialog box.
@@ -216,3 +167,44 @@ case on Mac, depending on the exact system version.
 If you hit this problem, you need either to disable sleep mode manually in
 the system, or to install a third-party application to do it with one click
 (e.g. Amphetamine Mac/PC, Caffeine Mac/PC, etc.).
+
+
+### Installation without using the App Lab
+
+This is the old installation process.  We keep the documentation here in case
+you want to install a different version than the one currently on the App Lab.
+
+**Be sure you have the right cable:**
+
+You will need a cable to physically connect your computer to the Quest (only
+during installation).  The long charging cable that comes with the Quest works
+fine if you have a USB-C connector on your computer.  If you don't, you will need
+either a USB-C-to-USB-2 cable, or a converter.
+
+Note that the computer that you use to install things into the Quest doesn't
+have to be the same computer as the PC/Mac on which you have SketchUp.
+It can also be any other computer (including Windows, Mac or Linux).
+
+**Install SideQuest:**
+
+<a href="https://sidequestvr.com/#/setup-howto">Install SideQuest</a>
+for PC, Mac or Linux as documented on that page.
+
+**Install VR Sketch for Quest:**
+
+This assumes that you have downloaded a file with extension ".apk", which
+contains the version of VR Sketch you want to install on your Quest.
+
+With SideQuest running, drag and drop this apk file from your computer's folder
+to the SideQuest window (you may have to drop it precisely on the green dot in
+the top-left corner; it will say "Drop file(s) here!"). To view the result, or
+if there are errors, click the colorful number "1" among the top-line icons.
+
+If everything worked correctly, then in VR, "VRSketch" is installed.  It might
+appear in the "Unknown sources" page, depending on whether you previously
+installed the App Lab version or not.  Here is how to find this page:
+in the Quest's home environment, click on the
+<span style="letter-spacing: -.6em">&#x22ee;&#x22ee;&#x22ee;</span>
+&nbsp;&nbsp;(3x3 dots) button.  The button in the top-right corner
+says "All" by default.  Click this button, and scroll down and pick
+"Unknown sources".  You should see "VRSketch" in this page.
