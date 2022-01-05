@@ -68,7 +68,8 @@ the right way upwards and at the correct scale.
 ## Convertion from LAS/LAZ to Potree
 
 The next step is to use PotreeConverter: get its
-[current stable release](https://github.com/potree/PotreeConverter/releases/tag/1.6_2018_07_29).
+[release 1.6](https://github.com/potree/PotreeConverter/releases/tag/1.6_2018_07_29).
+(There are more recent releases but VR Sketch may not support the newer formats.)
 
 This is a command-line tool.  In a Windows command-line console, type these
 lines (this assumes that `D:\data\inputfile.las` is the LAS file produced in
