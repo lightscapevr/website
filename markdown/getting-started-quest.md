@@ -16,6 +16,12 @@ Please be aware that the Quest itself has troubles rendering very large models,
 because it is not as powerful as the tethered VR solutions.  See [Rendering
 of large models](#large-models) below.
 
+*Important:* currently, you should *never* subscribe to the Oculus Public Test
+Channel.  The channel is generally "full" (whatever that means), but if you
+manage to enter anyway, then your Quest will be updated to a more recent
+version of the firmware.  As we did not manage to subscribe ourselves so far,
+it means that you could get new bugs related to a firmware that we cannot run.
+
 
 ### Installation
 
