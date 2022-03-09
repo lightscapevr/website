@@ -50,6 +50,8 @@ function getUserInfo() {
 
 function log_in_button() {
     // Only used until gapi.auth2 is loaded
+    console.log("clicked log in button, for some reason");
+    debugger;
     var btn = $("#login-button");
     $("#login-type-modal").modal("hide");
     if (btn.html() == 'Log in') {
