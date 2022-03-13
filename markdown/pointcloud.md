@@ -79,7 +79,7 @@ the previous step; adapt as needed):
 
 `cd \Where\You\Unpacked\POTreeConverter`
 
-`PotreeConverter.exe D:\data\inputfile.las -o D:\data\potree_converted`
+`PotreeConverter.exe "D:\data\inputfile.las" -o "D:\data\potree_converted"`
 
 <br>
 
