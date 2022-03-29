@@ -50,17 +50,14 @@ function getUserInfo() {
 
 function log_in_button() {
     // Only used until gapi.auth2 is loaded
-    console.log("clicked log in button, for some reason");
-    debugger;
     var btn = $("#login-button");
-    $("#login-type-modal").modal("hide");
-    if (btn.html() == 'Log in') {
-        btn.html('Log in&nbsp;<i class="fa fa-spin fa-spinner">');
-        PENDING = function () {
-            btn.html('Log in');
-            btn[0].click();
-            $("#login-button").removeAttr('onclick');
-        }
+    //xxxx
+    //if (btn.html() == 'Log in') {
+    btn.html('Logging in&nbsp;<i class="fa fa-spin fa-spinner">');
+    PENDING = function () {
+        btn.html('Log in');
+        btn[0].click();
+        $("#login-button").removeAttr('onclick');
     }
 }
 
@@ -242,6 +239,28 @@ function manage_subscriptions() {
                 }, show_error);
         }
     });
+}
+
+function create_vrsketch_account() {
+    // verify the input
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var email = $("#login-email").val();
+    if (email == '') {
+        $("#error-bar").text("Empty email");
+        return;
+    } else if (!re.test(email)) {
+        $("#error-bar").text("Please enter a valid email");
+        return;
+    } else {
+        $("#error-bar").html("Email sending...");
+        connection.session.call('com.email.send_registration_email', [email]).then(function (r) {
+            $("#error-bar").html("Email sent, please confirm, <button class='btn btn-primary'>Resend</button>");
+        });
+    }
+}
+
+function clear_error() {
+    $("#error-bar").text("");
 }
 
 var vueAppApi = {};
