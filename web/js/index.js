@@ -265,7 +265,7 @@ function create_vrsketch_account() {
         return;
     } else {
         $("#error-bar").html("Email sending...");
-        connection.session.call('com.email.send_registration_email', [email]).then(function (r) {
+        connection.session.call('com.email.send_registration_email', [email, password]).then(function (r) {
             $("#error-bar").html("Email sent, please confirm, <button class='btn btn-primary'>Resend</button>");
         });
     }
