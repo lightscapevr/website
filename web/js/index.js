@@ -241,15 +241,27 @@ function manage_subscriptions() {
     });
 }
 
+function check_valid_password(password)
+{
+    if (password.length >= 6) {
+        return(true);
+    }
+    return(false);
+}
+
 function create_vrsketch_account() {
     // verify the input
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     var email = $("#login-email").val();
+    var password = $("#login-password").val();
     if (email == '') {
         $("#error-bar").text("Empty email");
         return;
     } else if (!re.test(email)) {
         $("#error-bar").text("Please enter a valid email");
+        return;
+    } else if (!check_valid_password(password)) {
+        $("#error-bar").text("Please enter a password of minimum 6 characters");
         return;
     } else {
         $("#error-bar").html("Email sending...");
