@@ -6,14 +6,32 @@ function hide_error() {
     $("#error-msg").html("");
 }
 
-function show_error(err) {
+function show_message(msg) {
+    $("#message-container").show();
+    $("#message-inner").text(msg);
+}
+
+function hide_message_container() {
+    $("#message-container").hide();
+    $("#message-inner").html("");
+}
+
+function show_error_message(errmsg) {
+    $("#error").show();
+    $("#error-msg").html(errmsg + '<button type="button" class="close" onclick="hide_error()">&times;</button>')
+}
+
+function show_error(err, errmsg) {
     if (err && err.error == 'wamp.error.runtime_error' && err.args[0].startsWith('Token expired')) {
         vueAppApi.logout();
         return;
     }
     Sentry.captureMessage(err);
+    if (errmsg === undefined) {
+        errmsg = '';
+    }
     $("#error").show();
-    $("#error-msg").html('Error encountered <button type="button" class="close" onclick="hide_error()">&times;</button>');
+    $("#error-msg").html('Error encountered ' + errmsg + '<button type="button" class="close" onclick="hide_error()">&times;</button>');
     console.trace();
     console.log(JSON.stringify(err, undefined, 2));
 }
@@ -264,6 +282,7 @@ function create_vrsketch_account() {
         $("#error-bar").text("Please enter a password of minimum 6 characters");
         return;
     } else {
+        // check if there is such an account first
         $("#error-bar").html("Email sending...");
         connection.session.call('com.email.send_registration_email', [email, password]).then(function (r) {
             $("#error-bar").html("Email sent, please confirm, <button class='btn btn-primary'>Resend</button>");
@@ -369,17 +388,51 @@ var vueAppApi = {};
 })(vueAppApi);
 
 $(document).ready(function () {
-    let wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
-        document.location.host + "/ws";
+    var wsuri;
+    if (document.location.host == 'localhost:8000') {
+        wsuri = "ws://localhost:8080/ws";
+    } else {
+        wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
+            document.location.host + "/ws";
+    }
     connection = new autobahn.Connection({
         url: wsuri,
         realm: "vrsketch",
         max_retries: -1,
         max_retry_delay: 3,
     });
+
+    $(document).click(function () {
+        $("#message-container").hide();
+        $("#error").hide();
+        return false;
+    });
+
+    function do_action(params)
+    {
+        console.log(params);
+        var action = params.get('action');
+        if (action == 'account_create') {
+            connection.session.call("com.user.create", [params.get('token'), params.get('secret_token')]).then(
+                function(r) {
+                    if (r.success) {
+                        show_message("Account successfully created, you have been logged in");
+                    } else {
+                        show_error_message(r.answer);
+                    }
+                });
+        }
+    }
+
     connection.onopen = function (session, details) {
+        let params = new URLSearchParams(location.search);
+        if (params.get('action'))
+            do_action(params);
         gapi.load('auth2', function () {
             // Retrieve the singleton for the GoogleAuth library and set up the client.
+            return; // XXX
+            XXX
+
             let auth2 = gapi.auth2.init({
                 client_id: GOOGLE_CLIENT_TOKEN_ID,
                 cookiepolicy: 'single_host_origin',
