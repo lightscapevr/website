@@ -62,7 +62,13 @@ Here is a brief summary of the procedure:
   of a LAZ: compressing here is pointless, as the LAS is temporary anyway.
 
 You cannot resize or reorient the point cloud in VR Sketch, so make sure it is
-the right way upwards and at the correct scale.
+the right way upwards and at the correct scale.  Also, if the
+coordinates are very far off the origin, you may want to recenter it in
+this step.  Indeed, a point cloud with very large values in its coordinates
+will be very far away when you load it in VR Sketch, and difficult to find.
+(Moreover, there are precision issues: the coordinates are sent to the
+GPU as 32-bit numbers, which have only a precision of a few millimeters
+over 30km, or half a meter over 6000km.)
 
 
 ## Convertion from LAS/LAZ to Potree
