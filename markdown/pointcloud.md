@@ -64,7 +64,7 @@ Here is a brief summary of the procedure:
 You cannot resize or reorient the point cloud in VR Sketch, so make sure it is
 the right way upwards and at the correct scale.  Also, if the
 coordinates are very far off the origin, you may want to recenter it in
-this step.  Indeed, a point cloud with very large values in its coordinates
+this step.  Indeed, a point cloud that is very far away from the origin
 will be very far away when you load it in VR Sketch, and difficult to find.
 (Moreover, there are precision issues: the coordinates are sent to the
 GPU as 32-bit numbers, which have only a precision of a few millimeters
