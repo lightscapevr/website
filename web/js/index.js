@@ -500,7 +500,6 @@ $(document).ready(function () {
 
     function do_action(params)
     {
-        console.log(params);
         var action = params.get('action');
         if (action == 'account_create') {
             connection.session.call("com.user.create", [params.get('token'), params.get('secret_token')]).then(
@@ -513,6 +512,9 @@ $(document).ready(function () {
                         show_error_message(r.answer);
                     }
                 });
+
+        } else if (action == 'password_reset') {
+            console.log("reset password action");
         }
     }
 
@@ -554,7 +556,6 @@ $(document).ready(function () {
                 }
             }, show_error);
         });
-        }
 
         /* autoping functionality not implemented */
         function ping_server() {
