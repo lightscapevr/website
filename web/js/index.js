@@ -75,6 +75,7 @@ function getUserInfo() {
 }
 
 function log_in_button() {
+    XXX;
     // Only used until gapi.auth2 is loaded
     var btn = $("#login-button");
     //xxxx
@@ -128,34 +129,6 @@ function logInIfNotLoggedIn(continuation) {
         }
     }
     return false;
-}
-
-function login_with_google_inner()
-{
-    console.log("twi");
-    $("#google-login-spinner").hide();
-}
-
-function log_in_with_google()
-{
-    if (gapi.auth2) {
-        login_with_google_inner();
-        return;
-    }
-    $("#google-login-spinner").show();
-    gapi.load('auth2', function () {
-        console.log("one");
-
-        let auth2 = gapi.auth2.init({
-            client_id: GOOGLE_CLIENT_TOKEN_ID,
-            cookiepolicy: 'single_host_origin',
-
-            // Request scopes in addition to 'profile' and 'email'
-            //scope: 'additional_scope'
-        });
-
-        auth2.then(login_with_google_inner);
-    });
 }
 
 function login_email_password() {
@@ -554,36 +527,33 @@ $(document).ready(function () {
                 on_vrsketch_sign_in(r.fullname, r.email, login_cookie);
             });
         }
-        if (0) {
-            gapi.load('auth2', function () {
-                // Retrieve the singleton for the GoogleAuth library and set up the client.
-                return; // XXX
-                XXX
+        gapi.load('auth2', function () {
+            // Retrieve the singleton for the GoogleAuth library and set up the client.
 
-                let auth2 = gapi.auth2.init({
-                    client_id: GOOGLE_CLIENT_TOKEN_ID,
-                    cookiepolicy: 'single_host_origin',
+            let auth2 = gapi.auth2.init({
+                client_id: GOOGLE_CLIENT_TOKEN_ID,
+                cookiepolicy: 'single_host_origin',
 
-                    // Request scopes in addition to 'profile' and 'email'
-                    //scope: 'additional_scope'
-                });
-
-                auth2.then(function () {
-                    if (auth2.isSignedIn.get()) {
-                        on_google_sign_in(auth2.currentUser.get());
-                    } else {
-                        auth2.attachClickHandler($("#login-button")[0],
-                            { ux_mode: 'redirect' }, on_google_sign_in,
-                            show_error);
-                    }
-
-                    // If there is a pending function, call it
-                    if (PENDING) {
-                        PENDING();
-                        PENDING = null;
-                    }
-                }, show_error);
+                // Request scopes in addition to 'profile' and 'email'
+                //scope: 'additional_scope'
             });
+
+            auth2.then(function () {
+                if (auth2.isSignedIn.get()) {
+                    on_google_sign_in(auth2.currentUser.get());
+                } else {
+                    auth2.attachClickHandler($("#google-login-button")[0],
+                        { ux_mode: 'redirect' }, on_google_sign_in,
+                        show_error);
+                }
+
+                // If there is a pending function, call it
+                if (PENDING) {
+                    PENDING();
+                    PENDING = null;
+                }
+            }, show_error);
+        });
         }
 
         /* autoping functionality not implemented */
