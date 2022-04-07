@@ -90,15 +90,15 @@ function log_in_button() {
 
 function on_google_sign_in(cu) {
     on_sign_in(cu.getBasicProfile().getName(), cu.getBasicProfile().getEmail(),
-        cu.getAuthResponse().id_token);
+        cu.getAuthResponse().id_token, true);
 }
 
 function on_vrsketch_sign_in(name, email, token, webtoken) {
-    on_sign_in(name, email, token);
+    on_sign_in(name, email, token, false);
 }
 
 function on_sign_in(name, email, token) {
-    vueAppApi.log_in(name, email, token);
+    vueAppApi.log_in(name, email, token, is_sso);
 
     $("#main-login-button").replaceWith($("#main-login-button").clone()); // remove event listeners
     getUserInfo();
@@ -391,8 +391,8 @@ var vueAppApi = {};
     var app = new Vue({
         el: "#index-app",
         data: {
-            logged_in: false,
             name: null,
+            is_sso: false,
             email: null,
             token: null,
             licenses_loaded: false,
@@ -402,11 +402,11 @@ var vueAppApi = {};
         methods: {}
     });
 
-    public_api.log_in = function (name, email, token) {
-        app.logged_in = true;
+    public_api.log_in = function (name, email, token, is_sso) {
         app.token = token;
         app.name = name;
         app.email = email;
+        app.is_sso = is_sso;
         $("#main-login-button").replaceWith(LOGIN_NAME + name + LOGIN_NAME_2);
     };
 
@@ -449,24 +449,21 @@ var vueAppApi = {};
 
     public_api.logout = function () {
         /*XXX
-        if (gapi.auth2) {
-            app.logged_in = false;
-            app.token = null;
-            $("#main-login-button").replaceWith(LOGIN_LOGIN);
-            $("#login-button").text("Log in");
-            $("#login-button").removeClass("dropdown-toggle");
-            $("#login-button").attr("data-toggle", null);
-            $("#login-dropdown").hide();
-            let auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut();
-            showPricingInfo();
         } else {
             PENDING = function () {
                 public_api.logout()
             }
         }*/
-        store_cookie(''); // clear the cookie
-        // auth2.signOut() // if through google
+        if (app.is_sso) {
+            if (gapi.auth2) {
+                let auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut();
+            }
+
+        } else {
+            store_cookie(''); // clear the cookie
+            // auth2.signOut() // if through google
+        }
         showPricingInfo();
         $("#main-login-button").click();
         $("#main-login-button").replaceWith(LOGIN_LOGIN);
