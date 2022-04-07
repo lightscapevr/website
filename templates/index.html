@@ -468,12 +468,19 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-6">
-                                <button class="btn" id="login-button" onclick="log_in_button();"><img src="img/logos/google.png"/></button>
+                                <button class="btn btn-secondary p-3" id="login-button" onclick="log_in_with_google();"><img src="img/logos/google.png"/></button>
                             </div>
                             <div class="col-6">
-                                <button class="btn" onclick="">Sign in with <img width="100px" src="img/logos/vr-sketch-logo.png"/></button>
+                                <button class="btn btn-secondary p-3"
+                                    onclick="$('#login-rest').show(); $('#google-login-spinner').hide();">
+                                    <div style="padding-top: 10px; padding-bottom: 10px; padding-right: -3px">
+                                        Sign in with <img width="100px" src="img/logos/vr-sketch-logo.png"/>
+                                    </div>
+                                </button>
                             </div>
                         </div>
+                    </div>
+                    <div class="container" id="login-rest" style="display:none;">
                         <div class="row">
                             <div class="col-12">
                                 <hr class="w-100"/>
@@ -489,8 +496,12 @@
                                     <div class="col-6">Password:</div>
                                     <div class="col-6"><input onfocus="clear_error()" id="login-password" type="password"></div>
                                 </div>
+                                <div id="fullname-container" class="row mt-2" stype="display: none">
+                                    <div class="col-6">Full name:</div>
+                                    <div class="col-6"><input onfocus="clear_error()" id="fullname" type="text"></div>
+                                </div>
                                 <div class="row mt-2">
-                                    <div class="col-6"><button class="btn btn-primary">Log in</button></div>
+                                    <div class="col-6"><button class="btn btn-primary" onclick="login_email_password()">Log in</button></div>
                                     <div class="col-6"><button onclick="create_vrsketch_account()" class="btn btn-secondary">Create an account</button></div>
                                 </div>
                             </div>
@@ -505,6 +516,9 @@
                                 <span class="text-danger" id="error-bar"></span>
                             </div>
                         </div>
+                    </div>
+                    <div class="container" id="google-login-spinner" style="display:none">
+                        Loading... <i class="fa fa-spin fa-spinner"></i>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -1,5 +1,13 @@
 var connection;
-var PENDING = null
+var PENDING = null;
+
+let LOGIN_LOGIN = "<button id='main-login-button' class='btn btn-outline-primary' data-toggle='modal'" +
+                  "data-target='#login-type-modal' onclick=\"$('#login-type-modal').show(); $('#fullname-container').hide();" +
+                  "$('#login-rest').hide();\">Log in or create account</button>";
+let LOGIN_NAME = "<button id='main-login-button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>";
+let LOGIN_NAME_2 = "</button>";
+let RESET_PASSWORD_BUTTON = "&nbsp;&nbsp;<button class='btn btn-primary' onclick='password_reset();'>Reset password to the typed one</button>";
+
 
 function hide_error() {
     $("#error").hide();
@@ -79,11 +87,19 @@ function log_in_button() {
     }
 }
 
-function on_sign_in(cu) {
-    vueAppApi.log_in(cu.getBasicProfile().getName(), cu.getBasicProfile().getEmail(),
+function on_google_sign_in(cu) {
+    on_sign_in(cu.getBasicProfile().getName(), cu.getBasicProfile().getEmail(),
         cu.getAuthResponse().id_token);
+}
 
-    $("#login-button").replaceWith($("#login-button").clone()); // remove event listeners
+function on_vrsketch_sign_in(name, email, token, webtoken) {
+    on_sign_in(name, email, token);
+}
+
+function on_sign_in(name, email, token) {
+    vueAppApi.log_in(name, email, token);
+
+    $("#main-login-button").replaceWith($("#main-login-button").clone()); // remove event listeners
     getUserInfo();
 }
 
@@ -95,6 +111,7 @@ function showLicenseModal() {
 function logInIfNotLoggedIn(continuation) {
     // gapi.auth might not be loaded by the time a user calls this function
     // if no gapi.auth2 yet then store this function in PENDING which will be called when gapi is loaded
+    XXXX
     if (gapi.auth2) {
         let auth2 = gapi.auth2.getAuthInstance();
         if (auth2.currentUser.get().isSignedIn()) {
@@ -102,7 +119,7 @@ function logInIfNotLoggedIn(continuation) {
         }
         // show the log in dialog
         auth2.signIn().then(function (googleUser) {
-            on_sign_in(googleUser);
+            on_google_sign_in(googleUser);
             continuation();
         });
     } else {
@@ -111,6 +128,56 @@ function logInIfNotLoggedIn(continuation) {
         }
     }
     return false;
+}
+
+function login_with_google_inner()
+{
+    console.log("twi");
+    $("#google-login-spinner").hide();
+}
+
+function log_in_with_google()
+{
+    if (gapi.auth2) {
+        login_with_google_inner();
+        return;
+    }
+    $("#google-login-spinner").show();
+    gapi.load('auth2', function () {
+        console.log("one");
+
+        let auth2 = gapi.auth2.init({
+            client_id: GOOGLE_CLIENT_TOKEN_ID,
+            cookiepolicy: 'single_host_origin',
+
+            // Request scopes in addition to 'profile' and 'email'
+            //scope: 'additional_scope'
+        });
+
+        auth2.then(login_with_google_inner);
+    });
+}
+
+function login_email_password() {
+    var email = $("#login-email").val();
+    var password = $("#login-password").val();
+    if (!check_email_password_validity(email, password))
+        return;
+
+    $("#error-bar").text("Logging in...");
+    connection.session.call('com.user.check_email_password', [email, password]).then(function (r) {
+        if (!r.success) {
+            if (r.incorrect_password) {
+                $("#error-bar").html(r.answer + RESET_PASSWORD_BUTTON);
+            } else {
+                $("#error-bar").text(r.answer);
+            }
+        } else {
+            store_cookie(r.token);
+            on_vrsketch_sign_in(r.fullname, email, r.token);
+            $("#login-type-modal").modal("hide");
+        }
+    });
 }
 
 function createHostedPage(plan) {
@@ -267,27 +334,71 @@ function check_valid_password(password)
     return(false);
 }
 
-function create_vrsketch_account() {
+function check_email_password_validity(email, password)
+{
     // verify the input
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    var email = $("#login-email").val();
-    var password = $("#login-password").val();
     if (email == '') {
         $("#error-bar").text("Empty email");
-        return;
+        return(false);
     } else if (!re.test(email)) {
         $("#error-bar").text("Please enter a valid email");
-        return;
+        return(false);
     } else if (!check_valid_password(password)) {
         $("#error-bar").text("Please enter a password of minimum 6 characters");
+        return false;
+    }
+    return true;
+}
+
+function reset_password()
+{
+    var email = $("#login-email").val();
+    var password = $("#login-password").val();
+    if (!check_email_password_validity(email, password))
+        return;
+    $("#error-bar").html("Email sending...");
+    connection.session.call('com.email.send_reset_email', [email, password]).then(function (r) {
+        if (!r.success) {
+            $("#error-bar").text(r.answer);
+            return;
+        }
+        $("#error-bar").text("Email sent, please read your email and confirm.")
+    });
+}
+
+function create_vrsketch_account() {
+    var email = $("#login-email").val();
+    var password = $("#login-password").val();
+    var fullname = $("#fullname").val();
+    if (!check_email_password_validity(email, password))
+        return;
+    if (!fullname) {
+        $("#error-bar").text("Please enter your full name");
+        $("#fullname-container").show();
         return;
     } else {
         // check if there is such an account first
         $("#error-bar").html("Email sending...");
-        connection.session.call('com.email.send_registration_email', [email, password]).then(function (r) {
-            $("#error-bar").html("Email sent, please confirm, <button class='btn btn-primary'>Resend</button>");
+        connection.session.call('com.email.send_registration_email', [email, password, fullname]).then(function (r) {
+            $("#error-bar").html("Email sent, please read your email and confirm.");
         });
     }
+}
+
+function store_cookie(login_token) {
+    document.cookie = "vrsketch_login_token= " + login_token + "; expires=Fri, 1 Dec 2100 12:00:00 UTC; path=/"
+}
+
+function parse_cookie() {
+    var a = {};
+    var cookies = document.cookie.split(";");
+    for (var p in cookies) {
+        var p1 = cookies[p];
+        var x = p1.split("=");
+        a[x[0].trim()] = x[1];
+    }
+    return a;
 }
 
 function clear_error() {
@@ -323,9 +434,7 @@ var vueAppApi = {};
         app.token = token;
         app.name = name;
         app.email = email;
-        $("#login-button").text(name);
-        $("#login-button").addClass("dropdown-toggle");
-        $("#login-button").attr("data-toggle", "dropdown");
+        $("#main-login-button").replaceWith(LOGIN_NAME + name + LOGIN_NAME_2);
     };
 
     public_api.get_auth_token = function () { return app.token; };
@@ -366,23 +475,31 @@ var vueAppApi = {};
     };
 
     public_api.logout = function () {
+        /*XXX
         if (gapi.auth2) {
             app.logged_in = false;
             app.token = null;
+            $("#main-login-button").replaceWith(LOGIN_LOGIN);
             $("#login-button").text("Log in");
             $("#login-button").removeClass("dropdown-toggle");
             $("#login-button").attr("data-toggle", null);
             $("#login-dropdown").hide();
             let auth2 = gapi.auth2.getAuthInstance();
-            auth2.attachClickHandler($("#login-button")[0], { ux_mode: 'redirect' },
-                on_sign_in, show_error);
             auth2.signOut();
             showPricingInfo();
         } else {
             PENDING = function () {
                 public_api.logout()
             }
-        }
+        }*/
+        store_cookie(''); // clear the cookie
+        // auth2.signOut() // if through google
+        showPricingInfo();
+        $("#main-login-button").click();
+        $("#main-login-button").replaceWith(LOGIN_LOGIN);
+        app.token = null;
+        app.email = null;
+        app.fullname = null;
     }
 
 })(vueAppApi);
@@ -416,6 +533,8 @@ $(document).ready(function () {
             connection.session.call("com.user.create", [params.get('token'), params.get('secret_token')]).then(
                 function(r) {
                     if (r.success) {
+                        store_cookie(r.webtoken);
+                        on_vrsketch_sign_in(r.name, r.email, r.webtoken);
                         show_message("Account successfully created, you have been logged in");
                     } else {
                         show_error_message(r.answer);
@@ -425,38 +544,47 @@ $(document).ready(function () {
     }
 
     connection.onopen = function (session, details) {
+        $("#main-login-button").replaceWith(LOGIN_LOGIN);
         let params = new URLSearchParams(location.search);
         if (params.get('action'))
             do_action(params);
-        gapi.load('auth2', function () {
-            // Retrieve the singleton for the GoogleAuth library and set up the client.
-            return; // XXX
-            XXX
-
-            let auth2 = gapi.auth2.init({
-                client_id: GOOGLE_CLIENT_TOKEN_ID,
-                cookiepolicy: 'single_host_origin',
-
-                // Request scopes in addition to 'profile' and 'email'
-                //scope: 'additional_scope'
+        var login_cookie = parse_cookie().vrsketch_login_token;
+        if (login_cookie) {
+            connection.session.call('com.user.check', [login_cookie]).then(function (r) {
+                on_vrsketch_sign_in(r.fullname, r.email, login_cookie);
             });
+        }
+        if (0) {
+            gapi.load('auth2', function () {
+                // Retrieve the singleton for the GoogleAuth library and set up the client.
+                return; // XXX
+                XXX
 
-            auth2.then(function () {
-                if (auth2.isSignedIn.get()) {
-                    on_sign_in(auth2.currentUser.get());
-                } else {
-                    auth2.attachClickHandler($("#login-button")[0],
-                        { ux_mode: 'redirect' }, on_sign_in,
-                        show_error);
-                }
+                let auth2 = gapi.auth2.init({
+                    client_id: GOOGLE_CLIENT_TOKEN_ID,
+                    cookiepolicy: 'single_host_origin',
 
-                // If there is a pending function, call it
-                if (PENDING) {
-                    PENDING();
-                    PENDING = null;
-                }
-            }, show_error);
-        });
+                    // Request scopes in addition to 'profile' and 'email'
+                    //scope: 'additional_scope'
+                });
+
+                auth2.then(function () {
+                    if (auth2.isSignedIn.get()) {
+                        on_google_sign_in(auth2.currentUser.get());
+                    } else {
+                        auth2.attachClickHandler($("#login-button")[0],
+                            { ux_mode: 'redirect' }, on_google_sign_in,
+                            show_error);
+                    }
+
+                    // If there is a pending function, call it
+                    if (PENDING) {
+                        PENDING();
+                        PENDING = null;
+                    }
+                }, show_error);
+            });
+        }
 
         /* autoping functionality not implemented */
         function ping_server() {
