@@ -97,7 +97,7 @@ function on_vrsketch_sign_in(name, email, token, webtoken) {
     on_sign_in(name, email, token, false);
 }
 
-function on_sign_in(name, email, token) {
+function on_sign_in(name, email, token, is_sso) {
     vueAppApi.log_in(name, email, token, is_sso);
 
     $("#main-login-button").replaceWith($("#main-login-button").clone()); // remove event listeners
