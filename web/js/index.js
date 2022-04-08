@@ -3,7 +3,7 @@ var PENDING = null;
 
 let LOGIN_LOGIN = "<button id='main-login-button' class='btn btn-outline-primary' data-toggle='modal'" +
                   "data-target='#login-type-modal' onclick=\"$('#login-type-modal').show(); $('#fullname-container').hide();" +
-                  "$('#login-rest').hide();\">Log in or create account</button>";
+                  "$('#login-rest').hide(); $('#error-bar').text('');\">Log in or create account</button>";
 let LOGIN_NAME = "<button id='main-login-button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>";
 let LOGIN_NAME_2 = "</button>";
 let RESET_PASSWORD_BUTTON = "&nbsp;&nbsp;<button class='btn btn-primary' onclick='password_reset();'>Reset password to the typed one</button>";
@@ -324,7 +324,7 @@ function check_email_password_validity(email, password)
     return true;
 }
 
-function reset_password()
+function password_reset()
 {
     var email = $("#login-email").val();
     var password = $("#login-password").val();
