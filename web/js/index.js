@@ -112,22 +112,11 @@ function showLicenseModal() {
 function logInIfNotLoggedIn(continuation) {
     // gapi.auth might not be loaded by the time a user calls this function
     // if no gapi.auth2 yet then store this function in PENDING which will be called when gapi is loaded
-    XXXX
-    if (gapi.auth2) {
-        let auth2 = gapi.auth2.getAuthInstance();
-        if (auth2.currentUser.get().isSignedIn()) {
-            return true;
-        }
-        // show the log in dialog
-        auth2.signIn().then(function (googleUser) {
-            on_google_sign_in(googleUser);
-            continuation();
-        });
-    } else {
-        PENDING = function () {
-            logInIfNotLoggedIn(continuation);
-        }
+    if (app.token) {
+        return true;
     }
+    app.when_logged_in = continuation;
+    $("#main-login-button").click();
     return false;
 }
 
@@ -398,6 +387,7 @@ var vueAppApi = {};
             licenses_loaded: false,
             no_license: false,
             licenses: [],
+            when_logged_in: null
         },
         methods: {}
     });
@@ -407,6 +397,10 @@ var vueAppApi = {};
         app.name = name;
         app.email = email;
         app.is_sso = is_sso;
+        if (app.when_logged_in) {
+            app.when_logged_in();
+            app.when_logged_in = null;
+        }
         $("#main-login-button").replaceWith(LOGIN_NAME + name + LOGIN_NAME_2);
     };
 
@@ -469,6 +463,7 @@ var vueAppApi = {};
         $("#main-login-button").replaceWith(LOGIN_LOGIN);
         app.token = null;
         app.email = null;
+        app.when_logged_in = null;
         app.fullname = null;
     }
 
