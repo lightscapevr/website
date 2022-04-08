@@ -504,14 +504,23 @@ $(document).ready(function () {
                     if (r.success) {
                         store_cookie(r.webtoken);
                         on_vrsketch_sign_in(r.name, r.email, r.webtoken);
-                        show_message("Account successfully created, you have been logged in");
+                        show_message("Account successfully created, you have been logged in.");
                     } else {
                         show_error_message(r.answer);
                     }
                 });
 
         } else if (action == 'password_reset') {
-            console.log("reset password action");
+            connection.session.call('com.user.reset_password', [params.get('token'), params.get('secret_token')]).then(
+                function(r) {
+                    if (r.success) {
+                        store_cookie(r.webtoken);
+                        on_vrsketch_sign_in(r.name, r.email, r.webtoken);
+                        show_message("Password successfully reset, you are logged in.")
+                    } else {
+                        show_error_message(r.answer);
+                    }
+                });
         }
     }
 
