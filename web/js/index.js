@@ -112,10 +112,10 @@ function showLicenseModal() {
 function logInIfNotLoggedIn(continuation) {
     // gapi.auth might not be loaded by the time a user calls this function
     // if no gapi.auth2 yet then store this function in PENDING which will be called when gapi is loaded
-    if (app.token) {
+    if (vueAppApi.is_logged()) {
         return true;
     }
-    app.when_logged_in = continuation;
+    vueAppApi.set_when_logged_in(continuation);
     $("#main-login-button").click();
     return false;
 }
@@ -403,6 +403,14 @@ var vueAppApi = {};
         }
         $("#main-login-button").replaceWith(LOGIN_NAME + name + LOGIN_NAME_2);
     };
+
+    public_api.is_logged = function () {
+        return !(app.token == null);
+    }
+
+    public_api.set_when_logged_in = function () {
+        app.when_logged_in = continuation;
+    }
 
     public_api.get_auth_token = function () { return app.token; };
     public_api.get_name = function () { return app.name; };
