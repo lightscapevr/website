@@ -470,7 +470,7 @@ var vueAppApi = {};
         $("#main-login-button").click();
         $("#main-login-button").replaceWith(LOGIN_LOGIN);
         if (app.is_sso && gapi.auth2) {
-            auth2.attachClickHandler($("#google-login-button")[0],
+            gapi.auth2.attachClickHandler($("#google-login-button")[0],
                         { ux_mode: 'redirect' }, on_google_sign_in,
                         show_error);
         }
