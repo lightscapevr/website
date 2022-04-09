@@ -497,11 +497,11 @@ $(document).ready(function () {
         max_retry_delay: 3,
     });
 
-    $(document).click(function () {
+    /*$(document).click(function () {
         $("#message-container").hide();
         $("#error").hide();
         return true;
-    });
+    });*/
 
     function do_action(params)
     {
