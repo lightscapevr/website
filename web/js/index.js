@@ -6,7 +6,7 @@ let LOGIN_LOGIN = "<button id='main-login-button' class='btn btn-outline-primary
                   "$('#login-rest').hide(); $('#error-bar').text('');\">Log in or create account</button>";
 let LOGIN_NAME = "<button id='main-login-button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>";
 let LOGIN_NAME_2 = "</button>";
-let RESET_PASSWORD_BUTTON = "&nbsp;&nbsp;<button class='btn btn-primary' onclick='password_reset();'>Reset password to the typed one</button>";
+let RESET_PASSWORD_BUTTON = "&nbsp;&nbsp;<button type='button' class='btn btn-primary' onclick='password_reset(); return false;'>Reset password to the typed one</button>";
 
 
 function hide_error() {
