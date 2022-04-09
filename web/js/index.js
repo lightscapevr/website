@@ -408,7 +408,7 @@ var vueAppApi = {};
         return !(app.token == null);
     }
 
-    public_api.set_when_logged_in = function () {
+    public_api.set_when_logged_in = function (continuation) {
         app.when_logged_in = continuation;
     }
 
