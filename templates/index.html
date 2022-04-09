@@ -487,24 +487,26 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="container">
-                                <div class="row mt-2">
-                                    <div class="col-6">Email:</div>
-                                    <div class="col-6"><input onfocus="clear_error()" name="username" id="login-email" type="text"></div>
+                            <form action="/" target="_blank">
+                                <div class="container">
+                                    <div class="row mt-2">
+                                        <div class="col-6">Email:</div>
+                                        <div class="col-6"><input onfocus="clear_error()" name="username" id="login-email" type="text"></div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-6">Password:</div>
+                                        <div class="col-6"><input onfocus="clear_error()" name="current-password" id="login-password" type="password"></div>
+                                    </div>
+                                    <div id="fullname-container" class="row mt-2" stype="display: none">
+                                        <div class="col-6">Full name:</div>
+                                        <div class="col-6"><input onfocus="clear_error()" name="name" id="fullname" type="text"></div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-6"><button onclick="create_vrsketch_account()" class="btn btn-secondary">Create an account</button></div>
+                                        <div class="col-6"><button type="submit" class="btn btn-primary" onclick="login_email_password()">Log in</button></div>
+                                    </div>
                                 </div>
-                                <div class="row mt-2">
-                                    <div class="col-6">Password:</div>
-                                    <div class="col-6"><input onfocus="clear_error()" name="current-password" id="login-password" type="password"></div>
-                                </div>
-                                <div id="fullname-container" class="row mt-2" stype="display: none">
-                                    <div class="col-6">Full name:</div>
-                                    <div class="col-6"><input onfocus="clear_error()" name="name" id="fullname" type="text"></div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-6"><button onclick="create_vrsketch_account()" class="btn btn-secondary">Create an account</button></div>
-                                    <div class="col-6"><button class="btn btn-primary" onclick="login_email_password()">Log in</button></div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                         <div class="row">
                             <div class="col-12">
