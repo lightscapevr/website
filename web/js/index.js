@@ -500,7 +500,7 @@ $(document).ready(function () {
     $(document).click(function () {
         $("#message-container").hide();
         $("#error").hide();
-        return false;
+        return true;
     });
 
     function do_action(params)
