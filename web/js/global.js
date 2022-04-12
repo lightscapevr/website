@@ -366,9 +366,7 @@ $(document).ready(function () {
             do_action(params);
         var login_cookie = parse_cookie().vrsketch_login_token;
         if (login_cookie) {
-            console.log("login cookie found");
             connection.session.call('com.user.check', [login_cookie]).then(function (r) {
-                console.log("VR Sketch sign in");
                 on_vrsketch_sign_in(r.fullname, r.email, login_cookie);
             });
         }
