@@ -18,6 +18,11 @@ function format_localtime(tstamp)
   return moment(new Date(tstamp * 1000)).format(FORMAT);
 }
 
+function showManageButtons()
+{
+  // empty function to not blow up some JS
+}
+
 var vueAppApi = {};
 
 (function (public_api) {
