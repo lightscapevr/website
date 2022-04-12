@@ -215,6 +215,7 @@ var vueAppApi = {};
             licenses_loaded: false,
             no_license: false,
             licenses: [],
+            files: [],
             when_logged_in: null
         },
         methods: {}

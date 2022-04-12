@@ -194,7 +194,7 @@ function clear_error() {
     $("#error-bar").text("");
 }
 
-function add_login_methods(app, public_api)
+function add_login_methods(app, public_api, post_login_function)
 {
     public_api.log_in = function (name, email, token, is_sso) {
         app.token = token;
@@ -206,6 +206,8 @@ function add_login_methods(app, public_api)
             app.when_logged_in = null;
         }
         $("#main-login-button").replaceWith(LOGIN_NAME + name + LOGIN_NAME_2);
+        if (post_login_function)
+            post_login_function();
     };
 
     public_api.is_logged = function () {
@@ -286,6 +288,7 @@ function add_login_methods(app, public_api)
         app.email = null;
         app.when_logged_in = null;
         app.fullname = null;
+        app.files = [];
     }
 }
 

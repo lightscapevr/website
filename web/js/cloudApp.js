@@ -358,7 +358,7 @@ var vueAppApi = {};
     }, show_error);
   };
 
-  add_login_methods(app, public_api);
+  add_login_methods(app, public_api, public_api.list_files);
 
   // -------------------------------------- Helper functions -------------------------------------- 
   var utils = {
