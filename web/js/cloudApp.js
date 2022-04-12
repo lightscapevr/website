@@ -263,7 +263,6 @@ var vueAppApi = {};
     data: {
       files: [],
 
-      logged_in: false,
       name: null,
       is_sso: false,
       email: null,
