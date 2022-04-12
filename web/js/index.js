@@ -195,6 +195,33 @@ $(document).ready(function () {
     });
 });
 
+var vueAppApi = {};
+(function (public_api) {
+    'use strict';
+
+    Vue.component('user-details', {
+        // Area to display user licenses
+        props: ['licenses', 'licenses_loaded', 'no_license'],
+        template: '#user-details'
+    })
+
+    var app = new Vue({
+        el: "#index-app",
+        data: {
+            name: null,
+            is_sso: false,
+            email: null,
+            token: null,
+            licenses_loaded: false,
+            no_license: false,
+            licenses: [],
+            when_logged_in: null
+        },
+        methods: {}
+    });
+    add_login_methods(app, public_api);
+})(vueAppApi);
+
 // Delay add images to carrousel
 $(document).ready(function () {
     var images = [

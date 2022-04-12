@@ -194,31 +194,8 @@ function clear_error() {
     $("#error-bar").text("");
 }
 
-var vueAppApi = {};
-(function (public_api) {
-    'use strict';
-
-    Vue.component('user-details', {
-        // Area to display user licenses
-        props: ['licenses', 'licenses_loaded', 'no_license'],
-        template: '#user-details'
-    })
-
-    var app = new Vue({
-        el: "#index-app",
-        data: {
-            name: null,
-            is_sso: false,
-            email: null,
-            token: null,
-            licenses_loaded: false,
-            no_license: false,
-            licenses: [],
-            when_logged_in: null
-        },
-        methods: {}
-    });
-
+function add_login_methods(app, public_api)
+{
     public_api.log_in = function (name, email, token, is_sso) {
         app.token = token;
         app.name = name;
@@ -310,8 +287,7 @@ var vueAppApi = {};
         app.when_logged_in = null;
         app.fullname = null;
     }
-
-})(vueAppApi);
+}
 
 $(document).ready(function () {
     var wsuri;
@@ -390,7 +366,9 @@ $(document).ready(function () {
             do_action(params);
         var login_cookie = parse_cookie().vrsketch_login_token;
         if (login_cookie) {
+            console.log("login cookie found");
             connection.session.call('com.user.check', [login_cookie]).then(function (r) {
+                console.log("VR Sketch sign in");
                 on_vrsketch_sign_in(r.fullname, r.email, login_cookie);
             });
         }

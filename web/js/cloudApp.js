@@ -18,6 +18,8 @@ function format_localtime(tstamp)
   return moment(new Date(tstamp * 1000)).format(FORMAT);
 }
 
+var vueAppApi = {};
+
 (function (public_api) {
   'use strict';
 
@@ -260,7 +262,17 @@ function format_localtime(tstamp)
     el: '#cloud-app',
     data: {
       files: [],
+
       logged_in: false,
+      name: null,
+      is_sso: false,
+      email: null,
+      token: null,
+      licenses_loaded: false,
+      no_license: false,
+      licenses: [],
+      when_logged_in: null,
+
       connection_status: 'Not connected',
       notification: { show: false, message: '', type: 'alert-info', timer: {} },
       oculus: { show: false, associated: false, error: false, oculus_short_id: '', error_message: 'wrong id', 'devices': [] }
@@ -342,41 +354,7 @@ function format_localtime(tstamp)
     }, show_error);
   };
 
-  public_api.log_in = function (name, token)
-  {
-    app.logged_in = true;
-    app.token = token;
-    /* This should probably be done differently, but I'm avoiding the mess for now */
-    $("#login-button").text(name);
-    $("#login-button").addClass("dropdown-toggle");
-    $("#login-button").attr("data-toggle", "dropdown");
-    public_api.list_files();
-  };
-
-  public_api.logout = function () 
-  {
-    app.logged_in = false;
-    app.token = null;
-    app.files = [];
-    $("#login-button").text("Log in");
-    $("#login-button").removeClass("dropdown-toggle");
-    $("#login-button").attr("data-toggle", null);
-    $("#login-dropdown").hide();
-    let auth2 = gapi.auth2.getAuthInstance();
-    auth2.attachClickHandler($("#login-button")[0], {ux_mode: 'redirect'},
-                             on_sign_in, show_error);
-    auth2.signOut();
-  }
-
-  public_api.log_in_license_key = function (license_key)
-  {
-    connection.session.call('com.user.')
-    app.logged_in = true;
-    app.license_key = license_key;
-    public_api.list_files();
-  };
-
-
+  add_login_methods(app, public_api);
 
   // -------------------------------------- Helper functions -------------------------------------- 
   var utils = {
@@ -404,48 +382,3 @@ function format_localtime(tstamp)
   }
 })(vueAppApi);
 
-connection = null;
-
-function on_sign_in(cu)
-{
-  vueAppApi.log_in(cu.getBasicProfile().getName(), cu.getAuthResponse().id_token);
-  $("#login-button").replaceWith($("#login-button").clone()); // remove event listeners
-}
-
-$(document).ready(function () {
-  wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
-           document.location.host + "/ws";
-  connection = new autobahn.Connection({
-    url: wsuri,
-    realm: "vrsketch",
-    max_retries: -1,
-    max_retry_delay: 3,
-  });
-  connection.onopen = function(session, dets) {
-
-    gapi.load('auth2', function() {
-      let auth2 = gapi.auth2.init({'client_id': GOOGLE_CLIENT_TOKEN_ID});
-      auth2.then(function () {
-        if (auth2.isSignedIn.get()) {
-          on_sign_in(auth2.currentUser.get());
-        } else {
-          // attach the google log in button to login button
-          auth2.attachClickHandler($("#login-button")[0], {ux_mode: 'redirect'},
-                                   on_sign_in, show_error);
-        }
-      });
-    });
-
-    /* autoping functionality not implemented */
-    function ping_server() {
-      connection.session.call('com.ping', []);
-      setTimeout(ping_server, 10000);
-    }
-
-    ping_server();
-
-  };
-  connection.open();
-});
-
-globFoo = null;
