@@ -14,7 +14,7 @@ function format_size(s)
 
 function format_localtime(tstamp)
 {
-  let FORMAT = "DD MMMM YYYY hh:ss";
+  let FORMAT = "DD MMMM YYYY HH:ss";
   return moment(new Date(tstamp * 1000)).format(FORMAT);
 }
 
