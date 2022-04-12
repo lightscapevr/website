@@ -18,7 +18,6 @@ function format_localtime(tstamp)
   return moment(new Date(tstamp * 1000)).format(FORMAT);
 }
 
-var vueAppApi = {};
 (function (public_api) {
   'use strict';
 
