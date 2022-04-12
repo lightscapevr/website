@@ -10,6 +10,8 @@ if (window.location.host == 'test.vrsketch.eu') {
     Sentry.init({ dsn: 'https://38c4d64c82484e57b0199aef2d2e83cf@sentry.io/1306011' });
 }
 
+var showPricingInfo = function () {};
+
 var connection;
 var PENDING = null;
 
@@ -295,8 +297,7 @@ var vueAppApi = {};
             store_cookie(''); // clear the cookie
             // auth2.signOut() // if through google
         }
-        if (showPricingInfo)
-            showPricingInfo();
+        showPricingInfo();
         $("#main-login-button").click();
         $("#main-login-button").replaceWith(LOGIN_LOGIN);
         if (app.is_sso && gapi.auth2) {
