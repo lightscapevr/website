@@ -449,6 +449,10 @@ var vueAppApi = {};
             }, show_error);
     };
 
+    public_api.get_debug_info = function () {
+        return app;
+    }
+
     public_api.logout = function () {
         /*XXX
         } else {
