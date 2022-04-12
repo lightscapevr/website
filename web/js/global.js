@@ -399,12 +399,12 @@ $(document).ready(function () {
         });
 
         /* autoping functionality not implemented */
-        function ping_server() {
+        /*function ping_server() {
             connection.session.call('com.ping', []);
             setTimeout(ping_server, 10000);
         }
 
-        ping_server();
+        ping_server();*/
 
     }
     connection.open();
