@@ -365,6 +365,26 @@ $(document).ready(function () {
 
     connection.onopen = function (session, details) {
         $("#main-login-button").replaceWith(LOGIN_LOGIN);
+        if (window.location.hash.startsWith('#P')) {
+          /* don't log in with google, but instead use the value of the
+             hash-tag as license key */
+          let license_id = window.location.hash.substring(2, 2+64);
+          window.location.hash = '';
+          connection.session.call('com.user.get_basic_info', [license_id]).then(
+            function (res) {
+              if (!res.success) {
+                show_error(res.error);
+                return;
+              }
+              vueAppApi.log_in(res.name, license_id, license_id, false);
+            }, show_error);
+          // load the gapi anyway, but don't do anything with it
+          gapi.load('auth2', function() {
+            let auth2 = gapi.auth2.init({'client_id': GOOGLE_CLIENT_TOKEN_ID});
+          });
+          return;
+        }
+
         let params = new URLSearchParams(location.search);
         if (params.get('action'))
             do_action(params);
