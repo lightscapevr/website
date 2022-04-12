@@ -18,21 +18,6 @@ function show_error_message(errmsg) {
     $("#error-msg").html(errmsg + '<button type="button" class="close" onclick="hide_error()">&times;</button>')
 }
 
-function show_error(err, errmsg) {
-    if (err && err.error == 'wamp.error.runtime_error' && err.args[0].startsWith('Token expired')) {
-        vueAppApi.logout();
-        return;
-    }
-    Sentry.captureMessage(err);
-    if (errmsg === undefined) {
-        errmsg = '';
-    }
-    $("#error").show();
-    $("#error-msg").html('Error encountered ' + errmsg + '<button type="button" class="close" onclick="hide_error()">&times;</button>');
-    console.trace();
-    console.log(JSON.stringify(err, undefined, 2));
-}
-
 var FORMAT = "DD MMMM YYYY";
 
 function formatDate(tstamp) {
@@ -51,11 +36,6 @@ function showPricingInfo() {
     $('.nav-link[href="#pricing"]').show();
     $("#get-a-license").attr("onclick", "return true;");
     $("#get-a-license").html("Get a License");
-}
-
-function showLicenseModal() {
-    $("#user-modal").modal('show');
-    vueAppApi.show_licenses();
 }
 
 function logInIfNotLoggedIn(continuation) {

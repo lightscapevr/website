@@ -168,6 +168,26 @@ function parse_cookie() {
     return a;
 }
 
+function show_error(err, errmsg) {
+    if (err && err.error == 'wamp.error.runtime_error' && err.args[0].startsWith('Token expired')) {
+        vueAppApi.logout();
+        return;
+    }
+    Sentry.captureMessage(err);
+    if (errmsg === undefined) {
+        errmsg = '';
+    }
+    $("#error").show();
+    $("#error-msg").html('Error encountered ' + errmsg + '<button type="button" class="close" onclick="hide_error()">&times;</button>');
+    console.trace();
+    console.log(JSON.stringify(err, undefined, 2));
+}
+
+function showLicenseModal() {
+    $("#user-modal").modal('show');
+    vueAppApi.show_licenses();
+}
+
 function clear_error() {
     $("#error-bar").text("");
 }
