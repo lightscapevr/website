@@ -295,7 +295,8 @@ var vueAppApi = {};
             store_cookie(''); // clear the cookie
             // auth2.signOut() // if through google
         }
-        showPricingInfo();
+        if (showPricingInfo)
+            showPricingInfo();
         $("#main-login-button").click();
         $("#main-login-button").replaceWith(LOGIN_LOGIN);
         if (app.is_sso && gapi.auth2) {
