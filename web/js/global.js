@@ -26,6 +26,10 @@ let RESET_PASSWORD_BUTTON = "&nbsp;&nbsp;<button type='button' class='btn btn-pr
 function getUserInfo() {
     connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
     vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
+        if (r.error) {
+            show_error_message(r.error);
+            vueAppApi.logout();
+        }
         if (r.subscriptions) {
             showManageButtons();
         }

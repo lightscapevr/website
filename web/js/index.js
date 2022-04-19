@@ -47,6 +47,11 @@ function createHostedPage(plan) {
     // first check if user does not have a plan already
     connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
     vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
+        if (r.error) {
+            show_error_message(r.error);
+            vueAppApi.logout();
+            return;
+        }
         if (r.subscriptions) {
             showManageButtons();
         } else {
