@@ -1,17 +1,3 @@
-function hide_error() {
-    $("#error").hide();
-    $("#error-msg").html("");
-}
-
-function show_message(msg) {
-    $("#message-container").show();
-    $("#message-inner").text(msg);
-}
-
-function hide_message_container() {
-    $("#message-container").hide();
-    $("#message-inner").html("");
-}
 
 function showManageButtons() {
     $("#pricing").hide();

@@ -28,6 +28,21 @@ function show_error_message(errmsg) {
     $("#error-msg").html(errmsg + '<button type="button" class="close" onclick="hide_error()">&times;</button>')
 }
 
+function hide_error() {
+    $("#error").hide();
+    $("#error-msg").html("");
+}
+
+function show_message(msg) {
+    $("#message-container").show();
+    $("#message-inner").text(msg);
+}
+
+function hide_message_container() {
+    $("#message-container").hide();
+    $("#message-inner").html("");
+}
+
 function getUserInfo() {
     connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
     vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
