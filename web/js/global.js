@@ -49,6 +49,11 @@ function on_sign_in(name, email, token, is_sso) {
     getUserInfo();
 }
 
+var FORMAT = "DD MMMM YYYY";
+
+function formatDate(tstamp) {
+    return moment(new Date(tstamp * 1000)).format(FORMAT);
+}
 
 function login_email_password() {
     var email = $("#login-email").val();

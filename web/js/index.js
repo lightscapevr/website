@@ -18,12 +18,6 @@ function show_error_message(errmsg) {
     $("#error-msg").html(errmsg + '<button type="button" class="close" onclick="hide_error()">&times;</button>')
 }
 
-var FORMAT = "DD MMMM YYYY";
-
-function formatDate(tstamp) {
-    return moment(new Date(tstamp * 1000)).format(FORMAT);
-}
-
 function showManageButtons() {
     $("#pricing").hide();
     $('.nav-link[href="#pricing"]').hide();
