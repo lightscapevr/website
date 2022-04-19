@@ -13,11 +13,6 @@ function hide_message_container() {
     $("#message-inner").html("");
 }
 
-function show_error_message(errmsg) {
-    $("#error").show();
-    $("#error-msg").html(errmsg + '<button type="button" class="close" onclick="hide_error()">&times;</button>')
-}
-
 function showManageButtons() {
     $("#pricing").hide();
     $('.nav-link[href="#pricing"]').hide();

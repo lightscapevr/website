@@ -23,6 +23,11 @@ let LOGIN_NAME_2 = "</button>";
 let RESET_PASSWORD_BUTTON = "&nbsp;&nbsp;<button type='button' class='btn btn-primary' "+
                             "onclick='password_reset(); return false;'>Reset password to the typed one</button>";
 
+function show_error_message(errmsg) {
+    $("#error").show();
+    $("#error-msg").html(errmsg + '<button type="button" class="close" onclick="hide_error()">&times;</button>')
+}
+
 function getUserInfo() {
     connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
     vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {

@@ -526,19 +526,6 @@
 
 </div>
 
-<div id="error" style="display:none;position:fixed;bottom:60px;left:0;width:100%;z-index:2000">
-    <div id="error-msg" class="alert alert alert-danger text-center m-3" role="alert">
-        There was an error <button type="button" class="close" onclick="hide_error()">&times;</button>
-    </div>
-</div>
-
-<div id="message-container" style="display:none;position:fixed;top:50px;left:0;width:100%;z-index:2000">
-    <div id="message-contents" class="alert alert-success text-center m-3" role="alert">
-        <span id="message-inner">This is a message of success</span><button style="padding-left:10px;padding-right: 10px;" type="button" class="close" onclick="hide_message_container()">&times;</button>
-    </div>
-</div>
-
-
 <script type="text/x-template" id="user-details">
 <div>
     <div v-if="!licenses_loaded" class="mb-3">
