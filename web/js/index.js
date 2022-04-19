@@ -1,28 +1,3 @@
-var connection;
-var PENDING = null
-
-function hide_error() {
-    $("#error").hide();
-    $("#error-msg").html("");
-}
-
-function show_error(err) {
-    if (err && err.error == 'wamp.error.runtime_error' && err.args[0].startsWith('Token expired')) {
-        vueAppApi.logout();
-        return;
-    }
-    Sentry.captureMessage(err);
-    $("#error").show();
-    $("#error-msg").html('Error encountered <button type="button" class="close" onclick="hide_error()">&times;</button>');
-    console.trace();
-    console.log(JSON.stringify(err, undefined, 2));
-}
-
-var FORMAT = "DD MMMM YYYY";
-
-function formatDate(tstamp) {
-    return moment(new Date(tstamp * 1000)).format(FORMAT);
-}
 
 function showManageButtons() {
     $("#pricing").hide();
@@ -38,60 +13,14 @@ function showPricingInfo() {
     $("#get-a-license").html("Get a License");
 }
 
-function getUserInfo() {
-    connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
-    vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
-        if (r.subscriptions) {
-            showManageButtons();
-        }
-    },
-        show_error);
-}
-
-function log_in_button() {
-    // Only used until gapi.auth2 is loaded
-    var btn = $("#login-button");
-    if (btn.html() == 'Log in') {
-        btn.html('Log in&nbsp;<i class="fa fa-spin fa-spinner">');
-        PENDING = function () {
-            btn.html('Log in');
-            btn[0].click();
-            $("#login-button").removeAttr('onclick');
-        }
-    }
-}
-
-function on_sign_in(cu) {
-    vueAppApi.log_in(cu.getBasicProfile().getName(), cu.getBasicProfile().getEmail(),
-        cu.getAuthResponse().id_token);
-
-    $("#login-button").replaceWith($("#login-button").clone()); // remove event listeners
-    getUserInfo();
-}
-
-function showLicenseModal() {
-    $("#user-modal").modal('show');
-    vueAppApi.show_licenses();
-}
-
 function logInIfNotLoggedIn(continuation) {
     // gapi.auth might not be loaded by the time a user calls this function
     // if no gapi.auth2 yet then store this function in PENDING which will be called when gapi is loaded
-    if (gapi.auth2) {
-        let auth2 = gapi.auth2.getAuthInstance();
-        if (auth2.currentUser.get().isSignedIn()) {
-            return true;
-        }
-        // show the log in dialog
-        auth2.signIn().then(function (googleUser) {
-            on_sign_in(googleUser);
-            continuation();
-        });
-    } else {
-        PENDING = function () {
-            logInIfNotLoggedIn(continuation);
-        }
+    if (vueAppApi.is_logged()) {
+        return true;
     }
+    vueAppApi.set_when_logged_in(continuation);
+    $("#main-login-button").click();
     return false;
 }
 
@@ -99,6 +28,11 @@ function createHostedPage(plan) {
     // first check if user does not have a plan already
     connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
     vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
+        if (r.error) {
+            show_error_message(r.error);
+            vueAppApi.logout(false);
+            return;
+        }
         if (r.subscriptions) {
             showManageButtons();
         } else {
@@ -218,174 +152,6 @@ function addSpinnerForTime(elementId) {
     element.delay(4000).queue(function () { element.html(innerHtml); });
 }
 
-function manage_subscriptions() {
-    cbinst = Chargebee.getInstance();
-    cbinst.setPortalSession(function () {
-        return connection.session.call('com.portalsession', [vueAppApi.get_auth_token()]).then(
-            function (r) {
-                if (!r.success)
-                    show_error(r.error);
-                return r['portal_session'];
-            }, show_error);
-    });
-    cbinst.createChargebeePortal().open({
-        close: function () {
-            connection.session.call('com.user.update_info', [vueAppApi.get_auth_token()]).then(
-                function (res) {
-                    if (!res.success)
-                        show_error(res.error)
-                    else
-                        vueAppApi.show_licenses();
-                }, show_error);
-        }
-    });
-}
-
-var vueAppApi = {};
-(function (public_api) {
-    'use strict';
-
-    Vue.component('user-details', {
-        // Area to display user licenses
-        props: ['licenses', 'licenses_loaded', 'no_license'],
-        template: '#user-details'
-    })
-
-    var app = new Vue({
-        el: "#index-app",
-        data: {
-            logged_in: false,
-            name: null,
-            email: null,
-            token: null,
-            licenses_loaded: false,
-            no_license: false,
-            licenses: [],
-        },
-        methods: {}
-    });
-
-    public_api.log_in = function (name, email, token) {
-        app.logged_in = true;
-        app.token = token;
-        app.name = name;
-        app.email = email;
-        $("#login-button").text(name);
-        $("#login-button").addClass("dropdown-toggle");
-        $("#login-button").attr("data-toggle", "dropdown");
-    };
-
-    public_api.get_auth_token = function () { return app.token; };
-    public_api.get_name = function () { return app.name; };
-    public_api.get_email = function () { return app.email; };
-
-    public_api.show_licenses = function (arg) {
-        connection.session.call('com.user.get_info', [app.token, app.name, app.email]).then(
-            function (r) {
-                app.licenses_loaded = true;
-                if (!r.result) {
-                    app.no_license = true;
-                    app.licenses = [];
-                    return;
-                }
-                app.no_license = false;
-                let licenses = [];
-                for (var i = 0; i < r.subscriptions.length; i++) {
-                    let sub = r.subscriptions[i];
-                    let d = {
-                        deleted: sub.deleted ? "deleted" : "",
-                        quantity: sub.quantity,
-                        license_id: sub.license_id,
-                        ends_at: formatDate(sub.ends_at)
-                    }
-                    if (sub.license_type == 'vr-sketch-hobbyist')
-                        d.license_type = "hobbyist";
-                    else if (sub.license_type == 'vr-sketch' ||
-                        d.license_type == "vr-sketch-2" ||
-                        d.license_type == "vr-sketch-yearly")
-                        d.license_type = "";
-                    else
-                        d.license_type = "educational, automatically renewed";
-                    licenses.push(d);
-                }
-                app.licenses = licenses;
-            }, show_error);
-    };
-
-    public_api.logout = function () {
-        if (gapi.auth2) {
-            app.logged_in = false;
-            app.token = null;
-            $("#login-button").text("Log in");
-            $("#login-button").removeClass("dropdown-toggle");
-            $("#login-button").attr("data-toggle", null);
-            $("#login-dropdown").hide();
-            let auth2 = gapi.auth2.getAuthInstance();
-            auth2.attachClickHandler($("#login-button")[0], { ux_mode: 'redirect' },
-                on_sign_in, show_error);
-            auth2.signOut();
-            showPricingInfo();
-        } else {
-            PENDING = function () {
-                public_api.logout()
-            }
-        }
-    }
-
-})(vueAppApi);
-
-$(document).ready(function () {
-    let wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
-        document.location.host + "/ws";
-    connection = new autobahn.Connection({
-        url: wsuri,
-        realm: "vrsketch",
-        max_retries: -1,
-        max_retry_delay: 3,
-    });
-    connection.onopen = function (session, details) {
-        gapi.load('auth2', function () {
-            // Retrieve the singleton for the GoogleAuth library and set up the client.
-            let auth2 = gapi.auth2.init({
-                client_id: GOOGLE_CLIENT_TOKEN_ID,
-                cookiepolicy: 'single_host_origin',
-
-                // Request scopes in addition to 'profile' and 'email'
-                //scope: 'additional_scope'
-            });
-
-            auth2.then(function () {
-                if (auth2.isSignedIn.get()) {
-                    on_sign_in(auth2.currentUser.get());
-                } else {
-                    auth2.attachClickHandler($("#login-button")[0],
-                        { ux_mode: 'redirect' }, on_sign_in,
-                        show_error);
-                }
-
-                // If there is a pending function, call it
-                if (PENDING) {
-                    PENDING();
-                    PENDING = null;
-                }
-            }, show_error);
-        });
-
-        /* autoping functionality not implemented */
-        function ping_server() {
-            connection.session.call('com.ping', []);
-            setTimeout(ping_server, 10000);
-        }
-
-        ping_server();
-
-    }
-    connection.open();
-
-    var cbinst = Chargebee.init({ site: CHARGEBEE_SITE });
-
-});
-
 // Load youtube videos
 $(document).ready(function () {
     var video_players = $('.youtube-player');
@@ -408,6 +174,34 @@ $(document).ready(function () {
         }
     });
 });
+
+var vueAppApi = {};
+(function (public_api) {
+    'use strict';
+
+    Vue.component('user-details', {
+        // Area to display user licenses
+        props: ['licenses', 'licenses_loaded', 'no_license'],
+        template: '#user-details'
+    })
+
+    var app = new Vue({
+        el: "#index-app",
+        data: {
+            name: null,
+            is_sso: false,
+            email: null,
+            token: null,
+            licenses_loaded: false,
+            no_license: false,
+            licenses: [],
+            files: [],
+            when_logged_in: null
+        },
+        methods: {}
+    });
+    add_login_methods(app, public_api);
+})(vueAppApi);
 
 // Delay add images to carrousel
 $(document).ready(function () {
