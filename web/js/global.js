@@ -28,7 +28,7 @@ function getUserInfo() {
     vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
         if (r.error) {
             show_error_message(r.error);
-            vueAppApi.logout();
+            vueAppApi.logout(false);
         }
         if (r.subscriptions) {
             showManageButtons();
@@ -181,7 +181,7 @@ function parse_cookie() {
 
 function show_error(err, errmsg) {
     if (err && err.error == 'wamp.error.runtime_error' && err.args[0].startsWith('Token expired')) {
-        vueAppApi.logout();
+        vueAppApi.logout(false);
         return;
     }
     Sentry.captureMessage(err);
@@ -268,7 +268,7 @@ function add_login_methods(app, public_api, post_login_function)
         return app;
     }
 
-    public_api.logout = function () {
+    public_api.logout = function (click_main_button) {
         /*XXX
         } else {
             PENDING = function () {
@@ -286,7 +286,8 @@ function add_login_methods(app, public_api, post_login_function)
             // auth2.signOut() // if through google
         }
         showPricingInfo();
-        $("#main-login-button").click();
+        if (click_main_button)
+            $("#main-login-button").click();
         $("#main-login-button").replaceWith(LOGIN_LOGIN);
         if (app.is_sso && gapi.auth2) {
             gapi.auth2.getAuthInstance().attachClickHandler($("#google-login-button")[0],

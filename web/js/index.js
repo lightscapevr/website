@@ -49,7 +49,7 @@ function createHostedPage(plan) {
     vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
         if (r.error) {
             show_error_message(r.error);
-            vueAppApi.logout();
+            vueAppApi.logout(false);
             return;
         }
         if (r.subscriptions) {
