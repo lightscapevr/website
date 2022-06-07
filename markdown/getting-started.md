@@ -7,7 +7,7 @@ Windows:
   Windows Mixed Realities headsets work, but they are not officially supported.
   Vive Cosmos is untested; feedback welcome.
 * VR controllers: they usually come with the headset, but Vive/Index headsets support mixing controllers and using non-standard ones, like the Logitech VR Ink.
-* Software: SketchUp 2017 to 2022 are currently supported. (We are considering adding a standalone version that works without SketchUp.)
+* Software: SketchUp 2017 to 2022 are currently supported. (We are considering adding a standalone version that works without SketchUp. SketchUp 2017 Make is free; see our <a href="faqs.html">FAQ</a> about SketchUp 2017.)
 
 Mac:
 

@@ -30,7 +30,7 @@ by name (big main page, "Search" button at the top right, enter for example
 Here is a direct link: <a href="Her://www.oculus.com/experiences/quest/3557027837758788/">https://www.oculus.com/experiences/quest/3557027837758788/</a>
 
 If you want to use it together with SketchUp on a PC or a Mac, you need to
-install <a href="docs-getting-started.html">VR Sketch for PC/Mac</a> too.
+install <a href="downloads.html">VR Sketch for PC/Mac</a> too.
 
 
 ### Start VR Sketch
