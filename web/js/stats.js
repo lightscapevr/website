@@ -68,7 +68,7 @@ function get_stats_by_user_id()
                 var count = s[1];
                 var version = s[2];
                 html += ("<div class='row'><div class='col-4'>" + d + "</div><div class='col-4'>" + 
-                   count + " days</div><div class='col-4'>" + version + "</div></div>";
+                   count + " days</div><div class='col-4'>" + version + "</div></div>");
             }
             $("#results").html(html);
         }
