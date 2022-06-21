@@ -60,8 +60,18 @@ function get_stats_by_user_id()
         if (!r.success) {
             $("#results").html("No results");
             return;
+        } else {
+            var html = "<div class='row'><div class='col-4'>Date:</div><div class='col-4'>Number of days:</div><div class='col-4'>Version:</div></div>";
+            for (var i = 0; i < r.stats.length; i++) {
+                var s = r.stats[i];
+                var d = formatDate(s[0]);
+                var count = s[1];
+                var version = s[2];
+                html += ("<div class='row'><div class='col-4'>" + d + "</div><div class='col-4'>" + 
+                   count + " days</div><div class='col-4'>" + version + "</div></div>";
+            }
+            $("#results").html(html);
         }
-        console.log(r);
     })
 }
 
