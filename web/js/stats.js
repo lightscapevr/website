@@ -56,7 +56,7 @@ function get_stats_by_user_id()
 {
     var id_token = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().id_token;
     var customer_id = $("#customer_id").val();
-    connection.session.call('com.stats.use_by_customer_id').then(function (r) {
+    connection.session.call('com.stats.use_by_customer_id', [id_token, customer_id]).then(function (r) {
         if (!r.success) {
             $("#results").html("No results");
             return;
