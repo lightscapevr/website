@@ -52,6 +52,19 @@ function plot2(r, target, title) {
     });
 }
 
+function get_stats_by_user_id()
+{
+    var id_token = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().id_token;
+    var customer_id = $("#customer_id").val();
+    connection.session.call('com.stats.use_by_customer_id').then(function (r) {
+        if (!r.success) {
+            $("#results").html("No results");
+            return;
+        }
+        console.log(r);
+    })
+}
+
 $(document).ready(function () {
     if (window.location.hostname == 'api.vrsketch.eu') {
         window.location = 'https://vrsketch.eu/checkout/';
