@@ -7,7 +7,9 @@ if (window.location.host == 'test.vrsketch.eu') {
 } else {
     GOOGLE_CLIENT_TOKEN_ID = '1076106158582-vekr6opr52b6i8eeu3cc8si7828hisgj.apps.googleusercontent.com';
     CHARGEBEE_SITE = 'baroquesoftware';
-    Sentry.init({ dsn: 'https://38c4d64c82484e57b0199aef2d2e83cf@sentry.io/1306011' });
+    if (Sentry) {
+        Sentry.init({ dsn: 'https://38c4d64c82484e57b0199aef2d2e83cf@sentry.io/1306011' });
+    }
 }
 
 var showPricingInfo = function () {};
@@ -204,7 +206,8 @@ function show_error(err, errmsg) {
         vueAppApi.logout(false);
         return;
     }
-    Sentry.captureMessage(err);
+    if (Sentry)
+        Sentry.captureMessage(err);
     if (errmsg === undefined) {
         errmsg = '';
     }
