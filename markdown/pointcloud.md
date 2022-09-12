@@ -41,8 +41,8 @@ compressed.
 
 If your point cloud is not in the LAS or LAZ format, the first step is to
 convert it to that format.  (There is also the option to convert to a binary
-table; see the documentation of
-[PotreeConverter](https://github.com/potree/PotreeConverter/) for more
+table; see the
+[documentation](https://github.com/potree/PotreeConverter/) of PotreeConverter for more
 details.)
 
 We recommend using [CloudCompare](https://www.danielgm.net/cc/), which can
@@ -73,9 +73,10 @@ over 30km, or half a meter over 6000km.)
 
 ## Convertion from LAS/LAZ to Potree
 
-The next step is to use PotreeConverter: get its
-[release 1.6](https://github.com/potree/PotreeConverter/releases/tag/1.6_2018_07_29).
-(There are more recent releases but VR Sketch may not support the newer formats.)
+The next step is to use PotreeConverter: get
+[PotreeConverter 1.6](https://github.com/potree/PotreeConverter/releases/tag/1.6_2018_07_29).
+**You need release 1.6 and not the more recent ones!**
+VR Sketch does not support the recent formats.
 
 This is a command-line tool.  In a Windows command-line console, type these
 lines (this assumes that `D:\data\inputfile.las` is the LAS file produced in
