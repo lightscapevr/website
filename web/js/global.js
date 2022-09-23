@@ -275,16 +275,16 @@ function add_login_methods(app, public_api, post_login_function)
                     }
                     if (sub.license_type == 'vr-sketch-hobbyist' ||
                         sub.license_type == 'vr-sketch-hobbyist-2')
-                        d.license_type = "hobbyist";
+                        d.license_type = "hobbyist license";
                     else if (sub.license_type == 'vr-sketch-enterprise' ||
                              sub.license_type == 'vr-sketch-enterprise-2')
-                        d.license_type = 'enterprise';
+                        d.license_type = 'enterprise license';
                     else if (sub.license_type == 'vr-sketch' ||
                         sub.license_type == "vr-sketch-2" ||
                         sub.license_type == "vr-sketch-3" ||
                         sub.license_type == "vr-sketch-yearly-2" ||
                         sub.license_type == "vr-sketch-yearly")
-                        d.license_type = "";
+                        d.license_type = "license";
                     else
                         d.license_type = "educational, automatically renewed";
                     licenses.push(d);
