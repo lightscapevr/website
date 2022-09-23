@@ -280,10 +280,10 @@ function add_login_methods(app, public_api, post_login_function)
                              sub.license_type == 'vr-sketch-enterprise-2')
                         d.license_type = 'enterprise';
                     else if (sub.license_type == 'vr-sketch' ||
-                        d.license_type == "vr-sketch-2" ||
-                        d.license_type == "vr-sketch-3" ||
-                        d.license_type == "vr-sketch-yearly-2" ||
-                        d.license_type == "vr-sketch-yearly")
+                        sub.license_type == "vr-sketch-2" ||
+                        sub.license_type == "vr-sketch-3" ||
+                        sub.license_type == "vr-sketch-yearly-2" ||
+                        sub.license_type == "vr-sketch-yearly")
                         d.license_type = "";
                     else
                         d.license_type = "educational, automatically renewed";
