@@ -7,9 +7,11 @@ First note that the Pico Neo 3 can be used either as a standalone headset
 or tethered to a PC with a DisplayPort cable.  The following instructions
 are about the standalone usage only.  If you tether the Pico Neo 3 with a
 DisplayPort cable, then it works like a standard PC-VR headset.  Please
-see the instructions about how to do so directly from Pico or from
-numerous gaming blogs.  (We did not explicitly test it ourselves; notably,
-VR Sketch might show incorrect controllers in VR in this case.)
+see the instructions about what to install directly from Pico or from
+numerous gaming blogs.  Afterwards, follow the
+<a href="/docs-getting-started.html">VR Sketch instructions for PC-VR</a>.
+(We did not explicitly test it ourselves; notably, VR Sketch might show
+incorrect controllers in VR in this case.)
 
 
 ### Installation
