@@ -4,17 +4,10 @@
 The Pico Neo 3 is a standalone VR headset that is supported by VR Sketch since release 17.
 
 First note that the Pico Neo 3 can be used either as a standalone headset
-or tethered to a PC with a DisplayPort cable.  The following instructions
-are about the standalone usage only.  If you tether the Pico Neo 3 with a
-DisplayPort cable, then it works like a standard PC-VR headset.  Please
-see the instructions about what to install directly from Pico or from
-numerous gaming blogs.  Afterwards, follow the
-<a href="/docs-getting-started.html">VR Sketch instructions for PC-VR</a>.
-(We did not explicitly test it ourselves; notably, VR Sketch might show
-incorrect controllers in VR in this case.)
+or tethered to a PC with a DisplayPort cable.
 
 
-### Installation
+### Installation (in standalone mode)
 
 These instructions are for Windows.  It is likely that something similar
 works on Mac (or Linux) but this has not been tested yet.
@@ -55,3 +48,20 @@ this in the future.  When working with our software please understand
 that for now most options that apply to Quest also apply to the Pico Neo
 3.
 
+
+### How to use the Pico Neo 3 in tethered mode
+
+If you tether the Pico Neo 3 to your PC with a DisplayPort cable, then
+it works like a standard PC-VR headset.  We did *not* test this case;
+notably, VR Sketch might show incorrect controllers.  We might test it
+and fix issues in the future.  We will collect a copy of the software
+installation instructions here when we do.
+
+For now, you will have to find these general instructions elsewhere,
+for example on Pico's website or on various gaming blogs.  You may also
+just try to install <a href="https://store.steampowered.com/about/">Steam</a> and
+<a href="https://store.steampowered.com/app/250820/SteamVR/">SteamVR</a> and
+<a href="https://store.steampowered.com/app/1941720/Pico_Link/">Pico Link
+on Steam</a>, which might get you started.  Afterwards,
+follow the <a href="/docs-getting-started.html">VR Sketch instructions
+for PC-VR</a>.
