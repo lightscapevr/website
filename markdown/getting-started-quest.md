@@ -1,6 +1,6 @@
 # Oculus Quest
 
-Oculus Quest and Quest 2 are supported and give almost the same capabilities
+Oculus Quest, Quest 2 and Quest Pro are supported and give almost the same capabilities
 as VR headsets connected directly to a PC ("tethered" to a PC).  They work
 without needing a beefy VR-ready PC.  They can work in purely standalone
 mode to view cloud models, or they can work together with a PC or Mac
