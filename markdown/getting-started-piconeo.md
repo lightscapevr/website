@@ -3,14 +3,10 @@
 
 The Pico Neo 3 is a standalone VR headset that is supported by VR Sketch since release 17.
 
-First note that the Pico Neo 3 can be used either as a standalone headset
-or tethered to a PC with a DisplayPort cable.
-We tried and failed in testing the second approach (with a Pico Neo 3
-Pro), so we cannot support it explicitly for now.  Notably, even if you
-manage to get it working, it will likely show incorrect controllers in
-VR Sketch.
+*The Pico Neo 4 is not tested at this point, and unsupported.*
 
-We only support the Pico Neo 3 in standalone mode.
+The Pico Neo 3 can be used either as a standalone headset (fully supported)
+or tethered to a PC with a DisplayPort cable or over wireless (unsupported but works, see below).
 
 
 ### Installation (in standalone mode)
@@ -53,3 +49,20 @@ they really mean "any standalone headset that we support".  We will fix
 this in the future.  When working with our software please understand
 that for now most options that apply to Quest also apply to the Pico Neo
 3.
+
+
+### Tethered mode
+
+The Pico Neo 3 can be used tethered to a PC.  It works since VR Sketch
+17.0.9, but we cannot officially endorse it because we only performed
+minimal testing and have no first-hand experience of how well it
+performs in practice.
+
+Nevertheless, you can try to install it by following the official
+instructions, after which it should behave like any SteamVR headset.
+Do not install the outdated "Pico Link" found in Steam.  Even the
+Pico web site appears confused and different pages promote
+different versions of the Pico Link software; I believe that as of
+this writing, the latest version is the one found on
+<a href="https://www.picoxr.com/global/software/pico-link">this page</a>
+in the tab "Neo3 Link/Pro/Pro Eye".
