@@ -3,10 +3,10 @@
 
 The Pico Neo 3 is a standalone VR headset that is supported by VR Sketch since release 17.
 
-*The Pico Neo 4 is not tested at this point, and unsupported.*
+*The Pico Neo 4 is not tested at this point, and officially unsupported.*
 
 The Pico Neo 3 can be used either as a standalone headset (fully supported)
-or tethered to a PC with a DisplayPort cable or over wireless (unsupported but works, see below).
+or tethered to a PC with a DisplayPort cable or over wireless (not well-tested but works, see below).
 
 
 ### Installation (in standalone mode)
@@ -30,7 +30,7 @@ works on Mac (or Linux) but this has not been tested yet.
 * In the headset, go to the File Manager (bottom right button).
   
 * At the top of the screen it says "videos", "images" or "APK".  Pick
-  "APK", then choose the APK you just copied.  Confirm that you want to
+  "APK", then choose the APK file you just copied.  Confirm that you want to
   install it.
 
 * After installation, VR Sketch should be accessible from the "Library"
@@ -53,16 +53,20 @@ that for now most options that apply to Quest also apply to the Pico Neo
 
 ### Tethered mode
 
-The Pico Neo 3 can be used tethered to a PC.  It works since VR Sketch
-17.0.9, but we cannot officially endorse it because we only performed
-minimal testing and have no first-hand experience of how well it
-performs in practice.
+The Pico Neo 3 can be used tethered to a PC (not a Mac).  It works since
+VR Sketch 17.0.9, but we cannot officially endorse it because we only
+performed minimal testing and have no first-hand experience of how well
+it performs in practice.
 
-Nevertheless, you can try to install it by following the official
-instructions, after which it should behave like any SteamVR headset.
-Do not install the outdated "Pico Link" found in Steam.  Even the
-Pico web site appears confused and different pages promote
-different versions of the Pico Link software; I believe that as of
-this writing, the latest version is the one found on
-<a href="https://www.picoxr.com/global/software/pico-link">this page</a>
-in the tab "Neo3 Link/Pro/Pro Eye".
+Nevertheless, you can try to install it as follows:
+
+- First, follow the official instructions which make it work like a
+  SteamVR headset.  Do not install the outdated "Pico Link" found in
+  Steam.  Even the Pico web site appears confused and different pages
+  promote different versions of this Pico Link.  I believe that
+  as of this writing, the latest version of this software is the one found on
+  <a href="https://www.picoxr.com/global/software/pico-link">this page</a>
+  in the tab "Neo3 Link/Pro/Pro Eye".
+
+- Once you have SteamVR working, you can follow the instructions from
+  the <a href="docs-getting-started.html">VR Sketch for PC</a> page.

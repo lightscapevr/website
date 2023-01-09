@@ -167,13 +167,18 @@ provide), as long as you know their URL.</p>
         </section>
         <section class="pb-3">
             <a class="btn btn-light btn-block text-left" data-toggle="collapse" href="#question-12" role="button" aria-expanded="false" aria-controls="question-12">
-                Why is there no fluid walkthrough movement?  Why is walking mode done in "steps"?
+                Why is there a warning about 'continuous movements'?
             </a>
             <div class="collapse" id="question-12">
                 <div class="card card-body">
-                    <p>Movements in VR Sketch are based on teleporting. Version 12.0 adds a mode called "walking": it is still not continuous movement, but it is done as a series of small, instantaneous teleports that correspond to "steps". This mode can be choosen in the context menu ("Menu" or "B" button) of the Teleport tool.</p>
-                    <p>The #1 rule for VR comfort is: the VR view should never be subject to any acceleration. That is because the headset cannot physically give your body the impression that you are accelerating---it can only fool the eyes. Attempting to do accelerated movements induces sickness, similar to being a passenger in a car on a mountain road. Some persons are more prone to it than others; it can take anywhere between a few seconds and half an hour to make the user sick, if at all. We feel it would be quite unprofessional to submit the majority of users to a feature that appears fine at first, but renders them sick after a while. Teleporting is a good workaround, because it lets the user move around without ever being subject to acceleration.</p>
-                    <p>The "walking" mode added in version 12.0 is a (possibly good) compromize. It gives a feeling similar to real-life steps, and actually is a lot more natural than continuous movement---the latter feels more like flying, in addition to the motion sickness issues. For these reasons, this will likely remain the only "walking" mode available in VR Sketch.</p>
+                    <p>The #1 rule for VR comfort is: the VR view should not be subject to any acceleration. This is not an absolute rule, but it is what causes motion sickness in some people. This is because the headset cannot physically give your body the impression that you are accelerating---it can only fool the eyes. This can result in sickness, similar to being a passenger in a car on a mountain road. Some persons are more prone to it than others; it can take anywhere between a few seconds and half an hour to make the user sick, if at all.</p>
+                    <p>We feel it would be quite unprofessional to submit the majority of users to a feature that appears fine at first, but renders them sick after a while. This is why we give the warning.</p>
+                    <p>There are four ways to move around in VR Sketch:
+                    <ol><li>Teleporting. This looks unnatural at first, but is actually often the easiest and most comfortable option.</li>
+                    <li>You can "grab" the world containing the model, and move it. If you grab with both hands, you can scale the model, too. This is the fastest way to go at a very different location or to get a larger-scale overview. To get back at 1-for-1 scale, use the teleporter again.</li>
+                    <li>You can use the joystick (if you have the teleport tool selected): move it up or down to walk. Be careful about motion sickness. You can disable this completely in the context menu (press the "B" or "Menu" button).</li>
+                    <li>Experimental: in the same context menu, you can choose the walk/jog/run options. It makes teleporting not instantaneous; instead, it is done in a series of steps. It gives a feeling similar to real-life steps.</li>
+                    </ol></p>
                 </div>
             </div>
         </section>
