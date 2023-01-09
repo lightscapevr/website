@@ -3,7 +3,7 @@
 
 The Pico Neo 3 is a standalone VR headset that is supported by VR Sketch since release 17.
 
-*The Pico Neo 4 is not tested at this point, and officially unsupported.*
+*Warning: the Pico Neo 4 is not supported.*
 
 The Pico Neo 3 can be used either as a standalone headset (fully supported)
 or tethered to a PC with a DisplayPort cable or over wireless (not well-tested but works, see below).

@@ -15,7 +15,7 @@ Mac:
 * SketchUp 2020 to 2022.  (Required for proper editing.  SketchUp 2017-2019 would work as well but is not tested, and the "open group" command from VR doesn't.)
 
 *See our separate documentation pages <a href="docs-getting-started-quest.html">for the Oculus Quest</a> or
-<a href="docs-getting-started-piconeo.html">for the Pico Neo</a> headsets.*
+<a href="docs-getting-started-piconeo.html">for the Pico Neo 3</a> headsets.*
 
 <br><br>
 
