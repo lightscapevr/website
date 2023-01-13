@@ -192,8 +192,12 @@ It can also be any other computer (including Windows, Mac or Linux).
 
 **Install SideQuest:**
 
-<a href="https://sidequestvr.com/#/setup-howto">Install SideQuest</a>
-for PC, Mac or Linux as documented on that page.
+<a href="https://sidequestvr.com/#/setup-howto">Install SideQuest (Advanced Installer)</a>
+for PC, Mac or Linux from that page.
+
+Run it; if the cable is properly connected, it might tell you "Dev Mode: Enable dev mode
+in the Oculus phone app".  Follow the instructions to do so.  You need to use your phone
+in addition to the computer; there is no way around it.
 
 **Install VR Sketch for Quest:**
 
