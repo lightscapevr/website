@@ -209,6 +209,11 @@ to the SideQuest window (you may have to drop it precisely on the green dot in
 the top-left corner; it will say "Drop file(s) here!"). To view the result, or
 if there are errors, click the colorful number "1" among the top-line icons.
 
+Note that if you installed the official version of VR Sketch from the App Lab,
+you may have to manually uninstall it in the headset first, before you can install
+the ".apk".  Similarly, to switch back to the official version you might have to
+manually uninstall the ".apk" version.
+
 If everything worked correctly, then in VR, "VRSketch" is installed.  It might
 appear in the "Unknown sources" page, depending on whether you previously
 installed the App Lab version or not.  Here is how to find this page:
