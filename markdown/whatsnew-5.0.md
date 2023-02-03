@@ -2,15 +2,10 @@
 
 
 # What's new in VR Sketch
-<ul>
-<li><a href="https://forum.vrsketch.eu/t/vr-sketch-12-0/199"><b>What's new in 12.0...</b></a></li>
-<li><a href="https://forum.vrsketch.eu/t/vr-sketch-11-0/175"><b>What's new in 11.0 and 11.1...</b></a></li>
-<li><a href="https://forum.vrsketch.eu/t/vr-sketch-10-1-oculus-quest-editing-much-more/157"><b>What's new in 10.0 and 10.1...</b></a></li>
-<li><a href="https://forum.vrsketch.eu/t/vr-sketch-9-0-0-released/132"><b>What's new in 9.0...</b></a></li>
-<li><a href="https://forum.vrsketch.eu/t/vr-sketch-8-0-0-is-out/115"><b>What's new in 8.0...</b></a></li>
-<li><a href="https://forum.vrsketch.eu/t/vr-sketch-7-0/102"><b>What's new in 7.0...</b></a></li>
-</ul>
-<br><br>
+
+Follow the <a href="https://forum.vrsketch.eu/c/releases">release pages</a> on our <a href="https://forum.vrsketch.eu/">forum</a> to see what's new.
+
+The rest of this page is kept for historical reasons.
 
 
 ## What's new in 5.0
