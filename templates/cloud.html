@@ -171,7 +171,7 @@
 <script type="text/x-template" id="cloud-file-sharing">
     <div class="c-info">
         <div class="row">
-            <a v-bind:href="shareable_link">
+            <a v-bind:href="sharable_link">
             <input type="text" class="form-control w-50" v-bind:value="sharable_link" :id="'share-link-'+id" readonly></a>
            <button v-on:click="$emit('share')" class="btn btn-primary ml-auto">Copy link to clipboard</button>
         </div>
