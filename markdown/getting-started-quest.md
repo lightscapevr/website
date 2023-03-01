@@ -192,8 +192,12 @@ It can also be any other computer (including Windows, Mac or Linux).
 
 **Install SideQuest:**
 
-<a href="https://sidequestvr.com/#/setup-howto">Install SideQuest</a>
-for PC, Mac or Linux as documented on that page.
+<a href="https://sidequestvr.com/#/setup-howto">Install SideQuest (Advanced Installer)</a>
+for PC, Mac or Linux from that page.
+
+Run it; if the cable is properly connected, it might tell you "Dev Mode: Enable dev mode
+in the Oculus phone app".  Follow the instructions to do so.  You need to use your phone
+in addition to the computer; there is no way around it.
 
 **Install VR Sketch for Quest:**
 
@@ -204,6 +208,11 @@ With SideQuest running, drag and drop this apk file from your computer's folder
 to the SideQuest window (you may have to drop it precisely on the green dot in
 the top-left corner; it will say "Drop file(s) here!"). To view the result, or
 if there are errors, click the colorful number "1" among the top-line icons.
+
+Note that if you installed the official version of VR Sketch from the App Lab,
+you may have to manually uninstall it in the headset first, before you can install
+the ".apk".  Similarly, to switch back to the official version you might have to
+manually uninstall the ".apk" version.
 
 If everything worked correctly, then in VR, "VRSketch" is installed.  It might
 appear in the "Unknown sources" page, depending on whether you previously

@@ -4,13 +4,150 @@
 {% endblock custom_style_imports %}
 
 {% block main_content %}
+
 <div class="container pb-5">
     <p>&nbsp;</p>
     <p>&nbsp;</p>
+    <p align="center" style="font-size: 120%;"><b><span id="m_url"/></b></p>
     <p>&nbsp;</p>
-    <p>This URL must be pasted inside SketchUp.  In the <a href="/">VR Sketch</a> extension menu, pick "View cloud model".</p>
-    <p>You cannot use this URL directly in the browser for now.</p>
+    <div style="border: 1px solid black; margin: auto; max-width: 50em; padding: 1em; background-color: #b5dab8;">
+      <span style="margin-left: 0.5em; margin-right: 0.5em;">Send to Oculus Quest ID #</span>
+      <input type="text" id="uid" size="6" style="font-size: 160%; font-weight: bold; margin: 0.5em;"/>
+      <span style="margin-left: 1em;">
+        <button type="button" style="background-color: black; border: none; color: white; font-size:160%; text-align: center; border-radius: 4em; width: 8.1em; cursor:pointer;" onclick="button_go()">Go</button>
+      </span>
+    </div>
+    <p>&nbsp;</p>
+    <p id="answer" style="border: 1px solid black; padding: 1em; display: none;"></p>
+    <p>&nbsp;</p>
+    <p>This is the URL of a cloud model.  You cannot view it directly in the browser for now.</p>
+    <p><ul><li>If Sketchup is available, you can paste this URL inside the <a href="/">VR Sketch</a> extension menu, "View cloud model".</li>
+    <li>With a standalone headset like the Oculus Quest, you can send the model to it by entering the headset ID in the box above.  Start VR Sketch and copy the 6-digits number shown at the top of the initial dialog box.</li></ul></p>
 </div>
+
+<script type="text/javascript">
+function getQueryParams() {
+    var qs = document.location.search;
+    qs = qs.split("+").join(" ");
+    var params = {}, tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
+    var tokens;
+    while (tokens = re.exec(qs)) {
+        params[decodeURIComponent(tokens[1])]
+            = decodeURIComponent(tokens[2]);
+    }
+    return params;
+}
+function storageAvailable(type) {
+    let storage;
+    try {
+        storage = window[type];
+        const x = '__storage_test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+    }
+    catch (e) {
+        return e instanceof DOMException && (
+            // everything except Firefox
+            e.code === 22 ||
+            // Firefox
+            e.code === 1014 ||
+            // test name field too, because code might not be present
+            // everything except Firefox
+            e.name === 'QuotaExceededError' ||
+            // Firefox
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+            // acknowledge QuotaExceededError only if there's something already stored
+            (storage && storage.length !== 0);
+    }
+}
+function storageAvailable(type) {
+    let storage;
+    try {
+        storage = window[type];
+        const x = '__storage_test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+    }
+    catch (e) {
+        return e instanceof DOMException && (
+            // everything except Firefox
+            e.code === 22 ||
+            // Firefox
+            e.code === 1014 ||
+            // test name field too, because code might not be present
+            // everything except Firefox
+            e.name === 'QuotaExceededError' ||
+            // Firefox
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+            // acknowledge QuotaExceededError only if there's something already stored
+            (storage && storage.length !== 0);
+    }
+}
+function valid_uid(uid) {
+    return (uid && uid.length == 6 && uid == String(parseInt(uid)))
+}
+function init_model_url() {
+    var span = document.getElementById('m_url');
+    var my_model_url = getQueryParams().url;
+    span.innerText = my_model_url;
+    if (storageAvailable('localStorage')) {
+        var uid = window.localStorage.getItem('model_html_uid');
+        if (valid_uid(uid)) {
+            document.getElementById('uid').value = uid;
+        }
+    }
+}
+init_model_url();
+
+function give_answer(msg, color) {
+    var box = document.getElementById("answer");
+    box.innerHTML = msg;
+    box.style.backgroundColor = color;
+    box.style.display = "block";
+}
+function give_error(msg) {
+    give_answer(msg, "#ffd0d0");
+}
+function give_message(msg) {
+    give_answer(msg, "#b5dab8");
+}
+function hide_answer() {
+    var box = document.getElementById("answer");
+    box.style.display = "none";
+}
+
+function button_go() {
+    var uid = document.getElementById('uid').value.trim();
+    if (valid_uid(uid)) {
+        hide_answer();
+        if (storageAvailable('localStorage'))
+            window.localStorage.setItem('model_html_uid', uid);
+
+        var my_model_url = getQueryParams().url;
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "/cloudsession/send-model-to-headset?id=" + uid + "&url=" +
+            encodeURIComponent(my_model_url));
+
+        xhr.onload = function () {
+            if (xhr.status == 200)
+                give_message(xhr.responseText);
+            else
+                give_error(xhr.responseText);
+        };
+
+        give_message("Processing...");
+        xhr.send();
+    }
+    else
+        give_error("Invalid number! You need to enter the 6-digits number that you see in " +
+                    "the Oculus Quest when you start VR Sketch.");
+}
+</script>
+
 {% endblock main_content %}
 
 {% block js_imports %}
