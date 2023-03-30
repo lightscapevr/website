@@ -36,12 +36,6 @@ function parseJwt (token) {
   return JSON.parse(jsonPayload);
 }
 
-
-function handleCredentialResponse(r)
-{
-    console.log(parseJwt(r.credential));
-}
-
 function show_error_message(errmsg) {
     $("#error").show();
     $("#error-msg").html(errmsg + '<button type="button" class="close" onclick="hide_error()">&times;</button>')
@@ -76,9 +70,9 @@ function getUserInfo() {
         show_error);
 }
 
-function on_google_sign_in(cu) {
-    on_sign_in(cu.getBasicProfile().getName(), cu.getBasicProfile().getEmail(),
-        cu.getAuthResponse().id_token, true);
+function on_google_sign_in(r) {
+    var r = parseJwt(r.credential);
+    on_sign_in(r.name, r.email, r.sub, true);
 }
 
 function on_cookie_sign_in(name, email, token, webtoken) {
@@ -432,7 +426,7 @@ $(document).ready(function () {
 
         google.accounts.id.initialize({
             client_id: "1076106158582-2hr4jav5kbn2gccs0jsdbdhr4sg1d399.apps.googleusercontent.com",
-            callback: handleCredentialResponse
+            callback: on_google_sign_in
           });
         google.accounts.id.renderButton(
             document.getElementById("google-login-button"),
