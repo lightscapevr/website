@@ -64,7 +64,7 @@ function on_google_sign_in(cu) {
         cu.getAuthResponse().id_token, true);
 }
 
-function on_vrsketch_sign_in(name, email, token, webtoken) {
+function on_cookie_sign_in(name, email, token, webtoken) {
     on_sign_in(name, email, token, false);
 }
 
@@ -97,7 +97,7 @@ function login_email_password() {
             }
         } else {
             store_cookie(r.token);
-            on_vrsketch_sign_in(r.fullname, email, r.token);
+            on_cookie_sign_in(r.fullname, email, r.token);
             $("#login-type-modal").modal("hide");
         }
     });
@@ -360,7 +360,7 @@ $(document).ready(function () {
                 function(r) {
                     if (r.success) {
                         store_cookie(r.webtoken);
-                        on_vrsketch_sign_in(r.name, r.email, r.webtoken);
+                        on_cookie_sign_in(r.name, r.email, r.webtoken);
                         show_message("Account successfully created, you have been logged in.");
                     } else {
                         show_error_message(r.answer);
@@ -412,7 +412,18 @@ $(document).ready(function () {
                 on_vrsketch_sign_in(r.fullname, r.email, login_cookie);
             });
         }
-        gapi.load('auth2', function () {
+
+        google.accounts.id.initialize({
+            client_id: "1076106158582-2hr4jav5kbn2gccs0jsdbdhr4sg1d399.apps.googleusercontent.com",
+            callback: handleCredentialResponse
+          });
+        google.accounts.id.renderButton(
+            document.getElementById("google-login-button"),
+            { theme: "outline", size: "large" }  // customization attributes
+          );
+        google.accounts.id.prompt(); // also display the One Tap dialog
+
+        /*gapi.load('auth2', function () {
             // Retrieve the singleton for the GoogleAuth library and set up the client.
 
             let auth2 = gapi.auth2.init({
@@ -438,7 +449,7 @@ $(document).ready(function () {
                     PENDING = null;
                 }
             }, show_error);
-        });
+        });*/
 
         /* autoping functionality not implemented */
         /*function ping_server() {
