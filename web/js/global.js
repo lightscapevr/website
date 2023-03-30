@@ -25,6 +25,11 @@ let LOGIN_NAME_2 = "</button>";
 let RESET_PASSWORD_BUTTON = "&nbsp;&nbsp;<button type='button' class='btn btn-primary' "+
                             "onclick='password_reset(); return false;'>Reset password to the typed one</button>";
 
+function handleCredentialResponse(r)
+{
+    console.log(r);
+}
+
 function show_error_message(errmsg) {
     $("#error").show();
     $("#error-msg").html(errmsg + '<button type="button" class="close" onclick="hide_error()">&times;</button>')
