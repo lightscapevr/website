@@ -73,6 +73,7 @@ function getUserInfo() {
 function on_google_sign_in(r) {
     var r = parseJwt(r.credential);
     on_sign_in(r.name, r.email, r.sub, true);
+    $("#login-type-modal").modal("hide");
 }
 
 function on_cookie_sign_in(name, email, token, webtoken) {
@@ -315,16 +316,7 @@ function add_login_methods(app, public_api, post_login_function)
                 public_api.logout()
             }
         }*/
-        if (app.is_sso) {
-            if (gapi.auth2) {
-                let auth2 = gapi.auth2.getAuthInstance();
-                auth2.signOut();
-            }
-
-        } else {
-            store_cookie(''); // clear the cookie
-            // auth2.signOut() // if through google
-        }
+        store_cookie(''); // clear the cookie
         showPricingInfo();
         if (click_main_button)
             $("#main-login-button").click();
