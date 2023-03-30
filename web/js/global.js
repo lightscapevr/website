@@ -372,7 +372,7 @@ $(document).ready(function () {
                 function(r) {
                     if (r.success) {
                         store_cookie(r.webtoken);
-                        on_vrsketch_sign_in(r.name, r.email, r.webtoken);
+                        on_cookie_sign_in(r.name, r.email, r.webtoken);
                         show_message("Password successfully reset, you are logged in.")
                     } else {
                         show_error_message(r.answer);
@@ -409,7 +409,7 @@ $(document).ready(function () {
         var login_cookie = parse_cookie().vrsketch_login_token;
         if (login_cookie) {
             connection.session.call('com.user.check', [login_cookie]).then(function (r) {
-                on_vrsketch_sign_in(r.fullname, r.email, login_cookie);
+                on_cookie_sign_in(r.fullname, r.email, login_cookie);
             });
         }
 
