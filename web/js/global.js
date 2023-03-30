@@ -398,9 +398,6 @@ $(document).ready(function () {
               vueAppApi.log_in(res.name, license_id, license_id, false);
             }, show_error);
           // load the gapi anyway, but don't do anything with it
-          gapi.load('auth2', function() {
-            let auth2 = gapi.auth2.init({'client_id': GOOGLE_CLIENT_TOKEN_ID});
-          });
           return;
         }
 
@@ -423,34 +420,6 @@ $(document).ready(function () {
             { theme: "outline", size: "large" }  // customization attributes
           );
         //google.accounts.id.prompt(); // also display the One Tap dialog*/
-
-        /*gapi.load('auth2', function () {
-            // Retrieve the singleton for the GoogleAuth library and set up the client.
-
-            let auth2 = gapi.auth2.init({
-                client_id: GOOGLE_CLIENT_TOKEN_ID,
-                cookiepolicy: 'single_host_origin',
-
-                // Request scopes in addition to 'profile' and 'email'
-                //scope: 'additional_scope'
-            });
-
-            auth2.then(function () {
-                if (auth2.isSignedIn.get()) {
-                    on_google_sign_in(auth2.currentUser.get());
-                } else {
-                    auth2.attachClickHandler($("#google-login-button")[0],
-                        { ux_mode: 'redirect' }, on_google_sign_in,
-                        show_error);
-                }
-
-                // If there is a pending function, call it
-                if (PENDING) {
-                    PENDING();
-                    PENDING = null;
-                }
-            }, show_error);
-        });*/
 
         /* autoping functionality not implemented */
         /*function ping_server() {
