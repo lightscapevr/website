@@ -74,7 +74,12 @@ function on_google_sign_in(r) {
     var r = parseJwt(r.credential);
     on_sign_in(r.name, r.email, r.sub, true);
     connection.session.call('com.user.create_login_cookie', [r.sub]).then(function (r) {
-        store_cookie(r.token);
+        console.log(r);
+        if (!r.success) {
+            show_error(r.answer);
+        } else {
+            store_cookie(r.token);
+        }
     });
     $("#login-type-modal").modal("hide");
 }
