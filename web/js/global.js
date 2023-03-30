@@ -430,7 +430,7 @@ $(document).ready(function () {
             });
         }
 
-        google.accounts.id.initialize({
+        /*google.accounts.id.initialize({
             client_id: "1076106158582-2hr4jav5kbn2gccs0jsdbdhr4sg1d399.apps.googleusercontent.com",
             callback: handleCredentialResponse
           });
@@ -438,7 +438,7 @@ $(document).ready(function () {
             document.getElementById("google-login-button"),
             { theme: "outline", size: "large" }  // customization attributes
           );
-        google.accounts.id.prompt(); // also display the One Tap dialog
+        google.accounts.id.prompt(); // also display the One Tap dialog*/
 
         /*gapi.load('auth2', function () {
             // Retrieve the singleton for the GoogleAuth library and set up the client.
