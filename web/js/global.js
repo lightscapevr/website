@@ -62,12 +62,12 @@ function getUserInfo(followup) {
         if (r.error) {
             show_error_message(r.error);
             vueAppApi.logout(false);
+        } else if (followup) {
+            followup();
         }
         if (r.subscriptions) {
             showManageButtons();
         }
-        if (followup)
-            followup();
     },
         show_error);
 }
