@@ -56,7 +56,7 @@ function hide_message_container() {
     $("#message-inner").html("");
 }
 
-function getUserInfo() {
+function getUserInfo(followup) {
     connection.session.call('com.user.get_info', [vueAppApi.get_auth_token(),
     vueAppApi.get_name(), vueAppApi.get_email()]).then(function (r) {
         if (r.error) {
@@ -66,19 +66,22 @@ function getUserInfo() {
         if (r.subscriptions) {
             showManageButtons();
         }
+        if (followup)
+            followup();
     },
         show_error);
 }
 
 function on_google_sign_in(r) {
     var r = parseJwt(r.credential);
-    on_sign_in(r.name, r.email, r.sub, true);
-    connection.session.call('com.user.create_login_cookie', [r.sub]).then(function (r) {
-        if (!r.success) {
-            show_error(r.answer);
-        } else {
-            store_cookie(r.token);
-        }
+    on_sign_in(r.name, r.email, r.sub, true, function ()  {
+        connection.session.call('com.user.create_login_cookie', [r.sub]).then(function (r) {
+            if (!r.success) {
+                show_error(r.answer);
+            } else {
+                store_cookie(r.token);
+            }
+        });
     });
     $("#login-type-modal").modal("hide");
 }
@@ -87,11 +90,11 @@ function on_cookie_sign_in(name, email, token, webtoken) {
     on_sign_in(name, email, token, false);
 }
 
-function on_sign_in(name, email, token, is_sso) {
+function on_sign_in(name, email, token, is_sso, followup) {
     vueAppApi.log_in(name, email, token, is_sso);
 
     $("#main-login-button").replaceWith($("#main-login-button").clone()); // remove event listeners
-    getUserInfo();
+    getUserInfo(followup);
 }
 
 var FORMAT = "DD MMMM YYYY";
