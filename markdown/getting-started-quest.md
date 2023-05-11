@@ -25,6 +25,10 @@ could get new bugs related to a firmware version that we cannot run.
 
 ### Installation on Quest 2 and Quest Pro
 
+*Reminder: if you have a PC with a good graphics card and only want to
+run VR Sketch tethered, then you don't need to install anything on the
+Quest!*
+
 In the Quest 2/Pro, install the application "VR Sketch".  You have to search for it
 by name (big main page, "Search" button at the top right, enter for example
 "vrsketch").  It is in the "App Lab" category, so you have to click "App Lab".
@@ -36,6 +40,10 @@ install <a href="downloads.html">VR Sketch for PC/Mac</a> too.
 
 
 ### <a name="quest1">Installation on Quest 1</a>
+
+*Reminder: if you have a PC with a good graphics card and only want to
+run VR Sketch tethered, then you don't need to install anything on the
+Quest!*
 
 If you have an older Quest 1 (also sometimes called just "Quest", by
 opposition to "Quest 2" or "Quest Pro"), you need to install an older
