@@ -9,8 +9,9 @@ running SketchUp.
 Note that the "Oculus Link" cable offers a different way to use the Quest:
 tethered to the PC.  In this mode, the rendering is done on the PC like with
 other tethered solutions.  These solutions are described in the <a
-href="docs-getting-started.html">VR Sketch for PC</a> page.  Like all other
-tethered solutions, this does not work on Mac.
+href="docs-getting-started.html">VR Sketch for PC</a> page and do not
+require any of the installations below.  Like all other tethered solutions,
+this does not work on Mac.
 
 Please be aware that the Quest itself has troubles rendering very large models,
 because it is not as powerful as the tethered VR solutions.  See [Rendering
@@ -22,15 +23,69 @@ with: we did not manage to subscribe ourselves so far.  It would mean that you
 could get new bugs related to a firmware version that we cannot run.
 
 
-### Installation
+### Installation on Quest 2 and Quest Pro
 
-In the Quest, install the application "VR Sketch".  You have to search for it
+In the Quest 2/Pro, install the application "VR Sketch".  You have to search for it
 by name (big main page, "Search" button at the top right, enter for example
 "vrsketch").  It is in the "App Lab" category, so you have to click "App Lab".
-Here is a direct link: <a href="Her://www.oculus.com/experiences/quest/3557027837758788/">https://www.oculus.com/experiences/quest/3557027837758788/</a>
+Here is a direct link: <a href="https://www.oculus.com/experiences/quest/3557027837758788/">https://www.oculus.com/experiences/quest/3557027837758788/</a>.
+**This no longer works on Quest 1!  See next paragraph.**
 
 If you want to use it together with SketchUp on a PC or a Mac, you need to
 install <a href="downloads.html">VR Sketch for PC/Mac</a> too.
+
+
+### <a name="quest1">Installation on Quest 1</a>
+
+If you have an older Quest 1 (also sometimes called just "Quest", by
+opposition to "Quest 2" or "Quest Pro"), you need to install an older
+version of VR Sketch.  Version 17.0.9 from January 2023 works fine.
+(See below for why.)
+
+To do the installation, you need access to a phone with the Meta Quest
+App.  (It is the app that you needed to set up your Quest initially.  It
+used to be called the Oculus App.  If you no longer have it, you can
+reinstall it, possibly on a different phone, and connect your Quest
+again to it.  This might require upgrading your Oculus account to the
+newer Meta account, a process which can be a bit lengthy.)
+
+Open the Meta Quest App on the phone and make sure it is connected to
+the Quest 1.  Go to "Search", type "vrsketch", scroll down to "App Lab",
+click "View App", and pick "VR Sketch".  Then scroll down and click
+"More information".  Scroll down more and click the blue number next to
+"Version".  Select "Channel" and change it to "Quest1".  This should
+pick the version 17.0.9.  Or, as screenshots:
+
+<hr>
+<table border=0><tr>
+<td><img width=260 src="/img/docs/quest1-install-1.jpg"></td>
+<td><img width=260 src="/img/docs/quest1-install-2.jpg"></td>
+<td><img width=260 src="/img/docs/quest1-install-3.jpg"><br><i>&nbsp;Only do this step on Quest 1!<br>&nbsp;For Quest 2/Pro, keep Channel LIVE.</i></td>
+</tr></table>
+<hr>
+
+This should make your Quest install the version 17.0.9.  You can start
+VR Sketch in the headset (from the main page showing installed games).
+It should say "version 17.0.9" on the wall of the warehouse, below the
+logo.
+
+If you want to use it together with SketchUp on a PC or a Mac, you need
+to install VR Sketch for PC/Mac too.  It should be fine to install the
+latest version (18.x or higher) on the PC/Mac even though your Quest has
+got an older version; all our versions are generally compatible with
+each other.
+
+*Q. Why do I need to change the release channel on Quest 1?*
+
+*A.* We are sorry for this hassle for Quest 1 users.  We did not find any other solution so far.  VR Sketch 18 gives such a performance benefit for Quest 2/Pro users (about 3 times!) that the benefits are simply too big to ignore.
+
+In more details, in VR Sketch version 18 we did an in-depth refactoring, initially targetted at PC VR.  However, it turned out that it also works on Quest 2/Pro.  We found out, however, that it does not work on Quest 1, likely because of a slightly older version of the graphics unit.  We did not manage to fix this, and so we are left with the current "solution" as a workaround.
+
+Unless we find a solution, we will now only support the Quest 1 in "maintenance" mode.  The latest working version is 17.0.9, released in January 2023.  You need to change the channel in order to continue using this version 17.0.9 instead of the more recent ones that only work on Quest 2/Pro.  Up to at least 2025---and provided the Quest 1 don't all stop working because of a Meta policy decision---we will make sure that 17.0.9 continues to work on Quest 1, and if necessary issue new versions in the 17.x branch that would be available in that channel.  We might also backport major functionality upgrades, but not all the smaller changes.
+
+*Q. Why do I need to do that on my phone instead of directly inside the Quest?*
+
+*A.* We don't know.  This might be an oversight or a strange policy decision of Meta.
 
 
 ### Start VR Sketch
@@ -41,7 +96,7 @@ You are sent to the VR Sketch studio with a floating dialog box in
 the middle.  A 6-digit number appears at the top of this dialog box.
 This is the unique identifier for your Quest.
 
-The Quest must generally be connected to the Internet via wireless.  If it has
+The Quest must generally be connected to the Internet via wifi.  If it has
 got no connection, it should still be able to display cloud models that have
 already been downloaded before ("cached"), but nothing more---unless you use the
 workaround described next.
@@ -54,17 +109,11 @@ the cable only for sending the model.  See
 in the forum.
 
 
-### View demos models
+### View demo models
 
 In the dialog box, pick one
 of the demo models to see it. You can come back later to this dialog box to
 choose another model (use the "cloud" icon, bottom-right in the tools).
-
-IMPORTANT: VR Sketch on Oculus Quest is running in the same "collaborative
-viewing" mode as VR Sketch on PC when viewing any cloud model.  This means that
-if there are other people that visit the same cloud model at the same time,
-then everybody will see each other's avatars and hear what they say.  Please
-keep it in mind when viewing the public demo models.
 
 
 ### Edit with SketchUp running on your PC or Mac
@@ -83,8 +132,8 @@ Then choose "Extensions", "VR Sketch", "Send to VR on Oculus Quest".
 Equivalently, pick the second icon in the VR Sketch toolbar.
 
 Make sure the Quest is currently running VR Sketch, and wake it up now (e.g. by
-putting your hand inside the space where your head normally goes, near the
-top of the nose).
+putting your hand inside the space where your head normally goes, between the
+eyes).
 
 You need to enter manually the 6-digit number (see "Start VR Sketch") in the
 SketchUp dialog box and press "Go".
@@ -138,19 +187,24 @@ href="https://vrsketch.eu/cloud.html">cloud account page</a> again, and in the
 The Quest doesn't have the power of a good PC, but it's still OK if the models
 are not too large.
 In SketchUp, go to Window -> Model Info -> Statistics, select "Enable nested
-components", and check the "Faces" line.  The Quest 1 will handle nicely up to
-~200'000 faces as an order of magnitude.  The Quest 2 will handle models that
-are somewhat bigger, but still in the same order of magnitude.
+components", and check the "Faces" line.
 
-In VR, you can check the rendering speed in the Settings dialog.  The
-normal rendering speed of the Quest is 72 frames per second; we don't recommend
-looking at models at less than 40 frames per second for longer than a few
-minutes.
+* On Quest 1, you should get smooth results up to around 200'000 faces
+  as an order of magnitude.
+
+* On Quest 2/Pro, with VR Sketch 18 or later, you should get smooth
+  results up to around 600'000 faces (again, as an order of magnitude).
+
+In VR, you can check the rendering speed (images computed per seconds)
+in the Settings dialog.  The normal rendering speed of the Quest is 72
+frames per second; we don't recommend looking at models at less than 40
+frames per second for longer than a few minutes.
 
 When opening models with many or excessively large textures, they will be
-rendered at a lower resolution to fit the memory requirements of the Quest.
+downscaled at a lower resolution to fit the memory requirements of the Quest.
 Nevertheless, large models may trigger an out-of-memory condition, notably
-if their geometry is too complex.
+if their geometry is too complex (this is less of a problem since VR Sketch 18
+on Quest 2/Pro).
 There are several different things that can occur in this case.  It can close
 the VR Sketch program while loading the model, or the headset's view can turn
 completely black (exit with the "Oculus" button on the right-hand controller).
@@ -176,8 +230,12 @@ the system, or to install a third-party application to do it with one click
 
 ### Installation without using the App Lab
 
-This is the old installation process.  We keep the documentation here in case
-you want to install a different version than the one currently on the App Lab.
+This is the old installation process.  We keep the documentation here in
+case you want to install a different version than the one currently on
+the App Lab.  It can be used to install a specific version from our <a
+href="https://vrsketch.eu/download/">list of all versions</a> or
+specific forum posts.  Note that any file with the version number 18.x.y or
+later *does not work on Quest 1.*
 
 **Be sure you have the right cable:**
 
