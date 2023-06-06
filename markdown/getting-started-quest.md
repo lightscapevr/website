@@ -201,7 +201,7 @@ components", and check the "Faces" line.
   as an order of magnitude.
 
 * On Quest 2/Pro, with VR Sketch 18 or later, you should get smooth
-  results up to around 600'000 faces (again, as an order of magnitude).
+  results up to 500'000 or 600'000 faces (again, as an order of magnitude).
 
 In VR, you can check the rendering speed (images computed per seconds)
 in the Settings dialog.  The normal rendering speed of the Quest is 72
@@ -219,6 +219,20 @@ completely black (exit with the "Oculus" button on the right-hand controller).
 We try to detect when the situation occurs and display a message to this
 effect, but sometimes it will only be displayed the next time you restart VR
 Sketch.
+
+**What you can do if your model is too big:**
+
+* Use a PC with tethered rendering.  This supports models an order of
+  magnitude larger.  The limit then depends on which graphic card (GPU) is
+  in your PC.
+
+* Or edit your model to remove (or hide) faces.  As examples from our
+  own experience, you may figure out that each the cushions uses 20'000
+  faces, and there are a few trees that count for 50'000 faces each, so
+  hiding them is enough to bring the total down to manageable levels.
+
+* If all else fail, you will have to focus on a small part of your model
+  at a time by temporarily hiding everything else.
 
 
 ### If your computer goes to sleep
