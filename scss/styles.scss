@@ -174,3 +174,9 @@ footer{
     color: $gray-400;
   }
 }
+
+// make links with a '#name' target scroll the page so that the target
+// is actually visible below the fixed header
+html {
+  scroll-padding-top: 64px; /* height of sticky header, slight overestimate */
+}
