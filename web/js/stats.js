@@ -75,49 +75,28 @@ function get_stats_by_user_id()
     })
 }
 
-$(document).ready(function () {
-    if (window.location.hostname == 'api.vrsketch.eu') {
-        window.location = 'https://vrsketch.eu/checkout/';
-        return;
-    }
-    var wsuri;
-    if (document.location.origin == "file://") {
-        wsuri = "ws://127.0.0.1:8080/ws";
-
+function open_stats() {
+    var login_cookie = parse_cookie().vrsketch_login_token;
+    if (login_cookie) {
+        let token = login_cookie;
+        connection.session.call('com.stats.trials', [token]).then(
+            function (r) { plot(r, "#trial-stats", "trial activations (weekly)"); }, show_error
+        );
+        connection.session.call('com.stats.use-total', [token]).then(
+            function (r) { plot2(r, "#use-stats", "total number of days used (rolling weekly)"); }, show_error
+        );
+        connection.session.call('com.stats.use-unique', [token]).then(
+            function (r) { plot2(r, "#use-unique", "unique users (rolling weekly)"); }, show_error
+        );
+        connection.session.call('com.stats.use-unique-monthly', [token]).then(
+            function (r) { plot2(r, "#use-unique-monthly", "unique users (rolling 30 day window)"); }, show_error
+        );
+        connection.session.call('com.user.check', [login_cookie]).then(function (r) {
+            on_cookie_sign_in(r.fullname, r.email, login_cookie);
+        });
     } else {
-        wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
-                 document.location.host + "/ws";
+        $("#main-header").text("You are not authorized to see this.");
     }
-    connection = new autobahn.Connection({
-      url: wsuri,
-      realm: "vrsketch",
-      max_retries: -1,
-      max_retry_delay: 3,
-    });
-    connection.onopen = function(session, dets) {
-        var login_cookie = parse_cookie().vrsketch_login_token;
-        if (login_cookie) {
-            let token = login_cookie;
-            connection.session.call('com.stats.trials', [token]).then(
-                function (r) { plot(r, "#trial-stats", "trial activations (weekly)"); }, show_error
-            );
-            connection.session.call('com.stats.use-total', [token]).then(
-                function (r) { plot2(r, "#use-stats", "total number of days used (rolling weekly)"); }, show_error
-            );
-            connection.session.call('com.stats.use-unique', [token]).then(
-                function (r) { plot2(r, "#use-unique", "unique users (rolling weekly)"); }, show_error
-            );
-            connection.session.call('com.stats.use-unique-monthly', [token]).then(
-                function (r) { plot2(r, "#use-unique-monthly", "unique users (rolling 30 day window)"); }, show_error
-            );
-            connection.session.call('com.user.check', [login_cookie]).then(function (r) {
-                on_cookie_sign_in(r.fullname, r.email, login_cookie);
-            });
-        } else {
-            $("#main-header").text("You are not authorized to see this.");
-        }
 //        connection.session.call('com.get_stats', ['oknk2efweo', 'use-count']).then(plot_trial2, show_error);
 //        connection.session.call('com.get_stats', ['oknk2efweo', 'use-unique']).then(plot_trial3, show_error);
-    };
-    connection.open();
-});
+}

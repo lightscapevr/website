@@ -390,6 +390,11 @@ $(document).ready(function () {
     }
 
     connection.onopen = function (session, details) {
+        if (window.location.pathname == "/stats.html")
+        {
+            open_stats();
+            return;
+        }
         $("#main-login-button").replaceWith(LOGIN_LOGIN);
         if (window.location.hash.startsWith('#P')) {
           /* don't log in with google, but instead use the value of the
