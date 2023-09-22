@@ -95,24 +95,27 @@ $(document).ready(function () {
       max_retry_delay: 3,
     });
     connection.onopen = function(session, dets) {
-        gapi.load('auth2', function() {
-            var auth2 = gapi.auth2.init({'client_id': GOOGLE_CLIENT_TOKEN_ID});
-            auth2.then(function () {
-                token = auth2.currentUser.get().getAuthResponse().id_token;
-                connection.session.call('com.stats.trials', [token]).then(
-                    function (r) { plot(r, "#trial-stats", "trial activations (weekly)"); }, show_error
-                );
-                connection.session.call('com.stats.use-total', [token]).then(
-                    function (r) { plot2(r, "#use-stats", "total number of days used (rolling weekly)"); }, show_error
-                );
-                connection.session.call('com.stats.use-unique', [token]).then(
-                    function (r) { plot2(r, "#use-unique", "unique users (rolling weekly)"); }, show_error
-                );
-                connection.session.call('com.stats.use-unique-monthly', [token]).then(
-                    function (r) { plot2(r, "#use-unique-monthly", "unique users (rolling 30 day window)"); }, show_error
-                );
+        var login_cookie = parse_cookie().vrsketch_login_token;
+        if (login_cookie) {
+            let token = login_cookie;
+            connection.session.call('com.stats.trials', [token]).then(
+                function (r) { plot(r, "#trial-stats", "trial activations (weekly)"); }, show_error
+            );
+            connection.session.call('com.stats.use-total', [token]).then(
+                function (r) { plot2(r, "#use-stats", "total number of days used (rolling weekly)"); }, show_error
+            );
+            connection.session.call('com.stats.use-unique', [token]).then(
+                function (r) { plot2(r, "#use-unique", "unique users (rolling weekly)"); }, show_error
+            );
+            connection.session.call('com.stats.use-unique-monthly', [token]).then(
+                function (r) { plot2(r, "#use-unique-monthly", "unique users (rolling 30 day window)"); }, show_error
+            );
+            connection.session.call('com.user.check', [login_cookie]).then(function (r) {
+                on_cookie_sign_in(r.fullname, r.email, login_cookie);
             });
-        });
+        } else {
+            $("#main-header").text("You are not authorized to see this.");
+        }
 //        connection.session.call('com.get_stats', ['oknk2efweo', 'use-count']).then(plot_trial2, show_error);
 //        connection.session.call('com.get_stats', ['oknk2efweo', 'use-unique']).then(plot_trial3, show_error);
     };
