@@ -203,6 +203,9 @@ components", and check the "Faces" line.
 * On Quest 2/Pro, with VR Sketch 18 or later, you should get smooth
   results up to 500'000 or 600'000 faces (again, as an order of magnitude).
 
+* On Quest 3, with VR Sketch 19 or later, the limit is around 800'000
+  faces, always as an order of magnitude.
+
 In VR, you can check the rendering speed (images computed per seconds)
 in the Settings dialog.  The normal rendering speed of the Quest is 72
 frames per second; we don't recommend looking at models at less than 40
