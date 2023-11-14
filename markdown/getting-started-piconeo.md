@@ -31,7 +31,9 @@ works on Mac (or Linux) but this has not been tested yet.
   
 * At the top of the screen it says "videos", "images" or "APK".  Pick
   "APK", then choose the APK file you just copied.  Confirm that you want to
-  install it.
+  install it.  If it says "Couldn't install", it may help to first uninstall
+  the previous version of VR Sketch, if it is installed (go to "Library"
+  and long-press the button over the "VR Sketch" icon).
 
 * After installation, VR Sketch should be accessible from the "Library"
   button.  It should be in the folder "All" or in the subfolder "Games"
