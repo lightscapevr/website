@@ -301,7 +301,7 @@ If everything worked correctly, then in VR, "VRSketch" is installed.  It might
 appear in the "Unknown sources" page, depending on whether you previously
 installed the App Lab version or not.  Here is how to find this page:
 in the Quest's home environment, click on the
-<span style="letter-spacing: -.6em">&nbsp;&nbsp;&#x22ee;&#x22ee;&#x22ee;</span>
+&nbsp;&nbsp;<span style="letter-spacing: -.6em">&#x22ee;&#x22ee;&#x22ee;</span>
 &nbsp;&nbsp;(3x3 dots) button.  The button in the top-right corner
 says "All" by default.  Click this button, and scroll down and pick
 "Unknown sources".  You should see "VRSketch" in this page.
