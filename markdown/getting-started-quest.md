@@ -33,7 +33,7 @@ In the Quest 2/Pro, install the application "VR Sketch".  You have to search for
 by name (big main page, "Search" button at the top right, enter for example
 "vrsketch").  It is in the "App Lab" category, so you have to click "App Lab".
 Here is a direct link: <a href="https://www.oculus.com/experiences/quest/3557027837758788/">https://www.oculus.com/experiences/quest/3557027837758788/</a>.
-**This no longer works on Quest 1!  See next paragraph.**
+(Note that on Quest 1 you get a slightly older version of VR Sketch.)
 
 If you want to use it together with SketchUp on a PC or a Mac, you need to
 install <a href="downloads.html">VR Sketch for PC/Mac</a> too.
@@ -49,6 +49,12 @@ If you have an older Quest 1 (also sometimes called just "Quest", by
 opposition to "Quest 2" or "Quest Pro"), you need to install an older
 version of VR Sketch.  Version 17.0.9 from January 2023 works fine.
 (See below for why.)
+
+**This should now work out of the box; you should be able to install
+VR Sketch from the App Lab directly on Quest 1, and get the older
+17.0.9 version.  The instructions below are NOT necessary any more
+since Meta updated its App Lab to allow us to do that.  They are kept
+here in case something goes wrong.**
 
 To do the installation, you need access to a phone with the Meta Quest
 App.  (It is the app that you needed to set up your Quest initially.  It
