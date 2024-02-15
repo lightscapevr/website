@@ -424,7 +424,7 @@ $(document).ready(function () {
         }
 
         google.accounts.id.initialize({
-            client_id: "1076106158582-vekr6opr52b6i8eeu3cc8si7828hisgj.apps.googleusercontent.com",
+            client_id: GOOGLE_CLIENT_TOKEN_ID,
             callback: on_google_sign_in
           });
         google.accounts.id.renderButton(
