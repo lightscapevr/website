@@ -1,6 +1,6 @@
 # Oculus Quest
 
-Oculus Quest, Quest 2 and Quest Pro are supported and give almost the same capabilities
+Oculus Quest, Quest 2, Quest 3 and Quest Pro are supported and give almost the same capabilities
 as VR headsets connected directly to a PC ("tethered" to a PC).  They work
 without needing a beefy VR-ready PC.  They can work in purely standalone
 mode to view cloud models, or they can work together with a PC or Mac
@@ -23,7 +23,7 @@ with: we did not manage to subscribe ourselves so far.  It would mean that you
 could get new bugs related to a firmware version that we cannot run.
 
 
-### Installation on Quest 2 and Quest Pro
+### Installation on Quest 2, 3 and Quest Pro
 
 *Reminder: if you have a PC with a good graphics card and only want to
 <a href="docs-getting-started.html">run VR Sketch tethered</a>, then you
