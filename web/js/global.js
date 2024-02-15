@@ -19,7 +19,7 @@ var PENDING = null;
 
 let LOGIN_LOGIN = "<button id='main-login-button' class='btn btn-outline-primary' data-toggle='modal'" +
                   "data-target='#login-type-modal' onclick=\"$('#login-type-modal').show(); $('#fullname-container').hide();" +
-                  "$('#login-rest').hide(); $('#error-bar').text('');\">Log in or create account</button>";
+                  "$('#login-rest').hide(); clear_error();\">Log in or create account</button>";
 let LOGIN_NAME = "<button id='main-login-button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>";
 let LOGIN_NAME_2 = "</button>";
 let RESET_PASSWORD_BUTTON = "&nbsp;&nbsp;<button type='button' class='btn btn-primary' "+
@@ -245,7 +245,7 @@ function showLicenseModal() {
 }
 
 function clear_error() {
-    $("#error-bar").text("");
+    $("#error-bar").html("<small>Password forgotten? Choose a new one and type it in 'Password:'</small>");
 }
 
 function add_login_methods(app, public_api, post_login_function)

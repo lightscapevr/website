@@ -33,7 +33,7 @@ In the Quest 2/Pro, install the application "VR Sketch".  You have to search for
 by name (big main page, "Search" button at the top right, enter for example
 "vrsketch").  It is in the "App Lab" category, so you have to click "App Lab".
 Here is a direct link: <a href="https://www.oculus.com/experiences/quest/3557027837758788/">https://www.oculus.com/experiences/quest/3557027837758788/</a>.
-**This no longer works on Quest 1!  See next paragraph.**
+(Note that on Quest 1 you get a slightly older version of VR Sketch.)
 
 If you want to use it together with SketchUp on a PC or a Mac, you need to
 install <a href="downloads.html">VR Sketch for PC/Mac</a> too.
@@ -49,6 +49,12 @@ If you have an older Quest 1 (also sometimes called just "Quest", by
 opposition to "Quest 2" or "Quest Pro"), you need to install an older
 version of VR Sketch.  Version 17.0.9 from January 2023 works fine.
 (See below for why.)
+
+**This should now work out of the box; you should be able to install
+VR Sketch from the App Lab directly on Quest 1, and get the older
+17.0.9 version.  The instructions below are NOT necessary any more
+since Meta updated its App Lab to allow us to do that.  They are kept
+here in case something goes wrong.**
 
 To do the installation, you need access to a phone with the Meta Quest
 App.  (It is the app that you needed to set up your Quest initially.  It
@@ -203,6 +209,9 @@ components", and check the "Faces" line.
 * On Quest 2/Pro, with VR Sketch 18 or later, you should get smooth
   results up to 500'000 or 600'000 faces (again, as an order of magnitude).
 
+* On Quest 3, with VR Sketch 19 or later, it should be fine with 800'000
+  faces or more, always as an order of magnitude.
+
 In VR, you can check the rendering speed (images computed per seconds)
 in the Settings dialog.  The normal rendering speed of the Quest is 72
 frames per second; we don't recommend looking at models at less than 40
@@ -298,7 +307,7 @@ If everything worked correctly, then in VR, "VRSketch" is installed.  It might
 appear in the "Unknown sources" page, depending on whether you previously
 installed the App Lab version or not.  Here is how to find this page:
 in the Quest's home environment, click on the
-<span style="letter-spacing: -.6em">&#x22ee;&#x22ee;&#x22ee;</span>
+&nbsp;&nbsp;<span style="letter-spacing: -.6em">&#x22ee;&#x22ee;&#x22ee;</span>
 &nbsp;&nbsp;(3x3 dots) button.  The button in the top-right corner
 says "All" by default.  Click this button, and scroll down and pick
 "Unknown sources".  You should see "VRSketch" in this page.
