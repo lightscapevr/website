@@ -29,7 +29,7 @@ could get new bugs related to a firmware version that we cannot run.
 <a href="docs-getting-started.html">run VR Sketch tethered</a>, then you
 don't need to install anything on the Quest!*
 
-In the Quest 2/Pro, install the application "VR Sketch".  You have to search for it
+In the Quest 2/3/Pro, install the application "VR Sketch".  You have to search for it
 by name (big main page, "Search" button at the top right, enter for example
 "vrsketch").  It is in the "App Lab" category, so you have to click "App Lab".
 Here is a direct link: <a href="https://www.oculus.com/experiences/quest/3557027837758788/">https://www.oculus.com/experiences/quest/3557027837758788/</a>.
@@ -74,7 +74,7 @@ pick the version 17.0.9.  Or, as screenshots:
 <table border=0><tr>
 <td><img width=260 src="/img/docs/quest1-install-1.jpg"></td>
 <td><img width=260 src="/img/docs/quest1-install-2.jpg"></td>
-<td><img width=260 src="/img/docs/quest1-install-3.jpg"><br><i>&nbsp;Only do this step on Quest 1!<br>&nbsp;For Quest 2/Pro, keep Channel LIVE.</i></td>
+<td><img width=260 src="/img/docs/quest1-install-3.jpg"><br><i>&nbsp;Only do this step on Quest 1!<br>&nbsp;For Quest 2/3/Pro, keep Channel LIVE.</i></td>
 </tr></table>
 <hr>
 
@@ -91,11 +91,11 @@ each other.
 
 *Q. Why do I need to change the release channel on Quest 1?*
 
-*A.* We are sorry for this hassle for Quest 1 users.  We did not find any other solution so far.  VR Sketch 18 gives such a performance benefit for Quest 2/Pro users (about 3 times!) that the benefits are simply too big to ignore.
+*A.* We are sorry for this hassle for Quest 1 users.  We did not find any other solution so far.  VR Sketch 18 gives such a performance benefit for Quest 2/3/Pro users (about 3 times!) that the benefits are simply too big to ignore.
 
-In more details, in VR Sketch version 18 we did an in-depth refactoring, initially targetted at PC VR.  However, it turned out that it also works on Quest 2/Pro.  We found out, however, that it does not work on Quest 1, likely because of a slightly older version of the graphics unit.  We did not manage to fix this, and so we are left with the current "solution" as a workaround.
+In more details, in VR Sketch version 18 we did an in-depth refactoring, initially targetted at PC VR.  However, it turned out that it also works on Quest 2/3/Pro.  We found out, however, that it does not work on Quest 1, likely because of a slightly older version of the graphics unit.  We did not manage to fix this, and so we are left with the current "solution" as a workaround.
 
-Unless we find a solution, we will now only support the Quest 1 in "maintenance" mode.  The latest working version is 17.0.9, released in January 2023.  You need to change the channel in order to continue using this version 17.0.9 instead of the more recent ones that only work on Quest 2/Pro.  Up to at least 2025---and provided the Quest 1 don't all stop working because of a Meta policy decision---we will make sure that 17.0.9 continues to work on Quest 1, and if necessary issue new versions in the 17.x branch that would be available in that channel.  We might also backport major functionality upgrades, but not all the smaller changes.
+Unless we find a solution, we will now only support the Quest 1 in "maintenance" mode.  The latest working version is 17.0.9, released in January 2023.  You had to change the channel in order to continue using this version 17.0.9 instead of the more recent ones that only work on Quest 2/3/Pro (this is no longer necessary now).  Up to at least 2025---and provided the Quest 1 don't all stop working because of a Meta policy decision---we will make sure that 17.0.9 continues to work on Quest 1, and if necessary issue new versions in the 17.x branch that would be available in that channel.  We might also backport major functionality upgrades, but not all the smaller changes.
 
 *Q. Why do I need to do that on my phone instead of directly inside the Quest?*
 
@@ -221,7 +221,7 @@ When opening models with many or excessively large textures, they will be
 downscaled at a lower resolution to fit the memory requirements of the Quest.
 Nevertheless, large models may trigger an out-of-memory condition, notably
 if their geometry is too complex (this is less of a problem since VR Sketch 18
-on Quest 2/Pro).
+on Quest 2/3/Pro).
 There are several different things that can occur in this case.  It can close
 the VR Sketch program while loading the model, or the headset's view can turn
 completely black (exit with the "Oculus" button on the right-hand controller).
