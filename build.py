@@ -51,13 +51,13 @@ def render_template_to_file(template_path, view_data):
 
 def html_from_markdown(markdown_path, output_path):
     with open(markdown_path) as f:
-        html_data = markdown.Markdown().convert(f.read().decode('utf8'))
+        html_data = markdown.Markdown().convert(f.read())
     write_string_file(output_path, html_data)
 
 
 def write_string_file(output_path, string_data):
     with open(output_path, "w") as output_file:
-        output_file.write(string_data.encode('utf-8'))
+        output_file.write(string_data)
 
 
 def covert_sass_to_css(sass_filepath, output_filepath):
@@ -95,7 +95,7 @@ def generate_title_from_html_filename(filename):
 
 if __name__ == '__main__':
     if len(sys.argv) != 2 or (sys.argv[1] != '--prod' and sys.argv[1] != '--test'):
-        print __doc__
+        print(__doc__)
         sys.exit(1)
     convert_all_markdown('markdown', 'templates/generated/')
     render_all_templates(sys.argv[1] == '--prod')

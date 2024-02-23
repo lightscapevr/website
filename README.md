@@ -2,12 +2,13 @@
 
 ## Branches
 * master - Automatically updates the test site at "https://test.vrsketch.eu/"
-* prod - Automatically updates the main site at "https://vrsketch.eu/"
+* prod2 - Automatically updates the main site at "https://vrsketch.eu/"
 
 
 ### Dependencies
-* Jinja2 http://jinja.pocoo.org/docs/2.10/
+* jinja2 http://jinja.pocoo.org/docs/2.10/
 * libsass https://sass.github.io/libsass-python/
+* markdown
 
 ### Folders
 '/markdown' = Where all markdown file go. It will be converted to html and placed in '/templates/generated'.
