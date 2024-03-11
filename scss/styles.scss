@@ -39,6 +39,7 @@ $logo-dark:   #5aa679;
 
 $green:             rgb(81, 190, 81);
 $green-light:       rgba(81, 190, 81, 0.2);
+$green-dark:        #34814b;
 $blue:              rgb(113, 222, 255);
 $red:               rgb(255, 51, 0);
 $orange:            rgb(255, 136, 0);
@@ -162,6 +163,173 @@ code{
   background-color: $gray-200;
 }
 
+// modal styling //
+
+.modal-body {
+  padding: 32px 64px 64px 64px;
+}
+
+/* toggle buttons */
+
+.toggle-button-group {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Ensures the group takes up the full width */
+  justify-content: space-between; /* Adjust this as needed */
+}
+
+.toggle-button {
+  flex-grow: 1;
+  height: 54px;
+  background-color: $gray-200;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: 500;
+  color: $gray-900;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-button.active {
+  flex-grow: 1;
+  border: none;
+  background-color: $green-dark;
+  color: white; /* White text for the active button */
+}
+
+.toggle-button:not(.active):hover {
+  background-color: $gray-300;
+}
+
+.toggle-button:not(:last-child) {
+  border-right: none; /* Prevent double borders between buttons */
+}
+
+.toggle-button:focus {
+  outline: none; /* Removes the outline to keep the design clean */
+}
+
+/* left toggle button */
+.toggle-button:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+/* right toggle button */
+.toggle-button:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+/* login with google button */
+
+.login-with-google-btn {
+  background-color: white;
+  color: $gray-900;
+  border: 1px solid $gray-400;
+  border-radius: 4px;
+  height: 54px;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 32px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+.login-with-google-btn:hover {
+  background-color: $gray-100;
+  color: black;
+}
+
+/* google logo */
+
+.google-logo {
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* 'or' divider */
+
+.login-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: $gray-500;
+  margin: 0 0 24px 0;
+}
+
+.login-divider::before {
+  content: "";
+  flex-grow: 1;
+  background: $gray-300;
+  height: 1px;
+  margin: 0 24px 0 0; /* Adjust spacing around the 'or' text as needed */
+}
+
+.login-divider::after {
+  content: "";
+  flex-grow: 1;
+  background: $gray-300;
+  height: 1px;
+  margin: 0 0 0 24px; /* Adjust spacing around the 'or' text as needed */
+}
+
+/* input fields styling */
+
+.custom-input {
+  background-color: white;
+  border: 1px solid gray-400;
+  border-radius: 4px;
+  height: 56px;
+  margin-bottom: 24px;
+}
+
+.custom-label {
+  color: $gray-700;
+  font-weight: 500;
+}
+
+.input-group-text {
+  cursor: pointer;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-danger {
+  margin-top: 8px;
+}
+
+/* continue button */
+
+.custom-continue-btn {
+  background-color: $green;
+  color: white;
+  border-radius: 4px;
+  height: 56px;
+  margin-bottom: 32px;
+  margin-top: 48px;
+}
+
+/* don't have an account text */
+
+#signup-prompt {
+  color: $code-color;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.switch-link {
+  color: $green-dark;
+  font-weight: 500;
+  cursor: pointer;
+}
+
 // ---------------------------------- footer ---------------------------------- //
 
 footer{
@@ -180,3 +348,4 @@ footer{
 html {
   scroll-padding-top: 64px; /* height of sticky header, slight overestimate */
 }
+
