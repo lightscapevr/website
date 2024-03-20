@@ -65,7 +65,7 @@ def covert_sass_to_css(sass_filepath, output_filepath):
     assert output_filepath.endswith('.css')
     # create normal human readable .css
     css_data = sass.compile(filename=sass_filepath, output_style='expanded')
-    write_string_filte(output_filepath, css_data)
+    write_string_file(output_filepath, css_data)
     # create compressed .min.css and sourcemap .min.css.map
     min_output_filepath = output_filepath[:-4] + ".min.css"
     css_data_min = sass.compile(
