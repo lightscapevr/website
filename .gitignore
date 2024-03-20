@@ -5,3 +5,4 @@
 templates/generated/
 web/css/*.css
 web/*.html
+.DS_Store
