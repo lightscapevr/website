@@ -50,14 +50,14 @@ def render_template_to_file(template_path, view_data):
 
 
 def html_from_markdown(markdown_path, output_path):
-    with open(markdown_path) as f:
-        html_data = markdown.Markdown().convert(f.read())
+    with open(markdown_path, "rb") as f:
+        html_data = markdown.Markdown().convert(f.read().decode("utf8"))
     write_string_file(output_path, html_data)
 
 
 def write_string_file(output_path, string_data):
-    with open(output_path, "w") as output_file:
-        output_file.write(string_data)
+    with open(output_path, "wb") as output_file:
+        output_file.write(string_data.encode("utf8"))
 
 
 def covert_sass_to_css(sass_filepath, output_filepath):
