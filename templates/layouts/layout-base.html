@@ -177,25 +177,6 @@ Template blocks
                             <!-- Text switch to login -->
                                 <p style="font-weight: 500; margin: 0;">Already have an account? <span id="loginPrompt" class="switch-link">Log in</span></p>
                         </div>   
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <button class="btn btn-secondary p-3" id="google-login-button"><img src="img/logos/google.png"/></button>
-                                </div>
-                            </div>
-                            <div class="text-center mt-3">
-                                Don't have an account? <a href="#" id="signup-prompt">Sign up <img src="img/icons/icon/16x16/arrow-right"></i></a>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <button class="btn btn-secondary p-3"
-                                        onclick="$('#login-rest').show(); $('#google-login-spinner').hide();">
-                                        <div style="padding-top: 10px; padding-bottom: 10px; padding-right: -3px">
-                                            Sign in with <img width="100px" src="img/logos/vr-sketch-logo.png"/>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
                     
                         <form method="POST">
                             <div class="container" id="login-rest" style="display:none;">
@@ -283,97 +264,6 @@ Template blocks
             $('#loading-indicator').fadeOut();
             setupForms();
         });
-    
-
-        function setupForms() {
-            const loginForm = document.getElementById('loginForm');
-            const registerForm = document.getElementById('registerForm');
-            const loginButton = document.getElementById('loginButton');
-            const registerButton = document.getElementById('registerButton');
-            const loginPrompt = document.getElementById('loginPrompt');
-            const registerPrompt = document.getElementById('registerPrompt');
-            const togglePasswordLogin = document.getElementById('togglePassword');
-            const togglePasswordRegister = document.getElementById('register-toggle-password');
-            const loginInputs = loginForm.querySelectorAll('input');
-            const registerInputs = registerForm.querySelectorAll('input');
-    
-            // Toggle forms
-            loginButton.addEventListener('click', function() { toggleForm('login'); });
-            registerButton.addEventListener('click', function() { toggleForm('register'); });
-            loginPrompt.addEventListener('click', function() { toggleForm('login'); });
-            registerPrompt.addEventListener('click', function() { toggleForm('register'); });
-    
-            // Validate forms
-            document.getElementById('continueButton').onclick = function() { validateLoginForm(); };
-            document.getElementById('register-continue-btn').onclick = function() { validateRegisterForm(); };
-    
-            // Toggle password visibility
-            togglePasswordLogin.addEventListener('click', function () { togglePasswordVisibility('password', togglePasswordLogin); });
-            togglePasswordRegister.addEventListener('click', function () { togglePasswordVisibility('register-password', togglePasswordRegister); });
-
-            //Activation of buttons on enter
-            loginInputs.forEach(input => input.addEventListener('keypress', event => event.key === 'Enter' && (event.preventDefault(), validateLoginForm())));
-            registerInputs.forEach(input => input.addEventListener('keypress', event => event.key === 'Enter' && (event.preventDefault(), validateRegisterForm())));
-
-            function toggleForm(formType) {
-                if(formType === 'login') {
-                    loginForm.style.display = 'block';
-                    registerForm.style.display = 'none';
-                    loginButton.classList.add('active');
-                    registerButton.classList.remove('active');
-                    resetForm(registerForm);
-                } else if(formType === 'register') {
-                    loginForm.style.display = 'none';
-                    registerForm.style.display = 'block';
-                    loginButton.classList.remove('active');
-                    registerButton.classList.add('active');
-                    resetForm(loginForm);
-                }
-            }
-    
-            function validateLoginForm() {
-                const emailInputLogin = document.getElementById('new-email');
-                const emailErrorLogin = document.getElementById('emailError');
-                const passwordFieldLogin = document.getElementById('passwordField');
-    
-                emailErrorLogin.style.display = emailInputLogin.value.includes('@') ? 'none' : 'block';
-                passwordFieldLogin.style.display = emailInputLogin.value.includes('@') ? 'block' : 'none';
-            }
-    
-            function validateRegisterForm() {
-                const emailInputRegister = document.getElementById('register-email');
-                const emailErrorRegister = document.getElementById('register-email-error');
-                const passwordContainerRegister = document.getElementById('register-password-container');
-                const fullnameContainerRegister = document.getElementById('register-fullname-container');
-    
-                emailErrorRegister.style.display = emailInputRegister.value.includes('@') ? 'none' : 'block';
-                if(emailInputRegister.value.includes('@')) {
-                    passwordContainerRegister.style.display = 'block';
-                    fullnameContainerRegister.style.display = 'block';
-                    document.getElementById('register-continue-btn').textContent = 'Create an account';
-                }
-            }
-    
-            function resetForm(form) {
-                form.querySelectorAll('input').forEach(input => input.value = '');
-                form.querySelectorAll('.text-danger').forEach(error => error.style.display = 'none');
-                if(form === loginForm) {
-                    document.getElementById('passwordField').style.display = 'none';
-                } else if(form === registerForm) {
-                    document.getElementById('register-password-container').style.display = 'none';
-                    document.getElementById('register-fullname-container').style.display = 'none';
-                    document.getElementById('register-continue-btn').textContent = 'Continue';
-                }
-            }
-    
-            function togglePasswordVisibility(passwordFieldId, toggleIcon) {
-                const passwordInput = document.getElementById(passwordFieldId);
-                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                passwordInput.setAttribute('type', type);
-                toggleIcon.classList.toggle('fa-eye');
-                toggleIcon.classList.toggle('fa-eye-slash');
-            }
-        }
     </script>
     
 </body>
