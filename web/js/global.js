@@ -342,7 +342,8 @@ function add_login_methods(app, public_api, post_login_function)
 $(document).ready(function () {
     var wsuri;
     if (document.location.host == 'localhost:8000') {
-        wsuri = "ws://localhost:8080/ws";
+        wsuri = "wss://test.vrsketch.eu/ws";
+        //wsuri = "ws://localhost:8080/ws";
     } else {
         wsuri = (document.location.protocol === "http:" ? "ws:" : "wss:") + "//" +
             document.location.host + "/ws";
