@@ -43,16 +43,30 @@ function setupForms() {
     const registerButton = $('#registerButton');
     const loginPrompt = $('#loginPrompt');
     const registerPrompt = $('#registerPrompt');
-    const togglePasswordLogin = $('#togglePassword');
-    const togglePasswordRegister = $('#register-toggle-password');
-    const loginInputs = loginForm.find('input');
-    const registerInputs = registerForm.find('input');
 
-    // Toggle forms
-    loginButton.click(() => toggleForm('login'));
-    registerButton.click(() => toggleForm('register'));
-    loginPrompt.click(() => toggleForm('login'));
-    registerPrompt.click(() => toggleForm('register'));
+    // Initialize form display and button states.
+    toggleForm('login'); // Start with the login form displayed by default.
+
+    // Event handlers for the buttons and prompts.
+    loginButton.on('click', () => toggleForm('login'));
+    registerButton.on('click', () => toggleForm('register'));
+    loginPrompt.on('click', () => toggleForm('login'));
+    registerPrompt.on('click', () => toggleForm('register'));
+
+    function toggleForm(formType) {
+        if (formType === 'login') {
+            loginForm.show();
+            registerForm.hide();
+            loginButton.addClass('active').removeClass('inactive');
+            registerButton.removeClass('active').addClass('inactive');
+        } else if (formType === 'register') {
+            registerForm.show();
+            loginForm.hide();
+            registerButton.addClass('active').removeClass('inactive');
+            loginButton.removeClass('active').addClass('inactive');
+        }
+    }
+}
 
     // Validate forms
     $('#continueButton').click(validateLoginForm);
@@ -77,7 +91,8 @@ function setupForms() {
     });
 
         // Toggle between the login and register forms within the modal.
-    function toggleForm(formType) {
+    function toggleForm({formType}) {
+       console.log(formType)
         // Show login form and hide register form if 'login' is selected.
         if (formType === 'login') {
             loginForm.show();
@@ -94,17 +109,32 @@ function setupForms() {
         }
     }
 
-    // Validate the login form input fields and toggle visibility of elements based on validation.
-    function validateLoginForm() {
-        const emailInputLogin = $('#new-email');
-        const emailErrorLogin = $('#emailError');
-        const passwordFieldLogin = $('#passwordField');
+    // Validate the login form input
 
-        // Display the error message if the email is invalid (missing '@'), else hide it.
-        emailErrorLogin.css('display', emailInputLogin.val().includes('@') ? 'none' : 'block');
-        // Show password field only if the email is valid.
-        passwordFieldLogin.css('display', emailInputLogin.val().includes('@') ? 'block' : 'none');
-    }
+        function check_valid_password(password)
+            {
+                if (password.length >= 6) {
+                    return(true);
+                }
+                return(false);
+            }
+
+        function check_email_password_validity(email, password)
+        {
+            // verify the input
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (email == '') {
+                $("#error-bar").text("Email can't be blank");
+                return(false);
+            } else if (!re.test(email)) {
+                $("#error-bar").text("Please enter a valid email");
+                return(false);
+            } else if (!check_valid_password(password)) {
+                $("#error-bar").text("Please enter a password of minimum 6 characters");
+                return false;
+            }
+            return true;
+        }
 
     // Validate the register form input fields and toggle visibility of elements based on validation.
     function validateRegisterForm() {
@@ -144,7 +174,6 @@ function setupForms() {
         passwordInput.attr('type', type); // Switch the input type to show/hide password.
         toggleIcon.toggleClass('fa-eye fa-eye-slash'); // Toggle the eye/eye-slash icon.
     }
-}
 
 function show_error_message(errmsg) {
     $("#error").show();
