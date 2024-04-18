@@ -30,7 +30,7 @@ depending on your current position.
 
 For now, VR Sketch only reads the XYZ position and the color of each point.
 
-Rendering point clouds also works with Oculus Quest.  The point cloud data is
+Rendering point clouds also works with the Meta Quests.  The point cloud data is
 sent over the wireless connection as needed.
 
 

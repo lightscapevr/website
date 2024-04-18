@@ -1,12 +1,16 @@
-# Oculus Quest
+# Meta Quest
 
-Oculus Quest, Quest 2, Quest 3 and Quest Pro are supported and give almost the same capabilities
+Meta Quest Quest 2, Quest 3 and Quest Pro are supported and give almost the same capabilities
 as VR headsets connected directly to a PC ("tethered" to a PC).  They work
 without needing a beefy VR-ready PC.  They can work in purely standalone
 mode to view cloud models, or they can work together with a PC or Mac
 running SketchUp.
 
-Note that the "Oculus Link" cable offers a different way to use the Quest:
+Meta Quest 1 headsets only work with the Meta Quest Link (see below) or
+with an older version of VR Sketch (before 18.x).
+
+Note that the "Meta Quest Link" cable (also called "Oculus Link")
+offers a different way to use the Quest:
 tethered to the PC.  In this mode, the rendering is done on the PC like with
 other tethered solutions.  These solutions are described in the <a
 href="docs-getting-started.html">VR Sketch for PC</a> page and do not
@@ -224,7 +228,8 @@ if their geometry is too complex (this is less of a problem since VR Sketch 18
 on Quest 2/3/Pro).
 There are several different things that can occur in this case.  It can close
 the VR Sketch program while loading the model, or the headset's view can turn
-completely black (exit with the "Oculus" button on the right-hand controller).
+completely black (exit with the "Oculus" button, which is the round- or
+&infin;-shaped icon on the right-hand controller).
 We try to detect when the situation occurs and display a message to this
 effect, but sometimes it will only be displayed the next time you restart VR
 Sketch.
@@ -285,8 +290,8 @@ It can also be any other computer (including Windows, Mac or Linux).
 for PC, Mac or Linux from that page.
 
 Run it; if the cable is properly connected, it might tell you "Dev Mode: Enable dev mode
-in the Oculus phone app".  Follow the instructions to do so.  You need to use your phone
-in addition to the computer; there is no way around it.
+in the Oculus/Meta Quest phone app".  Follow the instructions to do so.
+You need to use your phone in addition to the computer; there is no way around it.
 
 **Install VR Sketch for Quest:**
 
