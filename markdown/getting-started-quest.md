@@ -179,9 +179,8 @@ Alternatively, if you have a PC/Mac running SketchUp, go to "Extensions",
 "Go on Quest" and finish like explained above.
 
 Finally, you can also associate your Quest with your own cloud
-account.  This requires you to have a registered version of VR Sketch to
-initially upload the model, but you don't need a PC/Mac any more once it is
-done.
+account.  Once associated, you can view the list of all your own cloud models
+from inside VR Sketch, and directly pick them for viewing.
 
 To do so, you need to authorize your Quest to access the models from your cloud
 account.  To do this, in the Quest's initial floating dialog box, pick "My
