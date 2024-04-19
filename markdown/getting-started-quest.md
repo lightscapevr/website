@@ -168,16 +168,20 @@ Viewing cloud models on Quest can be done with or without the help of a
 computer running SketchUp.
 
 If you have a long model URL of the form
-``https://vrsketch.eu/m/####################``, then you can go to the
-PC/Mac running SketchUp, "Extensions", "VR Sketch", "View cloud model" and
-paste that long URL there.  Then click "Go on Quest" and finish like
-explained above.
+``https://vrsketch.eu/m/####################``, then you can go to that
+URL in any browser and manually copy the 6-digit number from the Quest.
+Make sure that the Quest is running VR Sketch and showing this 6-digit
+number (at the top of the dialog box that appears when you start VR
+Sketch).
 
-On the other hand, you can also associate your Quest with your own cloud
+Alternatively, if you have a PC/Mac running SketchUp, go to "Extensions",
+"VR Sketch", "View cloud model" and paste that long URL there.  Then click
+"Go on Quest" and finish like explained above.
+
+Finally, you can also associate your Quest with your own cloud
 account.  This requires you to have a registered version of VR Sketch to
 initially upload the model, but you don't need a PC/Mac any more once it is
-done (e.g. because you are carrying with you your Quest, but not your computer,
-and want to make a demo).
+done.
 
 To do so, you need to authorize your Quest to access the models from your cloud
 account.  To do this, in the Quest's initial floating dialog box, pick "My
