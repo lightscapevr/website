@@ -42,14 +42,14 @@ function createHostedPage(plan) {
                     return connection.session.call('com.hostedpage', [vueAppApi.get_auth_token(),
                     vueAppApi.get_name(), vueAppApi.get_email(), plan]);
                 },
-                /*success: function (hostedPageId) {
+                success: function (hostedPageId) {
                     connection.session.call('com.user.successful_payment',
                         [vueAppApi.get_auth_token(), hostedPageId]).then(function (r) {
                             $("#user-modal").modal('show');
                             vueAppApi.show_licenses();
                             getUserInfo();
                         }, show_error);
-                },*/
+                },
                 error: show_error
             });
         }
