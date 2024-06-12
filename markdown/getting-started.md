@@ -23,6 +23,7 @@ Mac:
 
 You can either download and automatically install the VR Sketch plugin from inside SketchUp or manually download it.
 
+[Some Link](#manual-download)
 ### Manual download
 To get the latest version directly from our web site, <a href="https://vrsketch.eu/downloads.html">go to this page.</a>
 
