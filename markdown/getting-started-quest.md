@@ -27,7 +27,7 @@ with: we did not manage to subscribe ourselves so far.  It would mean that you
 could get new bugs related to a firmware version that we cannot run.
 
 
-### Installation on Quest 2, 3 and Quest Pro
+### Installation on Quest 1, 2, 3 and Quest Pro
 
 *Reminder: if you have a PC with a good graphics card and only want to
 <a href="docs-getting-started.html">run VR Sketch tethered</a>, then you
@@ -37,17 +37,15 @@ In the Quest 2/3/Pro, install the application "VR Sketch".  You have to search f
 by name (big main page, "Search" button at the top right, enter for example
 "vrsketch").  It is in the "App Lab" category, so you have to click "App Lab".
 Here is a direct link: <a href="https://www.oculus.com/experiences/quest/3557027837758788/">https://www.oculus.com/experiences/quest/3557027837758788/</a>.
-(Note that on Quest 1 you get a slightly older version of VR Sketch.)
+(Note that on Quest 1 you get an older version of VR Sketch; see below.)
 
 If you want to use it together with SketchUp on a PC or a Mac, you need to
-install <a href="downloads.html">VR Sketch for PC/Mac</a> too.
+install <a href="downloads.html">VR Sketch for PC/Mac</a> too.  Pick the
+latest version, not necessarily the one that matches the version you
+installed in the previous step.
 
 
-### <a name="quest1">Installation on Quest 1</a>
-
-*Reminder: if you have a PC with a good graphics card and only want to
-<a href="docs-getting-started.html">run VR Sketch tethered</a>, then you
-don't need to install anything on the Quest!*
+#### <a name="quest1">A note about Quest 1</a>
 
 If you try to install VR Sketch on your older Quest 1 device in the
 standard way (via the App Lab), you may notice that it will get the
