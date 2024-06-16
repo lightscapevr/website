@@ -42,29 +42,25 @@ Here is a direct link: <a href="https://www.oculus.com/experiences/quest/3557027
 If you want to use it together with SketchUp on a PC or a Mac, you need to
 install <a href="downloads.html">VR Sketch for PC/Mac</a> too.  Pick the
 latest version, not necessarily the one that matches the version you
-installed in the previous step.
+installed in the previous step.  Notably, if you use Sketchup 2024, then
+you *must* install at least version 21.0.0 on the PC/Mac.
 
 
 #### <a name="quest1">A note about Quest 1</a>
 
 If you try to install VR Sketch on your older Quest 1 device in the
 standard way (via the App Lab), you may notice that it will get the
-older version 17.0.9 from January 2023.  This is expected; see below for
-why.  You don't need to match the version number when installing VR
-Sketch on your PC/Mac.  For example, if you use Sketchup 2024, then you
-*must* install version 21.0.0 on the PC/Mac.  But our versions of VR
-Sketch are generally compatible with each others and this shouldn't be a
-problem.
+older version 17.0.9 from January 2023.  This is expected.
 
-The reason for the change is that in VR Sketch version 18 we did an
-in-depth refactoring, initially targetted at PC VR.  However, it turned
-out that it also works on Quest 2/3/Pro.  We found out, however, that it
-does not work on Quest 1, likely because of a slightly older version of
-the graphics unit.  The benefits for all other users are too big to
-ignore (about 3 times!).  Sorry for our Quest 1 users, but continuing to
-develop a variant specifically for Quest 1 is too much work for us at
-this point.  We will now only support the Quest 1 standalone in
-"maintenance" mode.
+The reason is that in VR Sketch version 18 we did an in-depth
+refactoring, initially targetted at PC VR.  However, it turned out that
+it also works on Quest 2/3/Pro.  We found out, however, that it does not
+work on Quest 1, likely because of a slightly older version of the
+graphics unit.  The benefits for all other users are too big to ignore
+(about 3 times more performance!).  Sorry for our Quest 1 users, but
+continuing to develop a variant specifically for Quest 1 is too much
+work for us at this point.  We will now only support the Quest 1
+standalone in "maintenance" mode.
 
 
 ### Start VR Sketch
