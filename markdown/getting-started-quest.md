@@ -49,61 +49,24 @@ install <a href="downloads.html">VR Sketch for PC/Mac</a> too.
 <a href="docs-getting-started.html">run VR Sketch tethered</a>, then you
 don't need to install anything on the Quest!*
 
-If you have an older Quest 1 (also sometimes called just "Quest", by
-opposition to "Quest 2" or "Quest Pro"), you need to install an older
-version of VR Sketch.  Version 17.0.9 from January 2023 works fine.
-(See below for why.)
+If you try to install VR Sketch on your older Quest 1 device in the
+standard way (via the App Lab), you may notice that it will get the
+older version 17.0.9 from January 2023.  This is expected; see below for
+why.  You don't need to match the version number when installing VR
+Sketch on your PC/Mac.  For example, if you use Sketchup 2024, then you
+*must* install version 21.0.0 on the PC/Mac.  But our versions of VR
+Sketch are generally compatible with each others and this shouldn't be a
+problem.
 
-**This should now work out of the box; you should be able to install
-VR Sketch from the App Lab directly on Quest 1, and get the older
-17.0.9 version.  The instructions below are NOT necessary any more
-since Meta updated its App Lab to allow us to do that.  They are kept
-here in case something goes wrong.**
-
-To do the installation, you need access to a phone with the Meta Quest
-App.  (It is the app that you needed to set up your Quest initially.  It
-used to be called the Oculus App.  If you no longer have it, you can
-reinstall it, possibly on a different phone, and connect your Quest
-again to it.  This might require upgrading your Oculus account to the
-newer Meta account, a process which can be a bit lengthy.)
-
-Open the Meta Quest App on the phone and make sure it is connected to
-the Quest 1.  Go to "Search", type "vrsketch", scroll down to "App Lab",
-click "View App", and pick "VR Sketch".  Then scroll down and click
-"More information".  Scroll down more and click the blue number next to
-"Version".  Select "Channel" and change it to "Quest1".  This should
-pick the version 17.0.9.  Or, as screenshots:
-
-<hr>
-<table border=0><tr>
-<td><img width=260 src="/img/docs/quest1-install-1.jpg"></td>
-<td><img width=260 src="/img/docs/quest1-install-2.jpg"></td>
-<td><img width=260 src="/img/docs/quest1-install-3.jpg"><br><i>&nbsp;Only do this step on Quest 1!<br>&nbsp;For Quest 2/3/Pro, keep Channel LIVE.</i></td>
-</tr></table>
-<hr>
-
-This should make your Quest install the version 17.0.9.  You can start
-VR Sketch in the headset (from the main page showing installed games).
-It should say "version 17.0.9" on the wall of the warehouse, below the
-logo.
-
-If you want to use it together with SketchUp on a PC or a Mac, you need
-to install VR Sketch for PC/Mac too.  It should be fine to install the
-latest version (18.x or higher) on the PC/Mac even though your Quest has
-got an older version; all our versions are generally compatible with
-each other.
-
-*Q. Why do I need to change the release channel on Quest 1?*
-
-*A.* We are sorry for this hassle for Quest 1 users.  We did not find any other solution so far.  VR Sketch 18 gives such a performance benefit for Quest 2/3/Pro users (about 3 times!) that the benefits are simply too big to ignore.
-
-In more details, in VR Sketch version 18 we did an in-depth refactoring, initially targetted at PC VR.  However, it turned out that it also works on Quest 2/3/Pro.  We found out, however, that it does not work on Quest 1, likely because of a slightly older version of the graphics unit.  We did not manage to fix this, and so we are left with the current "solution" as a workaround.
-
-Unless we find a solution, we will now only support the Quest 1 in "maintenance" mode.  The latest working version is 17.0.9, released in January 2023.  You had to change the channel in order to continue using this version 17.0.9 instead of the more recent ones that only work on Quest 2/3/Pro (this is no longer necessary now).  Up to at least 2025---and provided the Quest 1 don't all stop working because of a Meta policy decision---we will make sure that 17.0.9 continues to work on Quest 1, and if necessary issue new versions in the 17.x branch that would be available in that channel.  We might also backport major functionality upgrades, but not all the smaller changes.
-
-*Q. Why do I need to do that on my phone instead of directly inside the Quest?*
-
-*A.* We don't know.  This might be an oversight or a strange policy decision of Meta.
+The reason for the change is that in VR Sketch version 18 we did an
+in-depth refactoring, initially targetted at PC VR.  However, it turned
+out that it also works on Quest 2/3/Pro.  We found out, however, that it
+does not work on Quest 1, likely because of a slightly older version of
+the graphics unit.  The benefits for all other users are too big to
+ignore (about 3 times!).  Sorry for our Quest 1 users, but continuing to
+develop a variant specifically for Quest 1 is too much work for us at
+this point.  We will now only support the Quest 1 standalone in
+"maintenance" mode.
 
 
 ### Start VR Sketch
