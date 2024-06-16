@@ -59,7 +59,8 @@ graphics unit.  The benefits for all other users are too big to ignore
 (about 3 times more performance!).  Sorry for our Quest 1 users, but
 continuing to develop a variant specifically for Quest 1 is too much
 work for us at this point.  We will now only support the Quest 1
-standalone in "maintenance" mode.
+standalone in "maintenance" mode.  As far as we can tell, this version
+17.0.9 continues to work fine with the latest versions on PC/Mac.
 
 
 ### Start VR Sketch
