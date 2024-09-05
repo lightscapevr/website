@@ -250,7 +250,7 @@ It can also be any other computer (including Windows, Mac or Linux).
 for PC, Mac or Linux from that page.
 
 Run it; if the cable is properly connected, it might tell you "Dev Mode: Enable dev mode
-in the Oculus/Meta Quest phone app".  Follow the instructions to do so.
+in the phone app".  Follow the instructions to do so.
 You need to use your phone in addition to the computer; there is no way around it.
 
 **Install VR Sketch for Quest:**
