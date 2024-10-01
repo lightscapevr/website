@@ -7,14 +7,12 @@ Windows:
   Windows Mixed Realities headsets work, but they are not officially supported.
   Meta Quest 1 requires an older version of VR Sketch (or using Meta Quest Link).
 * VR controllers: they usually come with the headset, but Vive/Index headsets support mixing controllers and using non-standard ones, like the Logitech VR Ink.
-* Software: SketchUp 2017 to 2023 are currently supported. (We are considering adding a standalone version that works without SketchUp. SketchUp 2017 Make is free; see our <a href="faqs.html">FAQ</a> about SketchUp 2017.
-Sketchup 2024: <a href="https://forum.vrsketch.eu/t/fix-needed-for-sketchup-2024/648">see here.</a>)
+* Software: SketchUp 2017 to 2024 are currently supported. (We are considering adding a standalone version that works without SketchUp. SketchUp 2017 Make is free; see our <a href="faqs.html">FAQ</a> about SketchUp 2017.
 
 Mac:
 
 * Meta Quest 2, 3 or Pro, or Pico Neo 3.  (As of 2024, OS X and tethered VR headsets are not working well together in general.)
-* SketchUp 2020 to 2023.  (Required for proper editing.  SketchUp 2017-2019 would work as well but is not tested, and the "open group" command from VR doesn't.
-Sketchup 2024: <a href="https://forum.vrsketch.eu/t/fix-needed-for-sketchup-2024/648">see here.</a>)
+* SketchUp 2017 to 2024.  (Sketchup 2017-2019 is not well tested and uses an experimental mode for editing subgroups.)
 
 *See our separate documentation pages <a href="docs-getting-started-quest.html">for the Meta Quest</a> or
 <a href="docs-getting-started-piconeo.html">for the Pico Neo 3</a> headsets.*
