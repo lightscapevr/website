@@ -266,7 +266,9 @@ if there are errors, click the colorful number "1" among the top-line icons.
 Note that if you installed the official version of VR Sketch from the App Lab,
 you may have to manually uninstall it in the headset first, before you can install
 the ".apk".  Similarly, to switch back to the official version you might have to
-manually uninstall the ".apk" version.
+manually uninstall the ".apk" version.  This is no longer a problem with recent
+non-official versions: they can now be installed in parallel with the official
+version.
 
 If everything worked correctly, then in VR, "VRSketch" is installed.  It might
 appear in the "Unknown sources" page, depending on whether you previously
