@@ -12,7 +12,7 @@ Windows:
 Mac:
 
 * Meta Quest 2, 3 or Pro, or Pico Neo 3.  (As of 2024, OS X and tethered VR headsets are not working well together in general.)
-* SketchUp 2017 to 2024.  (Sketchup 2017-2019 is not well tested and uses an experimental mode for editing subgroups.)
+* SketchUp 2017 to 2024.  (Sketchup 2017-2019 are not well tested and use an experimental mode for editing components.)
 
 *See our separate documentation pages <a href="docs-getting-started-quest.html">for the Meta Quest</a> or
 <a href="docs-getting-started-piconeo.html">for the Pico Neo 3</a> headsets.*
