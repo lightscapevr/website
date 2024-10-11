@@ -1,0 +1,27 @@
+{% extends "layouts/layout-base.html" %}
+
+{% block custom_style_imports %}
+{% endblock custom_style_imports %}
+
+{% block main_content %}
+
+<div class="container pb-5">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <form action="/checkout/oculus/set_demo_models/" method="post">
+        <label for="id">Quest ID #:</label>
+        <input type="text" id="id" name="id" size="6">
+        (6-digit code)
+        <p>&nbsp;</p>
+        <label for="models">List of models to use in the "Demo" panel, one per line:</label>
+        <br>
+        <textarea id="models" name="models" rows="12" cols="60"></textarea>
+        <p>Leave empty to use again the default list of demo models.</p>
+        <input type="submit" value="Change this Quest's demo models">
+    </form>
+</div>
+
+{% endblock main_content %}
+
+{% block js_imports %}
+{% endblock js_imports %}
