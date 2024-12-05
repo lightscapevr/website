@@ -68,8 +68,7 @@ Nevertheless, you can try to install it as follows:
   Steam.  Even the Pico web site appears confused and different pages
   promote different versions of this Pico Link.  I believe that
   as of this writing, the latest version of this software is the one found on
-  <a href="https://www.picoxr.com/global/software/pico-link">this page</a>
-  in the correct tab: "PICO 4" or "PICO Neo3 Link/Pro/Pro Eye".
+  <a href="https://www.picoxr.com/global/software/pico-link">this page</a>.
 
 - Once you have SteamVR working, you can follow the instructions from
   the <a href="docs-getting-started.html">VR Sketch for PC</a> page.
