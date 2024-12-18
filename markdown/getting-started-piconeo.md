@@ -69,6 +69,9 @@ Nevertheless, you can try to install it as follows:
   promote different versions of this Pico Link.  I believe that
   as of this writing, the latest version of this software is the one found on
   <a href="https://www.picoxr.com/global/software/pico-link">this page</a>.
+  We only tested the Streaming Assistant, not the PICO Connect.  Unlike
+  what is written on this page as of December 2024, the Streaming Assistant
+  still works fine with Pico Neo 3 headsets, not just Pico Neo 4.
 
 - Once you have SteamVR working, you can follow the instructions from
   the <a href="docs-getting-started.html">VR Sketch for PC</a> page.
