@@ -7,7 +7,7 @@ mode to view cloud models, or they can work together with a PC or Mac
 running SketchUp.
 
 Meta Quest 1 headsets only work with the Meta Quest Link (see below) or
-with an older version of VR Sketch (before 18.x).
+with <a href="#quest1">an older version</a> of VR Sketch (before 18.x).
 
 Note that the "Meta Quest Link" cable (also called "Oculus Link")
 offers a different way to use the Quest:
@@ -27,13 +27,13 @@ with: we did not manage to subscribe ourselves so far.  It would mean that you
 could get new bugs related to a firmware version that we cannot run.
 
 
-### Installation on Quest 1, 2, 3 and Quest Pro
+### Installation on Quest 2, 3 and Quest Pro
 
 *Reminder: if you have a PC with a good graphics card and only want to
 <a href="docs-getting-started.html">run VR Sketch tethered</a>, then you
 don't need to install anything on the Quest!*
 
-In the Quest 1/2/3/Pro, install the application "VR Sketch".  You have to search for it
+In the Quest 2/3/Pro, install the application "VR Sketch".  You have to search for it
 by name (big main page, "Search" button at the top right, enter for example
 "vrsketch").  It is in the "App Lab" category, so you have to click "App Lab".
 Here is a direct link: <a href="https://www.oculus.com/experiences/quest/3557027837758788/">https://www.oculus.com/experiences/quest/3557027837758788/</a>.
@@ -45,22 +45,27 @@ installed in the previous step.  Notably, if you use Sketchup 2024, then
 you *must* install at least version 21.0.0 on the PC/Mac.
 
 
-#### <a name="quest1">A note about Quest 1</a>
+#### <a name="quest1">Installation on the older Quest 1</a>
 
-If you try to install VR Sketch on your older Quest 1 device in the
-standard way (via the App Lab), you may notice that it will get the
-older version 17.0.9 from January 2023.  This is expected.
+We stopped updating VR Sketch for Quest 1 in January 2023 (read on for the
+reason).  *The latest version that works is 17.0.9.*  Additionally, starting in
+2025, Meta is phasing out its own Quest 1 support.  You can still try to
+install VR Sketch as in the paragraph above, but the App Lab may at any time
+start to refuse to let you do it.  If it still works, you will get version
+17.0.9 as expected.  But if it no longer works, then you will have to
+"sideload" VR Sketch 17.0.9 <a href="#sideload">as described below.</a>  The APK file is
+<a href="https://vrsketch.eu/download/baroquesoftware_vrsketch_v17.0.9_quest.apk">this one.</a>
 
-The reason is that in VR Sketch version 18 we did an in-depth
-refactoring, initially targetted at PC VR.  However, it turned out that
-it also works on Quest 2/3/Pro.  We found out, however, that it does not
-work on Quest 1, likely because of a slightly older version of the
-graphics unit.  The benefits for all other users are too big to ignore
-(about 3 times more performance!).  Sorry for our Quest 1 users, but
-continuing to develop a variant specifically for Quest 1 is too much
-work for us at this point.  We will now only support the Quest 1
-standalone in "maintenance" mode.  As far as we can tell, this version
-17.0.9 continues to work fine with the latest versions on PC/Mac.
+Here is the reason for which VR Sketch does not work on Quest 1 since version
+18.  At that time, we did an in-depth refactoring, initially targeted at PC VR.
+However, it turned out that it also works on Quest 2/3/Pro.  We found out,
+however, that it does not work on Quest 1, likely because of a slightly older
+version of the graphics unit.  The benefits for all other users are too big to
+ignore (about 3 times more performance!).  Sorry for our Quest 1 users, but
+continuing to develop a variant specifically for Quest 1 is too much work for
+us at this point.  We will now only support the Quest 1 standalone in
+"maintenance" mode.  As far as we can tell, this version 17.0.9 continues to
+work fine with the latest versions of VR Sketch inside Sketchup on PC/Mac.
 
 
 ### Start VR Sketch
@@ -224,7 +229,7 @@ the system, or to install a third-party application to do it with one click
 (e.g. Amphetamine Mac/PC, Caffeine Mac/PC, etc.).
 
 
-### Installation without using the App Lab
+### <a name="sideload">Installation without using the App Lab</a>
 
 This is the old installation process.  We keep the documentation here in
 case you want to install a different version than the one currently on
