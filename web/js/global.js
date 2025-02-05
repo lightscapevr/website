@@ -23,7 +23,7 @@ let LOGIN_LOGIN = "<button id='main-login-button' class='btn btn-outline-primary
 let LOGIN_NAME = "<button id='main-login-button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>";
 let LOGIN_NAME_2 = "</button>";
 let RESET_PASSWORD_BUTTON = "&nbsp;&nbsp;<button type='button' class='btn btn-primary' "+
-                            "onclick='password_reset(); return false;'>Reset password to the typed one</button>";
+                            "onclick='password_reset(); return false;'>Change password to this new one</button>";
 
 
 function parseJwt (token) {
