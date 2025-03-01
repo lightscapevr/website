@@ -55,10 +55,11 @@ itself.  To find it, follow the instructions below.
   try again the previous point.
 
 * Open this "Quest 3" drive, then follow "Internal shared storage",
-  "Documents", "VREXport".  This folder contains the .dae files.  If
+  "Documents", "VRExport".  This folder contains the .dae files.  If
   there are textures, they are found in a subfolder with the same name
   as the .dae file.  You can copy them to your PC/Mac.
 
 * Note that the "Documents", "VRSketch" folder contains all the local
-  files in the internal file format.  You can copy them around for
-  backup purposes or to move them to another Quest, for example.
+  files in the internal file format.  You can copy them for backup
+  purposes or to move them to another Quest, for example.  You can
+  delete and duplicate and rename them here, too.
