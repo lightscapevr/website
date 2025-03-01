@@ -32,7 +32,7 @@ The COLLADA is written as a file with the .dae extension on the headset
 itself.  To find it, follow the instructions below.
 
 
-## Finding the exported files on the headset from a PC/Mac
+### <a name="access">Finding the exported files on the headset from a PC/Mac</a>
 
 * Mac only: you first need to install extra software for transferring
   files from an Android Device to a Mac.  See for example
