@@ -9,20 +9,32 @@ In this mode, files are saved in VR Sketch's internal format directly on
 the Quest or Pico Neo device.  No PC/Mac nor internet connection is
 required to view and edit these files.
 
-To **import** an existing model from elsewhere, you need to use SketchUp
-on a PC/Mac (for now; this might change in the future).  You can use the
-free SketchUp 2017 Make with the VR Sketch extension installed.  On
-PC/Mac, import your model into SketchUp, then click "Extensions -> VR
-Sketch -> Send to VR on Quest/Pico.  You should see the model in the
-Quest.  The final step is to save the model as seen in the Quest into a
-local file, by going to the initial dialog box ("cloud" icon on the
-bottom right of the tools), then going to the "local files" tab, and
-clicking the "&equiv;" button.
+To **import** an existing model from elsewhere, you need to have the
+model displayed in the Quest or Pico Neo headset, and then pick the
+"local files" tab's "save model to new local file".  In more details:
 
-A local file can be freely edited on the Quest with no outside
-connection.  A few functionalities are not implemented yet; when you try
-to use them, you will get an error (for example, trying to load a
-texture image; adding tags a.k.a. layers; making scenes).
+1. You need SketchUp on a PC/Mac (for now; this might change in the
+future).  You can use the free SketchUp 2017 Make with the VR Sketch
+extension installed.
+
+2. On PC/Mac, open or import your model into SketchUp.
+
+3. In the SketchUp menu, pick Extensions -> VR Sketch -> Send to VR on
+Quest/Pico.  (Other ways to send the model to the Quest are OK too, e.g.
+collaborative editing or viewing a cloud model.)
+
+4. Put the headset on.  You should see the model in the Quest.
+
+5. Go to the cloud dialog box ("cloud" icon on the bottom right of the tools).
+
+6. In the "local files" tab, click on the "&equiv;" button and choose
+"save model to new local file".
+
+A local file can be freely **edited** on the Quest with no outside
+connection.  Changes should be automatically saved.  A few
+functionalities are not implemented yet; when you try to use them, you
+will get an error in a dialog box (for example, trying to load a texture
+image; adding tags a.k.a. layers; making new scenes).
 
 To **export** a local file, the only option for now is to export it to a
 COLLADA file (.dae).  Find the file in the list of local files, click on
