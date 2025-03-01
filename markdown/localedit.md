@@ -53,7 +53,7 @@ itself.  To find it, follow the instructions below.
 * Plug in the headset into the computer using a USB cable.  The charging
   cable of the headset should work fine.
 
-* The first time, you need to put your headset on and accept some dialog
+* Put your headset on and accept some dialog
   box that requests permission.  This allows the connected PC to access
   the headset's files.  The details of how you do that changes quite
   often, but in February 2025 it was as a small message that appears for
