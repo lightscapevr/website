@@ -70,10 +70,18 @@
             </a>
             <div class="collapse" id="question-5">
                 <div class="card card-body">
-                    <p>Yes. We have spend lots of development time optimising VR Sketch to work with files of all sizes. If
-                        your files are super large your hardware (normally your GPU) may struggle. We have also found that
-                        keeping your geometry inside groups and components helps speed things up.</p>
-                    <p>Note that Meta Quest's GPU is much less powerful than a PC's.  For the Quest, the answer to the question above is No: it will struggle to render models that are a lot larger than the medium-sized demo model "Cliff House".</p>
+                    <p>If you are running a Meta Quest in standalone mode (i.e. without using
+                    the full power of PC VR), then see
+                    <a href="docs-getting-started-quest.html#large-models">this link.</a></p>
+                    <p>If you are running PC VR (with most other headsets, or with Meta
+                    Quest Link), then the answer depends strongly on your computer's GPU.
+                    We have spend lots of development time optimising VR Sketch to work
+                    with files of all sizes, and a baseline VR-capable-rated GPU like the
+                    older NVidia GTX 1060 can run models with millions of
+                    faces.  Above 5 or 10 million faces a higher-end GPU is required;
+                    that's only a rule of thumb because the details depend strongly on the
+                    model.  For reference, there is a 12 million faces model that I'm
+                    having some performance troubles with on my laptop's NVidia RTX 4070.</p>
                 </div>
             </div>
         </section>
