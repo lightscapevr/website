@@ -2,7 +2,7 @@
 
 Windows:
 
-* a VR headset: HTC Vive/Vive Pro, Valve Index, Oculus Rift/Rift S,
+* a VR headset: HTC Vive/Vive Pro (see below), Valve Index, Oculus Rift/Rift S,
   Meta Quest Link, Meta Quest (2, 3 or Pro), or Pico Neo 3.
   Windows Mixed Realities headsets work, but they are not officially supported.
   Meta Quest 1 requires an older version of VR Sketch (or using Meta Quest Link).
@@ -16,6 +16,22 @@ Mac:
 
 *See our separate documentation pages <a href="docs-getting-started-quest.html">for the Meta Quest</a> or
 <a href="docs-getting-started-piconeo.html">for the Pico Neo 3</a> headsets.*
+
+<i>
+<dl>
+  <dt>Vive Pro error: Plugins: failed to load (...) XRSDKOpenVR.dll (...)
+  </dt>
+  <dd>
+If you are seeing the message above with a Vive Pro (in red in the main
+VR Sketch window), then you have an issue with your SteamVR
+installation.  Try to uninstall SteamVR completely, as well as all
+Vive-specific programs (like "VIVE Console for SteamVR" and any other
+"VIVE" programs).  Then try to install only SteamVR (at some point it
+more or less required you to install Steam first; I'm not sure about the
+current situation).  Then try VR Sketch again.
+</dd>
+</dl>
+</i>
 
 <br><br>
 
